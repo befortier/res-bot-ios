@@ -1,0 +1,1040 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		57168CEC2C2348EC009E6150 /* AvailableReservationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57168CEB2C2348EC009E6150 /* AvailableReservationsView.swift */; };
+		57199D292C2314F500AE2F8B /* ResyProApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D282C2314F500AE2F8B /* ResyProApp.swift */; };
+		57199D2B2C2314F500AE2F8B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D2A2C2314F500AE2F8B /* ContentView.swift */; };
+		57199D2D2C2314F500AE2F8B /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D2C2C2314F500AE2F8B /* Item.swift */; };
+		57199D2F2C2314F600AE2F8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57199D2E2C2314F600AE2F8B /* Assets.xcassets */; };
+		57199D332C2314F600AE2F8B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57199D322C2314F600AE2F8B /* Preview Assets.xcassets */; };
+		57199D3D2C2314F600AE2F8B /* ResyProTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D3C2C2314F600AE2F8B /* ResyProTests.swift */; };
+		57199D472C2314F600AE2F8B /* ResyProUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D462C2314F600AE2F8B /* ResyProUITests.swift */; };
+		57199D492C2314F600AE2F8B /* ResyProUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D482C2314F600AE2F8B /* ResyProUITestsLaunchTests.swift */; };
+		57199D6D2C23162F00AE2F8B /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D602C23162F00AE2F8B /* NetworkClient.swift */; };
+		57199D6E2C23162F00AE2F8B /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D612C23162F00AE2F8B /* Endpoint.swift */; };
+		57199D6F2C23162F00AE2F8B /* EndpointInterpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D622C23162F00AE2F8B /* EndpointInterpreter.swift */; };
+		57199D702C23162F00AE2F8B /* GetEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D632C23162F00AE2F8B /* GetEndpoint.swift */; };
+		57199D712C23162F00AE2F8B /* InterpretedEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D642C23162F00AE2F8B /* InterpretedEndpoint.swift */; };
+		57199D722C23162F00AE2F8B /* InterpretedHTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D652C23162F00AE2F8B /* InterpretedHTTPMethod.swift */; };
+		57199D732C23162F00AE2F8B /* PostEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D662C23162F00AE2F8B /* PostEndpoint.swift */; };
+		57199D742C23162F00AE2F8B /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D682C23162F00AE2F8B /* NetworkService.swift */; };
+		57199D752C23162F00AE2F8B /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D692C23162F00AE2F8B /* NetworkError.swift */; };
+		57199D762C23162F00AE2F8B /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D6A2C23162F00AE2F8B /* Environment.swift */; };
+		57199D772C23162F00AE2F8B /* EnvironmentStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D6B2C23162F00AE2F8B /* EnvironmentStore.swift */; };
+		57199D7C2C23169A00AE2F8B /* CreateReservationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D7B2C23169A00AE2F8B /* CreateReservationView.swift */; };
+		57199D7E2C2316A100AE2F8B /* CreateReservationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D7D2C2316A100AE2F8B /* CreateReservationViewModel.swift */; };
+		57199D832C2316E300AE2F8B /* GetBookingTokenEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D822C2316E300AE2F8B /* GetBookingTokenEndpoint.swift */; };
+		57199D852C23175C00AE2F8B /* ReservationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D842C23175C00AE2F8B /* ReservationResponse.swift */; };
+		57199D872C23176D00AE2F8B /* CreateReservationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D862C23176D00AE2F8B /* CreateReservationRequest.swift */; };
+		57199D8B2C23181000AE2F8B /* GetAvailableSlotsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D8A2C23181000AE2F8B /* GetAvailableSlotsEndpoint.swift */; };
+		57199D8E2C231A1A00AE2F8B /* ResyBaseHeaderProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D8D2C231A1A00AE2F8B /* ResyBaseHeaderProvider.swift */; };
+		57199D912C231A4600AE2F8B /* GetExistingReservationsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D902C231A4600AE2F8B /* GetExistingReservationsEndpoint.swift */; };
+		57199D942C2338BE00AE2F8B /* ConfirmBookingEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D932C2338BE00AE2F8B /* ConfirmBookingEndpoint.swift */; };
+		57199D9A2C23390400AE2F8B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D992C23390400AE2F8B /* User.swift */; };
+		57199DA12C233A3800AE2F8B /* AppStateViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199DA02C233A3800AE2F8B /* AppStateViewModifier.swift */; };
+		57199DA52C233A5F00AE2F8B /* ResyConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199DA42C233A5F00AE2F8B /* ResyConfig.swift */; };
+		57199DA72C233AF500AE2F8B /* User+Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199DA62C233AF500AE2F8B /* User+Environment.swift */; };
+		57199DA92C233B0000AE2F8B /* ResyConfig+Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199DA82C233B0000AE2F8B /* ResyConfig+Environment.swift */; };
+		57199DAE2C233B4600AE2F8B /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199DAD2C233B4600AE2F8B /* SplashScreenView.swift */; };
+		57199DB02C233B6C00AE2F8B /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199DAF2C233B6C00AE2F8B /* RootView.swift */; };
+		57199DB32C233B8900AE2F8B /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199DB22C233B8900AE2F8B /* MainTabView.swift */; };
+		57199DB62C233EDC00AE2F8B /* ResyAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199DB52C233EDC00AE2F8B /* ResyAPIService.swift */; };
+		57199DB82C23401100AE2F8B /* GetAvailableSlotsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199DB72C23401100AE2F8B /* GetAvailableSlotsResponse.swift */; };
+		57199DBC2C23421500AE2F8B /* GetAvailableSlotsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199DBB2C23421500AE2F8B /* GetAvailableSlotsUseCase.swift */; };
+		57199DBE2C23427300AE2F8B /* GetAvailableSlotsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199DBD2C23427300AE2F8B /* GetAvailableSlotsRequest.swift */; };
+		57199DC72C23454600AE2F8B /* AvailableReservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199DC62C23454600AE2F8B /* AvailableReservation.swift */; };
+		57199DCA2C23455800AE2F8B /* AvailableReservationsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199DC92C23455800AE2F8B /* AvailableReservationsStore.swift */; };
+		57199DCC2C23459100AE2F8B /* Resy+TypeAlias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199DCB2C23459100AE2F8B /* Resy+TypeAlias.swift */; };
+		57199DCE2C2345B800AE2F8B /* BookingAvailabilityStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199DCD2C2345B800AE2F8B /* BookingAvailabilityStatus.swift */; };
+		57199DD02C2345C300AE2F8B /* ResySlotConfigType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199DCF2C2345C300AE2F8B /* ResySlotConfigType.swift */; };
+		57199DD32C23462700AE2F8B /* AvailableReservationsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199DD22C23462700AE2F8B /* AvailableReservationsRepository.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		57199D392C2314F600AE2F8B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 57199D1D2C2314F500AE2F8B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 57199D242C2314F500AE2F8B;
+			remoteInfo = ResyPro;
+		};
+		57199D432C2314F600AE2F8B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 57199D1D2C2314F500AE2F8B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 57199D242C2314F500AE2F8B;
+			remoteInfo = ResyPro;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		57168CEB2C2348EC009E6150 /* AvailableReservationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableReservationsView.swift; sourceTree = "<group>"; };
+		57199D252C2314F500AE2F8B /* ResyPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ResyPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		57199D282C2314F500AE2F8B /* ResyProApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResyProApp.swift; sourceTree = "<group>"; };
+		57199D2A2C2314F500AE2F8B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		57199D2C2C2314F500AE2F8B /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		57199D2E2C2314F600AE2F8B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		57199D302C2314F600AE2F8B /* ResyPro.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ResyPro.entitlements; sourceTree = "<group>"; };
+		57199D322C2314F600AE2F8B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		57199D382C2314F600AE2F8B /* ResyProTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ResyProTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		57199D3C2C2314F600AE2F8B /* ResyProTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResyProTests.swift; sourceTree = "<group>"; };
+		57199D422C2314F600AE2F8B /* ResyProUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ResyProUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		57199D462C2314F600AE2F8B /* ResyProUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResyProUITests.swift; sourceTree = "<group>"; };
+		57199D482C2314F600AE2F8B /* ResyProUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResyProUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		57199D602C23162F00AE2F8B /* NetworkClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkClient.swift; path = "../../../../Downloads/cudi-ios-main/ios-cudi/ios-cudi/Network/NetworkClient.swift"; sourceTree = "<group>"; };
+		57199D612C23162F00AE2F8B /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		57199D622C23162F00AE2F8B /* EndpointInterpreter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointInterpreter.swift; sourceTree = "<group>"; };
+		57199D632C23162F00AE2F8B /* GetEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetEndpoint.swift; sourceTree = "<group>"; };
+		57199D642C23162F00AE2F8B /* InterpretedEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterpretedEndpoint.swift; sourceTree = "<group>"; };
+		57199D652C23162F00AE2F8B /* InterpretedHTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterpretedHTTPMethod.swift; sourceTree = "<group>"; };
+		57199D662C23162F00AE2F8B /* PostEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostEndpoint.swift; sourceTree = "<group>"; };
+		57199D682C23162F00AE2F8B /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkService.swift; path = "../../../../Downloads/cudi-ios-main/ios-cudi/ios-cudi/Network/NetworkService.swift"; sourceTree = "<group>"; };
+		57199D692C23162F00AE2F8B /* NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkError.swift; path = "../../../../Downloads/cudi-ios-main/ios-cudi/ios-cudi/Network/NetworkError.swift"; sourceTree = "<group>"; };
+		57199D6A2C23162F00AE2F8B /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		57199D6B2C23162F00AE2F8B /* EnvironmentStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnvironmentStore.swift; sourceTree = "<group>"; };
+		57199D7B2C23169A00AE2F8B /* CreateReservationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateReservationView.swift; sourceTree = "<group>"; };
+		57199D7D2C2316A100AE2F8B /* CreateReservationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateReservationViewModel.swift; sourceTree = "<group>"; };
+		57199D822C2316E300AE2F8B /* GetBookingTokenEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBookingTokenEndpoint.swift; sourceTree = "<group>"; };
+		57199D842C23175C00AE2F8B /* ReservationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationResponse.swift; sourceTree = "<group>"; };
+		57199D862C23176D00AE2F8B /* CreateReservationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateReservationRequest.swift; sourceTree = "<group>"; };
+		57199D8A2C23181000AE2F8B /* GetAvailableSlotsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAvailableSlotsEndpoint.swift; sourceTree = "<group>"; };
+		57199D8D2C231A1A00AE2F8B /* ResyBaseHeaderProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResyBaseHeaderProvider.swift; sourceTree = "<group>"; };
+		57199D902C231A4600AE2F8B /* GetExistingReservationsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetExistingReservationsEndpoint.swift; sourceTree = "<group>"; };
+		57199D932C2338BE00AE2F8B /* ConfirmBookingEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmBookingEndpoint.swift; sourceTree = "<group>"; };
+		57199D992C23390400AE2F8B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		57199DA02C233A3800AE2F8B /* AppStateViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStateViewModifier.swift; sourceTree = "<group>"; };
+		57199DA42C233A5F00AE2F8B /* ResyConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResyConfig.swift; sourceTree = "<group>"; };
+		57199DA62C233AF500AE2F8B /* User+Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Environment.swift"; sourceTree = "<group>"; };
+		57199DA82C233B0000AE2F8B /* ResyConfig+Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ResyConfig+Environment.swift"; sourceTree = "<group>"; };
+		57199DAD2C233B4600AE2F8B /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
+		57199DAF2C233B6C00AE2F8B /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		57199DB22C233B8900AE2F8B /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		57199DB52C233EDC00AE2F8B /* ResyAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResyAPIService.swift; sourceTree = "<group>"; };
+		57199DB72C23401100AE2F8B /* GetAvailableSlotsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAvailableSlotsResponse.swift; sourceTree = "<group>"; };
+		57199DBB2C23421500AE2F8B /* GetAvailableSlotsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAvailableSlotsUseCase.swift; sourceTree = "<group>"; };
+		57199DBD2C23427300AE2F8B /* GetAvailableSlotsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAvailableSlotsRequest.swift; sourceTree = "<group>"; };
+		57199DC62C23454600AE2F8B /* AvailableReservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableReservation.swift; sourceTree = "<group>"; };
+		57199DC92C23455800AE2F8B /* AvailableReservationsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableReservationsStore.swift; sourceTree = "<group>"; };
+		57199DCB2C23459100AE2F8B /* Resy+TypeAlias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Resy+TypeAlias.swift"; sourceTree = "<group>"; };
+		57199DCD2C2345B800AE2F8B /* BookingAvailabilityStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingAvailabilityStatus.swift; sourceTree = "<group>"; };
+		57199DCF2C2345C300AE2F8B /* ResySlotConfigType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResySlotConfigType.swift; sourceTree = "<group>"; };
+		57199DD22C23462700AE2F8B /* AvailableReservationsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableReservationsRepository.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		57199D222C2314F500AE2F8B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		57199D352C2314F600AE2F8B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		57199D3F2C2314F600AE2F8B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		57168CEA2C234888009E6150 /* AvailableReservationsView */ = {
+			isa = PBXGroup;
+			children = (
+				57168CEB2C2348EC009E6150 /* AvailableReservationsView.swift */,
+			);
+			path = AvailableReservationsView;
+			sourceTree = "<group>";
+		};
+		57199D1C2C2314F500AE2F8B = {
+			isa = PBXGroup;
+			children = (
+				57199D272C2314F500AE2F8B /* ResyPro */,
+				57199D3B2C2314F600AE2F8B /* ResyProTests */,
+				57199D452C2314F600AE2F8B /* ResyProUITests */,
+				57199D262C2314F500AE2F8B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		57199D262C2314F500AE2F8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				57199D252C2314F500AE2F8B /* ResyPro.app */,
+				57199D382C2314F600AE2F8B /* ResyProTests.xctest */,
+				57199D422C2314F600AE2F8B /* ResyProUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		57199D272C2314F500AE2F8B /* ResyPro */ = {
+			isa = PBXGroup;
+			children = (
+				57199DBF2C2344DC00AE2F8B /* AvailableSlots */,
+				57199DAA2C233B2F00AE2F8B /* Splash */,
+				57199DA22C233A5200AE2F8B /* Resy */,
+				57199D9F2C233A2B00AE2F8B /* Application */,
+				57199D952C2338E400AE2F8B /* User */,
+				57199D7A2C23168900AE2F8B /* CreateReservation */,
+				57199D552C2315C900AE2F8B /* Network */,
+				57199D2A2C2314F500AE2F8B /* ContentView.swift */,
+				57199D2C2C2314F500AE2F8B /* Item.swift */,
+				57199D2E2C2314F600AE2F8B /* Assets.xcassets */,
+				57199D302C2314F600AE2F8B /* ResyPro.entitlements */,
+				57199D312C2314F600AE2F8B /* Preview Content */,
+			);
+			path = ResyPro;
+			sourceTree = "<group>";
+		};
+		57199D312C2314F600AE2F8B /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				57199D322C2314F600AE2F8B /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		57199D3B2C2314F600AE2F8B /* ResyProTests */ = {
+			isa = PBXGroup;
+			children = (
+				57199D3C2C2314F600AE2F8B /* ResyProTests.swift */,
+			);
+			path = ResyProTests;
+			sourceTree = "<group>";
+		};
+		57199D452C2314F600AE2F8B /* ResyProUITests */ = {
+			isa = PBXGroup;
+			children = (
+				57199D462C2314F600AE2F8B /* ResyProUITests.swift */,
+				57199D482C2314F600AE2F8B /* ResyProUITestsLaunchTests.swift */,
+			);
+			path = ResyProUITests;
+			sourceTree = "<group>";
+		};
+		57199D552C2315C900AE2F8B /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				57199D8C2C231A1100AE2F8B /* Headers */,
+				57199D672C23162F00AE2F8B /* Endpoint */,
+				57199D6C2C23162F00AE2F8B /* Environment */,
+				57199D602C23162F00AE2F8B /* NetworkClient.swift */,
+				57199D692C23162F00AE2F8B /* NetworkError.swift */,
+				57199D682C23162F00AE2F8B /* NetworkService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		57199D672C23162F00AE2F8B /* Endpoint */ = {
+			isa = PBXGroup;
+			children = (
+				57199D612C23162F00AE2F8B /* Endpoint.swift */,
+				57199D622C23162F00AE2F8B /* EndpointInterpreter.swift */,
+				57199D632C23162F00AE2F8B /* GetEndpoint.swift */,
+				57199D642C23162F00AE2F8B /* InterpretedEndpoint.swift */,
+				57199D652C23162F00AE2F8B /* InterpretedHTTPMethod.swift */,
+				57199D662C23162F00AE2F8B /* PostEndpoint.swift */,
+			);
+			name = Endpoint;
+			path = "../../../../Downloads/cudi-ios-main/ios-cudi/ios-cudi/Network/Endpoint";
+			sourceTree = "<group>";
+		};
+		57199D6C2C23162F00AE2F8B /* Environment */ = {
+			isa = PBXGroup;
+			children = (
+				57199D6A2C23162F00AE2F8B /* Environment.swift */,
+				57199D6B2C23162F00AE2F8B /* EnvironmentStore.swift */,
+			);
+			name = Environment;
+			path = "../../../../Downloads/cudi-ios-main/ios-cudi/ios-cudi/Network/Environment";
+			sourceTree = "<group>";
+		};
+		57199D7A2C23168900AE2F8B /* CreateReservation */ = {
+			isa = PBXGroup;
+			children = (
+				57199D812C2316D900AE2F8B /* Network */,
+				57199D802C2316D600AE2F8B /* Data */,
+				57199D7F2C2316D100AE2F8B /* View */,
+			);
+			path = CreateReservation;
+			sourceTree = "<group>";
+		};
+		57199D7F2C2316D100AE2F8B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				57199D7B2C23169A00AE2F8B /* CreateReservationView.swift */,
+				57199D7D2C2316A100AE2F8B /* CreateReservationViewModel.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		57199D802C2316D600AE2F8B /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		57199D812C2316D900AE2F8B /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				57199D922C2338B500AE2F8B /* ConfirmBooking */,
+				57199D8F2C231A3900AE2F8B /* ExistingReservations */,
+				57199D882C2317EE00AE2F8B /* CreateReservation */,
+				57199DB52C233EDC00AE2F8B /* ResyAPIService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		57199D882C2317EE00AE2F8B /* CreateReservation */ = {
+			isa = PBXGroup;
+			children = (
+				57199D822C2316E300AE2F8B /* GetBookingTokenEndpoint.swift */,
+				57199D842C23175C00AE2F8B /* ReservationResponse.swift */,
+				57199D862C23176D00AE2F8B /* CreateReservationRequest.swift */,
+			);
+			path = CreateReservation;
+			sourceTree = "<group>";
+		};
+		57199D892C2317F500AE2F8B /* AvailableSlots */ = {
+			isa = PBXGroup;
+			children = (
+				57199D8A2C23181000AE2F8B /* GetAvailableSlotsEndpoint.swift */,
+				57199DB72C23401100AE2F8B /* GetAvailableSlotsResponse.swift */,
+				57199DBD2C23427300AE2F8B /* GetAvailableSlotsRequest.swift */,
+			);
+			path = AvailableSlots;
+			sourceTree = "<group>";
+		};
+		57199D8C2C231A1100AE2F8B /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				57199D8D2C231A1A00AE2F8B /* ResyBaseHeaderProvider.swift */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		57199D8F2C231A3900AE2F8B /* ExistingReservations */ = {
+			isa = PBXGroup;
+			children = (
+				57199D902C231A4600AE2F8B /* GetExistingReservationsEndpoint.swift */,
+			);
+			path = ExistingReservations;
+			sourceTree = "<group>";
+		};
+		57199D922C2338B500AE2F8B /* ConfirmBooking */ = {
+			isa = PBXGroup;
+			children = (
+				57199D932C2338BE00AE2F8B /* ConfirmBookingEndpoint.swift */,
+			);
+			path = ConfirmBooking;
+			sourceTree = "<group>";
+		};
+		57199D952C2338E400AE2F8B /* User */ = {
+			isa = PBXGroup;
+			children = (
+				57199D982C2338F400AE2F8B /* Models */,
+				57199D972C2338F000AE2F8B /* Views */,
+				57199D962C2338E700AE2F8B /* Data */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		57199D962C2338E700AE2F8B /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		57199D972C2338F000AE2F8B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		57199D982C2338F400AE2F8B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				57199D992C23390400AE2F8B /* User.swift */,
+				57199DA62C233AF500AE2F8B /* User+Environment.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		57199D9F2C233A2B00AE2F8B /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				57199DA02C233A3800AE2F8B /* AppStateViewModifier.swift */,
+				57199D282C2314F500AE2F8B /* ResyProApp.swift */,
+				57199DB12C233B8300AE2F8B /* Views */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		57199DA22C233A5200AE2F8B /* Resy */ = {
+			isa = PBXGroup;
+			children = (
+				57199DA32C233A5600AE2F8B /* Models */,
+			);
+			path = Resy;
+			sourceTree = "<group>";
+		};
+		57199DA32C233A5600AE2F8B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				57199DA42C233A5F00AE2F8B /* ResyConfig.swift */,
+				57199DA82C233B0000AE2F8B /* ResyConfig+Environment.swift */,
+				57199DCB2C23459100AE2F8B /* Resy+TypeAlias.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		57199DAA2C233B2F00AE2F8B /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				57199DAB2C233B3700AE2F8B /* Views */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		57199DAB2C233B3700AE2F8B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				57199DAC2C233B3B00AE2F8B /* SplashScreenView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		57199DAC2C233B3B00AE2F8B /* SplashScreenView */ = {
+			isa = PBXGroup;
+			children = (
+				57199DAD2C233B4600AE2F8B /* SplashScreenView.swift */,
+			);
+			path = SplashScreenView;
+			sourceTree = "<group>";
+		};
+		57199DB12C233B8300AE2F8B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				57199DAF2C233B6C00AE2F8B /* RootView.swift */,
+				57199DB22C233B8900AE2F8B /* MainTabView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		57199DBA2C23419500AE2F8B /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				57199DBB2C23421500AE2F8B /* GetAvailableSlotsUseCase.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		57199DBF2C2344DC00AE2F8B /* AvailableSlots */ = {
+			isa = PBXGroup;
+			children = (
+				57199DBA2C23419500AE2F8B /* UseCase */,
+				57199DC22C2344E900AE2F8B /* Views */,
+				57199DC12C2344E600AE2F8B /* Data */,
+				57199DC02C2344E300AE2F8B /* Network */,
+			);
+			path = AvailableSlots;
+			sourceTree = "<group>";
+		};
+		57199DC02C2344E300AE2F8B /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				57199D892C2317F500AE2F8B /* AvailableSlots */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		57199DC12C2344E600AE2F8B /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				57199DD12C23461A00AE2F8B /* Repository */,
+				57199DC82C23455300AE2F8B /* Stores */,
+				57199DC32C23451400AE2F8B /* Models */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		57199DC22C2344E900AE2F8B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				57168CEA2C234888009E6150 /* AvailableReservationsView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		57199DC32C23451400AE2F8B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				57199DC62C23454600AE2F8B /* AvailableReservation.swift */,
+				57199DCD2C2345B800AE2F8B /* BookingAvailabilityStatus.swift */,
+				57199DCF2C2345C300AE2F8B /* ResySlotConfigType.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		57199DC82C23455300AE2F8B /* Stores */ = {
+			isa = PBXGroup;
+			children = (
+				57199DC92C23455800AE2F8B /* AvailableReservationsStore.swift */,
+			);
+			path = Stores;
+			sourceTree = "<group>";
+		};
+		57199DD12C23461A00AE2F8B /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				57199DD22C23462700AE2F8B /* AvailableReservationsRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		57199D242C2314F500AE2F8B /* ResyPro */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 57199D4C2C2314F600AE2F8B /* Build configuration list for PBXNativeTarget "ResyPro" */;
+			buildPhases = (
+				57199D212C2314F500AE2F8B /* Sources */,
+				57199D222C2314F500AE2F8B /* Frameworks */,
+				57199D232C2314F500AE2F8B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ResyPro;
+			productName = ResyPro;
+			productReference = 57199D252C2314F500AE2F8B /* ResyPro.app */;
+			productType = "com.apple.product-type.application";
+		};
+		57199D372C2314F600AE2F8B /* ResyProTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 57199D4F2C2314F600AE2F8B /* Build configuration list for PBXNativeTarget "ResyProTests" */;
+			buildPhases = (
+				57199D342C2314F600AE2F8B /* Sources */,
+				57199D352C2314F600AE2F8B /* Frameworks */,
+				57199D362C2314F600AE2F8B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				57199D3A2C2314F600AE2F8B /* PBXTargetDependency */,
+			);
+			name = ResyProTests;
+			productName = ResyProTests;
+			productReference = 57199D382C2314F600AE2F8B /* ResyProTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		57199D412C2314F600AE2F8B /* ResyProUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 57199D522C2314F600AE2F8B /* Build configuration list for PBXNativeTarget "ResyProUITests" */;
+			buildPhases = (
+				57199D3E2C2314F600AE2F8B /* Sources */,
+				57199D3F2C2314F600AE2F8B /* Frameworks */,
+				57199D402C2314F600AE2F8B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				57199D442C2314F600AE2F8B /* PBXTargetDependency */,
+			);
+			name = ResyProUITests;
+			productName = ResyProUITests;
+			productReference = 57199D422C2314F600AE2F8B /* ResyProUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		57199D1D2C2314F500AE2F8B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1530;
+				LastUpgradeCheck = 1530;
+				TargetAttributes = {
+					57199D242C2314F500AE2F8B = {
+						CreatedOnToolsVersion = 15.3;
+					};
+					57199D372C2314F600AE2F8B = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = 57199D242C2314F500AE2F8B;
+					};
+					57199D412C2314F600AE2F8B = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = 57199D242C2314F500AE2F8B;
+					};
+				};
+			};
+			buildConfigurationList = 57199D202C2314F500AE2F8B /* Build configuration list for PBXProject "ResyPro" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 57199D1C2C2314F500AE2F8B;
+			productRefGroup = 57199D262C2314F500AE2F8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				57199D242C2314F500AE2F8B /* ResyPro */,
+				57199D372C2314F600AE2F8B /* ResyProTests */,
+				57199D412C2314F600AE2F8B /* ResyProUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		57199D232C2314F500AE2F8B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57199D332C2314F600AE2F8B /* Preview Assets.xcassets in Resources */,
+				57199D2F2C2314F600AE2F8B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		57199D362C2314F600AE2F8B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		57199D402C2314F600AE2F8B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		57199D212C2314F500AE2F8B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57199D742C23162F00AE2F8B /* NetworkService.swift in Sources */,
+				57199D832C2316E300AE2F8B /* GetBookingTokenEndpoint.swift in Sources */,
+				57199DAE2C233B4600AE2F8B /* SplashScreenView.swift in Sources */,
+				57168CEC2C2348EC009E6150 /* AvailableReservationsView.swift in Sources */,
+				57199DB82C23401100AE2F8B /* GetAvailableSlotsResponse.swift in Sources */,
+				57199DC72C23454600AE2F8B /* AvailableReservation.swift in Sources */,
+				57199DCC2C23459100AE2F8B /* Resy+TypeAlias.swift in Sources */,
+				57199DB32C233B8900AE2F8B /* MainTabView.swift in Sources */,
+				57199D2B2C2314F500AE2F8B /* ContentView.swift in Sources */,
+				57199DCA2C23455800AE2F8B /* AvailableReservationsStore.swift in Sources */,
+				57199D2D2C2314F500AE2F8B /* Item.swift in Sources */,
+				57199D872C23176D00AE2F8B /* CreateReservationRequest.swift in Sources */,
+				57199D292C2314F500AE2F8B /* ResyProApp.swift in Sources */,
+				57199D712C23162F00AE2F8B /* InterpretedEndpoint.swift in Sources */,
+				57199DA12C233A3800AE2F8B /* AppStateViewModifier.swift in Sources */,
+				57199DA92C233B0000AE2F8B /* ResyConfig+Environment.swift in Sources */,
+				57199D6F2C23162F00AE2F8B /* EndpointInterpreter.swift in Sources */,
+				57199D7C2C23169A00AE2F8B /* CreateReservationView.swift in Sources */,
+				57199DCE2C2345B800AE2F8B /* BookingAvailabilityStatus.swift in Sources */,
+				57199DA52C233A5F00AE2F8B /* ResyConfig.swift in Sources */,
+				57199D912C231A4600AE2F8B /* GetExistingReservationsEndpoint.swift in Sources */,
+				57199DB02C233B6C00AE2F8B /* RootView.swift in Sources */,
+				57199D8B2C23181000AE2F8B /* GetAvailableSlotsEndpoint.swift in Sources */,
+				57199D8E2C231A1A00AE2F8B /* ResyBaseHeaderProvider.swift in Sources */,
+				57199DD32C23462700AE2F8B /* AvailableReservationsRepository.swift in Sources */,
+				57199D6D2C23162F00AE2F8B /* NetworkClient.swift in Sources */,
+				57199DBC2C23421500AE2F8B /* GetAvailableSlotsUseCase.swift in Sources */,
+				57199DBE2C23427300AE2F8B /* GetAvailableSlotsRequest.swift in Sources */,
+				57199D702C23162F00AE2F8B /* GetEndpoint.swift in Sources */,
+				57199D762C23162F00AE2F8B /* Environment.swift in Sources */,
+				57199D7E2C2316A100AE2F8B /* CreateReservationViewModel.swift in Sources */,
+				57199D722C23162F00AE2F8B /* InterpretedHTTPMethod.swift in Sources */,
+				57199DA72C233AF500AE2F8B /* User+Environment.swift in Sources */,
+				57199D852C23175C00AE2F8B /* ReservationResponse.swift in Sources */,
+				57199DD02C2345C300AE2F8B /* ResySlotConfigType.swift in Sources */,
+				57199D942C2338BE00AE2F8B /* ConfirmBookingEndpoint.swift in Sources */,
+				57199D752C23162F00AE2F8B /* NetworkError.swift in Sources */,
+				57199D9A2C23390400AE2F8B /* User.swift in Sources */,
+				57199D732C23162F00AE2F8B /* PostEndpoint.swift in Sources */,
+				57199DB62C233EDC00AE2F8B /* ResyAPIService.swift in Sources */,
+				57199D6E2C23162F00AE2F8B /* Endpoint.swift in Sources */,
+				57199D772C23162F00AE2F8B /* EnvironmentStore.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		57199D342C2314F600AE2F8B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57199D3D2C2314F600AE2F8B /* ResyProTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		57199D3E2C2314F600AE2F8B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57199D472C2314F600AE2F8B /* ResyProUITests.swift in Sources */,
+				57199D492C2314F600AE2F8B /* ResyProUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		57199D3A2C2314F600AE2F8B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 57199D242C2314F500AE2F8B /* ResyPro */;
+			targetProxy = 57199D392C2314F600AE2F8B /* PBXContainerItemProxy */;
+		};
+		57199D442C2314F600AE2F8B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 57199D242C2314F500AE2F8B /* ResyPro */;
+			targetProxy = 57199D432C2314F600AE2F8B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		57199D4A2C2314F600AE2F8B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		57199D4B2C2314F600AE2F8B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		57199D4D2C2314F600AE2F8B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ResyPro/ResyPro.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ResyPro/Preview Content\"";
+				DEVELOPMENT_TEAM = QYB4MXD24F;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = benfortier.ResyPro;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		57199D4E2C2314F600AE2F8B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ResyPro/ResyPro.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ResyPro/Preview Content\"";
+				DEVELOPMENT_TEAM = QYB4MXD24F;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = benfortier.ResyPro;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		57199D502C2314F600AE2F8B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QYB4MXD24F;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MACOSX_DEPLOYMENT_TARGET = 14.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = benfortier.ResyProTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ResyPro.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ResyPro";
+			};
+			name = Debug;
+		};
+		57199D512C2314F600AE2F8B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QYB4MXD24F;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MACOSX_DEPLOYMENT_TARGET = 14.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = benfortier.ResyProTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ResyPro.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ResyPro";
+			};
+			name = Release;
+		};
+		57199D532C2314F600AE2F8B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QYB4MXD24F;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MACOSX_DEPLOYMENT_TARGET = 14.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = benfortier.ResyProUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ResyPro;
+			};
+			name = Debug;
+		};
+		57199D542C2314F600AE2F8B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QYB4MXD24F;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MACOSX_DEPLOYMENT_TARGET = 14.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = benfortier.ResyProUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ResyPro;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		57199D202C2314F500AE2F8B /* Build configuration list for PBXProject "ResyPro" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				57199D4A2C2314F600AE2F8B /* Debug */,
+				57199D4B2C2314F600AE2F8B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		57199D4C2C2314F600AE2F8B /* Build configuration list for PBXNativeTarget "ResyPro" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				57199D4D2C2314F600AE2F8B /* Debug */,
+				57199D4E2C2314F600AE2F8B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		57199D4F2C2314F600AE2F8B /* Build configuration list for PBXNativeTarget "ResyProTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				57199D502C2314F600AE2F8B /* Debug */,
+				57199D512C2314F600AE2F8B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		57199D522C2314F600AE2F8B /* Build configuration list for PBXNativeTarget "ResyProUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				57199D532C2314F600AE2F8B /* Debug */,
+				57199D542C2314F600AE2F8B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 57199D1D2C2314F500AE2F8B /* Project object */;
+}
