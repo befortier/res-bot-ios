@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		57168CEC2C2348EC009E6150 /* AvailableReservationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57168CEB2C2348EC009E6150 /* AvailableReservationsView.swift */; };
+		57168CF12C234BCB009E6150 /* SelectDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57168CF02C234BCB009E6150 /* SelectDateView.swift */; };
+		57168CF42C234C19009E6150 /* AvailableReservationsGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57168CF32C234C19009E6150 /* AvailableReservationsGridView.swift */; };
+		57168CF82C234E8C009E6150 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57168CF72C234E8C009E6150 /* DataStore.swift */; };
+		57168CFB2C235225009E6150 /* SelectDateRangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57168CFA2C235225009E6150 /* SelectDateRangeView.swift */; };
+		57168CFD2C235350009E6150 /* AvailableReservationsView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57168CFC2C235350009E6150 /* AvailableReservationsView+ViewModel.swift */; };
+		57168D002C2353ED009E6150 /* DefaultProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57168CFF2C2353ED009E6150 /* DefaultProgressView.swift */; };
+		57168D032C23556F009E6150 /* RemoteViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57168D022C23556F009E6150 /* RemoteViewState.swift */; };
+		57168D062C235612009E6150 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57168D052C235612009E6150 /* ErrorView.swift */; };
 		57199D292C2314F500AE2F8B /* ResyProApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D282C2314F500AE2F8B /* ResyProApp.swift */; };
 		57199D2B2C2314F500AE2F8B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D2A2C2314F500AE2F8B /* ContentView.swift */; };
 		57199D2D2C2314F500AE2F8B /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D2C2C2314F500AE2F8B /* Item.swift */; };
@@ -75,6 +83,14 @@
 
 /* Begin PBXFileReference section */
 		57168CEB2C2348EC009E6150 /* AvailableReservationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableReservationsView.swift; sourceTree = "<group>"; };
+		57168CF02C234BCB009E6150 /* SelectDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDateView.swift; sourceTree = "<group>"; };
+		57168CF32C234C19009E6150 /* AvailableReservationsGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableReservationsGridView.swift; sourceTree = "<group>"; };
+		57168CF72C234E8C009E6150 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
+		57168CFA2C235225009E6150 /* SelectDateRangeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDateRangeView.swift; sourceTree = "<group>"; };
+		57168CFC2C235350009E6150 /* AvailableReservationsView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AvailableReservationsView+ViewModel.swift"; sourceTree = "<group>"; };
+		57168CFF2C2353ED009E6150 /* DefaultProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultProgressView.swift; sourceTree = "<group>"; };
+		57168D022C23556F009E6150 /* RemoteViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteViewState.swift; sourceTree = "<group>"; };
+		57168D052C235612009E6150 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		57199D252C2314F500AE2F8B /* ResyPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ResyPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57199D282C2314F500AE2F8B /* ResyProApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResyProApp.swift; sourceTree = "<group>"; };
 		57199D2A2C2314F500AE2F8B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -156,8 +172,86 @@
 			isa = PBXGroup;
 			children = (
 				57168CEB2C2348EC009E6150 /* AvailableReservationsView.swift */,
+				57168CFC2C235350009E6150 /* AvailableReservationsView+ViewModel.swift */,
 			);
 			path = AvailableReservationsView;
+			sourceTree = "<group>";
+		};
+		57168CED2C234BAD009E6150 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				57168D012C235566009E6150 /* Models */,
+				57168CF52C234E83009E6150 /* Data */,
+				57168CEE2C234BBD009E6150 /* Views */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		57168CEE2C234BBD009E6150 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				57168D042C235609009E6150 /* Error */,
+				57168CFE2C2353E5009E6150 /* Progress */,
+				57168CEF2C234BC3009E6150 /* SelectDate */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		57168CEF2C234BC3009E6150 /* SelectDate */ = {
+			isa = PBXGroup;
+			children = (
+				57168CF02C234BCB009E6150 /* SelectDateView.swift */,
+				57168CFA2C235225009E6150 /* SelectDateRangeView.swift */,
+			);
+			path = SelectDate;
+			sourceTree = "<group>";
+		};
+		57168CF22C234BE4009E6150 /* AvailableReservationsGridView */ = {
+			isa = PBXGroup;
+			children = (
+				57168CF32C234C19009E6150 /* AvailableReservationsGridView.swift */,
+			);
+			path = AvailableReservationsGridView;
+			sourceTree = "<group>";
+		};
+		57168CF52C234E83009E6150 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				57168CF62C234E86009E6150 /* Stores */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		57168CF62C234E86009E6150 /* Stores */ = {
+			isa = PBXGroup;
+			children = (
+				57168CF72C234E8C009E6150 /* DataStore.swift */,
+			);
+			path = Stores;
+			sourceTree = "<group>";
+		};
+		57168CFE2C2353E5009E6150 /* Progress */ = {
+			isa = PBXGroup;
+			children = (
+				57168CFF2C2353ED009E6150 /* DefaultProgressView.swift */,
+			);
+			path = Progress;
+			sourceTree = "<group>";
+		};
+		57168D012C235566009E6150 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				57168D022C23556F009E6150 /* RemoteViewState.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		57168D042C235609009E6150 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				57168D052C235612009E6150 /* ErrorView.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 		57199D1C2C2314F500AE2F8B = {
@@ -183,6 +277,7 @@
 		57199D272C2314F500AE2F8B /* ResyPro */ = {
 			isa = PBXGroup;
 			children = (
+				57168CED2C234BAD009E6150 /* Utility */,
 				57199DBF2C2344DC00AE2F8B /* AvailableSlots */,
 				57199DAA2C233B2F00AE2F8B /* Splash */,
 				57199DA22C233A5200AE2F8B /* Resy */,
@@ -476,6 +571,7 @@
 		57199DC22C2344E900AE2F8B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				57168CF22C234BE4009E6150 /* AvailableReservationsGridView */,
 				57168CEA2C234888009E6150 /* AvailableReservationsView */,
 			);
 			path = Views;
@@ -639,6 +735,7 @@
 			files = (
 				57199D742C23162F00AE2F8B /* NetworkService.swift in Sources */,
 				57199D832C2316E300AE2F8B /* GetBookingTokenEndpoint.swift in Sources */,
+				57168CF12C234BCB009E6150 /* SelectDateView.swift in Sources */,
 				57199DAE2C233B4600AE2F8B /* SplashScreenView.swift in Sources */,
 				57168CEC2C2348EC009E6150 /* AvailableReservationsView.swift in Sources */,
 				57199DB82C23401100AE2F8B /* GetAvailableSlotsResponse.swift in Sources */,
@@ -658,7 +755,11 @@
 				57199DCE2C2345B800AE2F8B /* BookingAvailabilityStatus.swift in Sources */,
 				57199DA52C233A5F00AE2F8B /* ResyConfig.swift in Sources */,
 				57199D912C231A4600AE2F8B /* GetExistingReservationsEndpoint.swift in Sources */,
+				57168CFD2C235350009E6150 /* AvailableReservationsView+ViewModel.swift in Sources */,
+				57168CFB2C235225009E6150 /* SelectDateRangeView.swift in Sources */,
 				57199DB02C233B6C00AE2F8B /* RootView.swift in Sources */,
+				57168D062C235612009E6150 /* ErrorView.swift in Sources */,
+				57168D002C2353ED009E6150 /* DefaultProgressView.swift in Sources */,
 				57199D8B2C23181000AE2F8B /* GetAvailableSlotsEndpoint.swift in Sources */,
 				57199D8E2C231A1A00AE2F8B /* ResyBaseHeaderProvider.swift in Sources */,
 				57199DD32C23462700AE2F8B /* AvailableReservationsRepository.swift in Sources */,
@@ -667,6 +768,7 @@
 				57199DBE2C23427300AE2F8B /* GetAvailableSlotsRequest.swift in Sources */,
 				57199D702C23162F00AE2F8B /* GetEndpoint.swift in Sources */,
 				57199D762C23162F00AE2F8B /* Environment.swift in Sources */,
+				57168D032C23556F009E6150 /* RemoteViewState.swift in Sources */,
 				57199D7E2C2316A100AE2F8B /* CreateReservationViewModel.swift in Sources */,
 				57199D722C23162F00AE2F8B /* InterpretedHTTPMethod.swift in Sources */,
 				57199DA72C233AF500AE2F8B /* User+Environment.swift in Sources */,
@@ -679,6 +781,8 @@
 				57199DB62C233EDC00AE2F8B /* ResyAPIService.swift in Sources */,
 				57199D6E2C23162F00AE2F8B /* Endpoint.swift in Sources */,
 				57199D772C23162F00AE2F8B /* EnvironmentStore.swift in Sources */,
+				57168CF82C234E8C009E6150 /* DataStore.swift in Sources */,
+				57168CF42C234C19009E6150 /* AvailableReservationsGridView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

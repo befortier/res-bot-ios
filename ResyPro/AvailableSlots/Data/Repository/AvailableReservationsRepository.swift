@@ -39,17 +39,27 @@ struct AvailableReservationsRepositoryLive: AvailableReservationsRepository {
     }
 }
 
-
 extension JSONDecoder {
     static let availableReservationDecoder: JSONDecoder = {
         let decoder = JSONDecoder()
-        decoder.dateDecodingStrategy = .iso8601
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        decoder.dateDecodingStrategy = .formatted(dateFormatter)
         return decoder
     }()
 }
 
-struct AvailableReservationResponseMapper {
+struct AvailableReservationResponseMapper: Sendable {
     func map(dto: AvailableSlotsResponseDTO) -> [AvailableReservation] {
-        return []
+        let venues = dto.results.venues
+        return venues.flatMap { venueDTO in
+            venueDTO.slots.map { slotDTO in
+                AvailableReservation(
+                    slotID: slotDTO.config.token,
+                    time: slotDTO.date.start,
+                    bookingAvailabilityStatus: slotDTO.availability.id
+                )
+            }
+        }
     }
 }

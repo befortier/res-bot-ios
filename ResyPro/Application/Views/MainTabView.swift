@@ -10,7 +10,7 @@ import SwiftUI
 import SwiftData
 
 struct MainTabView: View {
-    @State private var selectedTab = Tab.createReservation
+    @State private var selectedTab = Tab.availableReservations
     @Environment(\.modelContext) var modelContext: ModelContext
     @Environment(\.user) var user: User
     @Environment(\.resyConfig) var resyConfig: ResyConfig
@@ -24,17 +24,17 @@ struct MainTabView: View {
     var body: some View {
         NavigationStack {
             TabView(selection: $selectedTab) {
+                AvailableReservationsView(viewModel: .init())
+                    .tabItem {
+                        Image(systemName: "list.bullet")
+                    }
+                    .tag(Tab.availableReservations)
+
                 CreateReservationView()
                     .tabItem {
                         Image(systemName: "list.bullet")
                     }
                     .tag(Tab.createReservation)
-
-                AvailableReservationsView()
-                    .tabItem {
-                        Image(systemName: "list.bullet")
-                    }
-                    .tag(Tab.availableReservations)
 
             }
         }

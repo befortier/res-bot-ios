@@ -11,7 +11,7 @@ struct ResyAPIService: Sendable {
 
     private let networkService: any NetworkService
 
-    init(networkService: any NetworkService = NetworkServiceLive()) {
+    init(networkService: any NetworkService = NetworkServiceLive(client: URLSessionClient())) {
         self.networkService = networkService
     }
 
@@ -23,7 +23,7 @@ struct ResyAPIService: Sendable {
         let endpoint = GetBookingTokenEndpoint(
             date: date,
             partySize: partySize,
-            slotID: slotID
+            slotID: "\(slotID)"
         )
 
         return try await networkService.fetch(from: endpoint)

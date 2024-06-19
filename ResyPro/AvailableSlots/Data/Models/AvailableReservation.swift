@@ -7,8 +7,10 @@
 
 import Foundation
 
-struct AvailableReservation: Sendable, Equatable {
+struct AvailableReservation: Sendable, Equatable, Identifiable {
     let slotID: ResySlotID
     let time: Date
     let bookingAvailabilityStatus: BookingAvailabilityStatus
+
+    var id: ResySlotID { slotID }
 }

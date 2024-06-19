@@ -20,9 +20,13 @@ struct AvailableSlotsVenueDTO: ResyDTOModel {
 }
 
 struct ResySlotDTO: ResyDTOModel {
-    let availability: BookingAvailabilityStatus
+    let availability: ResyAvailabilityDTO
     let config: ResySlotConfigDTO
     let date: ResySlotDateDTO
+}
+
+struct ResyAvailabilityDTO: ResyDTOModel {
+    let id: BookingAvailabilityStatus
 }
 
 struct ResySlotDateDTO: ResyDTOModel {
@@ -31,6 +35,6 @@ struct ResySlotDateDTO: ResyDTOModel {
 }
 
 struct ResySlotConfigDTO: ResyDTOModel {
-    let id: ResySlotID
+    let token: ResySlotID
     let type: ResySlotConfigType
 }

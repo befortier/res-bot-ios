@@ -7,21 +7,17 @@
 
 import Foundation
 
-@MainActor
-protocol AvailableReservationsStore: Sendable {
-    func setCurrent(to availableReservations: [AvailableReservation]?)
+protocol AvailableReservationsStore: DataStore where T == [AvailableReservation] {
+    var restaurantName: String { get }
 }
 
 @MainActor
-final class AvailableReservationsStoreLive: AvailableReservationsStore, ObservableObject {
+final class AvailableReservationsStoreLive: DataStoreLive<[AvailableReservation]>, AvailableReservationsStore {
+    typealias T = [AvailableReservation]
+
     let restaurantName: String
-    @Published private(set) var current: [AvailableReservation]?
 
     init(restaurantName: String) {
         self.restaurantName = restaurantName
-    }
-
-    func setCurrent(to availableReservations: [AvailableReservation]?) {
-        self.current = current
     }
 }

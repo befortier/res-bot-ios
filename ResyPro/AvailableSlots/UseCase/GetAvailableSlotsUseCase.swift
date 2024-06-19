@@ -7,8 +7,14 @@
 
 import Foundation
 
-struct GetAvailableSlotsUseCase: Sendable {
-    
+protocol GetAvailableSlotsUseCase: Sendable {
+    func callAsFunction(
+        request: GetAvailableSlotsRequest
+    ) async throws
+}
+
+struct GetAvailableSlotsUseCaseLive: GetAvailableSlotsUseCase {
+
     let repository: any AvailableReservationsRepository
 
     func callAsFunction(
