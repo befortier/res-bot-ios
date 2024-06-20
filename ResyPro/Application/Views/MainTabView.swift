@@ -10,33 +10,43 @@ import SwiftUI
 import SwiftData
 
 struct MainTabView: View {
-    @State private var selectedTab = Tab.availableReservations
+    @State private var selectedTab = Tab.allCases.first
     @Environment(\.modelContext) var modelContext: ModelContext
     @Environment(\.user) var user: User
     @Environment(\.resyConfig) var resyConfig: ResyConfig
+    @EnvironmentObject var supportedRestaurantStore: SupportedRestaurantStoreLive
 
-    enum Tab {
-        case createReservation
+    enum Tab: CaseIterable {
+        case schedueleReservation
 
-        case availableReservations
+        case schedueleNotification
+
+        case browse
     }
 
     var body: some View {
         NavigationStack {
             TabView(selection: $selectedTab) {
-                AvailableReservationsView(viewModel: .init())
+                SchedueleReservationHomeView()
                     .tabItem {
                         Image(systemName: "list.bullet")
                     }
-                    .tag(Tab.availableReservations)
+                    .tag(Tab.schedueleReservation)
 
-                CreateReservationView()
+                SchedueleNotificationView()
                     .tabItem {
                         Image(systemName: "list.bullet")
                     }
-                    .tag(Tab.createReservation)
+                    .tag(Tab.schedueleReservation)
+
+                BrowseView()
+                    .tabItem {
+                        Image(systemName: "list.bullet")
+                    }
+                    .tag(Tab.browse)
 
             }
+            .background(.white)
         }
     }
 }
@@ -45,4 +55,18 @@ struct MainTabView: View {
 #Preview {
     MainTabView()
         .setAppState(.stub())
+}
+
+
+
+struct BrowseView: View {
+    var body: some View {
+        Text("Coming Soon")
+    }
+}
+
+struct SchedueleNotificationView: View {
+    var body: some View {
+        Text("Coming Soon")
+    }
 }

@@ -16,12 +16,7 @@ struct AvailableReservationsGridView: View {
         ScrollView {
              LazyVGrid(columns: gridLayout, alignment: .center, spacing: 10) {
                  ForEach(slots) { slot in
-                     Text(slot.time, format: .dateTime)
-                         .background(.red)
-                         .padding()
-                         .cornerRadius(4)
-                         .shadow(color: Color.primary.opacity(0.3), radius: 1)
-
+                     AvailableReservationSlotView(slot: slot)
                  }
              }
          }

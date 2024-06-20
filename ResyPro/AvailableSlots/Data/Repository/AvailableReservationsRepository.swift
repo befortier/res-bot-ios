@@ -31,11 +31,13 @@ struct AvailableReservationsRepositoryLive: AvailableReservationsRepository {
     }
 
     func refreshAvailableReservations(request: GetAvailableSlotsRequest) async throws {
-        let availableReserationsDTO: AvailableSlotsResponseDTO = try await networkService.fetch(
-            from: GetAvailableSlotsEndpoint(request: request)
-        )
-        let availableReservations = self.mapper.map(dto: availableReserationsDTO)
-        await store.setCurrent(to: availableReservations)
+//        let availableReserationsDTO: AvailableSlotsResponseDTO = try await networkService.fetch(
+//            from: GetAvailableSlotsEndpoint(request: request)
+//        )
+//        let availableReservations = self.mapper.map(dto: availableReserationsDTO)
+
+        
+        await store.setCurrent(to: .stub)
     }
 }
 
@@ -47,19 +49,4 @@ extension JSONDecoder {
         decoder.dateDecodingStrategy = .formatted(dateFormatter)
         return decoder
     }()
-}
-
-struct AvailableReservationResponseMapper: Sendable {
-    func map(dto: AvailableSlotsResponseDTO) -> [AvailableReservation] {
-        let venues = dto.results.venues
-        return venues.flatMap { venueDTO in
-            venueDTO.slots.map { slotDTO in
-                AvailableReservation(
-                    slotID: slotDTO.config.token,
-                    time: slotDTO.date.start,
-                    bookingAvailabilityStatus: slotDTO.availability.id
-                )
-            }
-        }
-    }
 }

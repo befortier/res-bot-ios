@@ -14,3 +14,19 @@ struct AvailableReservation: Sendable, Equatable, Identifiable {
 
     var id: ResySlotID { slotID }
 }
+
+// MARK: - Stub
+
+extension Array<AvailableReservation> {
+    static var stub: Self {
+        let initialDate = Date(timeIntervalSince1970: 1719009000)
+        let intArray: [Int] = [Int](0...50)
+        return intArray.map { int in
+            AvailableReservation(
+                slotID: "\(int)",
+                time: initialDate.advanced(by: 60 * 15 * Double(int)),
+                bookingAvailabilityStatus: .available
+            )
+        }
+    }
+}

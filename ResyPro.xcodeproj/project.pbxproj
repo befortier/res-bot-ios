@@ -16,9 +16,23 @@
 		57168D002C2353ED009E6150 /* DefaultProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57168CFF2C2353ED009E6150 /* DefaultProgressView.swift */; };
 		57168D032C23556F009E6150 /* RemoteViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57168D022C23556F009E6150 /* RemoteViewState.swift */; };
 		57168D062C235612009E6150 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57168D052C235612009E6150 /* ErrorView.swift */; };
+		57168D092C235C09009E6150 /* AvailableReservationResponseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57168D082C235C09009E6150 /* AvailableReservationResponseMapper.swift */; };
+		57168D0C2C235F33009E6150 /* AvailableReservationSlotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57168D0B2C235F33009E6150 /* AvailableReservationSlotView.swift */; };
+		57168D0F2C2379C7009E6150 /* Restaurants.json in Resources */ = {isa = PBXBuildFile; fileRef = 57168D0E2C2379C7009E6150 /* Restaurants.json */; };
+		57168D162C237B4F009E6150 /* SupportedRestaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57168D152C237B4F009E6150 /* SupportedRestaurant.swift */; };
+		57168D192C237B81009E6150 /* SupportedRestaurantStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57168D182C237B81009E6150 /* SupportedRestaurantStore.swift */; };
+		57168D1B2C237D6E009E6150 /* LocalSupportedRestaurantService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57168D1A2C237D6E009E6150 /* LocalSupportedRestaurantService.swift */; };
+		57168D1D2C237D8F009E6150 /* SupportedRestaurantRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57168D1C2C237D8F009E6150 /* SupportedRestaurantRepository.swift */; };
+		57168D1F2C237DDF009E6150 /* SupportedRestaurantsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57168D1E2C237DDF009E6150 /* SupportedRestaurantsView.swift */; };
+		57168D212C237E16009E6150 /* SupportedRestaurantsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57168D202C237E16009E6150 /* SupportedRestaurantsCard.swift */; };
+		57168D232C238155009E6150 /* SupportedRestaurantDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57168D222C238155009E6150 /* SupportedRestaurantDetailView.swift */; };
+		57168D262C2381F2009E6150 /* CreateReservationFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57168D252C2381F2009E6150 /* CreateReservationFormView.swift */; };
+		57168D2D2C238665009E6150 /* SchedueleReservationHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57168D2C2C238665009E6150 /* SchedueleReservationHomeView.swift */; };
+		57168D2F2C23869E009E6150 /* SchedeuledReservationsCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57168D2E2C23869E009E6150 /* SchedeuledReservationsCarouselView.swift */; };
+		57168D312C2386D7009E6150 /* SchedueledReservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57168D302C2386D7009E6150 /* SchedueledReservation.swift */; };
+		57168D332C238C18009E6150 /* SupportedRestaurantDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57168D322C238C18009E6150 /* SupportedRestaurantDescriptionView.swift */; };
+		57168D362C23B95F009E6150 /* DateFormatter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57168D352C23B95F009E6150 /* DateFormatter+Extensions.swift */; };
 		57199D292C2314F500AE2F8B /* ResyProApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D282C2314F500AE2F8B /* ResyProApp.swift */; };
-		57199D2B2C2314F500AE2F8B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D2A2C2314F500AE2F8B /* ContentView.swift */; };
-		57199D2D2C2314F500AE2F8B /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D2C2C2314F500AE2F8B /* Item.swift */; };
 		57199D2F2C2314F600AE2F8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57199D2E2C2314F600AE2F8B /* Assets.xcassets */; };
 		57199D332C2314F600AE2F8B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57199D322C2314F600AE2F8B /* Preview Assets.xcassets */; };
 		57199D3D2C2314F600AE2F8B /* ResyProTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D3C2C2314F600AE2F8B /* ResyProTests.swift */; };
@@ -39,7 +53,6 @@
 		57199D7E2C2316A100AE2F8B /* CreateReservationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D7D2C2316A100AE2F8B /* CreateReservationViewModel.swift */; };
 		57199D832C2316E300AE2F8B /* GetBookingTokenEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D822C2316E300AE2F8B /* GetBookingTokenEndpoint.swift */; };
 		57199D852C23175C00AE2F8B /* ReservationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D842C23175C00AE2F8B /* ReservationResponse.swift */; };
-		57199D872C23176D00AE2F8B /* CreateReservationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D862C23176D00AE2F8B /* CreateReservationRequest.swift */; };
 		57199D8B2C23181000AE2F8B /* GetAvailableSlotsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D8A2C23181000AE2F8B /* GetAvailableSlotsEndpoint.swift */; };
 		57199D8E2C231A1A00AE2F8B /* ResyBaseHeaderProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D8D2C231A1A00AE2F8B /* ResyBaseHeaderProvider.swift */; };
 		57199D912C231A4600AE2F8B /* GetExistingReservationsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D902C231A4600AE2F8B /* GetExistingReservationsEndpoint.swift */; };
@@ -91,10 +104,24 @@
 		57168CFF2C2353ED009E6150 /* DefaultProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultProgressView.swift; sourceTree = "<group>"; };
 		57168D022C23556F009E6150 /* RemoteViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteViewState.swift; sourceTree = "<group>"; };
 		57168D052C235612009E6150 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		57168D082C235C09009E6150 /* AvailableReservationResponseMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableReservationResponseMapper.swift; sourceTree = "<group>"; };
+		57168D0B2C235F33009E6150 /* AvailableReservationSlotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableReservationSlotView.swift; sourceTree = "<group>"; };
+		57168D0E2C2379C7009E6150 /* Restaurants.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Restaurants.json; sourceTree = "<group>"; };
+		57168D152C237B4F009E6150 /* SupportedRestaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportedRestaurant.swift; sourceTree = "<group>"; };
+		57168D182C237B81009E6150 /* SupportedRestaurantStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportedRestaurantStore.swift; sourceTree = "<group>"; };
+		57168D1A2C237D6E009E6150 /* LocalSupportedRestaurantService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSupportedRestaurantService.swift; sourceTree = "<group>"; };
+		57168D1C2C237D8F009E6150 /* SupportedRestaurantRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportedRestaurantRepository.swift; sourceTree = "<group>"; };
+		57168D1E2C237DDF009E6150 /* SupportedRestaurantsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportedRestaurantsView.swift; sourceTree = "<group>"; };
+		57168D202C237E16009E6150 /* SupportedRestaurantsCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportedRestaurantsCard.swift; sourceTree = "<group>"; };
+		57168D222C238155009E6150 /* SupportedRestaurantDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportedRestaurantDetailView.swift; sourceTree = "<group>"; };
+		57168D252C2381F2009E6150 /* CreateReservationFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateReservationFormView.swift; sourceTree = "<group>"; };
+		57168D2C2C238665009E6150 /* SchedueleReservationHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedueleReservationHomeView.swift; sourceTree = "<group>"; };
+		57168D2E2C23869E009E6150 /* SchedeuledReservationsCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedeuledReservationsCarouselView.swift; sourceTree = "<group>"; };
+		57168D302C2386D7009E6150 /* SchedueledReservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedueledReservation.swift; sourceTree = "<group>"; };
+		57168D322C238C18009E6150 /* SupportedRestaurantDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportedRestaurantDescriptionView.swift; sourceTree = "<group>"; };
+		57168D352C23B95F009E6150 /* DateFormatter+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extensions.swift"; sourceTree = "<group>"; };
 		57199D252C2314F500AE2F8B /* ResyPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ResyPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57199D282C2314F500AE2F8B /* ResyProApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResyProApp.swift; sourceTree = "<group>"; };
-		57199D2A2C2314F500AE2F8B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		57199D2C2C2314F500AE2F8B /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		57199D2E2C2314F600AE2F8B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		57199D302C2314F600AE2F8B /* ResyPro.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ResyPro.entitlements; sourceTree = "<group>"; };
 		57199D322C2314F600AE2F8B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -118,7 +145,6 @@
 		57199D7D2C2316A100AE2F8B /* CreateReservationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateReservationViewModel.swift; sourceTree = "<group>"; };
 		57199D822C2316E300AE2F8B /* GetBookingTokenEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBookingTokenEndpoint.swift; sourceTree = "<group>"; };
 		57199D842C23175C00AE2F8B /* ReservationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationResponse.swift; sourceTree = "<group>"; };
-		57199D862C23176D00AE2F8B /* CreateReservationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateReservationRequest.swift; sourceTree = "<group>"; };
 		57199D8A2C23181000AE2F8B /* GetAvailableSlotsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAvailableSlotsEndpoint.swift; sourceTree = "<group>"; };
 		57199D8D2C231A1A00AE2F8B /* ResyBaseHeaderProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResyBaseHeaderProvider.swift; sourceTree = "<group>"; };
 		57199D902C231A4600AE2F8B /* GetExistingReservationsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetExistingReservationsEndpoint.swift; sourceTree = "<group>"; };
@@ -180,6 +206,7 @@
 		57168CED2C234BAD009E6150 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				57168D342C23B94E009E6150 /* Extensions */,
 				57168D012C235566009E6150 /* Models */,
 				57168CF52C234E83009E6150 /* Data */,
 				57168CEE2C234BBD009E6150 /* Views */,
@@ -254,6 +281,118 @@
 			path = Error;
 			sourceTree = "<group>";
 		};
+		57168D0A2C235F26009E6150 /* AvailableReservationSlotView */ = {
+			isa = PBXGroup;
+			children = (
+				57168D0B2C235F33009E6150 /* AvailableReservationSlotView.swift */,
+			);
+			path = AvailableReservationSlotView;
+			sourceTree = "<group>";
+		};
+		57168D0D2C2379A9009E6150 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				57168D0E2C2379C7009E6150 /* Restaurants.json */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		57168D112C237B30009E6150 /* SupportedRestaurants */ = {
+			isa = PBXGroup;
+			children = (
+				57168D142C237B42009E6150 /* Views */,
+				57168D132C237B3E009E6150 /* Models */,
+				57168D122C237B3B009E6150 /* Data */,
+			);
+			path = SupportedRestaurants;
+			sourceTree = "<group>";
+		};
+		57168D122C237B3B009E6150 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				57168D182C237B81009E6150 /* SupportedRestaurantStore.swift */,
+				57168D1A2C237D6E009E6150 /* LocalSupportedRestaurantService.swift */,
+				57168D1C2C237D8F009E6150 /* SupportedRestaurantRepository.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		57168D132C237B3E009E6150 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				57168D152C237B4F009E6150 /* SupportedRestaurant.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		57168D142C237B42009E6150 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				57168D1E2C237DDF009E6150 /* SupportedRestaurantsView.swift */,
+				57168D202C237E16009E6150 /* SupportedRestaurantsCard.swift */,
+				57168D222C238155009E6150 /* SupportedRestaurantDetailView.swift */,
+				57168D322C238C18009E6150 /* SupportedRestaurantDescriptionView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		57168D242C2381B0009E6150 /* CreateReservationForm */ = {
+			isa = PBXGroup;
+			children = (
+				57168D252C2381F2009E6150 /* CreateReservationFormView.swift */,
+			);
+			path = CreateReservationForm;
+			sourceTree = "<group>";
+		};
+		57168D272C238224009E6150 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		57168D282C23864B009E6150 /* SchedueleReservation */ = {
+			isa = PBXGroup;
+			children = (
+				57168D2B2C23865A009E6150 /* Views */,
+				57168D2A2C238656009E6150 /* Models */,
+				57168D292C238653009E6150 /* Data */,
+			);
+			path = SchedueleReservation;
+			sourceTree = "<group>";
+		};
+		57168D292C238653009E6150 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		57168D2A2C238656009E6150 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				57168D302C2386D7009E6150 /* SchedueledReservation.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		57168D2B2C23865A009E6150 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				57168D2C2C238665009E6150 /* SchedueleReservationHomeView.swift */,
+				57168D2E2C23869E009E6150 /* SchedeuledReservationsCarouselView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		57168D342C23B94E009E6150 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				57168D352C23B95F009E6150 /* DateFormatter+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		57199D1C2C2314F500AE2F8B = {
 			isa = PBXGroup;
 			children = (
@@ -277,6 +416,8 @@
 		57199D272C2314F500AE2F8B /* ResyPro */ = {
 			isa = PBXGroup;
 			children = (
+				57168D282C23864B009E6150 /* SchedueleReservation */,
+				57168D112C237B30009E6150 /* SupportedRestaurants */,
 				57168CED2C234BAD009E6150 /* Utility */,
 				57199DBF2C2344DC00AE2F8B /* AvailableSlots */,
 				57199DAA2C233B2F00AE2F8B /* Splash */,
@@ -285,8 +426,6 @@
 				57199D952C2338E400AE2F8B /* User */,
 				57199D7A2C23168900AE2F8B /* CreateReservation */,
 				57199D552C2315C900AE2F8B /* Network */,
-				57199D2A2C2314F500AE2F8B /* ContentView.swift */,
-				57199D2C2C2314F500AE2F8B /* Item.swift */,
 				57199D2E2C2314F600AE2F8B /* Assets.xcassets */,
 				57199D302C2314F600AE2F8B /* ResyPro.entitlements */,
 				57199D312C2314F600AE2F8B /* Preview Content */,
@@ -359,6 +498,7 @@
 		57199D7A2C23168900AE2F8B /* CreateReservation */ = {
 			isa = PBXGroup;
 			children = (
+				57168D272C238224009E6150 /* Models */,
 				57199D812C2316D900AE2F8B /* Network */,
 				57199D802C2316D600AE2F8B /* Data */,
 				57199D7F2C2316D100AE2F8B /* View */,
@@ -369,6 +509,7 @@
 		57199D7F2C2316D100AE2F8B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				57168D242C2381B0009E6150 /* CreateReservationForm */,
 				57199D7B2C23169A00AE2F8B /* CreateReservationView.swift */,
 				57199D7D2C2316A100AE2F8B /* CreateReservationViewModel.swift */,
 			);
@@ -398,7 +539,6 @@
 			children = (
 				57199D822C2316E300AE2F8B /* GetBookingTokenEndpoint.swift */,
 				57199D842C23175C00AE2F8B /* ReservationResponse.swift */,
-				57199D862C23176D00AE2F8B /* CreateReservationRequest.swift */,
 			);
 			path = CreateReservation;
 			sourceTree = "<group>";
@@ -473,6 +613,7 @@
 		57199D9F2C233A2B00AE2F8B /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				57168D0D2C2379A9009E6150 /* Data */,
 				57199DA02C233A3800AE2F8B /* AppStateViewModifier.swift */,
 				57199D282C2314F500AE2F8B /* ResyProApp.swift */,
 				57199DB12C233B8300AE2F8B /* Views */,
@@ -571,6 +712,7 @@
 		57199DC22C2344E900AE2F8B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				57168D0A2C235F26009E6150 /* AvailableReservationSlotView */,
 				57168CF22C234BE4009E6150 /* AvailableReservationsGridView */,
 				57168CEA2C234888009E6150 /* AvailableReservationsView */,
 			);
@@ -599,6 +741,7 @@
 			isa = PBXGroup;
 			children = (
 				57199DD22C23462700AE2F8B /* AvailableReservationsRepository.swift */,
+				57168D082C235C09009E6150 /* AvailableReservationResponseMapper.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -707,6 +850,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57168D0F2C2379C7009E6150 /* Restaurants.json in Resources */,
 				57199D332C2314F600AE2F8B /* Preview Assets.xcassets in Resources */,
 				57199D2F2C2314F600AE2F8B /* Assets.xcassets in Resources */,
 			);
@@ -742,20 +886,25 @@
 				57199DC72C23454600AE2F8B /* AvailableReservation.swift in Sources */,
 				57199DCC2C23459100AE2F8B /* Resy+TypeAlias.swift in Sources */,
 				57199DB32C233B8900AE2F8B /* MainTabView.swift in Sources */,
-				57199D2B2C2314F500AE2F8B /* ContentView.swift in Sources */,
+				57168D1F2C237DDF009E6150 /* SupportedRestaurantsView.swift in Sources */,
+				57168D1B2C237D6E009E6150 /* LocalSupportedRestaurantService.swift in Sources */,
+				57168D2F2C23869E009E6150 /* SchedeuledReservationsCarouselView.swift in Sources */,
 				57199DCA2C23455800AE2F8B /* AvailableReservationsStore.swift in Sources */,
-				57199D2D2C2314F500AE2F8B /* Item.swift in Sources */,
-				57199D872C23176D00AE2F8B /* CreateReservationRequest.swift in Sources */,
 				57199D292C2314F500AE2F8B /* ResyProApp.swift in Sources */,
+				57168D2D2C238665009E6150 /* SchedueleReservationHomeView.swift in Sources */,
 				57199D712C23162F00AE2F8B /* InterpretedEndpoint.swift in Sources */,
 				57199DA12C233A3800AE2F8B /* AppStateViewModifier.swift in Sources */,
 				57199DA92C233B0000AE2F8B /* ResyConfig+Environment.swift in Sources */,
+				57168D0C2C235F33009E6150 /* AvailableReservationSlotView.swift in Sources */,
 				57199D6F2C23162F00AE2F8B /* EndpointInterpreter.swift in Sources */,
 				57199D7C2C23169A00AE2F8B /* CreateReservationView.swift in Sources */,
+				57168D092C235C09009E6150 /* AvailableReservationResponseMapper.swift in Sources */,
 				57199DCE2C2345B800AE2F8B /* BookingAvailabilityStatus.swift in Sources */,
+				57168D232C238155009E6150 /* SupportedRestaurantDetailView.swift in Sources */,
 				57199DA52C233A5F00AE2F8B /* ResyConfig.swift in Sources */,
 				57199D912C231A4600AE2F8B /* GetExistingReservationsEndpoint.swift in Sources */,
 				57168CFD2C235350009E6150 /* AvailableReservationsView+ViewModel.swift in Sources */,
+				57168D212C237E16009E6150 /* SupportedRestaurantsCard.swift in Sources */,
 				57168CFB2C235225009E6150 /* SelectDateRangeView.swift in Sources */,
 				57199DB02C233B6C00AE2F8B /* RootView.swift in Sources */,
 				57168D062C235612009E6150 /* ErrorView.swift in Sources */,
@@ -764,17 +913,24 @@
 				57199D8E2C231A1A00AE2F8B /* ResyBaseHeaderProvider.swift in Sources */,
 				57199DD32C23462700AE2F8B /* AvailableReservationsRepository.swift in Sources */,
 				57199D6D2C23162F00AE2F8B /* NetworkClient.swift in Sources */,
+				57168D332C238C18009E6150 /* SupportedRestaurantDescriptionView.swift in Sources */,
+				57168D162C237B4F009E6150 /* SupportedRestaurant.swift in Sources */,
 				57199DBC2C23421500AE2F8B /* GetAvailableSlotsUseCase.swift in Sources */,
 				57199DBE2C23427300AE2F8B /* GetAvailableSlotsRequest.swift in Sources */,
+				57168D262C2381F2009E6150 /* CreateReservationFormView.swift in Sources */,
+				57168D1D2C237D8F009E6150 /* SupportedRestaurantRepository.swift in Sources */,
 				57199D702C23162F00AE2F8B /* GetEndpoint.swift in Sources */,
+				57168D362C23B95F009E6150 /* DateFormatter+Extensions.swift in Sources */,
 				57199D762C23162F00AE2F8B /* Environment.swift in Sources */,
 				57168D032C23556F009E6150 /* RemoteViewState.swift in Sources */,
 				57199D7E2C2316A100AE2F8B /* CreateReservationViewModel.swift in Sources */,
 				57199D722C23162F00AE2F8B /* InterpretedHTTPMethod.swift in Sources */,
+				57168D192C237B81009E6150 /* SupportedRestaurantStore.swift in Sources */,
 				57199DA72C233AF500AE2F8B /* User+Environment.swift in Sources */,
 				57199D852C23175C00AE2F8B /* ReservationResponse.swift in Sources */,
 				57199DD02C2345C300AE2F8B /* ResySlotConfigType.swift in Sources */,
 				57199D942C2338BE00AE2F8B /* ConfirmBookingEndpoint.swift in Sources */,
+				57168D312C2386D7009E6150 /* SchedueledReservation.swift in Sources */,
 				57199D752C23162F00AE2F8B /* NetworkError.swift in Sources */,
 				57199D9A2C23390400AE2F8B /* User.swift in Sources */,
 				57199D732C23162F00AE2F8B /* PostEndpoint.swift in Sources */,
