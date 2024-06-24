@@ -12,7 +12,7 @@ import SwiftData
 final class SchedueledReservation: Identifiable, Equatable {
     @Attribute(.unique) var id: String
 
-    var restaurant: SupportedRestaurant
+    var venue: Venue
     var createdAt: Date
     var acceptedDateInterval: DateInterval
     var bookDate: Date
@@ -22,7 +22,7 @@ final class SchedueledReservation: Identifiable, Equatable {
 
     init(
         id: String,
-        restaurant: SupportedRestaurant,
+        venue: Venue,
         createdAt: Date,
         acceptedDateInterval: DateInterval,
         bookDate: Date,
@@ -30,7 +30,7 @@ final class SchedueledReservation: Identifiable, Equatable {
         scheduelingBehavior: ScheduelingBehavior
     ) {
         self.id = id
-        self.restaurant = restaurant
+        self.venue = venue
         self.createdAt = createdAt
         self.acceptedDateInterval = acceptedDateInterval
         self.bookDate = bookDate
@@ -58,7 +58,7 @@ enum SchedueledReservationStatus: Sendable, Codable {
     case finished(SchedueledReservationResult)
 }
 
-enum ScheduelingBehavior: Sendable, Codable {
-    case slowAndSmooth
-    case riskyButFast
+enum ScheduelingBehavior: String, Sendable, Codable {
+    case slowAndSmooth = "safe"
+    case riskyButFast = "risky"
 }

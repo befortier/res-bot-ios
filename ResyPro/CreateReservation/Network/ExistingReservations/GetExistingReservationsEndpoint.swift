@@ -8,6 +8,7 @@
 import Foundation
 
 struct ExistingReservationEndpoint: GetEndpoint {
+    let baseURL: BaseURL = .resy
     let authToken: String
 
     let path = "/3/user/reservations"

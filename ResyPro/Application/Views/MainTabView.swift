@@ -14,7 +14,6 @@ struct MainTabView: View {
     @Environment(\.modelContext) var modelContext: ModelContext
     @Environment(\.user) var user: User
     @Environment(\.resyConfig) var resyConfig: ResyConfig
-    @EnvironmentObject var supportedRestaurantStore: SupportedRestaurantStoreLive
 
     enum Tab: CaseIterable {
         case schedueleReservation
@@ -39,7 +38,7 @@ struct MainTabView: View {
                     }
                     .tag(Tab.schedueleReservation)
 
-                BrowseView()
+                AvailableReservationsView(viewModel: .init())
                     .tabItem {
                         Image(systemName: "list.bullet")
                     }
@@ -70,3 +69,17 @@ struct SchedueleNotificationView: View {
         Text("Coming Soon")
     }
 }
+
+/*
+ TODO:
+
+ 1. Resy Config update [Can be manual right now]
+
+ 1. POST /create-reservation-request
+    / Sets AWS EventBridge
+    / Creates Dynamo Entry
+    / Event Bridge -> Schedueles ->
+    / Takes in, schedueles cron-job, writes to in memory result
+ 2. GET /reservation-result
+    / reads from in memory
+ */

@@ -22,7 +22,7 @@ extension AvailableReservationsView {
         private var selectedDateChangedSubscription: AnyCancellable?
 
         init() {
-            let store = AvailableReservationsStoreLive(restaurantName: "Vics")
+            let store = AvailableReservationsStoreLive()
             self.store = store
             let repository = AvailableReservationsRepositoryLive(store: store)
             self.refreshAvailableSlots = GetAvailableSlotsUseCaseLive(repository: repository)
@@ -75,5 +75,3 @@ extension AvailableReservationsView {
         }
     }
 }
-
-

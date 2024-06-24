@@ -7,17 +7,5 @@
 
 import Foundation
 
-protocol AvailableReservationsStore: DataStore where T == [AvailableReservation] {
-    var restaurantName: String { get }
-}
-
-@MainActor
-final class AvailableReservationsStoreLive: DataStoreLive<[AvailableReservation]>, AvailableReservationsStore {
-    typealias T = [AvailableReservation]
-
-    let restaurantName: String
-
-    init(restaurantName: String) {
-        self.restaurantName = restaurantName
-    }
-}
+typealias AvailableReservationsStore = DataStore<[AvailableReservation]>
+typealias AvailableReservationsStoreLive = DataStoreLive<[AvailableReservation]>

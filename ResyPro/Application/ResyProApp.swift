@@ -15,14 +15,14 @@ struct ResyProApp: App {
             RootView()
         }
         .modelContainer(sharedModelContainer)
-        .environmentObject(SupportedRestaurantStoreLive())
     }
 }
 
 private let modelSchema = Schema([
     User.self,
     ResyConfig.self,
-    SchedueledReservation.self
+    SchedueledReservation.self,
+    Venue.self
 ])
 
 var sharedModelContainer: ModelContainer = {

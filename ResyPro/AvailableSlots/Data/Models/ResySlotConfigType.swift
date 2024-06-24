@@ -11,6 +11,9 @@ enum ResySlotConfigType: String, RawRepresentable, ResyDTOModel {
     case coveredPatio = "Covered Patio"
     case diningRoom = "Dining Room"
     case indoorDining = "Indoor Dining"
+    case highTop = "High Top"
+    case booth = "Booth"
+    case diningHall = "Dining Hall"
     case unknown
 
     init(from decoder: Decoder) throws {

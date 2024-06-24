@@ -11,6 +11,7 @@ import SwiftData
 
 struct SchedeuledReservationsCarouselView: View {
     @Query private var schedueledReservations: [SchedueledReservation]
+    @Environment(\.modelContext) var modelContext
 
     var body: some View {
         ScrollView(.horizontal) {
@@ -28,7 +29,7 @@ struct SchedeuledReservationsCarouselCard: View {
 
     var body: some View {
         VStack(spacing: 4) {
-            Text(schedueledReservation.restaurant.name)
+            Text(schedueledReservation.venue.name)
                 .font(.headline)
                 .foregroundStyle(.primary)
 

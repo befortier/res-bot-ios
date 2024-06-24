@@ -15,7 +15,7 @@ struct AvailableReservationsRepositoryLive: AvailableReservationsRepository {
 
     private let networkService: any NetworkService
     private let store: any AvailableReservationsStore
-    private let mapper = AvailableReservationResponseMapper()
+    private let mapper: any AvailableReservationResponseMapper
 
     init(
         networkService: any NetworkService = NetworkServiceLive(
@@ -24,20 +24,20 @@ struct AvailableReservationsRepositoryLive: AvailableReservationsRepository {
                 decoder: .availableReservationDecoder
             )
         ),
+        mapper: any AvailableReservationResponseMapper = AvailableReservationResponseMapperLive(),
         store: any AvailableReservationsStore
     ) {
         self.networkService = networkService
+        self.mapper = mapper
         self.store = store
     }
 
     func refreshAvailableReservations(request: GetAvailableSlotsRequest) async throws {
-//        let availableReserationsDTO: AvailableSlotsResponseDTO = try await networkService.fetch(
-//            from: GetAvailableSlotsEndpoint(request: request)
-//        )
-//        let availableReservations = self.mapper.map(dto: availableReserationsDTO)
-
-        
-        await store.setCurrent(to: .stub)
+        let availableReserationsDTO: AvailableSlotsResponseDTO = try await networkService.fetch(
+            from: GetAvailableSlotsEndpoint(request: request)
+        )
+        let availableReservations = self.mapper.map(dto: availableReserationsDTO)
+        await store.setCurrent(to: availableReservations)
     }
 }
 

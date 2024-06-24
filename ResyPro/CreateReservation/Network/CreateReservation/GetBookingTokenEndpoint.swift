@@ -8,6 +8,7 @@
 import Foundation
 
 struct GetBookingTokenEndpoint: GetEndpoint {
+    let baseURL: BaseURL = .resy
     let date: String
     let partySize: String
     let slotID: String

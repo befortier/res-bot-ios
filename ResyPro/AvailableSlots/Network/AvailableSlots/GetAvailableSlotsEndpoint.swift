@@ -8,6 +8,7 @@
 import Foundation
 
 struct GetAvailableSlotsEndpoint: GetEndpoint {
+    let baseURL: BaseURL = .resy
     let request: GetAvailableSlotsRequest
     let path = "/4/find"
     
@@ -25,5 +26,3 @@ struct GetAvailableSlotsEndpoint: GetEndpoint {
         HeaderProvider().commonHeaders()
     }
 }
-
-

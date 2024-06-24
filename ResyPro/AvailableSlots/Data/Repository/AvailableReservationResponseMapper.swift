@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct AvailableReservationResponseMapper: Sendable {
+protocol AvailableReservationResponseMapper: Sendable {
+    func map(dto: AvailableSlotsResponseDTO) -> [AvailableReservation]
+}
+
+struct AvailableReservationResponseMapperLive: AvailableReservationResponseMapper {
     func map(dto: AvailableSlotsResponseDTO) -> [AvailableReservation] {
         let venues = dto.results.venues
         return venues.flatMap { venueDTO in
