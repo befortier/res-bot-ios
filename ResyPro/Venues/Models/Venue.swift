@@ -23,6 +23,7 @@ final class Venue: Identifiable, Equatable {
     
     @Relationship(inverse: \Location.venue) var location: Location
     @Relationship(inverse: \VenueSlot.venue) var slots: [VenueSlot]
+    @Relationship(inverse: \BookingInfo.venue) var bookingInfo: BookingInfo?
 
     var name: String
     var images: [URL]
@@ -40,7 +41,8 @@ final class Venue: Identifiable, Equatable {
         needToKnow: String? = nil,
         cuisineType: String,
         priceRange: Int,
-        urlSlug: String
+        urlSlug: String,
+        bookingInfo: BookingInfoDTO?
     ) {
         self.venueID = venueID
         self.name = name
@@ -51,6 +53,7 @@ final class Venue: Identifiable, Equatable {
         self.cuisineType = cuisineType
         self.priceRange = priceRange
         self.urlSlug = urlSlug
+        self.bookingInfo = BookingInfo(bookingInfoDTO: bookingInfo)
     }
 }
 
@@ -75,7 +78,8 @@ extension Venue {
         needToKnow: "Some need to know text",
         cuisineType: "Mediterranian",
         priceRange: 3,
-        urlSlug: "laser-wolf-bk"
+        urlSlug: "laser-wolf-bk",
+        bookingInfo: nil
     )
 }
 

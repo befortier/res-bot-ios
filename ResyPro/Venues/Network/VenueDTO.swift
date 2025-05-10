@@ -18,6 +18,12 @@ struct VenueDTO: Equatable, Sendable, Codable {
     let cuisineType: String
     let priceRange: Int
     let urlSlug: String
+    let bookingInfo: BookingInfoDTO?
+}
+
+struct BookingInfoDTO: Sendable, Equatable, Codable {
+    let daysOut: Int
+    let time: String
 }
 
 // Define LocationDTO struct

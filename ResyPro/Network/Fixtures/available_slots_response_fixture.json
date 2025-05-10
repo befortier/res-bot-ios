@@ -1,0 +1,66 @@
+{
+  "results": {
+    "venues": [
+      {
+        "slots": [
+          {
+            "availability": {
+              "id": "available"
+            },
+            "config": {
+              "token": "slot_001",
+              "type": "standard"
+            },
+            "date": {
+              "start": "2025-05-10T21:24:50.418831",
+              "end": "2025-05-10T22:24:50.418831"
+            }
+          },
+          {
+            "availability": {
+              "id": "unavailable"
+            },
+            "config": {
+              "token": "slot_002",
+              "type": "standard"
+            },
+            "date": {
+              "start": "2025-05-10T23:24:50.418831",
+              "end": "2025-05-11T00:24:50.418831"
+            }
+          },
+          {
+            "availability": {
+              "id": "available"
+            },
+            "config": {
+              "token": "slot_003",
+              "type": "premium"
+            },
+            "date": {
+              "start": "2025-05-11T22:24:50.418831",
+              "end": "2025-05-11T23:24:50.418831"
+            }
+          }
+        ]
+      },
+      {
+        "slots": [
+          {
+            "availability": {
+              "id": "available"
+            },
+            "config": {
+              "token": "slot_001",
+              "type": "standard"
+            },
+            "date": {
+              "start": "2025-05-10T21:24:50.418831",
+              "end": "2025-05-10T22:24:50.418831"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

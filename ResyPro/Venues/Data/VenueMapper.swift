@@ -22,7 +22,8 @@ struct VenueMapperLive: VenueMapper {
             needToKnow: dto.needToKnow,
             cuisineType: dto.cuisineType,
             priceRange: dto.priceRange,
-            urlSlug: dto.urlSlug
+            urlSlug: dto.urlSlug,
+            bookingInfo: dto.bookingInfo
         )
     }
 }

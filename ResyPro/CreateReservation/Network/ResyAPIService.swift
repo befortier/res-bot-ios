@@ -11,7 +11,7 @@ struct ResyAPIService: Sendable {
 
     private let networkService: any NetworkService
 
-    init(networkService: any NetworkService = NetworkServiceLive(client: URLSessionClient())) {
+    init(networkService: any NetworkService = NetworkServiceLive()) {
         self.networkService = networkService
     }
 

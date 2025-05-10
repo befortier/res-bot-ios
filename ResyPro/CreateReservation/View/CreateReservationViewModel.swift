@@ -33,7 +33,12 @@ class CreateReservationViewModel: ObservableObject {
 //    private let context = CoreDataManager.shared.persistentContainer.viewContext
     private let networkService: any NetworkService
 
-    init(networkService: any NetworkService = NetworkServiceLive(client: URLSessionClient())) {
+    init(
+        networkService: any NetworkService = NetworkServiceLive(
+            client: URLSession.shared,
+            jsonDecoder: JSONDecoder()
+        )
+    ) {
         self.networkService = networkService
     }
 

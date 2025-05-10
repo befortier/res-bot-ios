@@ -12,4 +12,7 @@ struct GetAllVenuesEndpoint: GetEndpoint {
     let path: String = "/venue/all"
     let queryParameters: [String : String]? = nil
     let headers: [String : String]? = nil
+
+    
+    let fixturesPath: String? = "venues_fixture"
 }

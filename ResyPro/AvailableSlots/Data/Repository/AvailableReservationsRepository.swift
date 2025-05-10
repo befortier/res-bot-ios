@@ -18,12 +18,7 @@ struct AvailableReservationsRepositoryLive: AvailableReservationsRepository {
     private let mapper: any AvailableReservationResponseMapper
 
     init(
-        networkService: any NetworkService = NetworkServiceLive(
-            client: URLSessionClient(
-                session: .shared,
-                decoder: .availableReservationDecoder
-            )
-        ),
+        networkService: any NetworkService = NetworkServiceLive(jsonDecoder: .availableReservationDecoder),
         mapper: any AvailableReservationResponseMapper = AvailableReservationResponseMapperLive(),
         store: any AvailableReservationsStore
     ) {

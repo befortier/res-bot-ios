@@ -9,10 +9,17 @@ import Foundation
 import SwiftUI
 
 struct SelectDateRangeView: View {
-    @State private var selectedDay: Date = .now
-    @State private var minTime: Date = .now
-    @State private var maxTime: Date = .now
+    @State private var selectedDay: Date
+    @State private var minTime: Date
+    @State private var maxTime: Date
     @Binding var selectedDateRange: DateInterval
+
+    init(selectedDateRange: Binding<DateInterval>) {
+        self._selectedDateRange = selectedDateRange
+        self.selectedDay = selectedDateRange.wrappedValue.start
+        self.minTime = selectedDateRange.wrappedValue.start
+        self.maxTime = selectedDateRange.wrappedValue.start
+    }
 
     var body: some View {
         Group {

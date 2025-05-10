@@ -25,4 +25,6 @@ struct GetAvailableSlotsEndpoint: GetEndpoint {
     var headers: [String: String]? {
         HeaderProvider().commonHeaders()
     }
+
+    let fixturesPath: String? = "available_slots_response_fixture"
 }

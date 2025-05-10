@@ -1,0 +1,762 @@
+[
+  {
+    "venueID": 1,
+    "name": "Bungalow",
+    "location": {
+      "timeZone": "America/New_York",
+      "neighborhood": "East Village",
+      "geo": {
+        "lat": 40.7128,
+        "lon": -74.006
+      },
+      "code": "NYC-EAS",
+      "name": "New York City",
+      "urlSlug": "bungalow"
+    },
+    "images": [
+      "https://t3.ftcdn.net/jpg/03/24/73/92/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg"
+    ],
+    "slots": [
+      {
+        "templateID": "template_1_1",
+        "serviceID": "service_1_1",
+        "seatingType": "Indoor",
+        "exactSeat": "Window",
+        "supportedPartySize": {
+          "min": 2,
+          "max": 6
+        }
+      }
+    ],
+    "needToKnow": "Reservations recommended. Walk-ins limited.",
+    "cuisineType": "Indian",
+    "priceRange": 3,
+    "urlSlug": "bungalow",
+    "bookingInfo": {
+      "daysOut": 30,
+      "time": "10:00"
+    }
+  },
+  {
+    "venueID": 2,
+    "name": "Le Bernardin",
+    "location": {
+      "timeZone": "America/New_York",
+      "neighborhood": "Midtown",
+      "geo": {
+        "lat": 40.7138,
+        "lon": -74.007
+      },
+      "code": "NYC-MID",
+      "name": "New York City",
+      "urlSlug": "le-bernardin"
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1541542684-4cf23c2b6e4f"
+    ],
+    "slots": [
+      {
+        "templateID": "template_2_1",
+        "serviceID": "service_2_1",
+        "seatingType": "Indoor",
+        "exactSeat": "Window",
+        "supportedPartySize": {
+          "min": 2,
+          "max": 6
+        }
+      }
+    ],
+    "needToKnow": "Reservations recommended. Walk-ins limited.",
+    "cuisineType": "French Seafood",
+    "priceRange": 3,
+    "urlSlug": "le-bernardin",
+    "bookingInfo": {
+      "daysOut": 30,
+      "time": "10:00"
+    }
+  },
+  {
+    "venueID": 3,
+    "name": "Eleven Madison Park",
+    "location": {
+      "timeZone": "America/New_York",
+      "neighborhood": "Flatiron District",
+      "geo": {
+        "lat": 40.714800000000004,
+        "lon": -74.008
+      },
+      "code": "NYC-FLA",
+      "name": "New York City",
+      "urlSlug": "eleven-madison-park"
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1543779503-25f47595c87f"
+    ],
+    "slots": [
+      {
+        "templateID": "template_3_1",
+        "serviceID": "service_3_1",
+        "seatingType": "Indoor",
+        "exactSeat": "Window",
+        "supportedPartySize": {
+          "min": 2,
+          "max": 6
+        }
+      }
+    ],
+    "needToKnow": "Reservations recommended. Walk-ins limited.",
+    "cuisineType": "New American",
+    "priceRange": 3,
+    "urlSlug": "eleven-madison-park",
+    "bookingInfo": {
+      "daysOut": 30,
+      "time": "10:00"
+    }
+  },
+  {
+    "venueID": 4,
+    "name": "Dhamaka",
+    "location": {
+      "timeZone": "America/New_York",
+      "neighborhood": "Lower East Side",
+      "geo": {
+        "lat": 40.7158,
+        "lon": -74.009
+      },
+      "code": "NYC-LOW",
+      "name": "New York City",
+      "urlSlug": "dhamaka"
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1498654896293-37aacf113fd9"
+    ],
+    "slots": [
+      {
+        "templateID": "template_4_1",
+        "serviceID": "service_4_1",
+        "seatingType": "Indoor",
+        "exactSeat": "Window",
+        "supportedPartySize": {
+          "min": 2,
+          "max": 6
+        }
+      }
+    ],
+    "needToKnow": "Reservations recommended. Walk-ins limited.",
+    "cuisineType": "Regional Indian",
+    "priceRange": 3,
+    "urlSlug": "dhamaka",
+    "bookingInfo": {
+      "daysOut": 30,
+      "time": "10:00"
+    }
+  },
+  {
+    "venueID": 5,
+    "name": "Laser Wolf",
+    "location": {
+      "timeZone": "America/New_York",
+      "neighborhood": "Williamsburg",
+      "geo": {
+        "lat": 40.7168,
+        "lon": -74.01
+      },
+      "code": "NYC-WIL",
+      "name": "New York City",
+      "urlSlug": "laser-wolf"
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1613145997911-2d26b1c3395a"
+    ],
+    "slots": [
+      {
+        "templateID": "template_5_1",
+        "serviceID": "service_5_1",
+        "seatingType": "Indoor",
+        "exactSeat": "Window",
+        "supportedPartySize": {
+          "min": 2,
+          "max": 6
+        }
+      }
+    ],
+    "needToKnow": "Reservations recommended. Walk-ins limited.",
+    "cuisineType": "Israeli Grill",
+    "priceRange": 3,
+    "urlSlug": "laser-wolf",
+    "bookingInfo": {
+      "daysOut": 30,
+      "time": "10:00"
+    }
+  },
+  {
+    "venueID": 6,
+    "name": "Junoon",
+    "location": {
+      "timeZone": "America/New_York",
+      "neighborhood": "Flatiron District",
+      "geo": {
+        "lat": 40.717800000000004,
+        "lon": -74.011
+      },
+      "code": "NYC-FLA",
+      "name": "New York City",
+      "urlSlug": "junoon"
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1564750496643-e70aabf67f72"
+    ],
+    "slots": [
+      {
+        "templateID": "template_6_1",
+        "serviceID": "service_6_1",
+        "seatingType": "Indoor",
+        "exactSeat": "Window",
+        "supportedPartySize": {
+          "min": 2,
+          "max": 6
+        }
+      }
+    ],
+    "needToKnow": "Reservations recommended. Walk-ins limited.",
+    "cuisineType": "Indian Fine Dining",
+    "priceRange": 3,
+    "urlSlug": "junoon",
+    "bookingInfo": {
+      "daysOut": 30,
+      "time": "10:00"
+    }
+  },
+  {
+    "venueID": 7,
+    "name": "Semma",
+    "location": {
+      "timeZone": "America/New_York",
+      "neighborhood": "Greenwich Village",
+      "geo": {
+        "lat": 40.7188,
+        "lon": -74.012
+      },
+      "code": "NYC-GRE",
+      "name": "New York City",
+      "urlSlug": "semma"
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7"
+    ],
+    "slots": [
+      {
+        "templateID": "template_7_1",
+        "serviceID": "service_7_1",
+        "seatingType": "Indoor",
+        "exactSeat": "Window",
+        "supportedPartySize": {
+          "min": 2,
+          "max": 6
+        }
+      }
+    ],
+    "needToKnow": "Reservations recommended. Walk-ins limited.",
+    "cuisineType": "South Indian",
+    "priceRange": 3,
+    "urlSlug": "semma",
+    "bookingInfo": {
+      "daysOut": 30,
+      "time": "10:00"
+    }
+  },
+  {
+    "venueID": 8,
+    "name": "N\u014dksu",
+    "location": {
+      "timeZone": "America/New_York",
+      "neighborhood": "Midtown",
+      "geo": {
+        "lat": 40.7198,
+        "lon": -74.013
+      },
+      "code": "NYC-MID",
+      "name": "New York City",
+      "urlSlug": "n\u014dksu"
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1600891964599-f61ba0e24092"
+    ],
+    "slots": [
+      {
+        "templateID": "template_8_1",
+        "serviceID": "service_8_1",
+        "seatingType": "Indoor",
+        "exactSeat": "Window",
+        "supportedPartySize": {
+          "min": 2,
+          "max": 6
+        }
+      }
+    ],
+    "needToKnow": "Reservations recommended. Walk-ins limited.",
+    "cuisineType": "Korean Tasting Menu",
+    "priceRange": 3,
+    "urlSlug": "n\u014dksu",
+    "bookingInfo": {
+      "daysOut": 30,
+      "time": "10:00"
+    }
+  },
+  {
+    "venueID": 9,
+    "name": "Caf\u00e9 Chelsea",
+    "location": {
+      "timeZone": "America/New_York",
+      "neighborhood": "Chelsea",
+      "geo": {
+        "lat": 40.720800000000004,
+        "lon": -74.014
+      },
+      "code": "NYC-CHE",
+      "name": "New York City",
+      "urlSlug": "caf\u00e9-chelsea"
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1528605248644-14dd04022da1"
+    ],
+    "slots": [
+      {
+        "templateID": "template_9_1",
+        "serviceID": "service_9_1",
+        "seatingType": "Indoor",
+        "exactSeat": "Window",
+        "supportedPartySize": {
+          "min": 2,
+          "max": 6
+        }
+      }
+    ],
+    "needToKnow": "Reservations recommended. Walk-ins limited.",
+    "cuisineType": "French Bistro",
+    "priceRange": 3,
+    "urlSlug": "caf\u00e9-chelsea",
+    "bookingInfo": {
+      "daysOut": 30,
+      "time": "10:00"
+    }
+  },
+  {
+    "venueID": 10,
+    "name": "Thai Diner",
+    "location": {
+      "timeZone": "America/New_York",
+      "neighborhood": "Nolita",
+      "geo": {
+        "lat": 40.7218,
+        "lon": -74.015
+      },
+      "code": "NYC-NOL",
+      "name": "New York City",
+      "urlSlug": "thai-diner"
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1572853680027-04b1f8d78b7b"
+    ],
+    "slots": [
+      {
+        "templateID": "template_10_1",
+        "serviceID": "service_10_1",
+        "seatingType": "Indoor",
+        "exactSeat": "Window",
+        "supportedPartySize": {
+          "min": 2,
+          "max": 6
+        }
+      }
+    ],
+    "needToKnow": "Reservations recommended. Walk-ins limited.",
+    "cuisineType": "Thai-American Fusion",
+    "priceRange": 3,
+    "urlSlug": "thai-diner",
+    "bookingInfo": {
+      "daysOut": 30,
+      "time": "10:00"
+    }
+  },
+  {
+    "venueID": 11,
+    "name": "L'Artusi",
+    "location": {
+      "timeZone": "America/New_York",
+      "neighborhood": "West Village",
+      "geo": {
+        "lat": 40.7228,
+        "lon": -74.016
+      },
+      "code": "NYC-WES",
+      "name": "New York City",
+      "urlSlug": "l'artusi"
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1556740749-887f6717d7e4"
+    ],
+    "slots": [
+      {
+        "templateID": "template_11_1",
+        "serviceID": "service_11_1",
+        "seatingType": "Indoor",
+        "exactSeat": "Window",
+        "supportedPartySize": {
+          "min": 2,
+          "max": 6
+        }
+      }
+    ],
+    "needToKnow": "Reservations recommended. Walk-ins limited.",
+    "cuisineType": "Italian",
+    "priceRange": 3,
+    "urlSlug": "l'artusi",
+    "bookingInfo": {
+      "daysOut": 30,
+      "time": "10:00"
+    }
+  },
+  {
+    "venueID": 12,
+    "name": "Pastis",
+    "location": {
+      "timeZone": "America/New_York",
+      "neighborhood": "Meatpacking District",
+      "geo": {
+        "lat": 40.723800000000004,
+        "lon": -74.017
+      },
+      "code": "NYC-MEA",
+      "name": "New York City",
+      "urlSlug": "pastis"
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1532635246-bb9965e46c3c"
+    ],
+    "slots": [
+      {
+        "templateID": "template_12_1",
+        "serviceID": "service_12_1",
+        "seatingType": "Indoor",
+        "exactSeat": "Window",
+        "supportedPartySize": {
+          "min": 2,
+          "max": 6
+        }
+      }
+    ],
+    "needToKnow": "Reservations recommended. Walk-ins limited.",
+    "cuisineType": "French Brasserie",
+    "priceRange": 3,
+    "urlSlug": "pastis",
+    "bookingInfo": {
+      "daysOut": 30,
+      "time": "10:00"
+    }
+  },
+  {
+    "venueID": 13,
+    "name": "Cervo\u2019s",
+    "location": {
+      "timeZone": "America/New_York",
+      "neighborhood": "Lower East Side",
+      "geo": {
+        "lat": 40.7248,
+        "lon": -74.018
+      },
+      "code": "NYC-LOW",
+      "name": "New York City",
+      "urlSlug": "cervo\u2019s"
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1598514982846-e225c5485d63"
+    ],
+    "slots": [
+      {
+        "templateID": "template_13_1",
+        "serviceID": "service_13_1",
+        "seatingType": "Indoor",
+        "exactSeat": "Window",
+        "supportedPartySize": {
+          "min": 2,
+          "max": 6
+        }
+      }
+    ],
+    "needToKnow": "Reservations recommended. Walk-ins limited.",
+    "cuisineType": "Portuguese-Spanish Seafood",
+    "priceRange": 3,
+    "urlSlug": "cervo\u2019s",
+    "bookingInfo": {
+      "daysOut": 30,
+      "time": "10:00"
+    }
+  },
+  {
+    "venueID": 14,
+    "name": "Sushi Nakazawa",
+    "location": {
+      "timeZone": "America/New_York",
+      "neighborhood": "West Village",
+      "geo": {
+        "lat": 40.7258,
+        "lon": -74.019
+      },
+      "code": "NYC-WES",
+      "name": "New York City",
+      "urlSlug": "sushi-nakazawa"
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38"
+    ],
+    "slots": [
+      {
+        "templateID": "template_14_1",
+        "serviceID": "service_14_1",
+        "seatingType": "Indoor",
+        "exactSeat": "Window",
+        "supportedPartySize": {
+          "min": 2,
+          "max": 6
+        }
+      }
+    ],
+    "needToKnow": "Reservations recommended. Walk-ins limited.",
+    "cuisineType": "Japanese Omakase",
+    "priceRange": 3,
+    "urlSlug": "sushi-nakazawa",
+    "bookingInfo": {
+      "daysOut": 30,
+      "time": "10:00"
+    }
+  },
+  {
+    "venueID": 15,
+    "name": "Riverpark",
+    "location": {
+      "timeZone": "America/New_York",
+      "neighborhood": "Kips Bay",
+      "geo": {
+        "lat": 40.726800000000004,
+        "lon": -74.02
+      },
+      "code": "NYC-KIP",
+      "name": "New York City",
+      "urlSlug": "riverpark"
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1620082227703-3f72fef80f44"
+    ],
+    "slots": [
+      {
+        "templateID": "template_15_1",
+        "serviceID": "service_15_1",
+        "seatingType": "Indoor",
+        "exactSeat": "Window",
+        "supportedPartySize": {
+          "min": 2,
+          "max": 6
+        }
+      }
+    ],
+    "needToKnow": "Reservations recommended. Walk-ins limited.",
+    "cuisineType": "New American",
+    "priceRange": 3,
+    "urlSlug": "riverpark",
+    "bookingInfo": {
+      "daysOut": 30,
+      "time": "10:00"
+    }
+  },
+  {
+    "venueID": 16,
+    "name": "Ammazzacaff\u00e8",
+    "location": {
+      "timeZone": "America/New_York",
+      "neighborhood": "Williamsburg",
+      "geo": {
+        "lat": 40.7278,
+        "lon": -74.021
+      },
+      "code": "NYC-WIL",
+      "name": "New York City",
+      "urlSlug": "ammazzacaff\u00e8"
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1570968915860-54d5c6c1d76e"
+    ],
+    "slots": [
+      {
+        "templateID": "template_16_1",
+        "serviceID": "service_16_1",
+        "seatingType": "Indoor",
+        "exactSeat": "Window",
+        "supportedPartySize": {
+          "min": 2,
+          "max": 6
+        }
+      }
+    ],
+    "needToKnow": "Reservations recommended. Walk-ins limited.",
+    "cuisineType": "Italian",
+    "priceRange": 3,
+    "urlSlug": "ammazzacaff\u00e8",
+    "bookingInfo": {
+      "daysOut": 30,
+      "time": "10:00"
+    }
+  },
+  {
+    "venueID": 17,
+    "name": "Broken Shaker",
+    "location": {
+      "timeZone": "America/New_York",
+      "neighborhood": "Flatiron District",
+      "geo": {
+        "lat": 40.7288,
+        "lon": -74.022
+      },
+      "code": "NYC-FLA",
+      "name": "New York City",
+      "urlSlug": "broken-shaker"
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7"
+    ],
+    "slots": [
+      {
+        "templateID": "template_17_1",
+        "serviceID": "service_17_1",
+        "seatingType": "Indoor",
+        "exactSeat": "Window",
+        "supportedPartySize": {
+          "min": 2,
+          "max": 6
+        }
+      }
+    ],
+    "needToKnow": "Reservations recommended. Walk-ins limited.",
+    "cuisineType": "Eclectic Cocktails & Small Plates",
+    "priceRange": 3,
+    "urlSlug": "broken-shaker",
+    "bookingInfo": {
+      "daysOut": 30,
+      "time": "10:00"
+    }
+  },
+  {
+    "venueID": 18,
+    "name": "Smithereens",
+    "location": {
+      "timeZone": "America/New_York",
+      "neighborhood": "East Village",
+      "geo": {
+        "lat": 40.729800000000004,
+        "lon": -74.023
+      },
+      "code": "NYC-EAS",
+      "name": "New York City",
+      "urlSlug": "smithereens"
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1559056199-641a0ac8b55e"
+    ],
+    "slots": [
+      {
+        "templateID": "template_18_1",
+        "serviceID": "service_18_1",
+        "seatingType": "Indoor",
+        "exactSeat": "Window",
+        "supportedPartySize": {
+          "min": 2,
+          "max": 6
+        }
+      }
+    ],
+    "needToKnow": "Reservations recommended. Walk-ins limited.",
+    "cuisineType": "New American Seafood",
+    "priceRange": 3,
+    "urlSlug": "smithereens",
+    "bookingInfo": {
+      "daysOut": 30,
+      "time": "10:00"
+    }
+  },
+  {
+    "venueID": 19,
+    "name": "Time and Tide",
+    "location": {
+      "timeZone": "America/New_York",
+      "neighborhood": "Rose Hill",
+      "geo": {
+        "lat": 40.7308,
+        "lon": -74.024
+      },
+      "code": "NYC-ROS",
+      "name": "New York City",
+      "urlSlug": "time-and-tide"
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1540419154390-ac7e5c7f0d4e"
+    ],
+    "slots": [
+      {
+        "templateID": "template_19_1",
+        "serviceID": "service_19_1",
+        "seatingType": "Indoor",
+        "exactSeat": "Window",
+        "supportedPartySize": {
+          "min": 2,
+          "max": 6
+        }
+      }
+    ],
+    "needToKnow": "Reservations recommended. Walk-ins limited.",
+    "cuisineType": "Seafood",
+    "priceRange": 3,
+    "urlSlug": "time-and-tide",
+    "bookingInfo": {
+      "daysOut": 30,
+      "time": "10:00"
+    }
+  },
+  {
+    "venueID": 20,
+    "name": "Theodora",
+    "location": {
+      "timeZone": "America/New_York",
+      "neighborhood": "Fort Greene",
+      "geo": {
+        "lat": 40.7318,
+        "lon": -74.025
+      },
+      "code": "NYC-FOR",
+      "name": "New York City",
+      "urlSlug": "theodora"
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1615089820630-b3d4697e9e6c"
+    ],
+    "slots": [
+      {
+        "templateID": "template_20_1",
+        "serviceID": "service_20_1",
+        "seatingType": "Indoor",
+        "exactSeat": "Window",
+        "supportedPartySize": {
+          "min": 2,
+          "max": 6
+        }
+      }
+    ],
+    "needToKnow": "Reservations recommended. Walk-ins limited.",
+    "cuisineType": "Mediterranean",
+    "priceRange": 3,
+    "urlSlug": "theodora",
+    "bookingInfo": {
+      "daysOut": 30,
+      "time": "10:00"
+    }
+  }
+]

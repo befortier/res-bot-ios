@@ -15,7 +15,7 @@ struct ImagesCarouselView: View {
 
     var body: some View {
         VStack(spacing: 0){
-            TabView(selection: $currentIndex){
+            TabView(selection: $currentIndex){ // safe area breaks
                 ForEach(0..<imageUrls.count,id: \.self){ imageIndex in
                     LazyImage(
                         url: imageUrls[imageIndex],

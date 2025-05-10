@@ -51,9 +51,7 @@ struct VenueCard: View {
     var body: some View {
         VStack(spacing: 8) {
             self.imageContainer
-
             Divider()
-
             self.textContainer
         }
         .padding(.horizontal, 8)
@@ -64,6 +62,7 @@ struct VenueCard: View {
     private var textContainer: some View {
         VStack(spacing: 4) {
             self.nameView
+                .frame(maxWidth: .infinity, alignment: .leading)
 
             VenueDescriptionLabel(
                 cuisineType: self.cuisineType,
@@ -71,12 +70,14 @@ struct VenueCard: View {
             )
             .font(.subheadline)
             .foregroundStyle(.textSecondary)
+            .frame(maxWidth: .infinity, alignment: .leading)
 
             LocationText(location: self.location)
                 .font(.subheadline)
                 .foregroundStyle(.textSecondary)
+                .frame(maxWidth: .infinity, alignment: .leading)
+
         }
-        .frame(maxWidth: .infinity, alignment: .leading)
     }
 
     private var nameView: some View {

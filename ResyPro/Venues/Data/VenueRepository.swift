@@ -19,12 +19,7 @@ struct VenueRepositoryLive: VenueRepository {
 
     init(
         modelContext: any ModelContextProtocol,
-        networkService: any NetworkService = NetworkServiceLive(
-            client: URLSessionClient(
-                session: .shared,
-                decoder: JSONDecoder()
-            )
-        ),
+        networkService: any NetworkService = NetworkServiceLive(),
         venueMapper: any VenueMapper = VenueMapperLive()
     ) {
         self.modelContext = modelContext
