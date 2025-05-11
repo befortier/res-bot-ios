@@ -5,7 +5,6 @@
 //  Created by Ben Fortier on 6/19/24.
 //
 
-
 import Foundation
 import SwiftUI
 
@@ -16,27 +15,6 @@ struct VenueDescriptionLabel: View {
     let priceRange: Int
 
     var body: some View {
-        HStack(spacing: 4) {
-            self.descriptionView
-            self.dotTextView
-            self.priceView
-        }
-    }
-
-    private var descriptionView: some View {
-        Text(cuisineType)
-    }
-
-    private var priceView: some View {
-        Text(
-            Array(
-                repeating: "$",
-                count: self.priceRange
-            ).joined()
-        )
-    }
-
-    private var dotTextView: some View {
-        Text("·")
+        Text("\(cuisineType) · \(Array(repeating: "$", count: self.priceRange).joined())")
     }
 }

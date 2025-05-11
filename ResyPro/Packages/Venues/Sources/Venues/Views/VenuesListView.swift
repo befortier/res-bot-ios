@@ -29,9 +29,10 @@ public struct VenuesListView<Card: View>: View {
         Group {
             if !venues.isEmpty {
                 ScrollView {
-                    VStack(spacing: 8) {
+                    VStack(spacing: 24) {
                         ForEach(venues) { venue in
                             cardView(venue)
+                                .padding(.horizontal, 8)
                         }
                     }
                 }
