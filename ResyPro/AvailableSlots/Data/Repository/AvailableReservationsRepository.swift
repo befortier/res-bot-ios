@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Network
 
 protocol AvailableReservationsRepository: Sendable {
     func refreshAvailableReservations(request: GetAvailableSlotsRequest) async throws

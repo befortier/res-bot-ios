@@ -12,7 +12,6 @@ import SwiftData
 struct MainTabView: View {
     @State private var selectedTab = Tab.allCases.first
     @Environment(\.modelContext) var modelContext: ModelContext
-    @Environment(\.user) var user: User
     @Environment(\.resyConfig) var resyConfig: ResyConfig
 
     enum Tab: CaseIterable {

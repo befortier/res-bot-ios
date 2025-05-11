@@ -1,6 +1,14 @@
+//
+//  Endpoint.swift
+//  Network
+//
+//  Created by Ben Fortier on 6/19/24.
+//
+
 import Foundation
 
-protocol Endpoint {
+/// A protocol defining...
+public protocol Endpoint {
     var baseURL: BaseURL { get }
     var path: String { get }
     var queryParameters: [String: String]? { get }
@@ -9,6 +17,6 @@ protocol Endpoint {
     var fixturesPath: String? { get }
 }
 
-extension Endpoint {
+public extension Endpoint {
     var fixturesPath: String? { nil }
 }

@@ -7,6 +7,7 @@
 
 import Combine
 import SwiftUI
+import Network
 
 class CreateReservationViewModel: ObservableObject {
     @Published var username = ""

@@ -13,15 +13,13 @@ private struct AppStateViewModifier: ViewModifier {
 
     func body(content: Content) -> some View {
         content
-            .environment(\.user, appState.user)
             .environment(\.resyConfig, appState.resyConfig)
     }
 }
 
 extension View {
     func setAppState(_ appState: AppState) -> some View {
-        environment(\.user, appState.user)
-        .environment(\.resyConfig, appState.resyConfig)
+        environment(\.resyConfig, appState.resyConfig)
     }
 }
 

@@ -3,29 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5707EEEC2DCFEA4F00F9E616 /* PostEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5707EEE72DCFEA4F00F9E616 /* PostEndpoint.swift */; };
-		5707EEED2DCFEA4F00F9E616 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5707EEE92DCFEA4F00F9E616 /* Environment.swift */; };
-		5707EEEE2DCFEA4F00F9E616 /* GetEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5707EEE42DCFEA4F00F9E616 /* GetEndpoint.swift */; };
-		5707EEEF2DCFEA4F00F9E616 /* EnvironmentStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5707EEEA2DCFEA4F00F9E616 /* EnvironmentStore.swift */; };
-		5707EEF02DCFEA4F00F9E616 /* InterpretedEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5707EEE52DCFEA4F00F9E616 /* InterpretedEndpoint.swift */; };
-		5707EEF12DCFEA4F00F9E616 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5707EEE22DCFEA4F00F9E616 /* Endpoint.swift */; };
-		5707EEF22DCFEA4F00F9E616 /* EndpointInterpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5707EEE32DCFEA4F00F9E616 /* EndpointInterpreter.swift */; };
-		5707EEF32DCFEA4F00F9E616 /* InterpretedHTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5707EEE62DCFEA4F00F9E616 /* InterpretedHTTPMethod.swift */; };
-		5707EEF82DCFEDA400F9E616 /* available_slots_response_fixture.json in Resources */ = {isa = PBXBuildFile; fileRef = 5707EEF72DCFEDA400F9E616 /* available_slots_response_fixture.json */; };
-		5707EEFC2DCFF09D00F9E616 /* venues_fixture.json in Resources */ = {isa = PBXBuildFile; fileRef = 5707EEFB2DCFF09D00F9E616 /* venues_fixture.json */; };
 		57168CEC2C2348EC009E6150 /* AvailableReservationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57168CEB2C2348EC009E6150 /* AvailableReservationsView.swift */; };
-		57168CF12C234BCB009E6150 /* SelectDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57168CF02C234BCB009E6150 /* SelectDateView.swift */; };
 		57168CF42C234C19009E6150 /* AvailableReservationsGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57168CF32C234C19009E6150 /* AvailableReservationsGridView.swift */; };
 		57168CF82C234E8C009E6150 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57168CF72C234E8C009E6150 /* DataStore.swift */; };
-		57168CFB2C235225009E6150 /* SelectDateRangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57168CFA2C235225009E6150 /* SelectDateRangeView.swift */; };
 		57168CFD2C235350009E6150 /* AvailableReservationsView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57168CFC2C235350009E6150 /* AvailableReservationsView+ViewModel.swift */; };
-		57168D002C2353ED009E6150 /* DefaultProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57168CFF2C2353ED009E6150 /* DefaultProgressView.swift */; };
 		57168D032C23556F009E6150 /* RemoteViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57168D022C23556F009E6150 /* RemoteViewState.swift */; };
-		57168D062C235612009E6150 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57168D052C235612009E6150 /* ErrorView.swift */; };
 		57168D092C235C09009E6150 /* AvailableReservationResponseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57168D082C235C09009E6150 /* AvailableReservationResponseMapper.swift */; };
 		57168D0C2C235F33009E6150 /* AvailableReservationSlotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57168D0B2C235F33009E6150 /* AvailableReservationSlotView.swift */; };
 		57168D0F2C2379C7009E6150 /* Restaurants.json in Resources */ = {isa = PBXBuildFile; fileRef = 57168D0E2C2379C7009E6150 /* Restaurants.json */; };
@@ -47,21 +33,16 @@
 		57199D3D2C2314F600AE2F8B /* ResyProTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D3C2C2314F600AE2F8B /* ResyProTests.swift */; };
 		57199D472C2314F600AE2F8B /* ResyProUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D462C2314F600AE2F8B /* ResyProUITests.swift */; };
 		57199D492C2314F600AE2F8B /* ResyProUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D482C2314F600AE2F8B /* ResyProUITestsLaunchTests.swift */; };
-		57199D6D2C23162F00AE2F8B /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D602C23162F00AE2F8B /* NetworkClient.swift */; };
-		57199D742C23162F00AE2F8B /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D682C23162F00AE2F8B /* NetworkService.swift */; };
-		57199D752C23162F00AE2F8B /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D692C23162F00AE2F8B /* NetworkError.swift */; };
 		57199D7C2C23169A00AE2F8B /* CreateReservationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D7B2C23169A00AE2F8B /* CreateReservationView.swift */; };
 		57199D7E2C2316A100AE2F8B /* CreateReservationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D7D2C2316A100AE2F8B /* CreateReservationViewModel.swift */; };
 		57199D832C2316E300AE2F8B /* GetBookingTokenEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D822C2316E300AE2F8B /* GetBookingTokenEndpoint.swift */; };
 		57199D852C23175C00AE2F8B /* ReservationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D842C23175C00AE2F8B /* ReservationResponse.swift */; };
 		57199D8B2C23181000AE2F8B /* GetAvailableSlotsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D8A2C23181000AE2F8B /* GetAvailableSlotsEndpoint.swift */; };
-		57199D8E2C231A1A00AE2F8B /* ResyBaseHeaderProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D8D2C231A1A00AE2F8B /* ResyBaseHeaderProvider.swift */; };
 		57199D912C231A4600AE2F8B /* GetExistingReservationsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D902C231A4600AE2F8B /* GetExistingReservationsEndpoint.swift */; };
 		57199D942C2338BE00AE2F8B /* ConfirmBookingEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D932C2338BE00AE2F8B /* ConfirmBookingEndpoint.swift */; };
 		57199D9A2C23390400AE2F8B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D992C23390400AE2F8B /* User.swift */; };
 		57199DA12C233A3800AE2F8B /* AppStateViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199DA02C233A3800AE2F8B /* AppStateViewModifier.swift */; };
 		57199DA52C233A5F00AE2F8B /* ResyConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199DA42C233A5F00AE2F8B /* ResyConfig.swift */; };
-		57199DA72C233AF500AE2F8B /* User+Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199DA62C233AF500AE2F8B /* User+Environment.swift */; };
 		57199DA92C233B0000AE2F8B /* ResyConfig+Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199DA82C233B0000AE2F8B /* ResyConfig+Environment.swift */; };
 		57199DAE2C233B4600AE2F8B /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199DAD2C233B4600AE2F8B /* SplashScreenView.swift */; };
 		57199DB02C233B6C00AE2F8B /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199DAF2C233B6C00AE2F8B /* RootView.swift */; };
@@ -84,11 +65,8 @@
 		572503F92C28D9180076EECB /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = 572503F82C28D9180076EECB /* Nuke */; };
 		572503FB2C28D9180076EECB /* NukeExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = 572503FA2C28D9180076EECB /* NukeExtensions */; };
 		572503FD2C28D9180076EECB /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = 572503FC2C28D9180076EECB /* NukeUI */; };
-		572504002C28EB5F0076EECB /* ImagesCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572503FF2C28EB5F0076EECB /* ImagesCarouselView.swift */; };
-		572504032C28EB760076EECB /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572504022C28EB760076EECB /* ButtonStyles.swift */; };
 		572504082C2A36F90076EECB /* LocationText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572504072C2A36F90076EECB /* LocationText.swift */; };
 		5725040A2C2A3A650076EECB /* VenueDescriptionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572504092C2A3A650076EECB /* VenueDescriptionLabel.swift */; };
-		5725040D2C2A3AD60076EECB /* CardModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5725040C2C2A3AD60076EECB /* CardModifier.swift */; };
 		5725040F2C2A3AEA0076EECB /* SupportedPartySize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5725040E2C2A3AEA0076EECB /* SupportedPartySize.swift */; };
 		572504112C2A3AFB0076EECB /* VenueSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572504102C2A3AFB0076EECB /* VenueSlot.swift */; };
 		572504132C2A3B0A0076EECB /* Geo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572504122C2A3B0A0076EECB /* Geo.swift */; };
@@ -96,12 +74,13 @@
 		5734986E2C24D7AA00DBB916 /* ScedueleReservationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5734986D2C24D7AA00DBB916 /* ScedueleReservationUseCase.swift */; };
 		573498722C24E2C000DBB916 /* SchedueleReservationEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573498712C24E2C000DBB916 /* SchedueleReservationEndpoint.swift */; };
 		574013AD2C2E0B1000DAD86B /* AutomaticSchedueleBookingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574013AC2C2E0B1000DAD86B /* AutomaticSchedueleBookingView.swift */; };
-		574013B02C2E2C8B00DAD86B /* IconTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574013AF2C2E2C8B00DAD86B /* IconTextField.swift */; };
 		574013B22C2E2E0000DAD86B /* SeatingOptionSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574013B12C2E2E0000DAD86B /* SeatingOptionSelectionView.swift */; };
 		574013B52C2E342F00DAD86B /* SeatingOptionViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574013B42C2E342F00DAD86B /* SeatingOptionViewType.swift */; };
 		574013B72C2E343C00DAD86B /* SeatingOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574013B62C2E343C00DAD86B /* SeatingOptionView.swift */; };
 		57865CCD2C2D9445006C7D68 /* BookingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57865CCC2C2D9445006C7D68 /* BookingInfo.swift */; };
 		57865CD02C2D9571006C7D68 /* ManualSchedueleBookingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57865CCF2C2D9571006C7D68 /* ManualSchedueleBookingView.swift */; };
+		57EA7E9F2DD0DA2D00E25108 /* Network in Frameworks */ = {isa = PBXBuildFile; productRef = 57EA7E9E2DD0DA2D00E25108 /* Network */; };
+		57EA7EA22DD0E06C00E25108 /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 57EA7EA12DD0E06C00E25108 /* DesignSystem */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,25 +101,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5707EEE22DCFEA4F00F9E616 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
-		5707EEE32DCFEA4F00F9E616 /* EndpointInterpreter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointInterpreter.swift; sourceTree = "<group>"; };
-		5707EEE42DCFEA4F00F9E616 /* GetEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetEndpoint.swift; sourceTree = "<group>"; };
-		5707EEE52DCFEA4F00F9E616 /* InterpretedEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterpretedEndpoint.swift; sourceTree = "<group>"; };
-		5707EEE62DCFEA4F00F9E616 /* InterpretedHTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterpretedHTTPMethod.swift; sourceTree = "<group>"; };
-		5707EEE72DCFEA4F00F9E616 /* PostEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostEndpoint.swift; sourceTree = "<group>"; };
-		5707EEE92DCFEA4F00F9E616 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
-		5707EEEA2DCFEA4F00F9E616 /* EnvironmentStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentStore.swift; sourceTree = "<group>"; };
-		5707EEF72DCFEDA400F9E616 /* available_slots_response_fixture.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = available_slots_response_fixture.json; sourceTree = "<group>"; };
-		5707EEFB2DCFF09D00F9E616 /* venues_fixture.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = venues_fixture.json; sourceTree = "<group>"; };
 		57168CEB2C2348EC009E6150 /* AvailableReservationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableReservationsView.swift; sourceTree = "<group>"; };
-		57168CF02C234BCB009E6150 /* SelectDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDateView.swift; sourceTree = "<group>"; };
 		57168CF32C234C19009E6150 /* AvailableReservationsGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableReservationsGridView.swift; sourceTree = "<group>"; };
 		57168CF72C234E8C009E6150 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
-		57168CFA2C235225009E6150 /* SelectDateRangeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDateRangeView.swift; sourceTree = "<group>"; };
 		57168CFC2C235350009E6150 /* AvailableReservationsView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AvailableReservationsView+ViewModel.swift"; sourceTree = "<group>"; };
-		57168CFF2C2353ED009E6150 /* DefaultProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultProgressView.swift; sourceTree = "<group>"; };
 		57168D022C23556F009E6150 /* RemoteViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteViewState.swift; sourceTree = "<group>"; };
-		57168D052C235612009E6150 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		57168D082C235C09009E6150 /* AvailableReservationResponseMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableReservationResponseMapper.swift; sourceTree = "<group>"; };
 		57168D0B2C235F33009E6150 /* AvailableReservationSlotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableReservationSlotView.swift; sourceTree = "<group>"; };
 		57168D0E2C2379C7009E6150 /* Restaurants.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Restaurants.json; sourceTree = "<group>"; };
@@ -166,21 +131,16 @@
 		57199D422C2314F600AE2F8B /* ResyProUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ResyProUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		57199D462C2314F600AE2F8B /* ResyProUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResyProUITests.swift; sourceTree = "<group>"; };
 		57199D482C2314F600AE2F8B /* ResyProUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResyProUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		57199D602C23162F00AE2F8B /* NetworkClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkClient.swift; path = "../../../../Downloads/cudi-ios-main/ios-cudi/ios-cudi/Network/NetworkClient.swift"; sourceTree = "<group>"; };
-		57199D682C23162F00AE2F8B /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkService.swift; path = "../../../../Downloads/cudi-ios-main/ios-cudi/ios-cudi/Network/NetworkService.swift"; sourceTree = "<group>"; };
-		57199D692C23162F00AE2F8B /* NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkError.swift; path = "../../../../Downloads/cudi-ios-main/ios-cudi/ios-cudi/Network/NetworkError.swift"; sourceTree = "<group>"; };
 		57199D7B2C23169A00AE2F8B /* CreateReservationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateReservationView.swift; sourceTree = "<group>"; };
 		57199D7D2C2316A100AE2F8B /* CreateReservationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateReservationViewModel.swift; sourceTree = "<group>"; };
 		57199D822C2316E300AE2F8B /* GetBookingTokenEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBookingTokenEndpoint.swift; sourceTree = "<group>"; };
 		57199D842C23175C00AE2F8B /* ReservationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationResponse.swift; sourceTree = "<group>"; };
 		57199D8A2C23181000AE2F8B /* GetAvailableSlotsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAvailableSlotsEndpoint.swift; sourceTree = "<group>"; };
-		57199D8D2C231A1A00AE2F8B /* ResyBaseHeaderProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResyBaseHeaderProvider.swift; sourceTree = "<group>"; };
 		57199D902C231A4600AE2F8B /* GetExistingReservationsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetExistingReservationsEndpoint.swift; sourceTree = "<group>"; };
 		57199D932C2338BE00AE2F8B /* ConfirmBookingEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmBookingEndpoint.swift; sourceTree = "<group>"; };
 		57199D992C23390400AE2F8B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		57199DA02C233A3800AE2F8B /* AppStateViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStateViewModifier.swift; sourceTree = "<group>"; };
 		57199DA42C233A5F00AE2F8B /* ResyConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResyConfig.swift; sourceTree = "<group>"; };
-		57199DA62C233AF500AE2F8B /* User+Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Environment.swift"; sourceTree = "<group>"; };
 		57199DA82C233B0000AE2F8B /* ResyConfig+Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ResyConfig+Environment.swift"; sourceTree = "<group>"; };
 		57199DAD2C233B4600AE2F8B /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		57199DAF2C233B6C00AE2F8B /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -200,11 +160,8 @@
 		572503EF2C279C2B0076EECB /* VenueDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueDTO.swift; sourceTree = "<group>"; };
 		572503F12C279C500076EECB /* VenueMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueMapper.swift; sourceTree = "<group>"; };
 		572503F42C279CDC0076EECB /* ModelContextProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelContextProtocol.swift; sourceTree = "<group>"; };
-		572503FF2C28EB5F0076EECB /* ImagesCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesCarouselView.swift; sourceTree = "<group>"; };
-		572504022C28EB760076EECB /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
 		572504072C2A36F90076EECB /* LocationText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationText.swift; sourceTree = "<group>"; };
 		572504092C2A3A650076EECB /* VenueDescriptionLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueDescriptionLabel.swift; sourceTree = "<group>"; };
-		5725040C2C2A3AD60076EECB /* CardModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModifier.swift; sourceTree = "<group>"; };
 		5725040E2C2A3AEA0076EECB /* SupportedPartySize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportedPartySize.swift; sourceTree = "<group>"; };
 		572504102C2A3AFB0076EECB /* VenueSlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueSlot.swift; sourceTree = "<group>"; };
 		572504122C2A3B0A0076EECB /* Geo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geo.swift; sourceTree = "<group>"; };
@@ -213,12 +170,13 @@
 		5734986F2C24D7D000DBB916 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		573498712C24E2C000DBB916 /* SchedueleReservationEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedueleReservationEndpoint.swift; sourceTree = "<group>"; };
 		574013AC2C2E0B1000DAD86B /* AutomaticSchedueleBookingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutomaticSchedueleBookingView.swift; sourceTree = "<group>"; };
-		574013AF2C2E2C8B00DAD86B /* IconTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconTextField.swift; sourceTree = "<group>"; };
 		574013B12C2E2E0000DAD86B /* SeatingOptionSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatingOptionSelectionView.swift; sourceTree = "<group>"; };
 		574013B42C2E342F00DAD86B /* SeatingOptionViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatingOptionViewType.swift; sourceTree = "<group>"; };
 		574013B62C2E343C00DAD86B /* SeatingOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatingOptionView.swift; sourceTree = "<group>"; };
 		57865CCC2C2D9445006C7D68 /* BookingInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingInfo.swift; sourceTree = "<group>"; };
 		57865CCF2C2D9571006C7D68 /* ManualSchedueleBookingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualSchedueleBookingView.swift; sourceTree = "<group>"; };
+		57EA7E9C2DD0D88400E25108 /* Network */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Network; sourceTree = "<group>"; };
+		57EA7EA02DD0DF7000E25108 /* DesignSystem */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DesignSystem; path = /Users/benfortier/Downloads/DesignSystem; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,7 +184,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57EA7EA22DD0E06C00E25108 /* DesignSystem in Frameworks */,
 				572503FD2C28D9180076EECB /* NukeUI in Frameworks */,
+				57EA7E9F2DD0DA2D00E25108 /* Network in Frameworks */,
 				572503F92C28D9180076EECB /* Nuke in Frameworks */,
 				572503FB2C28D9180076EECB /* NukeExtensions in Frameworks */,
 			);
@@ -249,37 +209,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5707EEE82DCFEA4F00F9E616 /* Endpoint */ = {
-			isa = PBXGroup;
-			children = (
-				5707EEE22DCFEA4F00F9E616 /* Endpoint.swift */,
-				5707EEE32DCFEA4F00F9E616 /* EndpointInterpreter.swift */,
-				5707EEE42DCFEA4F00F9E616 /* GetEndpoint.swift */,
-				5707EEE52DCFEA4F00F9E616 /* InterpretedEndpoint.swift */,
-				5707EEE62DCFEA4F00F9E616 /* InterpretedHTTPMethod.swift */,
-				5707EEE72DCFEA4F00F9E616 /* PostEndpoint.swift */,
-			);
-			path = Endpoint;
-			sourceTree = "<group>";
-		};
-		5707EEEB2DCFEA4F00F9E616 /* Environment */ = {
-			isa = PBXGroup;
-			children = (
-				5707EEE92DCFEA4F00F9E616 /* Environment.swift */,
-				5707EEEA2DCFEA4F00F9E616 /* EnvironmentStore.swift */,
-			);
-			path = Environment;
-			sourceTree = "<group>";
-		};
-		5707EEF42DCFEC9C00F9E616 /* Fixtures */ = {
-			isa = PBXGroup;
-			children = (
-				5707EEF72DCFEDA400F9E616 /* available_slots_response_fixture.json */,
-				5707EEFB2DCFF09D00F9E616 /* venues_fixture.json */,
-			);
-			path = Fixtures;
-			sourceTree = "<group>";
-		};
 		57168CEA2C234888009E6150 /* AvailableReservationsView */ = {
 			isa = PBXGroup;
 			children = (
@@ -295,32 +224,8 @@
 				57168D342C23B94E009E6150 /* Extensions */,
 				57168D012C235566009E6150 /* Models */,
 				57168CF52C234E83009E6150 /* Data */,
-				57168CEE2C234BBD009E6150 /* Views */,
 			);
 			path = Utility;
-			sourceTree = "<group>";
-		};
-		57168CEE2C234BBD009E6150 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				574013AE2C2E2C7500DAD86B /* TextField */,
-				5725040B2C2A3AD10076EECB /* Card */,
-				572504012C28EB6B0076EECB /* Button */,
-				572503FE2C28EB570076EECB /* Images */,
-				57168D042C235609009E6150 /* Error */,
-				57168CFE2C2353E5009E6150 /* Progress */,
-				57168CEF2C234BC3009E6150 /* SelectDate */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		57168CEF2C234BC3009E6150 /* SelectDate */ = {
-			isa = PBXGroup;
-			children = (
-				57168CF02C234BCB009E6150 /* SelectDateView.swift */,
-				57168CFA2C235225009E6150 /* SelectDateRangeView.swift */,
-			);
-			path = SelectDate;
 			sourceTree = "<group>";
 		};
 		57168CF22C234BE4009E6150 /* AvailableReservationsGridView */ = {
@@ -348,28 +253,12 @@
 			path = Stores;
 			sourceTree = "<group>";
 		};
-		57168CFE2C2353E5009E6150 /* Progress */ = {
-			isa = PBXGroup;
-			children = (
-				57168CFF2C2353ED009E6150 /* DefaultProgressView.swift */,
-			);
-			path = Progress;
-			sourceTree = "<group>";
-		};
 		57168D012C235566009E6150 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				57168D022C23556F009E6150 /* RemoteViewState.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		57168D042C235609009E6150 /* Error */ = {
-			isa = PBXGroup;
-			children = (
-				57168D052C235612009E6150 /* ErrorView.swift */,
-			);
-			path = Error;
 			sourceTree = "<group>";
 		};
 		57168D0A2C235F26009E6150 /* AvailableReservationSlotView */ = {
@@ -529,10 +418,10 @@
 				57199D9F2C233A2B00AE2F8B /* Application */,
 				57199D952C2338E400AE2F8B /* User */,
 				57199D7A2C23168900AE2F8B /* CreateReservation */,
-				57199D552C2315C900AE2F8B /* Network */,
 				57199D2E2C2314F600AE2F8B /* Assets.xcassets */,
 				57199D302C2314F600AE2F8B /* ResyPro.entitlements */,
 				57199D312C2314F600AE2F8B /* Preview Content */,
+				57EA7E9A2DD0D73300E25108 /* Packages */,
 			);
 			path = ResyPro;
 			sourceTree = "<group>";
@@ -560,20 +449,6 @@
 				57199D482C2314F600AE2F8B /* ResyProUITestsLaunchTests.swift */,
 			);
 			path = ResyProUITests;
-			sourceTree = "<group>";
-		};
-		57199D552C2315C900AE2F8B /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				5707EEF42DCFEC9C00F9E616 /* Fixtures */,
-				57199D8C2C231A1100AE2F8B /* Headers */,
-				57199D602C23162F00AE2F8B /* NetworkClient.swift */,
-				57199D692C23162F00AE2F8B /* NetworkError.swift */,
-				57199D682C23162F00AE2F8B /* NetworkService.swift */,
-				5707EEE82DCFEA4F00F9E616 /* Endpoint */,
-				5707EEEB2DCFEA4F00F9E616 /* Environment */,
-			);
-			path = Network;
 			sourceTree = "<group>";
 		};
 		57199D7A2C23168900AE2F8B /* CreateReservation */ = {
@@ -634,14 +509,6 @@
 			path = AvailableSlots;
 			sourceTree = "<group>";
 		};
-		57199D8C2C231A1100AE2F8B /* Headers */ = {
-			isa = PBXGroup;
-			children = (
-				57199D8D2C231A1A00AE2F8B /* ResyBaseHeaderProvider.swift */,
-			);
-			path = Headers;
-			sourceTree = "<group>";
-		};
 		57199D8F2C231A3900AE2F8B /* ExistingReservations */ = {
 			isa = PBXGroup;
 			children = (
@@ -686,7 +553,6 @@
 			isa = PBXGroup;
 			children = (
 				57199D992C23390400AE2F8B /* User.swift */,
-				57199DA62C233AF500AE2F8B /* User+Environment.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -861,30 +727,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		572503FE2C28EB570076EECB /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				572503FF2C28EB5F0076EECB /* ImagesCarouselView.swift */,
-			);
-			path = Images;
-			sourceTree = "<group>";
-		};
-		572504012C28EB6B0076EECB /* Button */ = {
-			isa = PBXGroup;
-			children = (
-				572504022C28EB760076EECB /* ButtonStyles.swift */,
-			);
-			path = Button;
-			sourceTree = "<group>";
-		};
-		5725040B2C2A3AD10076EECB /* Card */ = {
-			isa = PBXGroup;
-			children = (
-				5725040C2C2A3AD60076EECB /* CardModifier.swift */,
-			);
-			path = Card;
-			sourceTree = "<group>";
-		};
 		5734986C2C24D79000DBB916 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
@@ -899,14 +741,6 @@
 				573498712C24E2C000DBB916 /* SchedueleReservationEndpoint.swift */,
 			);
 			path = Network;
-			sourceTree = "<group>";
-		};
-		574013AE2C2E2C7500DAD86B /* TextField */ = {
-			isa = PBXGroup;
-			children = (
-				574013AF2C2E2C8B00DAD86B /* IconTextField.swift */,
-			);
-			path = TextField;
 			sourceTree = "<group>";
 		};
 		574013B32C2E2E3A00DAD86B /* SeatingOptionSelectionView */ = {
@@ -926,6 +760,15 @@
 				574013AC2C2E0B1000DAD86B /* AutomaticSchedueleBookingView.swift */,
 			);
 			path = ManualSchedueleBookingView;
+			sourceTree = "<group>";
+		};
+		57EA7E9A2DD0D73300E25108 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				57EA7E9C2DD0D88400E25108 /* Network */,
+				57EA7EA02DD0DF7000E25108 /* DesignSystem */,
+			);
+			path = Packages;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -948,6 +791,8 @@
 				572503F82C28D9180076EECB /* Nuke */,
 				572503FA2C28D9180076EECB /* NukeExtensions */,
 				572503FC2C28D9180076EECB /* NukeUI */,
+				57EA7E9E2DD0DA2D00E25108 /* Network */,
+				57EA7EA12DD0E06C00E25108 /* DesignSystem */,
 			);
 			productName = ResyPro;
 			productReference = 57199D252C2314F500AE2F8B /* ResyPro.app */;
@@ -1023,6 +868,7 @@
 			mainGroup = 57199D1C2C2314F500AE2F8B;
 			packageReferences = (
 				572503F62C28D8D80076EECB /* XCRemoteSwiftPackageReference "Nuke" */,
+				57EA7E9D2DD0D8BA00E25108 /* XCLocalSwiftPackageReference "ResyPro/Packages/Network" */,
 			);
 			productRefGroup = 57199D262C2314F500AE2F8B /* Products */;
 			projectDirPath = "";
@@ -1040,8 +886,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5707EEF82DCFEDA400F9E616 /* available_slots_response_fixture.json in Resources */,
-				5707EEFC2DCFF09D00F9E616 /* venues_fixture.json in Resources */,
 				57168D0F2C2379C7009E6150 /* Restaurants.json in Resources */,
 				57199D332C2314F600AE2F8B /* Preview Assets.xcassets in Resources */,
 				57199D2F2C2314F600AE2F8B /* Assets.xcassets in Resources */,
@@ -1069,14 +913,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57199D742C23162F00AE2F8B /* NetworkService.swift in Sources */,
 				57199D832C2316E300AE2F8B /* GetBookingTokenEndpoint.swift in Sources */,
-				574013B02C2E2C8B00DAD86B /* IconTextField.swift in Sources */,
-				5725040D2C2A3AD60076EECB /* CardModifier.swift in Sources */,
-				57168CF12C234BCB009E6150 /* SelectDateView.swift in Sources */,
 				57199DAE2C233B4600AE2F8B /* SplashScreenView.swift in Sources */,
 				57168CEC2C2348EC009E6150 /* AvailableReservationsView.swift in Sources */,
-				572504002C28EB5F0076EECB /* ImagesCarouselView.swift in Sources */,
 				57199DB82C23401100AE2F8B /* GetAvailableSlotsResponse.swift in Sources */,
 				57199DC72C23454600AE2F8B /* AvailableReservation.swift in Sources */,
 				57199DCC2C23459100AE2F8B /* Resy+TypeAlias.swift in Sources */,
@@ -1097,32 +936,19 @@
 				572503E72C2797A50076EECB /* SchedueleReservationFormView.swift in Sources */,
 				57168D232C238155009E6150 /* VenueDetailsView.swift in Sources */,
 				57199DA52C233A5F00AE2F8B /* ResyConfig.swift in Sources */,
-				5707EEEC2DCFEA4F00F9E616 /* PostEndpoint.swift in Sources */,
-				5707EEED2DCFEA4F00F9E616 /* Environment.swift in Sources */,
-				5707EEEE2DCFEA4F00F9E616 /* GetEndpoint.swift in Sources */,
-				5707EEEF2DCFEA4F00F9E616 /* EnvironmentStore.swift in Sources */,
-				5707EEF02DCFEA4F00F9E616 /* InterpretedEndpoint.swift in Sources */,
-				5707EEF12DCFEA4F00F9E616 /* Endpoint.swift in Sources */,
-				5707EEF22DCFEA4F00F9E616 /* EndpointInterpreter.swift in Sources */,
-				5707EEF32DCFEA4F00F9E616 /* InterpretedHTTPMethod.swift in Sources */,
 				57199D912C231A4600AE2F8B /* GetExistingReservationsEndpoint.swift in Sources */,
 				57168CFD2C235350009E6150 /* AvailableReservationsView+ViewModel.swift in Sources */,
 				57168D212C237E16009E6150 /* VenueCard.swift in Sources */,
-				57168CFB2C235225009E6150 /* SelectDateRangeView.swift in Sources */,
 				57199DB02C233B6C00AE2F8B /* RootView.swift in Sources */,
 				572504152C2A3B190076EECB /* Location.swift in Sources */,
 				574013AD2C2E0B1000DAD86B /* AutomaticSchedueleBookingView.swift in Sources */,
 				574013B52C2E342F00DAD86B /* SeatingOptionViewType.swift in Sources */,
-				57168D062C235612009E6150 /* ErrorView.swift in Sources */,
 				5725040F2C2A3AEA0076EECB /* SupportedPartySize.swift in Sources */,
 				572503F22C279C500076EECB /* VenueMapper.swift in Sources */,
-				57168D002C2353ED009E6150 /* DefaultProgressView.swift in Sources */,
 				574013B22C2E2E0000DAD86B /* SeatingOptionSelectionView.swift in Sources */,
 				572503EE2C279B830076EECB /* SchedueleReservationFormView+ViewModel.swift in Sources */,
 				57199D8B2C23181000AE2F8B /* GetAvailableSlotsEndpoint.swift in Sources */,
-				57199D8E2C231A1A00AE2F8B /* ResyBaseHeaderProvider.swift in Sources */,
 				57199DD32C23462700AE2F8B /* AvailableReservationsRepository.swift in Sources */,
-				57199D6D2C23162F00AE2F8B /* NetworkClient.swift in Sources */,
 				57168D332C238C18009E6150 /* VenueDescriptionView.swift in Sources */,
 				57168D162C237B4F009E6150 /* Venue.swift in Sources */,
 				572504082C2A36F90076EECB /* LocationText.swift in Sources */,
@@ -1137,8 +963,6 @@
 				57168D362C23B95F009E6150 /* DateFormatter+Extensions.swift in Sources */,
 				57168D032C23556F009E6150 /* RemoteViewState.swift in Sources */,
 				57199D7E2C2316A100AE2F8B /* CreateReservationViewModel.swift in Sources */,
-				572504032C28EB760076EECB /* ButtonStyles.swift in Sources */,
-				57199DA72C233AF500AE2F8B /* User+Environment.swift in Sources */,
 				57865CD02C2D9571006C7D68 /* ManualSchedueleBookingView.swift in Sources */,
 				57199D852C23175C00AE2F8B /* ReservationResponse.swift in Sources */,
 				57199DD02C2345C300AE2F8B /* ResySlotConfigType.swift in Sources */,
@@ -1147,7 +971,6 @@
 				57199D942C2338BE00AE2F8B /* ConfirmBookingEndpoint.swift in Sources */,
 				57168D312C2386D7009E6150 /* SchedueledReservation.swift in Sources */,
 				572503F52C279CDC0076EECB /* ModelContextProtocol.swift in Sources */,
-				57199D752C23162F00AE2F8B /* NetworkError.swift in Sources */,
 				57199D9A2C23390400AE2F8B /* User.swift in Sources */,
 				57199DB62C233EDC00AE2F8B /* ResyAPIService.swift in Sources */,
 				5734986E2C24D7AA00DBB916 /* ScedueleReservationUseCase.swift in Sources */,
@@ -1512,6 +1335,13 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCLocalSwiftPackageReference section */
+		57EA7E9D2DD0D8BA00E25108 /* XCLocalSwiftPackageReference "ResyPro/Packages/Network" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ResyPro/Packages/Network;
+		};
+/* End XCLocalSwiftPackageReference section */
+
 /* Begin XCRemoteSwiftPackageReference section */
 		572503F62C28D8D80076EECB /* XCRemoteSwiftPackageReference "Nuke" */ = {
 			isa = XCRemoteSwiftPackageReference;
@@ -1538,6 +1368,14 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 572503F62C28D8D80076EECB /* XCRemoteSwiftPackageReference "Nuke" */;
 			productName = NukeUI;
+		};
+		57EA7E9E2DD0DA2D00E25108 /* Network */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Network;
+		};
+		57EA7EA12DD0E06C00E25108 /* DesignSystem */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DesignSystem;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

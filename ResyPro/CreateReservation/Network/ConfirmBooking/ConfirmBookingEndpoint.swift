@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Network
 
 struct ConfirmBookingEndpoint: PostEndpoint {
     
@@ -16,7 +17,7 @@ struct ConfirmBookingEndpoint: PostEndpoint {
     var queryParameters: [String: String]? { nil }
 
     var headers: [String: String]? {
-        var headers = HeaderProvider().commonHeaders(authToken: authToken)
+        var headers = HeaderProvider.commonHeaders(authToken: authToken)
         headers["content-type"] = "application/x-www-form-urlencoded"
         headers["origin"] = "https://widgets.resy.com"
         headers["referer"] = "https://widgets.resy.com/"

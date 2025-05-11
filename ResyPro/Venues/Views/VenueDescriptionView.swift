@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import DesignSystem
 
 struct VenueDescriptionDTO: Sendable {
     let name: String

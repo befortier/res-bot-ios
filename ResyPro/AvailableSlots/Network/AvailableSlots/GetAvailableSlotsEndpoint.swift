@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Network
 
 struct GetAvailableSlotsEndpoint: GetEndpoint {
     let baseURL: BaseURL = .resy
@@ -23,7 +24,7 @@ struct GetAvailableSlotsEndpoint: GetEndpoint {
     }
 
     var headers: [String: String]? {
-        HeaderProvider().commonHeaders()
+        HeaderProvider.commonHeaders()
     }
 
     let fixturesPath: String? = "available_slots_response_fixture"

@@ -8,9 +8,10 @@
 import Foundation
 import SwiftUI
 import SwiftData
+import DesignSystem
 
 struct VenuesListView<Card: View>: View {
-    @Query var venues: [Venue]
+    @Query(sort: \Venue.name) var venues: [Venue]
     let viewModel: ViewModel
     let cardView: (Venue) -> Card
 
@@ -27,6 +28,9 @@ struct VenuesListView<Card: View>: View {
             } else {
                 DefaultProgressView()
             }
+        }
+        .onChange(of: venues) { venues in
+            print("HERE", venues.count)
         }
         .task {
             do {

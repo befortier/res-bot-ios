@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Network
 
 struct GetBookingTokenEndpoint: GetEndpoint {
     let baseURL: BaseURL = .resy
@@ -23,6 +24,6 @@ struct GetBookingTokenEndpoint: GetEndpoint {
     }
 
     var headers: [String: String]? {
-        HeaderProvider().commonHeaders()
+        HeaderProvider.commonHeaders()
     }
 }

@@ -25,11 +25,14 @@ private let modelSchema = Schema([
     Venue.self
 ])
 
+@MainActor
 var sharedModelContainer: ModelContainer = {
     let modelConfiguration = ModelConfiguration(schema: modelSchema, isStoredInMemoryOnly: false)
 
     do {
-        return try ModelContainer(for: modelSchema, configurations: [modelConfiguration])
+        var modelContainer = try ModelContainer(for: modelSchema, configurations: [modelConfiguration])
+        modelContainer.mainContext.autosaveEnabled = false
+        return modelContainer
     } catch {
         fatalError("Could not create ModelContainer: \(error)")
     }

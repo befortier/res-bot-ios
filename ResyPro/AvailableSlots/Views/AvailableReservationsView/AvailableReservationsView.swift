@@ -7,8 +7,7 @@
 
 import Foundation
 import SwiftUI
-
-import SwiftUI
+import DesignSystem
 
 struct AvailableReservationsView: View {
     // Example data for times

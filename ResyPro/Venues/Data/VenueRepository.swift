@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Network
 
 protocol VenueRepository: Sendable {
     func refreshAllVenues() async throws
@@ -30,10 +31,14 @@ struct VenueRepositoryLive: VenueRepository {
     func refreshAllVenues() async throws {
         let getVenueEndpoint = GetAllVenuesEndpoint()
         let venueDTOs: [VenueDTO] = try await networkService.fetch(from: getVenueEndpoint)
+        
+        await MainActor.run {
+            for venueDTO in venueDTOs {
+                let venue = venueMapper.map(dto: venueDTO)
+                modelContext.insert(venue)
+            }
 
-        for venueDTO in venueDTOs {
-            let venue = venueMapper.map(dto: venueDTO)
-            await modelContext.insert(venue)
+            try? modelContext.save()
         }
     }
 }

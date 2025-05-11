@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Network
 
 struct ExistingReservationEndpoint: GetEndpoint {
     let baseURL: BaseURL = .resy
@@ -18,7 +19,7 @@ struct ExistingReservationEndpoint: GetEndpoint {
     
 
     var headers: [String: String]? {
-        HeaderProvider().commonHeaders(authToken: authToken)
+        HeaderProvider.commonHeaders(authToken: authToken)
     }
 }
 

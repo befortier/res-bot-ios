@@ -6,11 +6,14 @@
 //
 
 import Foundation
-import SwiftData
+@preconcurrency import SwiftData
 
 @MainActor
-protocol ModelContextProtocol {
+protocol ModelContextProtocol: Sendable {
+    var autosaveEnabled: Bool { get set }
     func insert<T>(_ model: T) where T : PersistentModel
+
+    func save() throws
 }
 
 

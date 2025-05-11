@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct HeaderProvider {
-    func commonHeaders(authToken: String? = nil) -> [String: String] {
+public enum HeaderProvider {
+    public static func commonHeaders(authToken: String? = nil) -> [String: String] {
         var headers = [
             "authority": "api.resy.com",
             "accept": "application/json, text/plain, */*",

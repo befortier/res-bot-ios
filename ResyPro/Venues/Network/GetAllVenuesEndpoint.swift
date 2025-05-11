@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Network
 
 struct GetAllVenuesEndpoint: GetEndpoint {
     let baseURL: BaseURL = .backend

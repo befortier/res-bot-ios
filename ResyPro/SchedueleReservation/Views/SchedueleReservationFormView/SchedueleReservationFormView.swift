@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import SwiftData
+import DesignSystem
 
 struct SchedueleReservationFormView: View {
     @Environment(\.modelContext) var modelContext
@@ -45,6 +46,7 @@ struct SchedueleReservationFormView: View {
                 }
             }
         }
+        .ignoresSafeArea(edges: .top)
     }
 
     @ViewBuilder

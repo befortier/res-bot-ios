@@ -1,6 +1,14 @@
+//
+//  EndpointInterpreter.swift
+//  Network
+//
+//  Created by Ben Fortier on 6/19/24.
+//
+
 import Foundation
 
-struct EndpointInterpreter {
+/// A struct representing...
+public struct EndpointInterpreter {
     static func interpret(endpoint: Endpoint) -> URLRequest? {
         guard let url = URL(string: endpoint.baseURL.rawValue + endpoint.path) else { return nil }
         var components = URLComponents(url: url, resolvingAgainstBaseURL: false)
