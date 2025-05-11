@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import SwiftData
+import User
 
 struct SplashScreenView: View {
     @Environment(\.modelContext) var modelContext

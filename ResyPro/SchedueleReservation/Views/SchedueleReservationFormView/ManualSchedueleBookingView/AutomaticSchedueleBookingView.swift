@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import DesignSystem
+import Venues
 
 struct AutomaticSchedueleBookingView: View {
     @StateObject var viewModel: ViewModel

@@ -7,6 +7,8 @@
 
 import Foundation
 import Network
+import User
+import Venues
 
 struct SchedueleReservationEndpoint: PostEndpoint {
     let baseURL: BaseURL = .backend

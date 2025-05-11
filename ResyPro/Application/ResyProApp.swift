@@ -7,6 +7,8 @@
 
 import SwiftUI
 import SwiftData
+import User
+import Venues
 
 @main
 struct ResyProApp: App {

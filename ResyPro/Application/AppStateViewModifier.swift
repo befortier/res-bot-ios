@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import User
 
 private struct AppStateViewModifier: ViewModifier {
     let appState: AppState

@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftData
+import Venues
 
 @Model
 final class SchedueledReservation: Identifiable, Equatable {
