@@ -9,18 +9,21 @@ import Foundation
 import SwiftUI
 
 struct CreateReservationView: View {
-    @StateObject private var viewModel = CreateReservationViewModel()
-    @Environment(\.resyConfig) var resyConfig: ResyConfig
+    @StateObject private var viewModel: CreateReservationViewModel
     @State private var showModal = false
     @State private var modalMessage = ""
+
+    init(viewModel: @escaping @autoclosure () -> CreateReservationViewModel) {
+        self._viewModel = StateObject(wrappedValue: viewModel())
+    }
 
     var body: some View {
         NavigationView {
             VStack {
                 Form {
                     Section(header: Text("User Credentials")) {
-                        TextField("Payment ID", text: $viewModel.paymentID)
-                        TextField("Auth Token", text: $viewModel.authToken)
+//                        TextField("Payment ID", text: .constant(viewModel.resyConfig.paymentID))
+//                        TextField("Auth Token", text: .constant((viewModel.authToken)))
 
 //                        Button(action: viewModel.saveCredentials) {
 //                            Text("Save Credentials")
@@ -48,7 +51,6 @@ struct CreateReservationView: View {
                     .font(.largeTitle)
                     .padding()
             }
-            .onAppear { viewModel.viewDidAppear(resyConfig: resyConfig) }
         }
     }
 }

@@ -5,23 +5,14 @@
 //  Created by Ben Fortier on 6/19/24.
 //
 
-
-import Foundation
-
-//
-//  SchedueledReservation.swift
-//  ResyPro
-//
-//  Created by Ben Fortier on 6/19/24.
-//
-
 import Foundation
 import SwiftData
 
 @Model
 public final class Venue: Identifiable, Equatable {
-    @Attribute(.unique) var venueID: Int
-    
+    public var id: Int { venueID }
+    @Attribute(.unique) public var venueID: Int
+
     @Relationship(inverse: \Location.venue) public var location: Location
     @Relationship(inverse: \VenueSlot.venue) public var slots: [VenueSlot]
     @Relationship(inverse: \BookingInfo.venue) public var bookingInfo: BookingInfo?

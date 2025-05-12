@@ -9,21 +9,6 @@ import Foundation
 import SwiftUI
 import User
 
-private struct AppStateViewModifier: ViewModifier {
-    let appState: AppState
-
-    func body(content: Content) -> some View {
-        content
-            .environment(\.resyConfig, appState.resyConfig)
-    }
-}
-
-extension View {
-    func setAppState(_ appState: AppState) -> some View {
-        environment(\.resyConfig, appState.resyConfig)
-    }
-}
-
 @MainActor
 struct AppState {
     let user: User

@@ -17,9 +17,7 @@ class CreateReservationViewModel: ObservableObject {
     @Published var time = ""
     @Published var partySize = ""
 
-    
-    @Published var paymentID = ""
-    @Published var authToken = ""
+    let resyConfig: ResyConfig
 
     /*
      VENUE_ID=2790
@@ -38,14 +36,11 @@ class CreateReservationViewModel: ObservableObject {
         networkService: any NetworkService = NetworkServiceLive(
             client: URLSession.shared,
             jsonDecoder: JSONDecoder()
-        )
+        ),
+        resyConfig: ResyConfig
     ) {
         self.networkService = networkService
-    }
-
-    func viewDidAppear(resyConfig: ResyConfig) {
-        self.paymentID = resyConfig.paymentID
-        self.authToken = resyConfig.authToken
+        self.resyConfig = resyConfig
     }
 
 //    func saveCredentials() {

@@ -1,5 +1,5 @@
 //
-//  VenuesListView.swift
+//  VenueCardListView.swift
 //  Venues
 //
 //  Created by Ben Fortier on 6/19/24.
@@ -12,7 +12,7 @@ import DesignSystem
 import ProjectFoundation
 
 /// A struct defined in the Venues module.
-public struct VenuesListView<Card: View>: View {
+public struct VenueCardListView<Card: View>: View {
     @Query(sort: \Venue.name) var venues: [Venue]
     private let viewModel: ViewModel
     private let cardView: (Venue) -> Card
@@ -32,7 +32,6 @@ public struct VenuesListView<Card: View>: View {
                     VStack(spacing: 24) {
                         ForEach(venues) { venue in
                             cardView(venue)
-                                .padding(.horizontal, 8)
                         }
                     }
                 }
@@ -46,7 +45,7 @@ public struct VenuesListView<Card: View>: View {
     }
 }
 
-extension VenuesListView {
+extension VenueCardListView {
     public struct ViewModel: Sendable {
         private let venueRepository: any VenueRepository
 

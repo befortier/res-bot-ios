@@ -18,21 +18,18 @@ struct RootView: View {
     @Query private var users: [User]
     @Query private var resyConfigs: [ResyConfig]
 
-    @State private var appState: AppState?
-
     var body: some View {
         Group {
             if
                 let user = users.first,
                 let resyConfig = resyConfigs.first
             {
-                MainTabView()
-                    .setAppState(
-                        AppState(
-                            user: user,
-                            resyConfig: resyConfig
-                        )
+                MainTabView(
+                    appState: AppState(
+                        user: user,
+                        resyConfig: resyConfig
                     )
+                )
             } else {
                 SplashScreenView()
             }

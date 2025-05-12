@@ -15,7 +15,8 @@ let package = Package(
     dependencies: [
         .package(path: "../DesignSystem"),
         .package(path: "../Network"),
-        .package(path: "../ProjectFoundation")
+        .package(path: "../ProjectFoundation"),
+        .package(url: "https://github.com/kean/Nuke.git", from: "12.0.0")
     ],
     targets: [
         .target(
@@ -23,7 +24,8 @@ let package = Package(
             dependencies: [
                 "DesignSystem",
                 "Network",
-                "ProjectFoundation"
+                "ProjectFoundation",
+                .product(name: "NukeUI", package: "Nuke")
             ]
         )
     ]

@@ -5,7 +5,6 @@
 //  Created by Ben Fortier on 6/19/24.
 //
 
-
 import Foundation
 
 /// A enum defined in the Venues module.

@@ -13,7 +13,6 @@ import Venues
 
 struct SchedueleReservationFormView: View {
     @Environment(\.modelContext) var modelContext
-    @Environment(\.resyConfig) var resyConfig
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @StateObject var viewModel: ViewModel
 
@@ -24,39 +23,19 @@ struct SchedueleReservationFormView: View {
     var body: some View {
         VStack(spacing: 16) {
             self.venueDescriptionView
-            ScrollView {
-                self.header
-                Divider()
-
-                self.formContent
-            }
+            self.header
+            Divider()
+            self.formContent
             Spacer()
         }
-        .background(Color(UIColor.systemGray6))
-        .ignoresSafeArea(edges: .top)
-        .navigationBarBackButtonHidden(true) // Hide the default back button
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button(action: {
-                    presentationMode.wrappedValue.dismiss()
-                }) {
-                    HStack {
-                        Image(systemName: "chevron.left") // Custom back button image
-                        Text("Back") // Custom back button text
-                    }
-                }
-            }
-        }
-        .ignoresSafeArea(edges: .top)
     }
 
     @ViewBuilder
     private var header: some View {
         VStack(spacing: 16) {
-
             switch viewModel.state {
-            case .selectDates: EmptyView()
-
+            case .selectDates:
+                EmptyView()
             case .selectPartySize(let reservationDate, let queuedDate):
                 Text("Reservation time: ") + Text(reservationDate, formatter: DateIntervalFormatter.short)
                 Text("Bot time: ") + Text(queuedDate, formatter: DateFormatter.short)
@@ -75,7 +54,6 @@ struct SchedueleReservationFormView: View {
                         )
                     }
                 }
-
             }
         }
     }
@@ -138,13 +116,15 @@ struct SchedueleReservationFormView: View {
     }
 
     private var venueDescriptionView: some View {
-        VenueDescriptionView(
-            venue: .init(
-                name: self.viewModel.venue.name,
-                needToKnow: self.viewModel.venue.needToKnow,
-                imageURLS: self.viewModel.venue.images
-            )
-        )
+        VStack(spacing: 8) {
+            Text(viewModel.venue.name)
+                .font(.title)
+
+            if let needToKnow = viewModel.venue.needToKnow {
+                Text(needToKnow)
+                    .font(.subheadline)
+            }
+        }
     }
 
     @ViewBuilder

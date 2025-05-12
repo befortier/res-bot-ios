@@ -10,9 +10,9 @@ import SwiftUI
 import SwiftData
 
 struct MainTabView: View {
-    @State private var selectedTab = Tab.allCases.first
-    @Environment(\.modelContext) var modelContext: ModelContext
-    @Environment(\.resyConfig) var resyConfig: ResyConfig
+    @State private var selectedTab: Tab
+    @Environment(\.modelContext) private var modelContext: ModelContext
+    private let appState: AppState
 
     enum Tab: CaseIterable {
         case schedueleReservation
@@ -20,6 +20,11 @@ struct MainTabView: View {
         case schedueleNotification
 
         case browse
+    }
+
+    init(appState: AppState) {
+        self._selectedTab = State(wrappedValue: .schedueleReservation)
+        self.appState = appState
     }
 
     var body: some View {
@@ -35,7 +40,7 @@ struct MainTabView: View {
                     .tabItem {
                         Image(systemName: "list.bullet")
                     }
-                    .tag(Tab.schedueleReservation)
+                    .tag(Tab.schedueleNotification)
 
                 AvailableReservationsView(viewModel: .init())
                     .tabItem {
@@ -51,8 +56,7 @@ struct MainTabView: View {
 
 
 #Preview {
-    MainTabView()
-        .setAppState(.stub())
+    MainTabView(appState: .stub())
 }
 
 
@@ -63,9 +67,24 @@ struct BrowseView: View {
     }
 }
 
+import Venues
+import Notifications
+
 struct SchedueleNotificationView: View {
+    @Query(sort: \Venue.name) var venues: [Venue]
+
     var body: some View {
-        Text("Coming Soon")
+        BulkNotificationFlowView(
+            viewModel: BulkNotificationFlowViewModel(
+                allVenues: venues,
+                submitter: { request in
+                    return VenueSubmissionResult(
+                        interval: request.interval,
+                        results: []
+                    )
+                }
+            )
+        )
     }
 }
 

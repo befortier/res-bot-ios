@@ -20,21 +20,43 @@ struct SchedueleReservationHomeView: View {
             Spacer()
 
             self.venuesListView
-            .navigationTitle("Reserve your reservation")
+                .navigationTitle("Reserve your reservation")
             Spacer()
         }
     }
 
-    @MainActor
     private var venuesListView: some View {
-        VenuesListView(
-            viewModel: VenuesListView.ViewModel(modelContext: modelContext),
-            cardView: { venue in
-                NavigationLink(destination: SchedueleReservationFormView(viewModel: .init(venue: venue))) {
-                    VenueCard(venue: venue)
-                        .padding(.horizontal, 16)
-                }
+        VenueCardListView(viewModel: VenueCardListView.ViewModel(modelContext: modelContext)) { venue in
+            NavigationLink(
+                destination: DefaultVenueDetailsDestinationView(venue: venue)
+            ) {
+                VenueCard(model: VenueCardModel(venue: venue))
+                    .padding(.horizontal, 16)
             }
-        )
+        }
+    }
+}
+
+
+struct DefaultVenueDetailsDestinationView: View {
+    @State var showScheduleBotModal: Bool = false
+    let venue: Venue
+
+    var body: some View {
+        VenueDetailsView(viewState: .init(venue: venue)) { action in
+            switch action {
+            case .notifyMe:
+                break
+            case .scheduleBot:
+                showScheduleBotModal = true
+            case .seeAvailability:
+                break
+            }
+        }
+        .sheet(isPresented: $showScheduleBotModal) {
+            SchedueleReservationFormView(
+                viewModel: .init(venue: venue)
+            )
+        }
     }
 }

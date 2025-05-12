@@ -14,7 +14,8 @@
       "urlSlug": "bungalow"
     },
     "images": [
-      "https://t3.ftcdn.net/jpg/03/24/73/92/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg"
+      "https://t3.ftcdn.net/jpg/03/24/73/92/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg",
+
     ],
     "slots": [
       {
@@ -622,7 +623,8 @@
       "urlSlug": "broken-shaker"
     },
     "images": [
-      "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7"
+      "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7",
+      "https://t3.ftcdn.net/jpg/03/24/73/92/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg"
     ],
     "slots": [
       {

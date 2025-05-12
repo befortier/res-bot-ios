@@ -32,7 +32,6 @@
 		57199D942C2338BE00AE2F8B /* ConfirmBookingEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D932C2338BE00AE2F8B /* ConfirmBookingEndpoint.swift */; };
 		57199DA12C233A3800AE2F8B /* AppStateViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199DA02C233A3800AE2F8B /* AppStateViewModifier.swift */; };
 		57199DA52C233A5F00AE2F8B /* ResyConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199DA42C233A5F00AE2F8B /* ResyConfig.swift */; };
-		57199DA92C233B0000AE2F8B /* ResyConfig+Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199DA82C233B0000AE2F8B /* ResyConfig+Environment.swift */; };
 		57199DAE2C233B4600AE2F8B /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199DAD2C233B4600AE2F8B /* SplashScreenView.swift */; };
 		57199DB02C233B6C00AE2F8B /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199DAF2C233B6C00AE2F8B /* RootView.swift */; };
 		57199DB32C233B8900AE2F8B /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199DB22C233B8900AE2F8B /* MainTabView.swift */; };
@@ -59,6 +58,10 @@
 		57EA7EA22DD0E06C00E25108 /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 57EA7EA12DD0E06C00E25108 /* DesignSystem */; };
 		57EA7EBF2DD0E2C600E25108 /* User in Frameworks */ = {isa = PBXBuildFile; productRef = 57EA7EBE2DD0E2C600E25108 /* User */; };
 		57FAFD432DD0EC4A0059A036 /* Venues in Frameworks */ = {isa = PBXBuildFile; productRef = 57FAFD422DD0EC4A0059A036 /* Venues */; };
+		57FAFD482DD111FF0059A036 /* SeatingOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FAFD452DD111FF0059A036 /* SeatingOptionView.swift */; };
+		57FAFD492DD111FF0059A036 /* SeatingOptionViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FAFD462DD111FF0059A036 /* SeatingOptionViewType.swift */; };
+		57FAFD4A2DD111FF0059A036 /* SeatingOptionSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FAFD442DD111FF0059A036 /* SeatingOptionSelectionView.swift */; };
+		57FAFD4E2DD153060059A036 /* Notifications in Frameworks */ = {isa = PBXBuildFile; productRef = 57FAFD4D2DD153060059A036 /* Notifications */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,7 +112,6 @@
 		57199D932C2338BE00AE2F8B /* ConfirmBookingEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmBookingEndpoint.swift; sourceTree = "<group>"; };
 		57199DA02C233A3800AE2F8B /* AppStateViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStateViewModifier.swift; sourceTree = "<group>"; };
 		57199DA42C233A5F00AE2F8B /* ResyConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResyConfig.swift; sourceTree = "<group>"; };
-		57199DA82C233B0000AE2F8B /* ResyConfig+Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ResyConfig+Environment.swift"; sourceTree = "<group>"; };
 		57199DAD2C233B4600AE2F8B /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		57199DAF2C233B6C00AE2F8B /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		57199DB22C233B8900AE2F8B /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
@@ -134,6 +136,10 @@
 		57EA7EBC2DD0E2B000E25108 /* DesignSystem */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DesignSystem; sourceTree = "<group>"; };
 		57FAFD402DD0E7180059A036 /* Venues */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Venues; sourceTree = "<group>"; };
 		57FAFD412DD0E83B0059A036 /* ProjectFoundation */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = ProjectFoundation; sourceTree = "<group>"; };
+		57FAFD442DD111FF0059A036 /* SeatingOptionSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatingOptionSelectionView.swift; sourceTree = "<group>"; };
+		57FAFD452DD111FF0059A036 /* SeatingOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatingOptionView.swift; sourceTree = "<group>"; };
+		57FAFD462DD111FF0059A036 /* SeatingOptionViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatingOptionViewType.swift; sourceTree = "<group>"; };
+		57FAFD4C2DD151690059A036 /* Notifications */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Notifications; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +154,7 @@
 				572503F92C28D9180076EECB /* Nuke in Frameworks */,
 				572503FB2C28D9180076EECB /* NukeExtensions in Frameworks */,
 				57EA7EBF2DD0E2C600E25108 /* User in Frameworks */,
+				57FAFD4E2DD153060059A036 /* Notifications in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,6 +256,7 @@
 				572503EC2C279B790076EECB /* SchedueleReservationFormView */,
 				57168D2C2C238665009E6150 /* SchedueleReservationHomeView.swift */,
 				57168D2E2C23869E009E6150 /* SchedeuledReservationsCarouselView.swift */,
+				57FAFD472DD111FF0059A036 /* SeatingOptionSelectionView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -414,7 +422,6 @@
 			isa = PBXGroup;
 			children = (
 				57199DA42C233A5F00AE2F8B /* ResyConfig.swift */,
-				57199DA82C233B0000AE2F8B /* ResyConfig+Environment.swift */,
 				57199DCB2C23459100AE2F8B /* Resy+TypeAlias.swift */,
 			);
 			path = Models;
@@ -577,8 +584,19 @@
 				570991542DD0E3CC00469B25 /* User */,
 				57FAFD402DD0E7180059A036 /* Venues */,
 				57FAFD412DD0E83B0059A036 /* ProjectFoundation */,
+				57FAFD4C2DD151690059A036 /* Notifications */,
 			);
 			path = Packages;
+			sourceTree = "<group>";
+		};
+		57FAFD472DD111FF0059A036 /* SeatingOptionSelectionView */ = {
+			isa = PBXGroup;
+			children = (
+				57FAFD442DD111FF0059A036 /* SeatingOptionSelectionView.swift */,
+				57FAFD452DD111FF0059A036 /* SeatingOptionView.swift */,
+				57FAFD462DD111FF0059A036 /* SeatingOptionViewType.swift */,
+			);
+			path = SeatingOptionSelectionView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -605,6 +623,7 @@
 				57EA7EA12DD0E06C00E25108 /* DesignSystem */,
 				57EA7EBE2DD0E2C600E25108 /* User */,
 				57FAFD422DD0EC4A0059A036 /* Venues */,
+				57FAFD4D2DD153060059A036 /* Notifications */,
 			);
 			productName = ResyPro;
 			productReference = 57199D252C2314F500AE2F8B /* ResyPro.app */;
@@ -727,6 +746,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57FAFD482DD111FF0059A036 /* SeatingOptionView.swift in Sources */,
+				57FAFD492DD111FF0059A036 /* SeatingOptionViewType.swift in Sources */,
+				57FAFD4A2DD111FF0059A036 /* SeatingOptionSelectionView.swift in Sources */,
 				57199D832C2316E300AE2F8B /* GetBookingTokenEndpoint.swift in Sources */,
 				57199DAE2C233B4600AE2F8B /* SplashScreenView.swift in Sources */,
 				57168CEC2C2348EC009E6150 /* AvailableReservationsView.swift in Sources */,
@@ -739,7 +761,6 @@
 				57199D292C2314F500AE2F8B /* ResyProApp.swift in Sources */,
 				57168D2D2C238665009E6150 /* SchedueleReservationHomeView.swift in Sources */,
 				57199DA12C233A3800AE2F8B /* AppStateViewModifier.swift in Sources */,
-				57199DA92C233B0000AE2F8B /* ResyConfig+Environment.swift in Sources */,
 				57168D0C2C235F33009E6150 /* AvailableReservationSlotView.swift in Sources */,
 				57199D7C2C23169A00AE2F8B /* CreateReservationView.swift in Sources */,
 				57168D092C235C09009E6150 /* AvailableReservationResponseMapper.swift in Sources */,
@@ -1183,6 +1204,10 @@
 		57FAFD422DD0EC4A0059A036 /* Venues */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Venues;
+		};
+		57FAFD4D2DD153060059A036 /* Notifications */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Notifications;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
