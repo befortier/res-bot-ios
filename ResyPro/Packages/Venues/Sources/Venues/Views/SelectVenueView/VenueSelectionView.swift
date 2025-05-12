@@ -31,18 +31,18 @@ public struct VenueSelectionView: View {
 
     public var body: some View {
         VStack(spacing: 12) {
-            HStack {
-                Text("Select Venues")
-                    .font(.title2)
-                    .bold()
-                Spacer()
-                Button("Filters") {
-                    showingFilters = true
-                }
-            }
-            .padding(.horizontal)
-
             ScrollView {
+                HStack {
+                    Text("Select Venues")
+                        .font(.title2)
+                        .bold()
+                    Spacer()
+                    Button("Filters") {
+                        showingFilters = true
+                    }
+                }
+                .padding(.horizontal)
+
                 VerticalVenueCardGridView(venues: filteredVenues) { viewState in
                     Button {
                         toggleSelection(viewState.id)
@@ -60,7 +60,6 @@ public struct VenueSelectionView: View {
                 onSubmit()
             }
             .buttonStyle(PrimaryButtonStyle())
-            .cardStyle()
         }
         .sheet(isPresented: $showingFilters) {
             VenueFilterSheet(

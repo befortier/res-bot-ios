@@ -12,21 +12,21 @@ import Venues
 @MainActor
 public struct BulkNotificationFlowViewModel {
 
-    private let submitter: (BulkNotificationSubmissionRequest) async throws -> NotificationSubmissionResult
+    private let submitter: (BulkNotificationSubmissionRequest) async throws -> NotificationSubmissionResponse
 
     /// The list of venues available for selection.
     public let allVenues: [Venue]
 
     public init(
         allVenues: [Venue],
-        submitter: @escaping (BulkNotificationSubmissionRequest) async throws -> NotificationSubmissionResult
+        submitter: @escaping (BulkNotificationSubmissionRequest) async throws -> NotificationSubmissionResponse
     ) {
         self.allVenues = allVenues
         self.submitter = submitter
     }
 
     /// Submits a bulk reservation notification request using the provided view state.
-    public func submit(from state: BulkNotificationFlowView.ViewState) async throws -> NotificationSubmissionResult {
+    public func submit(from state: BulkNotificationFlowView.ViewState) async throws -> NotificationSubmissionResponse {
         try await submitter(
             BulkNotificationSubmissionRequest(
                 interval: state.dateInterval,

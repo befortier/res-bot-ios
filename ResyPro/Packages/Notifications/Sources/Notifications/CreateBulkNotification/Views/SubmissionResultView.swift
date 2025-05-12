@@ -9,7 +9,7 @@ import SwiftUI
 import DesignSystem
 
 public struct SubmissionResultView: View {
-    let result: NotificationSubmissionResult?
+    let result: NotificationSubmissionResponse?
 
     public var body: some View {
         VStack(spacing: 16) {

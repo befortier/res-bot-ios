@@ -8,7 +8,7 @@
 import Foundation
 
 /// A request to create reservation notifications across multiple venues.
-public struct BulkNotificationSubmissionRequest: Equatable, Sendable {
+public struct BulkNotificationSubmissionRequest: Equatable, Sendable, Encodable {
     /// The requested reservation date and time range.
     public let interval: DateInterval
 

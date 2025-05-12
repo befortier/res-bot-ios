@@ -15,15 +15,17 @@ public struct SelectableVenueCard: View {
 
     public var body: some View {
         VerticalVenueCard(viewState: venueCardViewState)
-            .overlay(alignment: .bottomTrailing) {
-                if isSelected {
-                    Image(systemName: "checkmark.circle.fill")
-                        .foregroundColor(.green)
-                        .padding(4)
-                }
-            }
             .overlay {
-                isSelected ? Color.green.opacity(0.02) : nil
+                ZStack(alignment: .bottomTrailing) {
+                    if isSelected {
+                        Image(systemName: "checkmark.circle.fill")
+                            .foregroundColor(.green)
+                            .padding(4)
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.green, lineWidth: 1)
+                        Color.green.opacity(0.02)
+                    }
+                }
             }
     }
 }
@@ -40,6 +42,5 @@ public struct SelectableVenueCard: View {
             isSelected: false
         )
         .frame(height: 200)
-
     }
 }

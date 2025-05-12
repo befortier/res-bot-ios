@@ -61,7 +61,7 @@ public struct VenueFilterSheet: View {
     }
 
     private func priceFilterView(_ price: Int) -> some View {
-        Text(String(repeating: "$", count: price))
+        Text(price: price)
             .padding(.vertical, 6)
             .padding(.horizontal, 10)
             .background(

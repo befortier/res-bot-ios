@@ -19,20 +19,21 @@ public struct VerticalVenueCard: View {
 
     public var body: some View {
         GeometryReader { geo in
-            VStack(spacing: 0) {
+            VStack(spacing: .zero) {
                 imageSection
                     .frame(height: geo.size.height * 0.45)
                     .clipped()
 
-                VStack(spacing: 4) {
+                VStack(spacing: 2) {
                     Text(viewState.name)
                         .font(.headline)
-                        .multilineTextAlignment(.center)
                         .foregroundStyle(Color.textPrimary)
                         .padding(.bottom, 4)
-                    Text("\(viewState.cuisineType) • \(String(repeating: "$", count: viewState.priceRange))")
-                        .font(.subheadline)
+
+                    Text(viewState.cuisineType)
+                        .font(.callout)
                         .foregroundStyle(Color.textSecondary)
+                        .lineLimit(2)
 
                     Text(viewState.neighborhood)
                         .font(.footnote)
@@ -41,7 +42,13 @@ public struct VerticalVenueCard: View {
                 .padding(12)
             }
         }
-        .aspectRatio(1, contentMode: .fit)
+        .overlay(alignment: .bottomLeading) {
+            Text(price: viewState.priceRange)
+                .font(.caption2)
+                .foregroundStyle(Color.textSecondary)
+                .padding(4)
+        }
+        .aspectRatio(0.85, contentMode: .fit)
         .cardStyle()
     }
 
@@ -58,6 +65,7 @@ public struct VerticalVenueCard: View {
     }
 }
 
+// MARK: Prevew
 
 #Preview {
     VerticalVenueCard(viewState: .init(venue: .laserWolf))

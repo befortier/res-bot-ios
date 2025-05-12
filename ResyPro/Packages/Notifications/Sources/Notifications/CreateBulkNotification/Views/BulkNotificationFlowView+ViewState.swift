@@ -13,10 +13,10 @@ public extension BulkNotificationFlowView {
     struct ViewState: Equatable {
 
         /// The current step in the flow.
-        public enum Step: Equatable {
+        public enum Step: Equatable, Sendable {
             case selectTime
             case selectVenues
-            case submitted(NotificationSubmissionResult?)
+            case submitted(NotificationSubmissionResponse?)
         }
 
         /// Current step in the UI flow.
