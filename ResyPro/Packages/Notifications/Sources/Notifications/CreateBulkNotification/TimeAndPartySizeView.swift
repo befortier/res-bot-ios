@@ -32,11 +32,15 @@ public struct TimeAndPartySizeView: View {
                         .font(.title2)
                         .frame(maxWidth: .infinity, alignment: .leading)
 
-                    SelectDateRangeView(selectedDateRange: $dateInterval)
+                    SelectDateRangeView(
+                        selectedDateRange: $dateInterval
+                    )
                         .datePickerStyle(.graphical)
                 }
 
-                PartySizeRangeSelectorView(partySizeRange: $partySizeRange)
+                PartySizeRangeSelectorView(
+                    partySizeRange: $partySizeRange
+                )
 
                 Button("Next: Choose Venues") {
                     onNext()

@@ -10,7 +10,7 @@ import Foundation
 import Venues
 
 @MainActor
-public final class BulkNotificationFlowViewModel: ObservableObject {
+public struct BulkNotificationFlowViewModel {
 
     private let submitter: (BulkNotificationSubmissionRequest) async throws -> NotificationSubmissionResult
 

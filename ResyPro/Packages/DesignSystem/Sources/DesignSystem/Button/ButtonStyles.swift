@@ -15,7 +15,7 @@ public struct PrimaryButtonStyle: ButtonStyle {
         configuration.label
             .padding()
             .foregroundColor(.white)
-            .background(Color.blue)
+            .background(Color.buttonPrimary)
             .cornerRadius(8)
             .scaleEffect(configuration.isPressed ? 0.95 : 1.0)
             .opacity(configuration.isPressed ? 0.8 : 1.0)
@@ -28,13 +28,9 @@ public struct SecondaryButtonStyle: ButtonStyle {
     public func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .padding()
-            .foregroundColor(.blue)
-            .background(Color.white)
+            .foregroundStyle(Color.white)
+            .background(Color.buttonTertiary)
             .cornerRadius(8)
-            .overlay(
-                RoundedRectangle(cornerRadius: 8)
-                    .stroke(Color.blue, lineWidth: 1)
-            )
             .scaleEffect(configuration.isPressed ? 0.95 : 1.0)
             .opacity(configuration.isPressed ? 0.8 : 1.0)
     }
@@ -45,9 +41,22 @@ public struct TertiaryButtonStyle: ButtonStyle {
     public func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .padding()
-            .foregroundColor(.blue)
+            .foregroundStyle(Color.buttonSecondary)
             .scaleEffect(configuration.isPressed ? 0.95 : 1.0)
             .opacity(configuration.isPressed ? 0.8 : 1.0)
 
+    }
+}
+
+#Preview {
+    VStack {
+        Button("Primary Button") {}
+            .buttonStyle(PrimaryButtonStyle())
+
+        Button("Secondary Button") {}
+            .buttonStyle(SecondaryButtonStyle())
+
+        Button("Tertiary Button") {}
+            .buttonStyle(TertiaryButtonStyle())
     }
 }
