@@ -78,7 +78,7 @@ struct SchedueleNotificationView: View {
             viewModel: BulkNotificationFlowViewModel(
                 allVenues: venues,
                 submitter: { request in
-                    return VenueSubmissionResult(
+                    return NotificationSubmissionResult(
                         interval: request.interval,
                         results: []
                     )

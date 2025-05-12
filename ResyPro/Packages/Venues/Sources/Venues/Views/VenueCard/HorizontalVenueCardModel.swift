@@ -1,5 +1,5 @@
 //
-//  VenueCardModel.swift
+//  HorizontalVenueCardModel.swift
 //  Venues
 //
 //  Created by Ben Fortier on 5/11/25.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct VenueCardModel: Sendable, Equatable, Identifiable {
+public struct HorizontalVenueCardModel: Sendable, Equatable, Identifiable {
     public let id: Int
     public let imageURL: URL?
     public let name: String

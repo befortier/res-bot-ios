@@ -1,5 +1,5 @@
 //
-//  VenueSubmissionResult.swift
+//  NotificationSubmissionResult.swift
 //  Venues
 //
 //  Created by Ben Fortier on 5/11/25.
@@ -8,7 +8,7 @@
 import Foundation
 
 /// The result of a bulk reservation notification submission.
-public struct VenueSubmissionResult: Equatable, Sendable {
+public struct NotificationSubmissionResult: Equatable, Sendable {
     /// The date interval requested by the user.
     public let interval: DateInterval
 

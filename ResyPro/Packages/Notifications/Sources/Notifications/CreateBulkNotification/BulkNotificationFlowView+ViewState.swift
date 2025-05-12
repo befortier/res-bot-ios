@@ -16,7 +16,7 @@ public extension BulkNotificationFlowView {
         public enum Step: Equatable {
             case selectTime
             case selectVenues
-            case submitted(VenueSubmissionResult?)
+            case submitted(NotificationSubmissionResult?)
         }
 
         /// Current step in the UI flow.
