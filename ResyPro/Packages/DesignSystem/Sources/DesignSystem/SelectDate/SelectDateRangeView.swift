@@ -41,7 +41,7 @@ public struct SelectDateRangeView: View {
 
                 HStack {
                     Text("Time range:")
-                        .font(.callout)
+                        .font(.design(.callout))
                         .foregroundColor(.secondary)
 
                     SelectDateView(

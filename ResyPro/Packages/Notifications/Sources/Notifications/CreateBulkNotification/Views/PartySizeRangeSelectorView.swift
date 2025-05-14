@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import DesignSystem
 
 /// A compact control for selecting a minimum and maximum party size.
 public struct PartySizeRangeSelectorView: View {
@@ -25,7 +26,7 @@ public struct PartySizeRangeSelectorView: View {
     public var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text("Party Size")
-                .font(.headline)
+                .font(.design(.headline))
                 .foregroundColor(.textPrimary)
 
             HStack(spacing: 16) {

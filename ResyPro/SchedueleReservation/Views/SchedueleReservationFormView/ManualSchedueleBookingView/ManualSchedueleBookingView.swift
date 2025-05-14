@@ -30,7 +30,7 @@ struct ManualSchedueleBookingView: View {
     private var reservationDateView: some View {
         VStack(spacing: 20) {
             Text("What times would you like to eat?")
-                .font(.callout)
+                .font(.design(.callout))
                 .foregroundColor(.textPrimary)
 
             SelectDateRangeView(selectedDateRange: $reservationDate)

@@ -14,7 +14,7 @@ public struct SubmissionResultView: View {
     public var body: some View {
         VStack(spacing: 16) {
             Text("Notifications Created")
-                .font(.title)
+                .font(.design(.title))
             if let result {
                 ForEach(result.results, id: \.venueID) { entry in
                     HStack {

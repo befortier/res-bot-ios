@@ -118,11 +118,11 @@ struct SchedueleReservationFormView: View {
     private var venueDescriptionView: some View {
         VStack(spacing: 8) {
             Text(viewModel.venue.name)
-                .font(.title)
+                .font(.design(.title))
 
             if let needToKnow = viewModel.venue.needToKnow {
                 Text(needToKnow)
-                    .font(.subheadline)
+                    .font(.design(.subheadline))
             }
         }
     }
@@ -131,7 +131,7 @@ struct SchedueleReservationFormView: View {
     private func reservationDateView(dateSelected: @escaping (DateInterval) -> Void) -> some View {
         VStack(spacing: 20) {
             Text("What times would you like to eat?")
-                .font(.callout)
+                .font(.design(.callout))
                 .foregroundColor(.textPrimary)
 
             SelectDateRangeView(selectedDateRange: $viewModel.reservationDate)

@@ -21,7 +21,7 @@ public struct FilterChip: View {
 
     public var body: some View {
         Text(title)
-            .font(.subheadline)
+            .font(.design(.subheadline))
             .padding(.horizontal, 12)
             .padding(.vertical, 8)
             .background(

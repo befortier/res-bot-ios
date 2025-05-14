@@ -31,20 +31,22 @@ public struct BulkNotificationVenueSelectionView: View {
     }
 
     public var body: some View {
-        VStack(spacing: 16) {
+        VStack(spacing: .zero) {
             VStack(spacing: 4) {
                 Text("\(selectedVenueIDs.count) venue\(selectedVenueIDs.count == 1 ? "" : "s") selected")
-                    .font(.headline)
+                    .font(.design(.headline))
                     .foregroundStyle(Color.textPrimary)
 
                 Text("\(formattedDate) • Party size \(partySizeRange.lowerBound)–\(partySizeRange.upperBound)")
-                    .font(.subheadline)
+                    .font(.design(.subheadline))
                     .foregroundStyle(Color.textSecondary)
             }
             .frame(maxWidth: .infinity)
-            .padding(.top, 8)
+            .padding(8)
+            .background(Color.white)
 
             Divider()
+                .padding(.bottom, 16)
 
             VenueSelectionView(
                 allVenues: allVenues,

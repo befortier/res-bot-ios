@@ -47,7 +47,7 @@ public struct HorizontalVenueCard: View {
 
     private var nameText: some View {
         Text(model.name)
-            .font(.headline)
+            .font(.design(.headline))
             .foregroundStyle(Color.textPrimary)
     }
 
@@ -56,7 +56,7 @@ public struct HorizontalVenueCard: View {
             neighborhood: model.neighborhood,
             city: model.locationName
         )
-        .font(.subheadline)
+        .font(.design(.subheadline))
         .foregroundStyle(Color.textSecondary)
     }
 
@@ -65,7 +65,7 @@ public struct HorizontalVenueCard: View {
             cuisineType: model.cuisineType,
             priceRange: model.priceRange
         )
-        .font(.caption)
+        .font(.design(.caption))
         .foregroundStyle(Color.textSecondary)
         .frame(maxWidth: .infinity, alignment: .leading)
     }

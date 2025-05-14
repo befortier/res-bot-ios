@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import SwiftData
+import DesignSystem
 
 struct SchedeuledReservationsCarouselView: View {
     @Query private var schedueledReservations: [SchedueledReservation]
@@ -30,11 +31,11 @@ struct SchedeuledReservationsCarouselCard: View {
     var body: some View {
         VStack(spacing: 4) {
             Text(schedueledReservation.venue.name)
-                .font(.headline)
+                .font(.design(.headline))
                 .foregroundStyle(.primary)
 
             Text(schedueledReservation.acceptedDateInterval, formatter: DateIntervalFormatter.short)
-                .font(.subheadline)
+                .font(.design(.subheadline))
                 .foregroundStyle(.secondary)
         }
         .padding()

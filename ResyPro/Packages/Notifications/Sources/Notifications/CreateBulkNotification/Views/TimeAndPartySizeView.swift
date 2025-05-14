@@ -29,7 +29,7 @@ public struct TimeAndPartySizeView: View {
             VStack(spacing: 24) {
                 Group {
                     Text("When would you like to eat?")
-                        .font(.title2)
+                        .font(.design(.title2))
                         .frame(maxWidth: .infinity, alignment: .leading)
 
                     SelectDateRangeView(

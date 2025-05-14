@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import DesignSystem
 
 struct CreateReservationView: View {
     @StateObject private var viewModel: CreateReservationViewModel
@@ -48,7 +49,7 @@ struct CreateReservationView: View {
             .navigationTitle("EZ-Resy")
             .sheet(isPresented: $showModal) {
                 Text(modalMessage)
-                    .font(.largeTitle)
+                    .font(.design(.largeTitle))
                     .padding()
             }
         }

@@ -8,13 +8,15 @@
 import SwiftUI
 import DesignSystem
 
-/// A view for selecting venues with optional filters for cuisine and price.
+/// A view for selecting venues with optional search, filters, and batch selection.
 public struct VenueSelectionView: View {
     let allVenues: [Venue]
     @Binding var selectedVenueIDs: Set<Int>
+
     @State private var selectedCuisines: Set<String>
     @State private var maxPrice: Int = 4
     @State private var showingFilters = false
+    @State private var searchText = ""
 
     private let onSubmit: () -> Void
 
@@ -31,18 +33,16 @@ public struct VenueSelectionView: View {
 
     public var body: some View {
         VStack(spacing: 12) {
-            ScrollView {
-                HStack {
-                    Text("Select Venues")
-                        .font(.title2)
-                        .bold()
-                    Spacer()
-                    Button("Filters") {
-                        showingFilters = true
-                    }
-                }
-                .padding(.horizontal)
+            VenueSelectionHeaderView(
+                searchText: $searchText,
+                isShowingFilters: $showingFilters,
+                selectedCount: selectedVenueIDs.count,
+                totalCount: filteredVenues.count,
+                onToggleSelectAll: toggleSelectAll
+            )
+            .padding(.horizontal, 16)
 
+            ScrollView {
                 VerticalVenueCardGridView(venues: filteredVenues) { viewState in
                     Button {
                         toggleSelection(viewState.id)
@@ -60,6 +60,7 @@ public struct VenueSelectionView: View {
                 onSubmit()
             }
             .buttonStyle(PrimaryButtonStyle())
+            .padding(.horizontal, 16)
         }
         .sheet(isPresented: $showingFilters) {
             VenueFilterSheet(
@@ -71,10 +72,13 @@ public struct VenueSelectionView: View {
         }
     }
 
+    // MARK: - Filtering Logic
+
     private var filteredVenues: [Venue] {
         allVenues.filter {
             $0.priceRange <= maxPrice &&
-            (selectedCuisines.isEmpty || selectedCuisines.contains($0.cuisineType))
+            (selectedCuisines.isEmpty || selectedCuisines.contains($0.cuisineType)) &&
+            (searchText.isEmpty || $0.name.localizedCaseInsensitiveContains(searchText))
         }
     }
 
@@ -88,5 +92,17 @@ public struct VenueSelectionView: View {
         } else {
             selectedVenueIDs.insert(id)
         }
+    }
+
+    private func toggleSelectAll() {
+        if selectedVenueIDs.count < filteredVenues.count {
+            selectedVenueIDs.formUnion(filteredVenues.map(\.id))
+        } else {
+            selectedVenueIDs.subtract(filteredVenues.map(\.id))
+        }
+    }
+
+    private var selectAllButtonLabel: String {
+        selectedVenueIDs.count < filteredVenues.count ? "Select All" : "Unselect All"
     }
 }

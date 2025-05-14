@@ -16,7 +16,7 @@ struct SeatingOptionView: View {
 
     var body: some View {
         Text(option)
-            .font(.subheadline)
+            .font(.design(.subheadline))
             .tag(option)
             .padding(.horizontal, 12)
             .padding(.vertical, 6)

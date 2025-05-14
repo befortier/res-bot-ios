@@ -54,9 +54,9 @@
 		573498722C24E2C000DBB916 /* SchedueleReservationEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573498712C24E2C000DBB916 /* SchedueleReservationEndpoint.swift */; };
 		574013AD2C2E0B1000DAD86B /* AutomaticSchedueleBookingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574013AC2C2E0B1000DAD86B /* AutomaticSchedueleBookingView.swift */; };
 		57865CD02C2D9571006C7D68 /* ManualSchedueleBookingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57865CCF2C2D9571006C7D68 /* ManualSchedueleBookingView.swift */; };
+		57E8C2402DD412A50075E615 /* User in Frameworks */ = {isa = PBXBuildFile; productRef = 57E8C23F2DD412A50075E615 /* User */; };
 		57EA7E9F2DD0DA2D00E25108 /* Network in Frameworks */ = {isa = PBXBuildFile; productRef = 57EA7E9E2DD0DA2D00E25108 /* Network */; };
 		57EA7EA22DD0E06C00E25108 /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 57EA7EA12DD0E06C00E25108 /* DesignSystem */; };
-		57EA7EBF2DD0E2C600E25108 /* User in Frameworks */ = {isa = PBXBuildFile; productRef = 57EA7EBE2DD0E2C600E25108 /* User */; };
 		57FAFD432DD0EC4A0059A036 /* Venues in Frameworks */ = {isa = PBXBuildFile; productRef = 57FAFD422DD0EC4A0059A036 /* Venues */; };
 		57FAFD482DD111FF0059A036 /* SeatingOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FAFD452DD111FF0059A036 /* SeatingOptionView.swift */; };
 		57FAFD492DD111FF0059A036 /* SeatingOptionViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FAFD462DD111FF0059A036 /* SeatingOptionViewType.swift */; };
@@ -82,7 +82,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		570991542DD0E3CC00469B25 /* User */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = User; path = /Users/benfortier/Downloads/User; sourceTree = "<absolute>"; };
 		57168CEB2C2348EC009E6150 /* AvailableReservationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableReservationsView.swift; sourceTree = "<group>"; };
 		57168CF32C234C19009E6150 /* AvailableReservationsGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableReservationsGridView.swift; sourceTree = "<group>"; };
 		57168CFC2C235350009E6150 /* AvailableReservationsView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AvailableReservationsView+ViewModel.swift"; sourceTree = "<group>"; };
@@ -132,6 +131,7 @@
 		573498712C24E2C000DBB916 /* SchedueleReservationEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedueleReservationEndpoint.swift; sourceTree = "<group>"; };
 		574013AC2C2E0B1000DAD86B /* AutomaticSchedueleBookingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutomaticSchedueleBookingView.swift; sourceTree = "<group>"; };
 		57865CCF2C2D9571006C7D68 /* ManualSchedueleBookingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualSchedueleBookingView.swift; sourceTree = "<group>"; };
+		57E8AA132DD4125D00736FCD /* User */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = User; sourceTree = "<group>"; };
 		57EA7E9C2DD0D88400E25108 /* Network */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Network; sourceTree = "<group>"; };
 		57EA7EBC2DD0E2B000E25108 /* DesignSystem */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DesignSystem; sourceTree = "<group>"; };
 		57FAFD402DD0E7180059A036 /* Venues */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Venues; sourceTree = "<group>"; };
@@ -150,10 +150,10 @@
 				57EA7EA22DD0E06C00E25108 /* DesignSystem in Frameworks */,
 				57FAFD432DD0EC4A0059A036 /* Venues in Frameworks */,
 				572503FD2C28D9180076EECB /* NukeUI in Frameworks */,
+				57E8C2402DD412A50075E615 /* User in Frameworks */,
 				57EA7E9F2DD0DA2D00E25108 /* Network in Frameworks */,
 				572503F92C28D9180076EECB /* Nuke in Frameworks */,
 				572503FB2C28D9180076EECB /* NukeExtensions in Frameworks */,
-				57EA7EBF2DD0E2C600E25108 /* User in Frameworks */,
 				57FAFD4E2DD153060059A036 /* Notifications in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -581,7 +581,7 @@
 			children = (
 				57EA7EBC2DD0E2B000E25108 /* DesignSystem */,
 				57EA7E9C2DD0D88400E25108 /* Network */,
-				570991542DD0E3CC00469B25 /* User */,
+				57E8AA132DD4125D00736FCD /* User */,
 				57FAFD402DD0E7180059A036 /* Venues */,
 				57FAFD412DD0E83B0059A036 /* ProjectFoundation */,
 				57FAFD4C2DD151690059A036 /* Notifications */,
@@ -621,9 +621,9 @@
 				572503FC2C28D9180076EECB /* NukeUI */,
 				57EA7E9E2DD0DA2D00E25108 /* Network */,
 				57EA7EA12DD0E06C00E25108 /* DesignSystem */,
-				57EA7EBE2DD0E2C600E25108 /* User */,
 				57FAFD422DD0EC4A0059A036 /* Venues */,
 				57FAFD4D2DD153060059A036 /* Notifications */,
+				57E8C23F2DD412A50075E615 /* User */,
 			);
 			productName = ResyPro;
 			productReference = 57199D252C2314F500AE2F8B /* ResyPro.app */;
@@ -700,7 +700,6 @@
 			packageReferences = (
 				572503F62C28D8D80076EECB /* XCRemoteSwiftPackageReference "Nuke" */,
 				57EA7E9D2DD0D8BA00E25108 /* XCLocalSwiftPackageReference "ResyPro/Packages/Network" */,
-				57EA7EB52DD0E28900E25108 /* XCLocalSwiftPackageReference "ResyPro/Packages/User" */,
 				57EA7EBD2DD0E2BA00E25108 /* XCLocalSwiftPackageReference "ResyPro/Packages/DesignSystem" */,
 			);
 			productRefGroup = 57199D262C2314F500AE2F8B /* Products */;
@@ -1151,10 +1150,6 @@
 			isa = XCLocalSwiftPackageReference;
 			relativePath = ResyPro/Packages/Network;
 		};
-		57EA7EB52DD0E28900E25108 /* XCLocalSwiftPackageReference "ResyPro/Packages/User" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ResyPro/Packages/User;
-		};
 		57EA7EBD2DD0E2BA00E25108 /* XCLocalSwiftPackageReference "ResyPro/Packages/DesignSystem" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = ResyPro/Packages/DesignSystem;
@@ -1188,6 +1183,10 @@
 			package = 572503F62C28D8D80076EECB /* XCRemoteSwiftPackageReference "Nuke" */;
 			productName = NukeUI;
 		};
+		57E8C23F2DD412A50075E615 /* User */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = User;
+		};
 		57EA7E9E2DD0DA2D00E25108 /* Network */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Network;
@@ -1195,11 +1194,6 @@
 		57EA7EA12DD0E06C00E25108 /* DesignSystem */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = DesignSystem;
-		};
-		57EA7EBE2DD0E2C600E25108 /* User */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 57EA7EB52DD0E28900E25108 /* XCLocalSwiftPackageReference "ResyPro/Packages/User" */;
-			productName = User;
 		};
 		57FAFD422DD0EC4A0059A036 /* Venues */ = {
 			isa = XCSwiftPackageProductDependency;

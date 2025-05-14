@@ -52,23 +52,23 @@ public struct VenueDetailsView: View {
     private var content: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text(viewState.name)
-                .font(.title.bold())
+                .font(.design(.title)).bold()
                 .foregroundStyle(Color.textPrimary)
 
             Text(
                 cuisineType: viewState.cuisineType,
                 priceRange: viewState.priceRange
             )
-            .font(.subheadline)
+            .font(.design(.subheadline))
             .foregroundStyle(Color.textSecondary)
 
             Text(neighborhood: viewState.neighborhood, city: viewState.city)
-                .font(.subheadline)
+                .font(.design(.subheadline))
                 .foregroundStyle(Color.textSecondary)
 
             if let needToKnow = viewState.needToKnow {
                 Text(needToKnow)
-                    .font(.footnote)
+                    .font(.design(.footnote))
                     .foregroundStyle(Color.textSecondary)
                     .padding(.top, 8)
             }

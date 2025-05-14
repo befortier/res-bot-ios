@@ -32,35 +32,56 @@ public struct BulkNotificationFlowView: View {
         Group {
             switch viewState.step {
             case .selectTime:
-                TimeAndPartySizeView(
-                    dateInterval: $viewState.dateInterval,
-                    partySizeRange: $viewState.partySizeRange
-                ) {
-                    viewState.step = .selectVenues
-                }
-
+                timeAndPartySizeView
             case .selectVenues:
-                BulkNotificationVenueSelectionView(
-                    allVenues: viewModel.allVenues,
-                    selectedVenueIDs: $viewState.selectedVenueIDs,
-                    dateInterval: viewState.dateInterval,
-                    partySizeRange: viewState.partySizeRange,
-                ) {
-                    Task {
-                        do {
-                            let results = try await viewModel.submit(from: viewState)
-                            self.viewState.step = .submitted(results)
-                        } catch {
-                            // error state
-                        }
-                    }
-                }
-
+                bulkNotificationVenueSelectionView
             case .submitted(let result):
                 SubmissionResultView(result: result)
             }
         }
         .background(Color.backgroundPrimary)
+    }
+
+    private var timeAndPartySizeView: some View {
+        TimeAndPartySizeView(
+            dateInterval: $viewState.dateInterval,
+            partySizeRange: $viewState.partySizeRange
+        ) {
+            viewState.step = .selectVenues
+        }
+    }
+
+    private var bulkNotificationVenueSelectionView: some View {
+        BulkNotificationVenueSelectionView(
+            allVenues: viewModel.allVenues,
+            selectedVenueIDs: $viewState.selectedVenueIDs,
+            dateInterval: viewState.dateInterval,
+            partySizeRange: viewState.partySizeRange,
+        ) {
+            Task {
+                do {
+                    let results = try await viewModel.submit(from: viewState)
+                    self.viewState.step = .submitted(results)
+                } catch {
+                    // error state
+                }
+            }
+        }
+        .safeAreaInset(edge: .top) {
+            backButton
+                .padding(.leading, 12)
+        }
+    }
+
+    private var backButton: some View {
+        Button {
+            viewState.step = .selectTime
+        } label: {
+            Image(systemName: "chevron.left")
+                .font(.design(.button).bold())
+                .foregroundColor(.textPrimary)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
     }
 }
 

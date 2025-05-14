@@ -47,7 +47,7 @@ public struct SelectDateView: View {
     private var titleView: some View {
         if let title {
             Text(title)
-                .font(.callout)
+                .font(.design(.callout))
                 .foregroundColor(.secondary)
         }
     }

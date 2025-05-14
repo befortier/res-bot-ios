@@ -8,6 +8,7 @@
 import SwiftUI
 import NukeUI
 import DesignSystem
+import Nuke
 
 /// A vertically stacked venue card with circular image and centered content.
 public struct VerticalVenueCard: View {
@@ -20,23 +21,23 @@ public struct VerticalVenueCard: View {
     public var body: some View {
         GeometryReader { geo in
             VStack(spacing: .zero) {
-                imageSection
+                ResizableImage(url: viewState.imageURL)
                     .frame(height: geo.size.height * 0.45)
                     .clipped()
 
                 VStack(spacing: 2) {
                     Text(viewState.name)
-                        .font(.headline)
+                        .font(.design(.headline))
                         .foregroundStyle(Color.textPrimary)
                         .padding(.bottom, 4)
 
                     Text(viewState.cuisineType)
-                        .font(.callout)
+                        .font(.design(.callout))
                         .foregroundStyle(Color.textSecondary)
                         .lineLimit(2)
 
                     Text(viewState.neighborhood)
-                        .font(.footnote)
+                        .font(.design(.footnote))
                         .foregroundStyle(Color.textSecondary)
                 }
                 .padding(12)
@@ -44,24 +45,12 @@ public struct VerticalVenueCard: View {
         }
         .overlay(alignment: .bottomLeading) {
             Text(price: viewState.priceRange)
-                .font(.caption2)
+                .font(.design(.caption3))
                 .foregroundStyle(Color.textSecondary)
                 .padding(4)
         }
         .aspectRatio(0.85, contentMode: .fit)
         .cardStyle()
-    }
-
-    private var imageSection: some View {
-        LazyImage(url: viewState.imageURL) { state in
-            if let image = state.image {
-                image
-                    .resizable()
-                    .scaledToFill()
-            } else {
-                Color.gray.opacity(0.2)
-            }
-        }
     }
 }
 

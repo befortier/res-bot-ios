@@ -7,13 +7,14 @@
 
 import Foundation
 import SwiftUI
+import DesignSystem
 
 struct AvailableReservationSlotView: View {
     let slot: AvailableReservation
 
     var body: some View {
         Text(slot.time, style: .time)
-            .font(.headline)
+            .font(.design(.headline))
             .padding()
             .background(.blue.opacity(0.8))
             .cornerRadius(4)

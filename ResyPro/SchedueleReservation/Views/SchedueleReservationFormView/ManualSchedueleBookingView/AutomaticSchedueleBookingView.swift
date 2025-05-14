@@ -24,7 +24,7 @@ struct AutomaticSchedueleBookingView: View {
 
     var body: some View {
         Text(viewModel.bookingDateText)
-            .font(.subheadline)
+            .font(.design(.subheadline))
             .foregroundStyle(.textSecondary)
 
         self.reservationDateView
@@ -34,7 +34,7 @@ struct AutomaticSchedueleBookingView: View {
     private var reservationDateView: some View {
         VStack(spacing: 20) {
             Text("What times would you like to eat?")
-                .font(.callout)
+                .font(.design(.callout))
                 .foregroundColor(.textPrimary)
 
             SelectDateRangeView(
