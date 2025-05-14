@@ -47,7 +47,7 @@ public struct VerticalVenueCard: View {
             Text(price: viewState.priceRange)
                 .font(.design(.caption3))
                 .foregroundStyle(Color.textSecondary)
-                .padding(4)
+                .padding(8)
         }
         .aspectRatio(0.85, contentMode: .fit)
         .cardStyle()

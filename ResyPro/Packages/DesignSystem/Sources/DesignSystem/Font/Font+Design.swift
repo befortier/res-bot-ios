@@ -45,7 +45,7 @@ public extension Font {
         case .caption2:
             return .custom("Inter-Regular", size: 11)
         case .caption3:
-            return .custom("Inter-Regular", size: 9)
+            return .custom("Inter-Regular", size: 10)
         case .button:
             return .custom("Inter-Medium", size: 15)
         }
