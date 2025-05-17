@@ -20,6 +20,8 @@ struct MainTabView: View {
         case schedueleNotification
 
         case browse
+
+        case profile
     }
 
     init(appState: AppState) {
@@ -47,6 +49,12 @@ struct MainTabView: View {
                         Image(systemName: "list.bullet")
                     }
                     .tag(Tab.browse)
+
+                ProfileView(user: appState.user)
+                    .tabItem {
+                        Image(systemName: "person.crop.circle")
+                    }
+                    .tag(Tab.profile)
 
             }
             .background(.white)

@@ -13,17 +13,23 @@ public final class User: Identifiable, Equatable {
     public var name: String
     public var email: String
     public var createdAt: Date
+    public var profileImageURL: URL?
+    public var preferredLocation: String
 
     public init(
         id: String,
         name: String,
         email: String,
-        createdAt: Date
+        createdAt: Date,
+        profileImageURL: URL? = nil,
+        preferredLocation: String = ""
     ) {
         self.id = id
         self.name = name
         self.email = email
         self.createdAt = createdAt
+        self.profileImageURL = profileImageURL
+        self.preferredLocation = preferredLocation
     }
 }
 
@@ -33,7 +39,9 @@ extension User {
             id: "some-id",
             name: "Ben Fortier",
             email: "bennett.fortier@gmail.com",
-            createdAt: Date(timeIntervalSince1970: 1703714743)
+            createdAt: Date(timeIntervalSince1970: 1703714743),
+            profileImageURL: URL(string: "https://example.com/profile.jpg"),
+            preferredLocation: "New York, NY"
         )
     }
 }
