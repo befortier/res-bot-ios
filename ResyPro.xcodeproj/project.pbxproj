@@ -54,6 +54,7 @@
 		573498722C24E2C000DBB916 /* SchedueleReservationEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573498712C24E2C000DBB916 /* SchedueleReservationEndpoint.swift */; };
 		574013AD2C2E0B1000DAD86B /* AutomaticSchedueleBookingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574013AC2C2E0B1000DAD86B /* AutomaticSchedueleBookingView.swift */; };
 		57865CD02C2D9571006C7D68 /* ManualSchedueleBookingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57865CCF2C2D9571006C7D68 /* ManualSchedueleBookingView.swift */; };
+		57D8C6882DD8F3610031F4BC /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D8C6852DD8F3610031F4BC /* ProfileView.swift */; };
 		57E8C2402DD412A50075E615 /* User in Frameworks */ = {isa = PBXBuildFile; productRef = 57E8C23F2DD412A50075E615 /* User */; };
 		57EA7E9F2DD0DA2D00E25108 /* Network in Frameworks */ = {isa = PBXBuildFile; productRef = 57EA7E9E2DD0DA2D00E25108 /* Network */; };
 		57EA7EA22DD0E06C00E25108 /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 57EA7EA12DD0E06C00E25108 /* DesignSystem */; };
@@ -131,6 +132,7 @@
 		573498712C24E2C000DBB916 /* SchedueleReservationEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedueleReservationEndpoint.swift; sourceTree = "<group>"; };
 		574013AC2C2E0B1000DAD86B /* AutomaticSchedueleBookingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutomaticSchedueleBookingView.swift; sourceTree = "<group>"; };
 		57865CCF2C2D9571006C7D68 /* ManualSchedueleBookingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualSchedueleBookingView.swift; sourceTree = "<group>"; };
+		57D8C6852DD8F3610031F4BC /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		57E8AA132DD4125D00736FCD /* User */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = User; sourceTree = "<group>"; };
 		57EA7E9C2DD0D88400E25108 /* Network */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Network; sourceTree = "<group>"; };
 		57EA7EBC2DD0E2B000E25108 /* DesignSystem */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DesignSystem; sourceTree = "<group>"; };
@@ -286,6 +288,7 @@
 			isa = PBXGroup;
 			children = (
 				5734986F2C24D7D000DBB916 /* Info.plist */,
+				57D8C6872DD8F3610031F4BC /* Profile */,
 				57168D282C23864B009E6150 /* SchedueleReservation */,
 				57199DBF2C2344DC00AE2F8B /* AvailableSlots */,
 				57199DAA2C233B2F00AE2F8B /* Splash */,
@@ -576,6 +579,22 @@
 			path = ManualSchedueleBookingView;
 			sourceTree = "<group>";
 		};
+		57D8C6862DD8F3610031F4BC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				57D8C6852DD8F3610031F4BC /* ProfileView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		57D8C6872DD8F3610031F4BC /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				57D8C6862DD8F3610031F4BC /* Views */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		57EA7E9A2DD0D73300E25108 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
@@ -785,6 +804,7 @@
 				57168D312C2386D7009E6150 /* SchedueledReservation.swift in Sources */,
 				57199DB62C233EDC00AE2F8B /* ResyAPIService.swift in Sources */,
 				5734986E2C24D7AA00DBB916 /* ScedueleReservationUseCase.swift in Sources */,
+				57D8C6882DD8F3610031F4BC /* ProfileView.swift in Sources */,
 				57168CF42C234C19009E6150 /* AvailableReservationsGridView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
