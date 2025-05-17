@@ -1,0 +1,44 @@
+// swift-tools-version: 6.0
+import PackageDescription
+
+let package = Package(
+    name: "ResyProApp",
+    platforms: [
+        .iOS(.v17)
+    ],
+    products: [
+        .executable(
+            name: "ResyProApp",
+            targets: ["ResyProApp"]
+        )
+    ],
+    dependencies: [
+        .package(path: "ResyPro/Packages/DesignSystem"),
+        .package(path: "ResyPro/Packages/Network"),
+        .package(path: "ResyPro/Packages/Notifications"),
+        .package(path: "ResyPro/Packages/ProjectFoundation"),
+        .package(path: "ResyPro/Packages/User"),
+        .package(path: "ResyPro/Packages/Venues")
+    ],
+    targets: [
+        .executableTarget(
+            name: "ResyProApp",
+            dependencies: [
+                "DesignSystem",
+                "Network",
+                "Notifications",
+                "ProjectFoundation",
+                "User",
+                "Venues"
+            ],
+            path: "ResyPro",
+            exclude: [
+                "Packages",
+                "Preview Content",
+                "Assets.xcassets",
+                "Info.plist",
+                "ResyPro.entitlements"
+            ]
+        )
+    ]
+)
