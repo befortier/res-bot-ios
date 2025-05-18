@@ -42,7 +42,7 @@ public final class User: Identifiable, Equatable {
 extension User {
     public static var stub: User {
         User(
-            id: "some-id",
+            id: "abc",
             name: "Ben Fortier",
             email: "bennett.fortier@gmail.com",
             createdAt: Date(timeIntervalSince1970: 1703714743),

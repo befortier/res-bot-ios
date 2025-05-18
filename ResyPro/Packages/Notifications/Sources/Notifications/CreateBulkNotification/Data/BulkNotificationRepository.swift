@@ -4,7 +4,7 @@ import Network
 /// Repository responsible for submitting bulk notification requests.
 public protocol BulkNotificationRepository: Sendable {
     /// Sends the request to the backend.
-    func submit(_ request: BulkNotificationSubmissionRequest) async throws -> NotificationSubmissionResponse
+    func submit(_ request: BulkNotificationSubmissionRequest) async throws
 }
 
 /// Default implementation using ``NetworkService``.
@@ -20,7 +20,7 @@ public struct BulkNotificationRepositoryLive: BulkNotificationRepository {
         self.encoder = encoder
     }
 
-    public func submit(_ request: BulkNotificationSubmissionRequest) async throws -> NotificationSubmissionResponse {
+    public func submit(_ request: BulkNotificationSubmissionRequest) async throws {
         try await networkService.fetch(
             from: BulkNotificationEndpoint(
                 requestBody: request

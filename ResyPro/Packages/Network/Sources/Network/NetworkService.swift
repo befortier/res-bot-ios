@@ -16,6 +16,12 @@ public protocol NetworkService: Sendable {
   func fetch<T: Decodable>(from endpoint: Endpoint) async throws -> T
 }
 
+extension NetworkService {
+  /// Fetches a resource but ignores the decoded response.
+  public func fetch(from endpoint: Endpoint) async throws {
+    _ = try await fetch(from: endpoint) as EmptyDecodable
+  }
+}
 /// Production implementation of ``NetworkService``.
 public struct NetworkServiceLive: NetworkService {
   private let client: any NetworkSession
@@ -46,3 +52,5 @@ public struct NetworkServiceLive: NetworkService {
       return try jsonDecoder.decode(T.self, from: data)
   }
 }
+
+

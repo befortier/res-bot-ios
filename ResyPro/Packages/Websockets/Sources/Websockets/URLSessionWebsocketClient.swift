@@ -112,7 +112,7 @@ public actor URLSessionWebsocketClient: WebsocketClient {
     private func extractName(from data: Data) -> String? {
         guard
             let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
-            let name = json["name"] as? String
+            let name = json["eventName"] as? String
         else { return nil }
         return name
     }
@@ -134,8 +134,8 @@ private struct EventWrapper<T: Decodable>: Decodable {
     let payload: T
 
     private enum CodingKeys: String, CodingKey {
-        case name
-        case payload = "data"
+        case name = "eventName"
+        case payload = "result"
     }
 }
 

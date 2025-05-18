@@ -64,7 +64,7 @@ public struct BearerHTTPClient: NetworkSession {
             request.setValue(resyToken, forHTTPHeaderField: "x-resy-auth-token")
             request.setValue(resyToken, forHTTPHeaderField: "x-resy-universal-auth")
         }
-        request.setValue(configuration.userID, forHTTPHeaderField: "user-id")
+        request.setValue(configuration.userID, forHTTPHeaderField: "x-user-id")
 
         return try await session.data(for: request, delegate: delegate)
     }
