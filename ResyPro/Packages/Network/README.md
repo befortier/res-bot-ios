@@ -8,6 +8,8 @@ Included components:
 - `NetworkClient` – the core request interface
 - `NetworkService` – a default implementation
 - `NetworkError` – standard error definitions
+- ``BasicHTTPClient`` and ``BearerHTTPClient`` – lightweight clients for
+  unauthenticated and authenticated requests
 
 ## Usage
 
@@ -16,7 +18,13 @@ Import the package and use `NetworkService` for making HTTP calls.
 ```swift
 import Network
 
-let service = NetworkServiceLive()
+let client = BearerHTTPClient(
+    configuration: ResyHeaderConfiguration(
+        bearerToken: "<user-token>",
+        resyAuthToken: "<resy-token>"
+    )
+)
+let service = NetworkServiceLive(client: client)
 ```
 
 `NetworkServiceLive` automatically loads bundled fixture JSON when an ``Endpoint`` defines a `fixturesPath`, enabling reliable testing.
