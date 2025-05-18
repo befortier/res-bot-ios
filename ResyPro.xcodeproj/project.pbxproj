@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,7 @@
 		57168D2D2C238665009E6150 /* SchedueleReservationHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57168D2C2C238665009E6150 /* SchedueleReservationHomeView.swift */; };
 		57168D2F2C23869E009E6150 /* SchedeuledReservationsCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57168D2E2C23869E009E6150 /* SchedeuledReservationsCarouselView.swift */; };
 		57168D312C2386D7009E6150 /* SchedueledReservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57168D302C2386D7009E6150 /* SchedueledReservation.swift */; };
+		5717614E2DD98DA100E2EF8A /* DebugTools in Frameworks */ = {isa = PBXBuildFile; productRef = 5717614D2DD98DA100E2EF8A /* DebugTools */; };
 		57199D292C2314F500AE2F8B /* ResyProApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D282C2314F500AE2F8B /* ResyProApp.swift */; };
 		57199D2F2C2314F600AE2F8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57199D2E2C2314F600AE2F8B /* Assets.xcassets */; };
 		57199D332C2314F600AE2F8B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57199D322C2314F600AE2F8B /* Preview Assets.xcassets */; };
@@ -93,6 +94,7 @@
 		57168D2C2C238665009E6150 /* SchedueleReservationHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedueleReservationHomeView.swift; sourceTree = "<group>"; };
 		57168D2E2C23869E009E6150 /* SchedeuledReservationsCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedeuledReservationsCarouselView.swift; sourceTree = "<group>"; };
 		57168D302C2386D7009E6150 /* SchedueledReservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedueledReservation.swift; sourceTree = "<group>"; };
+		5717614A2DD98D5A00E2EF8A /* DebugTools */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DebugTools; sourceTree = "<group>"; };
 		57199D252C2314F500AE2F8B /* ResyPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ResyPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57199D282C2314F500AE2F8B /* ResyProApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResyProApp.swift; sourceTree = "<group>"; };
 		57199D2E2C2314F600AE2F8B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -146,6 +148,10 @@
 		57FAFD4C2DD151690059A036 /* Notifications */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Notifications; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		574D9EAC2DD98CB1004DB91D /* Debug */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Debug; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		57199D222C2314F500AE2F8B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -153,6 +159,7 @@
 			files = (
 				57EA7EA22DD0E06C00E25108 /* DesignSystem in Frameworks */,
 				57FAFD432DD0EC4A0059A036 /* Venues in Frameworks */,
+				5717614E2DD98DA100E2EF8A /* DebugTools in Frameworks */,
 				572503FD2C28D9180076EECB /* NukeUI in Frameworks */,
 				57AC63022DD9848E003C2BA8 /* Websockets in Frameworks */,
 				57E8C2402DD412A50075E615 /* User in Frameworks */,
@@ -282,6 +289,7 @@
 		57199D272C2314F500AE2F8B /* ResyPro */ = {
 			isa = PBXGroup;
 			children = (
+				574D9EAC2DD98CB1004DB91D /* Debug */,
 				5734986F2C24D7D000DBB916 /* Info.plist */,
 				57D8C6872DD8F3610031F4BC /* Profile */,
 				57168D282C23864B009E6150 /* SchedueleReservation */,
@@ -608,6 +616,7 @@
 				57FAFD412DD0E83B0059A036 /* ProjectFoundation */,
 				57FAFD4C2DD151690059A036 /* Notifications */,
 				57D8C6892DD96C5E0031F4BC /* Websockets */,
+				5717614A2DD98D5A00E2EF8A /* DebugTools */,
 			);
 			path = Packages;
 			sourceTree = "<group>";
@@ -637,6 +646,9 @@
 			);
 			dependencies = (
 			);
+			fileSystemSynchronizedGroups = (
+				574D9EAC2DD98CB1004DB91D /* Debug */,
+			);
 			name = ResyPro;
 			packageProductDependencies = (
 				572503F82C28D9180076EECB /* Nuke */,
@@ -648,6 +660,7 @@
 				57FAFD4D2DD153060059A036 /* Notifications */,
 				57E8C23F2DD412A50075E615 /* User */,
 				57AC63012DD9848E003C2BA8 /* Websockets */,
+				5717614D2DD98DA100E2EF8A /* DebugTools */,
 			);
 			productName = ResyPro;
 			productReference = 57199D252C2314F500AE2F8B /* ResyPro.app */;
@@ -1193,6 +1206,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		5717614D2DD98DA100E2EF8A /* DebugTools */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DebugTools;
+		};
 		572503F82C28D9180076EECB /* Nuke */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 572503F62C28D8D80076EECB /* XCRemoteSwiftPackageReference "Nuke" */;

@@ -28,7 +28,7 @@ struct ResyProApp: App {
                 .environment(\.projectModelContainer, sharedModelContainer)
                 .environment(\.websocketClient, websocketClient)
 #if DEBUG
-                .environment(\.networkHistoryStore, .shared)
+                .environmentObject(NetworkHistoryStore.shared)
 #endif
                 .task { await websocketClient.connect(url: websocketURL) }
                 .onChange(of: scenePhase) { _, newPhase in

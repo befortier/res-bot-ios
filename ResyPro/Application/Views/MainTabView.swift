@@ -31,7 +31,10 @@ struct MainTabView: View {
     var body: some View {
         NavigationStack {
             TabView(selection: $selectedTab) {
-                SchedueleReservationHomeView()
+                SchedueleReservationHomeView(
+                    user: appState.user,
+                    resyConfig: appState.resyConfig
+                )
                     .tabItem {
                         Image(systemName: "list.bullet")
                     }

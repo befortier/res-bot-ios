@@ -21,10 +21,6 @@ let package = Package(
             name: "DebugTools",
             dependencies: ["Network", "DesignSystem"],
             resources: []
-        ),
-        .testTarget(
-            name: "DebugToolsTests",
-            dependencies: ["DebugTools"]
         )
     ]
 )

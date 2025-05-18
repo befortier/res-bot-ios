@@ -8,7 +8,7 @@
 import Foundation
 
 /// Supported environments for network requests.
-public enum Environment: Sendable {
+public enum DevelopmentEnvironment: Sendable {
   case stage
   case debug
   case prod

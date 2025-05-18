@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 import ProjectFoundation
+import Network
 
 extension AvailableReservationsView {
     @MainActor
@@ -25,7 +26,10 @@ extension AvailableReservationsView {
         init() {
             let store = AvailableReservationsStoreLive()
             self.store = store
-            let repository = AvailableReservationsRepositoryLive(store: store)
+            let repository = AvailableReservationsRepositoryLive(
+                configuration: ResyHeaderConfiguration(bearerToken: "", resyAuthToken: ""),
+                store: store
+            )
             self.refreshAvailableSlots = GetAvailableSlotsUseCaseLive(repository: repository)
 
             self.observeForDataChanges()

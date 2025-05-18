@@ -35,7 +35,7 @@ public struct NetworkServiceLive: NetworkService {
     }
 
     let data: Data =
-      if let fixturesPath = endpoint.fixturesPath,
+      if let fixturesPath = endpoint.fixturesPath, false,
         let url = Bundle.module.url(forResource: fixturesPath, withExtension: "json")
       {
         try Data(contentsOf: url)

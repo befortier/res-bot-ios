@@ -43,8 +43,9 @@ struct RootView: View {
 #if DEBUG
         .sheet(isPresented: $showDebugMenu) {
             DebugMenuView()
-                .environment(\.networkHistoryStore, .shared)
+                .environmentObject(NetworkHistoryStore.shared)
         }
+        
         .overlay(
             ShakeDetector {
                 showDebugMenu = true
