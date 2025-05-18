@@ -29,6 +29,16 @@ public final class NetworkHistoryStore: ObservableObject, @unchecked Sendable {
         }
     }
 
+    /// Updates an existing record if present.
+    public func update(_ record: NetworkRecord) {
+        queue.async { [weak self] in
+            guard let self else { return }
+            guard let index = self.records.firstIndex(where: { $0.id == record.id }) else { return }
+            self.records[index] = record
+            self.save()
+        }
+    }
+
     private func load() {
         queue.async { [weak self] in
             guard let self else { return }
