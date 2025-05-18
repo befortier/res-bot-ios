@@ -20,10 +20,24 @@ public actor RecordingWebsocketClient: WebsocketClient {
 
     public func connect(url: URL) async {
         await wrapped.connect(url: url)
+        store.add(
+            WebsocketRecord(
+                name: "connect",
+                direction: .sent,
+                payload: url.absoluteString
+            )
+        )
     }
 
     public func disconnect() async {
         await wrapped.disconnect()
+        store.add(
+            WebsocketRecord(
+                name: "disconnect",
+                direction: .sent,
+                payload: nil
+            )
+        )
     }
 
     public func authenticate(userID: String) async throws {
