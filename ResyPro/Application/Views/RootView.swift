@@ -50,6 +50,7 @@ struct RootView: View {
             ShakeDetector {
                 showDebugMenu = true
             }
+            .allowsHitTesting(false)
         )
 #endif
     }

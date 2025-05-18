@@ -9,19 +9,27 @@ public struct NetworkHistoryListView: View {
 
     public var body: some View {
         List(store.records.sorted(by: { $0.date > $1.date })) { record in
-            NavigationLink(value: record) {
+            NavigationLink {
+                NetworkRecordDetailView(record: record)
+            } label: {
                 VStack(alignment: .leading) {
                     Text("\(record.method) \(record.url)")
                         .font(.design(.body))
-                    Text("Status: \(record.statusCode)")
+                    Text(statusText(for: record))
                         .font(.footnote)
                         .foregroundColor(.secondary)
                 }
             }
         }
-        .navigationDestination(for: NetworkRecord.self) { record in
-            NetworkRecordDetailView(record: record)
-        }
         .navigationTitle("Network History")
+    }
+
+    private func statusText(for record: NetworkRecord) -> String {
+        switch record.state {
+        case .pending: return "Pending"
+        case .inProgress: return "In Progress"
+        case .success: return "Status: \(record.statusCode)"
+        case .failure: return record.errorDescription ?? "Failed"
+        }
     }
 }

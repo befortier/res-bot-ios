@@ -21,19 +21,51 @@ public struct RecordingNetworkSession: NetworkSession {
     public func data(for request: URLRequest, delegate: (any URLSessionTaskDelegate)?) async throws -> (Data, URLResponse) {
         let startDate = Date()
         let requestBody = request.httpBody.flatMap { String(data: $0, encoding: .utf8) }
-        let (data, response) = try await wrapped.data(for: request, delegate: delegate)
-        let statusCode = (response as? HTTPURLResponse)?.statusCode ?? 0
-        let record = NetworkRecord(
+        var record = NetworkRecord(
             date: startDate,
             method: request.httpMethod ?? "GET",
             url: request.url?.absoluteString ?? "",
-            statusCode: statusCode,
+            statusCode: 0,
+            state: .inProgress,
             requestHeaders: request.allHTTPHeaderFields,
-            responseHeaders: (response as? HTTPURLResponse)?.allHeaderFields as? [String: String],
+            responseHeaders: nil,
             requestBody: requestBody,
-            responseBody: String(data: data, encoding: .utf8)
+            responseBody: nil
         )
         store.add(record)
-        return (data, response)
+        do {
+            let (data, response) = try await wrapped.data(for: request, delegate: delegate)
+            let statusCode = (response as? HTTPURLResponse)?.statusCode ?? 0
+            record = NetworkRecord(
+                id: record.id,
+                date: startDate,
+                method: request.httpMethod ?? "GET",
+                url: request.url?.absoluteString ?? "",
+                statusCode: statusCode,
+                state: .success,
+                requestHeaders: request.allHTTPHeaderFields,
+                responseHeaders: (response as? HTTPURLResponse)?.allHeaderFields as? [String: String],
+                requestBody: requestBody,
+                responseBody: String(data: data, encoding: .utf8)
+            )
+            store.update(record)
+            return (data, response)
+        } catch {
+            record = NetworkRecord(
+                id: record.id,
+                date: startDate,
+                method: request.httpMethod ?? "GET",
+                url: request.url?.absoluteString ?? "",
+                statusCode: (error as NSError).code,
+                state: .failure,
+                errorDescription: error.localizedDescription,
+                requestHeaders: request.allHTTPHeaderFields,
+                responseHeaders: nil,
+                requestBody: requestBody,
+                responseBody: nil
+            )
+            store.update(record)
+            throw error
+        }
     }
 }

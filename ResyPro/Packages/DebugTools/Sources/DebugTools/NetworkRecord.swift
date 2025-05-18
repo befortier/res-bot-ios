@@ -2,6 +2,13 @@ import Foundation
 
 /// Captures a single network request and response pair.
 public struct NetworkRecord: Codable, Identifiable, Hashable, Sendable {
+    /// Current lifecycle state of the network call.
+    public enum State: String, Codable {
+        case pending
+        case inProgress
+        case success
+        case failure
+    }
     /// The unique identifier for the record.
     public let id: UUID
     /// Timestamp of when the request was executed.
@@ -12,6 +19,10 @@ public struct NetworkRecord: Codable, Identifiable, Hashable, Sendable {
     public let url: String
     /// HTTP status code returned by the server.
     public let statusCode: Int
+    /// The current state of the request.
+    public var state: State
+    /// Optional error description if the request failed.
+    public var errorDescription: String?
     /// Request headers at the time of the call.
     public let requestHeaders: [String: String]?
     /// Response headers returned by the server.
@@ -27,6 +38,8 @@ public struct NetworkRecord: Codable, Identifiable, Hashable, Sendable {
         method: String,
         url: String,
         statusCode: Int,
+        state: State = .success,
+        errorDescription: String? = nil,
         requestHeaders: [String: String]?,
         responseHeaders: [String: String]?,
         requestBody: String?,
@@ -37,6 +50,8 @@ public struct NetworkRecord: Codable, Identifiable, Hashable, Sendable {
         self.method = method
         self.url = url
         self.statusCode = statusCode
+        self.state = state
+        self.errorDescription = errorDescription
         self.requestHeaders = requestHeaders
         self.responseHeaders = responseHeaders
         self.requestBody = requestBody
