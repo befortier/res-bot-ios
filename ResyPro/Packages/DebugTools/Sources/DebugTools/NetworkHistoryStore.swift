@@ -11,6 +11,7 @@ public final class NetworkHistoryStore: ObservableObject, @unchecked Sendable {
 
     private let fileURL: URL
     private let queue = DispatchQueue(label: "NetworkHistoryStore")
+    private let maxRecords = 30
 
     /// Creates a new store reading history from disk if available.
     /// - Parameter fileURL: Optional location for the persisted JSON file.
@@ -25,6 +26,10 @@ public final class NetworkHistoryStore: ObservableObject, @unchecked Sendable {
         queue.async { [weak self] in
             guard let self else { return }
             self.records.append(record)
+            self.records.sort { $0.date > $1.date }
+            if self.records.count > self.maxRecords {
+                self.records = Array(self.records.prefix(self.maxRecords))
+            }
             self.save()
         }
     }
@@ -35,6 +40,7 @@ public final class NetworkHistoryStore: ObservableObject, @unchecked Sendable {
             guard let self else { return }
             guard let index = self.records.firstIndex(where: { $0.id == record.id }) else { return }
             self.records[index] = record
+            self.records.sort { $0.date > $1.date }
             self.save()
         }
     }
@@ -44,14 +50,20 @@ public final class NetworkHistoryStore: ObservableObject, @unchecked Sendable {
             guard let self else { return }
             guard let data = try? Data(contentsOf: self.fileURL) else { return }
             if let decoded = try? JSONDecoder().decode([NetworkRecord].self, from: data) {
+                let sorted = decoded.sorted { $0.date > $1.date }
+                let trimmed = Array(sorted.prefix(self.maxRecords))
                 DispatchQueue.main.async {
-                    self.records = decoded
+                    self.records = trimmed
                 }
             }
         }
     }
 
     private func save() {
+        records.sort { $0.date > $1.date }
+        if records.count > maxRecords {
+            records = Array(records.prefix(maxRecords))
+        }
         let data = try? JSONEncoder().encode(records)
         try? data?.write(to: fileURL)
     }
