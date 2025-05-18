@@ -21,3 +21,19 @@ import DesignSystem
 DefaultProgressView()
 SelectDateRangeView(...)
 ```
+
+### Installation
+
+Add the package to your `Package.swift` dependencies:
+
+```swift
+dependencies: [
+    .package(path: "Packages/DesignSystem")
+]
+```
+
+Then add `DesignSystem` to your target dependencies.
+
+### Previews
+
+All components include SwiftUI previews to speed up development. Use the `#Preview` macros in Xcode to explore layouts and styles interactively.
