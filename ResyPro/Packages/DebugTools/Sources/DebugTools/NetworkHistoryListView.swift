@@ -10,26 +10,29 @@ public struct NetworkHistoryListView: View {
 
     public var body: some View {
         List(filteredRecords) { record in
-            NavigationLink(value: record) {
-                HStack(alignment: .top) {
-                    Circle()
-                        .fill(color(for: record))
-                        .frame(width: 8, height: 8)
-                    VStack(alignment: .leading, spacing: 2) {
-                        Text(record.urlPath)
-                            .font(.design(.body))
-                        Text(record.date.formatted(date: .omitted, time: .standard))
-                            .font(.footnote)
-                            .foregroundColor(.secondary)
-                    }
-                }
+            NavigationLink {
+                NetworkRecordDetailView(record: record)
+            } label: {
+                debugNetworkCard(record: record)
             }
         }
         .searchable(text: $searchText)
-        .navigationDestination(for: NetworkRecord.self) { record in
-            NetworkRecordDetailView(record: record)
-        }
         .navigationTitle("Network History")
+    }
+
+    private func debugNetworkCard(record: NetworkRecord) -> some View {
+        HStack(alignment: .top) {
+            Circle()
+                .fill(color(for: record))
+                .frame(width: 8, height: 8)
+            VStack(alignment: .leading, spacing: 2) {
+                Text(record.urlPath)
+                    .font(.design(.body))
+                Text(record.date.formatted(date: .omitted, time: .standard))
+                    .font(.footnote)
+                    .foregroundColor(.secondary)
+            }
+        }
     }
 
     private var filteredRecords: [NetworkRecord] {
