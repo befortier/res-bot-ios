@@ -3,7 +3,7 @@ import Foundation
 /// Captures a single network request and response pair.
 public struct NetworkRecord: Codable, Identifiable, Hashable, Sendable {
     /// Current lifecycle state of the network call.
-    public enum State: String, Codable {
+    public enum State: String, Codable, Sendable {
         case pending
         case inProgress
         case success

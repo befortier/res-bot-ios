@@ -14,5 +14,8 @@ public struct DebugMenuView: View {
             }
             .navigationTitle("Debug Menu")
         }
+        .navigationDestination(for: NetworkRecord.self) { record in
+            NetworkRecordDetailView(record: record)
+        }
     }
 }
