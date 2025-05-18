@@ -18,23 +18,14 @@ struct RootView: View {
 
     @StateObject private var viewModel = ViewModel()
     @Query private var users: [User]
-    @Query private var resyConfigs: [ResyConfig]
 #if DEBUG
     @State private var showDebugMenu = false
 #endif
 
     var body: some View {
         Group {
-            if
-                let user = users.first,
-                let resyConfig = resyConfigs.first
-            {
-                MainTabView(
-                    appState: AppState(
-                        user: user,
-                        resyConfig: resyConfig
-                    )
-                )
+            if let user = users.first {
+                MainTabView(user: user)
             } else {
                 SplashScreenView()
             }
@@ -70,5 +61,4 @@ extension RootView {
 #Preview {
     RootView()
         .modelContainer(for: User.self, inMemory: true)
-        .modelContainer(for: ResyConfig.self, inMemory: true)
 }

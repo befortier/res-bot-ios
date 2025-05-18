@@ -11,7 +11,6 @@ import Venues
 
 private let modelSchema = Schema([
     User.self,
-    ResyConfig.self,
     SchedueledReservation.self,
     Venue.self
 ])
