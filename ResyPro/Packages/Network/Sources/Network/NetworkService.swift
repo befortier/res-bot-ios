@@ -29,7 +29,7 @@ public struct NetworkServiceLive: NetworkService {
             throw NetworkError.unknown
         }
 
-        let data: Data = if let fixturesPath = endpoint.fixturesPath, let url = Bundle.main.url(forResource: fixturesPath, withExtension: "json") {
+        let data: Data = if let fixturesPath = endpoint.fixturesPath, let url = Bundle.module.url(forResource: fixturesPath, withExtension: "json") {
             try Data(contentsOf: url)
         } else {
             try await client.data(for: request, delegate: nil).0

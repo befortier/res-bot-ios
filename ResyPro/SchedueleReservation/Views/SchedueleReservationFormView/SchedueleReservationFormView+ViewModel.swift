@@ -8,6 +8,7 @@
 import Foundation
 import SwiftData
 import Venues
+import ProjectFoundation
 
 extension SchedueleReservationFormView {
     @MainActor

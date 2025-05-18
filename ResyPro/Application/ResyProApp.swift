@@ -16,7 +16,7 @@ struct ResyProApp: App {
     var body: some Scene {
         WindowGroup {
             RootView()
-                .projectModelContainer(sharedModelContainer)
+                .environment(\.projectModelContainer, sharedModelContainer)
         }
         .modelContainer(sharedModelContainer)
     }
