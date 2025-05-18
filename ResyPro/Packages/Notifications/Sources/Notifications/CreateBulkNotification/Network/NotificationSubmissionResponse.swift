@@ -1,28 +1,15 @@
-//
-//  NotificationSubmissionResponse.swift
-//  Venues
-//
-//  Created by Ben Fortier on 5/11/25.
-//
-
 import Foundation
 
-/// The result of a bulk reservation notification submission.
+/// Response returned after submitting a bulk notification request.
 public struct NotificationSubmissionResponse: Equatable, Sendable, Decodable {
-  /// The date interval requested by the user.
-  public let interval: DateInterval
+	/// Results for each notification creation attempt.
+	public let results: [ResultEntry]
 
-  /// Results of the submission attempt for each venue.
-  public let results: [VenueResult]
-
-  public struct VenueResult: Equatable, Sendable, Decodable {
-    public let venueID: Int
-    public let partySize: Int
-    public let succeeded: Bool
-  }
-
-  public init(interval: DateInterval, results: [VenueResult]) {
-    self.interval = interval
-    self.results = results
-  }
+	/// A single request result entry.
+	public struct ResultEntry: Equatable, Sendable, Decodable {
+		/// The originally submitted request.
+		public let request: BulkNotificationRequest.NotificationRequest
+		/// Indicates whether the notification was created.
+		public let success: Bool
+	}
 }

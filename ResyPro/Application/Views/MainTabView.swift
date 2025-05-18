@@ -77,19 +77,22 @@ struct BrowseView: View {
 
 import Venues
 import Notifications
+import Network
 
 struct SchedueleNotificationView: View {
     @Query(sort: \Venue.name) var venues: [Venue]
+    private let repository: any BulkNotificationRepository
+
+    init(networkService: any NetworkService = NetworkServiceLive()) {
+        self.repository = BulkNotificationRepositoryLive(networkService: networkService)
+    }
 
     var body: some View {
         BulkNotificationFlowView(
             viewModel: BulkNotificationFlowViewModel(
                 allVenues: venues,
                 submitter: { request in
-                    return NotificationSubmissionResponse(
-                        interval: request.interval,
-                        results: []
-                    )
+                    try await repository.submit(request)
                 }
             )
         )

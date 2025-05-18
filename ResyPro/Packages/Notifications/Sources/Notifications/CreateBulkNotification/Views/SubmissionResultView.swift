@@ -17,12 +17,13 @@ public struct SubmissionResultView: View {
       Text("Notifications Created")
         .font(.design(.title))
       if let result {
-        ForEach(result.results, id: \.venueID) { entry in
+        ForEach(result.results.indices, id: \.self) { index in
+          let entry = result.results[index]
           HStack {
-            Text("Venue ID: \(entry.venueID)")
+            Text("Venue \(entry.request.venueID) • seats: \(entry.request.numSeats)")
             Spacer()
-            Image(systemName: entry.succeeded ? "checkmark.circle" : "xmark.circle")
-              .foregroundColor(entry.succeeded ? .green : .red)
+            Image(systemName: entry.success ? "checkmark.circle" : "xmark.circle")
+              .foregroundColor(entry.success ? .green : .red)
           }
         }
       }
@@ -34,10 +35,29 @@ public struct SubmissionResultView: View {
 #Preview {
   SubmissionResultView(
     result: NotificationSubmissionResponse(
-      interval: DateInterval(start: .now, duration: 3600),
       results: [
-        .init(venueID: 1, partySize: 2, succeeded: true),
-        .init(venueID: 2, partySize: 4, succeeded: false),
+        .init(
+          request: .init(
+            venueID: 1,
+            day: "2025-01-01",
+            timePreferredStart: "10:00:00",
+            timePreferredEnd: "11:00:00",
+            numSeats: 2,
+            serviceTypeID: 2
+          ),
+          success: true
+        ),
+        .init(
+          request: .init(
+            venueID: 2,
+            day: "2025-01-01",
+            timePreferredStart: "10:00:00",
+            timePreferredEnd: "11:00:00",
+            numSeats: 4,
+            serviceTypeID: 2
+          ),
+          success: false
+        )
       ]
     )
   )
