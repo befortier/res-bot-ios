@@ -40,17 +40,26 @@ public struct NetworkServiceLive: NetworkService {
       throw NetworkError.unknown
     }
 
-    let data: Data =
+    let (data, response): (Data, URLResponse) =
       if let fixturesPath = endpoint.fixturesPath, false,
         let url = Bundle.module.url(forResource: fixturesPath, withExtension: "json")
       {
-        try Data(contentsOf: url)
+        (try Data(contentsOf: url), URLResponse())
       } else {
-        try await client.data(for: request, delegate: nil).0
+        try await client.data(for: request, delegate: nil)
       }
 
-      return try jsonDecoder.decode(T.self, from: data)
+    if let http = response as? HTTPURLResponse {
+      switch http.statusCode {
+      case 200..<300:
+        break
+      case 401, 403:
+        throw NetworkError.unauthorized
+      default:
+        throw NetworkError.unknown
+      }
+    }
+
+    return try jsonDecoder.decode(T.self, from: data)
   }
 }
-
-

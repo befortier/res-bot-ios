@@ -5,14 +5,16 @@
 //  Created by Ben Fortier on 6/19/24.
 //
 
-import SwiftUI
+import Authentication
+import ProjectFoundation
 import SwiftData
+import SwiftUI
 import User
 import Venues
-import ProjectFoundation
 import Websockets
+
 #if DEBUG
-import DebugTools
+  import DebugTools
 #endif
 
 @main
@@ -24,32 +26,20 @@ struct ResyProApp: App {
     #else
     @State private var websocketClient = URLSessionWebsocketClient.init()
     #endif
-    @Environment(\.scenePhase) private var scenePhase
 
-    private let websocketURL = URL(string: "wss://resy-service.fly.dev:8081")!
 
-    var body: some Scene {
-        WindowGroup {
-            RootView()
-                .environment(\.projectModelContainer, sharedModelContainer)
-                .environment(\.websocketClient, websocketClient)
-#if DEBUG
-                .environmentObject(NetworkHistoryStore.shared)
-                .environmentObject(WebsocketHistoryStore.shared)
-#endif
-                .task { await websocketClient.connect(url: websocketURL) }
-                .onChange(of: scenePhase) { _, newPhase in
-                    switch newPhase {
-                    case .active:
-                        Task { await websocketClient.connect(url: websocketURL) }
-                    case .inactive, .background:
-                        Task { await websocketClient.disconnect() }
-                    @unknown default:
-                        break
-                    }
-                }
-        }
-        .modelContainer(sharedModelContainer)
+  private let websocketURL = URL(string: "wss://resy-service.fly.dev:8081")!
+
+  var body: some Scene {
+    WindowGroup {
+      RootView()
+        .environment(\.projectModelContainer, sharedModelContainer)
+        .environment(\.websocketClient, websocketClient)
+        .environment(\.tokenStore, TokenStoreFile())
+        #if DEBUG
+          .environmentObject(NetworkHistoryStore.shared)
+        #endif
     }
+    .modelContainer(sharedModelContainer)
+  }
 }
-
