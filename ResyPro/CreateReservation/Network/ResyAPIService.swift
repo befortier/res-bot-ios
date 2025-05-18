@@ -7,12 +7,21 @@
 
 import Foundation
 import Network
+#if DEBUG
+import DebugTools
+#endif
 
 struct ResyAPIService: Sendable {
 
     private let networkService: any NetworkService
 
-    init(networkService: any NetworkService = NetworkServiceLive()) {
+    init(networkService: any NetworkService = {
+#if DEBUG
+        DebugNetworkServiceLive()
+#else
+        NetworkServiceLive()
+#endif
+    }()) {
         self.networkService = networkService
     }
 

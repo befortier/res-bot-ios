@@ -8,6 +8,9 @@
 import Combine
 import SwiftUI
 import Network
+#if DEBUG
+import DebugTools
+#endif
 
 class CreateReservationViewModel: ObservableObject {
     @Published var username = ""
@@ -33,10 +36,16 @@ class CreateReservationViewModel: ObservableObject {
     private let networkService: any NetworkService
 
     init(
-        networkService: any NetworkService = NetworkServiceLive(
-            client: URLSession.shared,
-            jsonDecoder: JSONDecoder()
-        ),
+        networkService: any NetworkService = {
+#if DEBUG
+            DebugNetworkServiceLive()
+#else
+            NetworkServiceLive(
+                client: URLSession.shared,
+                jsonDecoder: JSONDecoder()
+            )
+#endif
+        }(),
         resyConfig: ResyConfig
     ) {
         self.networkService = networkService
