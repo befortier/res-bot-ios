@@ -7,8 +7,16 @@
 
 import Foundation
 
+#if canImport(FoundationNetworking)
+  import FoundationNetworking
+#endif
+
+/// Abstraction over ``URLSession`` for testability.
 public protocol NetworkSession: Sendable {
-    func data(for request: URLRequest, delegate: (any URLSessionTaskDelegate)?) async throws -> (Data, URLResponse)
+  /// Performs a URL request and returns the resulting data and response.
+  func data(for request: URLRequest, delegate: (any URLSessionTaskDelegate)?) async throws -> (
+    Data, URLResponse
+  )
 }
 
 extension URLSession: NetworkSession {}

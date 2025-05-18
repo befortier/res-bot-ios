@@ -7,7 +7,11 @@
 
 import Foundation
 
-/// A struct representing...
+#if canImport(FoundationNetworking)
+  import FoundationNetworking
+#endif
+
+/// A fully constructed request derived from an ``Endpoint``.
 public struct InterpretedEndpoint {
-    let urlRequest: URLRequest
+  let urlRequest: URLRequest
 }

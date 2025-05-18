@@ -7,9 +7,9 @@
 
 import Foundation
 
-/// An enum representing...
+/// Errors thrown by ``NetworkService``.
 public enum NetworkError: Error {
-    case invalidResponse
-    case decodingError
-    case unknown
+  case invalidResponse
+  case decodingError
+  case unknown
 }

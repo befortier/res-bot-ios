@@ -6,8 +6,15 @@
 //
 
 import Foundation
-public import Combine
 
+/// Stores the currently selected environment for network calls.
 public final actor EnvironmentStore {
-    var currentEnvironment: CurrentValueSubject<Environment, Never> = .init(.prod)
+  /// The active environment value.
+  public private(set) var environment: Environment = .prod
+
+  /// Updates the environment.
+  /// - Parameter environment: The new environment value.
+  public func update(_ environment: Environment) {
+    self.environment = environment
+  }
 }

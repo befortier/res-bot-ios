@@ -7,5 +7,5 @@
 
 import Foundation
 
-/// A protocol defining...
+/// Marker protocol for read-only requests.
 public protocol GetEndpoint: Endpoint {}
