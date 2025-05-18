@@ -15,6 +15,8 @@ public final class User: Identifiable, Equatable {
     public var createdAt: Date
     public var profileImageURL: URL?
     public var preferredLocation: String
+    public var resyAuthToken: String?
+    public var resyPaymentID: String?
 
     public init(
         id: String,
@@ -22,7 +24,9 @@ public final class User: Identifiable, Equatable {
         email: String,
         createdAt: Date,
         profileImageURL: URL? = nil,
-        preferredLocation: String = ""
+        preferredLocation: String = "",
+        resyAuthToken: String? = nil,
+        resyPaymentID: String? = nil
     ) {
         self.id = id
         self.name = name
@@ -30,6 +34,8 @@ public final class User: Identifiable, Equatable {
         self.createdAt = createdAt
         self.profileImageURL = profileImageURL
         self.preferredLocation = preferredLocation
+        self.resyAuthToken = resyAuthToken
+        self.resyPaymentID = resyPaymentID
     }
 }
 
@@ -41,7 +47,9 @@ extension User {
             email: "bennett.fortier@gmail.com",
             createdAt: Date(timeIntervalSince1970: 1703714743),
             profileImageURL: URL(string: "https://example.com/profile.jpg"),
-            preferredLocation: "New York, NY"
+            preferredLocation: "New York, NY",
+            resyAuthToken: "example-token",
+            resyPaymentID: "23385560"
         )
     }
 }

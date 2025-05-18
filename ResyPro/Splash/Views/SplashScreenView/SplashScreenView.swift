@@ -18,7 +18,6 @@ struct SplashScreenView: View {
     var body: some View {
         Button("Sign in") {
             modelContext.insert(User.stub)
-            modelContext.insert(ResyConfig.stub)
             Task {
                 try? await websocketClient.authenticate(userID: User.stub.id)
             }

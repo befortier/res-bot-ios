@@ -11,7 +11,7 @@ import SwiftData
 
 struct MainTabView: View {
     @State private var selectedTab: Tab
-    private let appState: AppState
+    private let user: User
 
     enum Tab: CaseIterable {
         case schedueleReservation
@@ -23,9 +23,9 @@ struct MainTabView: View {
         case profile
     }
 
-    init(appState: AppState) {
+    init(user: User) {
         self._selectedTab = State(wrappedValue: .schedueleReservation)
-        self.appState = appState
+        self.user = user
     }
 
     var body: some View {
@@ -52,7 +52,7 @@ struct MainTabView: View {
                     }
                     .tag(Tab.browse)
 
-                ProfileView(user: appState.user)
+                ProfileView(user: user)
                     .tabItem {
                         Image(systemName: "person.crop.circle")
                     }
@@ -66,7 +66,7 @@ struct MainTabView: View {
 
 
 #Preview {
-    MainTabView(appState: .stub())
+    MainTabView(user: .stub)
 }
 
 

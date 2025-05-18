@@ -8,6 +8,7 @@
 import Combine
 import SwiftUI
 import Network
+import User
 #if DEBUG
 import DebugTools
 #endif
@@ -20,16 +21,16 @@ class CreateReservationViewModel: ObservableObject {
     @Published var time = ""
     @Published var partySize = ""
 
-    let resyConfig: ResyConfig
+    let user: User
 
     private let networkService: any NetworkService
 
     init(
-        networkService: any NetworkService,
-        resyConfig: ResyConfig
+        networkService: any NetworkService
+        user: User
     ) {
         self.networkService = networkService
-        self.resyConfig = resyConfig
+        self.user = user
     }
 
 //    func saveCredentials() {
