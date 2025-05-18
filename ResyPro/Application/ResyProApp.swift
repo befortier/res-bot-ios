@@ -19,8 +19,14 @@ import Websockets
 
 @main
 struct ResyProApp: App {
-  @State private var websocketClient = URLSessionWebsocketClient.init()
-  @Environment(\.scenePhase) private var scenePhase
+    #if DEBUG
+    @State private var websocketClient = RecordingWebsocketClient(
+        wrapped: URLSessionWebsocketClient()
+    )
+    #else
+    @State private var websocketClient = URLSessionWebsocketClient.init()
+    #endif
+
 
   private let websocketURL = URL(string: "wss://resy-service.fly.dev:8081")!
 
@@ -33,17 +39,6 @@ struct ResyProApp: App {
         #if DEBUG
           .environmentObject(NetworkHistoryStore.shared)
         #endif
-        .task { await websocketClient.connect(url: websocketURL) }
-        .onChange(of: scenePhase) { _, newPhase in
-          switch newPhase {
-          case .active:
-            Task { await websocketClient.connect(url: websocketURL) }
-          case .inactive, .background:
-            Task { await websocketClient.disconnect() }
-          @unknown default:
-            break
-          }
-        }
     }
     .modelContainer(sharedModelContainer)
   }
