@@ -8,13 +8,17 @@
 import DesignSystem
 import SwiftUI
 import Venues
+import Websockets
 
 /// Container for the full bulk notification creation flow.
 public struct BulkNotificationFlowView: View {
   @State private var viewState: ViewState
   @State private var confirmationKind: BulkNotificationConfirmationView.Kind?
+  @State private var results: [NotificationSubmissionResponse.ResultEntry] = []
+  @State private var expectedCount: Int?
 
   private let viewModel: BulkNotificationFlowViewModel
+  @Environment(\.websocketClient) private var websocketClient
 
   /// Creates the bulk notification flow view.
   /// - Parameters:
@@ -60,7 +64,7 @@ public struct BulkNotificationFlowView: View {
       case .selectVenues:
         bulkNotificationVenueSelectionView
       case .submitted:
-        timeAndPartySizeView
+        submissionResultsView
       }
     }
     .background(Color.backgroundPrimary)
@@ -89,9 +93,11 @@ public struct BulkNotificationFlowView: View {
     ) {
       Task {
         do {
-          _ = try await viewModel.submit(from: viewState)
-          self.viewState.step = .selectTime
-          self.confirmationKind = .success
+          let response = try await viewModel.submit(from: viewState)
+          expectedCount = response.results.count
+          results = []
+          viewState.step = .submitted(nil)
+          observeResults()
         } catch {
           print("HERE", error)
           self.confirmationKind = .error
@@ -113,5 +119,28 @@ public struct BulkNotificationFlowView: View {
         .foregroundColor(.textPrimary)
     }
     .frame(maxWidth: .infinity, alignment: .leading)
+  }
+
+  private var submissionResultsView: some View {
+    SubmissionResultView(results: results, expectedCount: expectedCount)
+      .onDisappear { results = [] }
+  }
+
+  private func observeResults() {
+    Task {
+      for await entry in websocketClient.observeEvent(
+        named: "notification-result",
+        as: NotificationSubmissionResponse.ResultEntry.self
+      ) {
+        await MainActor.run {
+          withAnimation { results.append(entry) }
+          if let expectedCount, results.count >= expectedCount {
+            confirmationKind = .success
+            viewState.step = .selectTime
+          }
+        }
+        if let expectedCount, results.count >= expectedCount { break }
+      }
+    }
   }
 }
