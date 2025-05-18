@@ -7,10 +7,10 @@
 
 import Foundation
 
-/// An enum representing...
+/// String-based representation of HTTP methods.
 public enum InterpretedHTTPMethod: String {
-    case get = "GET"
-    case post = "POST"
-    case put = "PUT"
-    case delete = "DELETE"
+  case get = "GET"
+  case post = "POST"
+  case put = "PUT"
+  case delete = "DELETE"
 }

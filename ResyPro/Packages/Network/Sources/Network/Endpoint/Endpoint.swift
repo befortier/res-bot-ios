@@ -7,16 +7,16 @@
 
 import Foundation
 
-/// A protocol defining...
+/// Defines the information needed to build a network request.
 public protocol Endpoint {
-    var baseURL: BaseURL { get }
-    var path: String { get }
-    var queryParameters: [String: String]? { get }
-    var headers: [String: String]? { get }
+  var baseURL: BaseURL { get }
+  var path: String { get }
+  var queryParameters: [String: String]? { get }
+  var headers: [String: String]? { get }
 
-    var fixturesPath: String? { get }
+  var fixturesPath: String? { get }
 }
 
-public extension Endpoint {
-    var fixturesPath: String? { nil }
+extension Endpoint {
+  public var fixturesPath: String? { nil }
 }

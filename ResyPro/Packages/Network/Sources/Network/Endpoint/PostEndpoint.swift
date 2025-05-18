@@ -7,10 +7,10 @@
 
 import Foundation
 
-/// A protocol defining...
+/// Endpoint for requests that send an encodable body.
 public protocol PostEndpoint<Body>: Endpoint {
-    associatedtype Body: NetworkRequestBody
-    var requestBody: Body? { get }
+  associatedtype Body: NetworkRequestBody
+  var requestBody: Body? { get }
 }
 
 public typealias NetworkRequestBody = Sendable & Encodable
