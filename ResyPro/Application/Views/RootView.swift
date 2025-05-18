@@ -14,7 +14,6 @@ import User
 struct RootView: View {
 
     @StateObject private var viewModel = ViewModel()
-    @Environment(\.modelContext) var modelContext
     @Query private var users: [User]
     @Query private var resyConfigs: [ResyConfig]
 

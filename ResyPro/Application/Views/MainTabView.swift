@@ -11,7 +11,6 @@ import SwiftData
 
 struct MainTabView: View {
     @State private var selectedTab: Tab
-    @Environment(\.modelContext) private var modelContext: ModelContext
     private let appState: AppState
 
     enum Tab: CaseIterable {

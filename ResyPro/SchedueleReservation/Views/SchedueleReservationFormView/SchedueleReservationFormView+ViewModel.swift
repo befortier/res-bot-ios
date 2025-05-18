@@ -40,7 +40,7 @@ extension SchedueleReservationFormView {
         }
 
         func schedueleReservation(
-            modelContext: ModelContext,
+            modelContainer: any ModelContainerProtocol,
             finishedState: FinishedState
         ) async throws {
             // Optimisticall put yes, if network fails global error modal + remove
@@ -54,7 +54,7 @@ extension SchedueleReservationFormView {
                 scheduelingBehavior: .slowAndSmooth
             )
 
-            modelContext.insert(schedueledReservation)
+            modelContainer.mainContext.insert(schedueledReservation)
         }
     }
 }

@@ -15,16 +15,16 @@ public protocol VenueRepository: Sendable {
 
 public struct VenueRepositoryLive: VenueRepository {
 
-    private let modelContext: any ModelContextProtocol
+    private let modelContainer: any ModelContainerProtocol
     private let networkService: any NetworkService
     private let venueMapper: any VenueMapper
 
     public init(
-        modelContext: any ModelContextProtocol,
+        modelContainer: any ModelContainerProtocol,
         networkService: any NetworkService = NetworkServiceLive(),
         venueMapper: any VenueMapper = VenueMapperLive()
     ) {
-        self.modelContext = modelContext
+        self.modelContainer = modelContainer
         self.networkService = networkService
         self.venueMapper = venueMapper
     }
@@ -36,10 +36,10 @@ public struct VenueRepositoryLive: VenueRepository {
         await MainActor.run {
             for venueDTO in venueDTOs {
                 let venue = venueMapper.map(dto: venueDTO)
-                modelContext.insert(venue)
+                modelContainer.mainContext.insert(venue)
             }
 
-            try? modelContext.save()
+            try? modelContainer.mainContext.save()
         }
     }
 }

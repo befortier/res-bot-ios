@@ -49,8 +49,8 @@ extension VenueCardListView {
     public struct ViewModel: Sendable {
         private let venueRepository: any VenueRepository
 
-        public init(modelContext: any ModelContextProtocol) {
-            self.venueRepository = VenueRepositoryLive(modelContext: modelContext)
+        public init(modelContainer: any ModelContainerProtocol) {
+            self.venueRepository = VenueRepositoryLive(modelContainer: modelContainer)
         }
 
         func refreshAllVenues() async throws {

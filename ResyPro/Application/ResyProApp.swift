@@ -9,12 +9,14 @@ import SwiftUI
 import SwiftData
 import User
 import Venues
+import ProjectFoundation
 
 @main
 struct ResyProApp: App {
     var body: some Scene {
         WindowGroup {
             RootView()
+                .projectModelContainer(sharedModelContainer)
         }
         .modelContainer(sharedModelContainer)
     }
