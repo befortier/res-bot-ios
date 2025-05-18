@@ -12,7 +12,6 @@ import DesignSystem
 
 struct SchedeuledReservationsCarouselView: View {
     @Query private var schedueledReservations: [SchedueledReservation]
-    @Environment(\.modelContext) var modelContext
 
     var body: some View {
         ScrollView(.horizontal) {

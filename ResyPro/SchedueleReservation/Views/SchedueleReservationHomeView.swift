@@ -8,9 +8,10 @@
 import Foundation
 import SwiftUI
 import Venues
+import ProjectFoundation
 
 struct SchedueleReservationHomeView: View {
-    @Environment(\.modelContext) var modelContext
+    @Environment(\.projectModelContainer) private var modelContainer: any ModelContainerProtocol
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State var selectedVenue: Venue?
 
@@ -26,7 +27,7 @@ struct SchedueleReservationHomeView: View {
     }
 
     private var venuesListView: some View {
-        VenueCardListView(viewModel: VenueCardListView.ViewModel(modelContext: modelContext)) { venue in
+        VenueCardListView(viewModel: VenueCardListView.ViewModel(modelContainer: modelContainer)) { venue in
             NavigationLink(
                 destination: DefaultVenueDetailsDestinationView(venue: venue)
             ) {

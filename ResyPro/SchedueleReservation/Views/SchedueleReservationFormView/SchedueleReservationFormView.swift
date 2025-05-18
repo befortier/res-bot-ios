@@ -10,10 +10,11 @@ import SwiftUI
 import SwiftData
 import DesignSystem
 import Venues
+import ProjectFoundation
 
 struct SchedueleReservationFormView: View {
-    @Environment(\.modelContext) var modelContext
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @Environment(\.projectModelContainer) private var modelContainer: any ModelContainerProtocol
     @StateObject var viewModel: ViewModel
 
     init(viewModel: @autoclosure @escaping () -> ViewModel) {
@@ -50,7 +51,8 @@ struct SchedueleReservationFormView: View {
                 Button("Confirm") {
                     Task {
                         try await viewModel.schedueleReservation(
-                            modelContext: modelContext, finishedState: finishedState
+                            modelContainer: modelContainer,
+                            finishedState: finishedState
                         )
                     }
                 }
