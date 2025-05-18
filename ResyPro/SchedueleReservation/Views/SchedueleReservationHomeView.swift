@@ -17,7 +17,6 @@ struct SchedueleReservationHomeView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State var selectedVenue: Venue?
     let user: User
-    let resyConfig: ResyConfig
 
     var body: some View {
         VStack {
@@ -38,7 +37,7 @@ struct SchedueleReservationHomeView: View {
                     networkService: BearerNetworkServiceComposer.make(
                         configuration: ResyHeaderConfiguration(
                             bearerToken: user.id,
-                            resyAuthToken: resyConfig.authToken
+                            resyAuthToken: user.resyAuthToken
                         )
                     )
                 )

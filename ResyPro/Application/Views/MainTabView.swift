@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import SwiftData
+import User
 
 struct MainTabView: View {
     @State private var selectedTab: Tab
@@ -31,10 +32,7 @@ struct MainTabView: View {
     var body: some View {
         NavigationStack {
             TabView(selection: $selectedTab) {
-                SchedueleReservationHomeView(
-                    user: appState.user,
-                    resyConfig: appState.resyConfig
-                )
+                SchedueleReservationHomeView(user: user)
                     .tabItem {
                         Image(systemName: "list.bullet")
                     }

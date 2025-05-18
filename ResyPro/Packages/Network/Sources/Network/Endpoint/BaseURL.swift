@@ -8,5 +8,5 @@
 /// Base URLs used to construct requests.
 public enum BaseURL: String, Sendable {
   case resy = "https://api.resy.com"
-  case backend = "https://resy-service.fly.dev/"
+  case backend = "https://resy-service.fly.dev"
 }

@@ -43,10 +43,6 @@ public struct NetworkServiceLive: NetworkService {
         try await client.data(for: request, delegate: nil).0
       }
 
-    do {
       return try jsonDecoder.decode(T.self, from: data)
-    } catch {
-      throw NetworkError.decodingError
-    }
   }
 }

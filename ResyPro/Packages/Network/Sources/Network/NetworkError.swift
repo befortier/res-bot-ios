@@ -9,7 +9,5 @@ import Foundation
 
 /// Errors thrown by ``NetworkService``.
 public enum NetworkError: Error {
-  case invalidResponse
-  case decodingError
   case unknown
 }

@@ -30,8 +30,6 @@
 		57199D8B2C23181000AE2F8B /* GetAvailableSlotsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D8A2C23181000AE2F8B /* GetAvailableSlotsEndpoint.swift */; };
 		57199D912C231A4600AE2F8B /* GetExistingReservationsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D902C231A4600AE2F8B /* GetExistingReservationsEndpoint.swift */; };
 		57199D942C2338BE00AE2F8B /* ConfirmBookingEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D932C2338BE00AE2F8B /* ConfirmBookingEndpoint.swift */; };
-		57199DA12C233A3800AE2F8B /* AppStateViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199DA02C233A3800AE2F8B /* AppStateViewModifier.swift */; };
-		57199DA52C233A5F00AE2F8B /* ResyConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199DA42C233A5F00AE2F8B /* ResyConfig.swift */; };
 		57199DAE2C233B4600AE2F8B /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199DAD2C233B4600AE2F8B /* SplashScreenView.swift */; };
 		57199DB02C233B6C00AE2F8B /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199DAF2C233B6C00AE2F8B /* RootView.swift */; };
 		57199DB32C233B8900AE2F8B /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199DB22C233B8900AE2F8B /* MainTabView.swift */; };
@@ -112,8 +110,6 @@
 		57199D8A2C23181000AE2F8B /* GetAvailableSlotsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAvailableSlotsEndpoint.swift; sourceTree = "<group>"; };
 		57199D902C231A4600AE2F8B /* GetExistingReservationsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetExistingReservationsEndpoint.swift; sourceTree = "<group>"; };
 		57199D932C2338BE00AE2F8B /* ConfirmBookingEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmBookingEndpoint.swift; sourceTree = "<group>"; };
-		57199DA02C233A3800AE2F8B /* AppStateViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStateViewModifier.swift; sourceTree = "<group>"; };
-		57199DA42C233A5F00AE2F8B /* ResyConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResyConfig.swift; sourceTree = "<group>"; };
 		57199DAD2C233B4600AE2F8B /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		57199DAF2C233B6C00AE2F8B /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		57199DB22C233B8900AE2F8B /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
@@ -409,7 +405,6 @@
 			isa = PBXGroup;
 			children = (
 				57D8C68A2DD983F40031F4BC /* ModelSchema */,
-				57199DA02C233A3800AE2F8B /* AppStateViewModifier.swift */,
 				57199D282C2314F500AE2F8B /* ResyProApp.swift */,
 				57199DB12C233B8300AE2F8B /* Views */,
 			);
@@ -427,7 +422,6 @@
 		57199DA32C233A5600AE2F8B /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				57199DA42C233A5F00AE2F8B /* ResyConfig.swift */,
 				57199DCB2C23459100AE2F8B /* Resy+TypeAlias.swift */,
 			);
 			path = Models;
@@ -795,13 +789,11 @@
 				57199DCA2C23455800AE2F8B /* AvailableReservationsStore.swift in Sources */,
 				57199D292C2314F500AE2F8B /* ResyProApp.swift in Sources */,
 				57168D2D2C238665009E6150 /* SchedueleReservationHomeView.swift in Sources */,
-				57199DA12C233A3800AE2F8B /* AppStateViewModifier.swift in Sources */,
 				57168D0C2C235F33009E6150 /* AvailableReservationSlotView.swift in Sources */,
 				57199D7C2C23169A00AE2F8B /* CreateReservationView.swift in Sources */,
 				57168D092C235C09009E6150 /* AvailableReservationResponseMapper.swift in Sources */,
 				57199DCE2C2345B800AE2F8B /* BookingAvailabilityStatus.swift in Sources */,
 				572503E72C2797A50076EECB /* SchedueleReservationFormView.swift in Sources */,
-				57199DA52C233A5F00AE2F8B /* ResyConfig.swift in Sources */,
 				57199D912C231A4600AE2F8B /* GetExistingReservationsEndpoint.swift in Sources */,
 				57168CFD2C235350009E6150 /* AvailableReservationsView+ViewModel.swift in Sources */,
 				57199DB02C233B6C00AE2F8B /* RootView.swift in Sources */,

@@ -26,7 +26,7 @@ class CreateReservationViewModel: ObservableObject {
     private let networkService: any NetworkService
 
     init(
-        networkService: any NetworkService
+        networkService: any NetworkService,
         user: User
     ) {
         self.networkService = networkService
