@@ -4,18 +4,11 @@ import SwiftUI
   import DebugTools
 
   private struct DebugMenuObserver: ViewModifier {
-    @State private var showDebugMenu = false
-
     func body(content: Content) -> some View {
       content
-        .sheet(isPresented: $showDebugMenu) {
-          DebugMenuView()
-            .environmentObject(NetworkHistoryStore.shared)
-            .environmentObject(WebsocketHistoryStore.shared)
-        }
         .overlay(
           ShakeDetector {
-            showDebugMenu = true
+            DebugMenuPresenter.shared.present()
           }
           .allowsHitTesting(false)
         )
