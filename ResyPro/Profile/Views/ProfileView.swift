@@ -1,8 +1,11 @@
 import SwiftUI
 import DesignSystem
 import User
+import Websockets
 
 struct ProfileView: View {
+    @Environment(\.modelContext) private var modelContext
+    @Environment(\.websocketClient) private var websocketClient
     let user: User
 
     var body: some View {
@@ -24,6 +27,12 @@ struct ProfileView: View {
             Text(user.preferredLocation)
                 .font(.design(.body))
                 .foregroundStyle(Color.textSecondary)
+
+            Button("Logout") {
+                modelContext.delete(user)
+                Task { await websocketClient.disconnect() }
+            }
+            .buttonStyle(PrimaryButtonStyle())
         }
         .padding()
     }
