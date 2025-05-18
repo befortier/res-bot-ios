@@ -12,7 +12,6 @@
 		57168CFD2C235350009E6150 /* AvailableReservationsView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57168CFC2C235350009E6150 /* AvailableReservationsView+ViewModel.swift */; };
 		57168D092C235C09009E6150 /* AvailableReservationResponseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57168D082C235C09009E6150 /* AvailableReservationResponseMapper.swift */; };
 		57168D0C2C235F33009E6150 /* AvailableReservationSlotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57168D0B2C235F33009E6150 /* AvailableReservationSlotView.swift */; };
-		57168D0F2C2379C7009E6150 /* Restaurants.json in Resources */ = {isa = PBXBuildFile; fileRef = 57168D0E2C2379C7009E6150 /* Restaurants.json */; };
 		57168D262C2381F2009E6150 /* CreateReservationFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57168D252C2381F2009E6150 /* CreateReservationFormView.swift */; };
 		57168D2D2C238665009E6150 /* SchedueleReservationHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57168D2C2C238665009E6150 /* SchedueleReservationHomeView.swift */; };
 		57168D2F2C23869E009E6150 /* SchedeuledReservationsCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57168D2E2C23869E009E6150 /* SchedeuledReservationsCarouselView.swift */; };
@@ -54,7 +53,9 @@
 		573498722C24E2C000DBB916 /* SchedueleReservationEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573498712C24E2C000DBB916 /* SchedueleReservationEndpoint.swift */; };
 		574013AD2C2E0B1000DAD86B /* AutomaticSchedueleBookingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574013AC2C2E0B1000DAD86B /* AutomaticSchedueleBookingView.swift */; };
 		57865CD02C2D9571006C7D68 /* ManualSchedueleBookingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57865CCF2C2D9571006C7D68 /* ManualSchedueleBookingView.swift */; };
+		57AC63022DD9848E003C2BA8 /* Websockets in Frameworks */ = {isa = PBXBuildFile; productRef = 57AC63012DD9848E003C2BA8 /* Websockets */; };
 		57D8C6882DD8F3610031F4BC /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D8C6852DD8F3610031F4BC /* ProfileView.swift */; };
+		57D8C68C2DD983FD0031F4BC /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D8C68B2DD983FD0031F4BC /* DataController.swift */; };
 		57E8C2402DD412A50075E615 /* User in Frameworks */ = {isa = PBXBuildFile; productRef = 57E8C23F2DD412A50075E615 /* User */; };
 		57EA7E9F2DD0DA2D00E25108 /* Network in Frameworks */ = {isa = PBXBuildFile; productRef = 57EA7E9E2DD0DA2D00E25108 /* Network */; };
 		57EA7EA22DD0E06C00E25108 /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 57EA7EA12DD0E06C00E25108 /* DesignSystem */; };
@@ -88,7 +89,6 @@
 		57168CFC2C235350009E6150 /* AvailableReservationsView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AvailableReservationsView+ViewModel.swift"; sourceTree = "<group>"; };
 		57168D082C235C09009E6150 /* AvailableReservationResponseMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableReservationResponseMapper.swift; sourceTree = "<group>"; };
 		57168D0B2C235F33009E6150 /* AvailableReservationSlotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableReservationSlotView.swift; sourceTree = "<group>"; };
-		57168D0E2C2379C7009E6150 /* Restaurants.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Restaurants.json; sourceTree = "<group>"; };
 		57168D252C2381F2009E6150 /* CreateReservationFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateReservationFormView.swift; sourceTree = "<group>"; };
 		57168D2C2C238665009E6150 /* SchedueleReservationHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedueleReservationHomeView.swift; sourceTree = "<group>"; };
 		57168D2E2C23869E009E6150 /* SchedeuledReservationsCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedeuledReservationsCarouselView.swift; sourceTree = "<group>"; };
@@ -134,6 +134,7 @@
 		57865CCF2C2D9571006C7D68 /* ManualSchedueleBookingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualSchedueleBookingView.swift; sourceTree = "<group>"; };
 		57D8C6852DD8F3610031F4BC /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		57D8C6892DD96C5E0031F4BC /* Websockets */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Websockets; sourceTree = "<group>"; };
+		57D8C68B2DD983FD0031F4BC /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		57E8AA132DD4125D00736FCD /* User */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = User; sourceTree = "<group>"; };
 		57EA7E9C2DD0D88400E25108 /* Network */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Network; sourceTree = "<group>"; };
 		57EA7EBC2DD0E2B000E25108 /* DesignSystem */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DesignSystem; sourceTree = "<group>"; };
@@ -153,6 +154,7 @@
 				57EA7EA22DD0E06C00E25108 /* DesignSystem in Frameworks */,
 				57FAFD432DD0EC4A0059A036 /* Venues in Frameworks */,
 				572503FD2C28D9180076EECB /* NukeUI in Frameworks */,
+				57AC63022DD9848E003C2BA8 /* Websockets in Frameworks */,
 				57E8C2402DD412A50075E615 /* User in Frameworks */,
 				57EA7E9F2DD0DA2D00E25108 /* Network in Frameworks */,
 				572503F92C28D9180076EECB /* Nuke in Frameworks */,
@@ -201,14 +203,6 @@
 				57168D0B2C235F33009E6150 /* AvailableReservationSlotView.swift */,
 			);
 			path = AvailableReservationSlotView;
-			sourceTree = "<group>";
-		};
-		57168D0D2C2379A9009E6150 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				57168D0E2C2379C7009E6150 /* Restaurants.json */,
-			);
-			path = Data;
 			sourceTree = "<group>";
 		};
 		57168D242C2381B0009E6150 /* CreateReservationForm */ = {
@@ -406,7 +400,7 @@
 		57199D9F2C233A2B00AE2F8B /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				57168D0D2C2379A9009E6150 /* Data */,
+				57D8C68A2DD983F40031F4BC /* ModelSchema */,
 				57199DA02C233A3800AE2F8B /* AppStateViewModifier.swift */,
 				57199D282C2314F500AE2F8B /* ResyProApp.swift */,
 				57199DB12C233B8300AE2F8B /* Views */,
@@ -596,6 +590,14 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		57D8C68A2DD983F40031F4BC /* ModelSchema */ = {
+			isa = PBXGroup;
+			children = (
+				57D8C68B2DD983FD0031F4BC /* DataController.swift */,
+			);
+			path = ModelSchema;
+			sourceTree = "<group>";
+		};
 		57EA7E9A2DD0D73300E25108 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
@@ -645,6 +647,7 @@
 				57FAFD422DD0EC4A0059A036 /* Venues */,
 				57FAFD4D2DD153060059A036 /* Notifications */,
 				57E8C23F2DD412A50075E615 /* User */,
+				57AC63012DD9848E003C2BA8 /* Websockets */,
 			);
 			productName = ResyPro;
 			productReference = 57199D252C2314F500AE2F8B /* ResyPro.app */;
@@ -739,7 +742,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57168D0F2C2379C7009E6150 /* Restaurants.json in Resources */,
 				57199D332C2314F600AE2F8B /* Preview Assets.xcassets in Resources */,
 				57199D2F2C2314F600AE2F8B /* Assets.xcassets in Resources */,
 			);
@@ -804,6 +806,7 @@
 				57199DD02C2345C300AE2F8B /* ResySlotConfigType.swift in Sources */,
 				57199D942C2338BE00AE2F8B /* ConfirmBookingEndpoint.swift in Sources */,
 				57168D312C2386D7009E6150 /* SchedueledReservation.swift in Sources */,
+				57D8C68C2DD983FD0031F4BC /* DataController.swift in Sources */,
 				57199DB62C233EDC00AE2F8B /* ResyAPIService.swift in Sources */,
 				5734986E2C24D7AA00DBB916 /* ScedueleReservationUseCase.swift in Sources */,
 				57D8C6882DD8F3610031F4BC /* ProfileView.swift in Sources */,
@@ -1204,6 +1207,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 572503F62C28D8D80076EECB /* XCRemoteSwiftPackageReference "Nuke" */;
 			productName = NukeUI;
+		};
+		57AC63012DD9848E003C2BA8 /* Websockets */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Websockets;
 		};
 		57E8C23F2DD412A50075E615 /* User */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -8,7 +8,7 @@
 import Foundation
 
 /// A lightweight websocket client built on top of ``URLSessionWebSocketTask``.
-public actor URLSessionWebsocketClient {
+public actor URLSessionWebsocketClient: WebsocketClient {
     private let session: URLSession
     private var task: URLSessionWebSocketTask?
     private var handlers: [String: [EventSubscription]] = [:]
@@ -105,7 +105,7 @@ public actor URLSessionWebsocketClient {
 
             listen()
         case .failure:
-            await disconnect()
+            disconnect()
         }
     }
 

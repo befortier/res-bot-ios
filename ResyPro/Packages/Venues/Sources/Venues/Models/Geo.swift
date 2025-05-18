@@ -9,13 +9,14 @@ import Foundation
 import SwiftData
 
 @Model
+/// Geographic coordinates for a venue location.
 public final class Geo: Equatable {
-    public var latitude: Double
-    public var longitude: Double
-    @Relationship public var location: Location?
+  public var latitude: Double
+  public var longitude: Double
+  @Relationship public var location: Location?
 
-    public init(latitude: Double, longitude: Double) {
-        self.latitude = latitude
-        self.longitude = longitude
-    }
+  public init(latitude: Double, longitude: Double) {
+    self.latitude = latitude
+    self.longitude = longitude
+  }
 }
