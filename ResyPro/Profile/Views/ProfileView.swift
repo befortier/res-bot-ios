@@ -2,11 +2,20 @@ import SwiftUI
 import DesignSystem
 import User
 import Websockets
+import ProjectFoundation
 
 struct ProfileView: View {
-    @Environment(\.modelContext) private var modelContext
+    @Environment(\.projectModelContainer) private var modelContainer: any ModelContainerProtocol
     @Environment(\.websocketClient) private var websocketClient
     let user: User
+
+    private var logoutUseCase: any LogoutUseCase {
+        LogoutUseCaseLive(
+            container: modelContainer,
+            websocketClient: websocketClient,
+            websocketURL: URL(string: "wss://resy-service.fly.dev:8081")!
+        )
+    }
 
     var body: some View {
         VStack(spacing: 16) {
@@ -29,8 +38,7 @@ struct ProfileView: View {
                 .foregroundStyle(Color.textSecondary)
 
             Button("Logout") {
-                modelContext.delete(user)
-                Task { await websocketClient.disconnect() }
+                Task { await logoutUseCase() }
             }
             .buttonStyle(PrimaryButtonStyle())
         }
