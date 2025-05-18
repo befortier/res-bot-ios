@@ -23,10 +23,27 @@ public struct BulkNotificationFlowView: View {
     initialState: ViewState? = nil,
     viewModel: BulkNotificationFlowViewModel
   ) {
+    let calendar = Calendar.current
+    let today = Date()
+    let defaultStart =
+      calendar.date(
+        bySettingHour: 18,
+        minute: 30,
+        second: 0,
+        of: today
+      ) ?? today
+    let defaultEnd =
+      calendar.date(
+        bySettingHour: 21,
+        minute: 0,
+        second: 0,
+        of: today
+      ) ?? defaultStart.addingTimeInterval(60 * 60 * 2.5)
+
     let startingState =
       initialState
       ?? ViewState(
-        dateInterval: DateInterval(start: .now, duration: 3600),
+        dateInterval: DateInterval(start: defaultStart, end: defaultEnd),
         partySizeRange: 2...4,
         selectedVenueIDs: Set(viewModel.allVenues.map(\.venueID))
       )
