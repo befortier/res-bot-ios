@@ -12,7 +12,7 @@ final class WebsocketsTests: XCTestCase {
     }
 
     func testObserveEventYieldsDecodedPayload() async throws {
-        let client = WebsocketClient()
+        let client = URLSessionWebsocketClient()
         let stream = await client.observeEvent(named: "greeting", as: Payload.self)
 
         let payload = Payload(message: "hello")

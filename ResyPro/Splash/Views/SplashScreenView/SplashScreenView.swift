@@ -9,14 +9,19 @@ import Foundation
 import SwiftUI
 import SwiftData
 import User
+import Websockets
 
 struct SplashScreenView: View {
     @Environment(\.modelContext) var modelContext
+    @Environment(\.websocketClient) var websocketClient
 
     var body: some View {
         Button("Sign in") {
             modelContext.insert(User.stub)
             modelContext.insert(ResyConfig.stub)
+            Task {
+                try? await websocketClient.authenticate(userID: User.stub.id)
+            }
         }
     }
 }
