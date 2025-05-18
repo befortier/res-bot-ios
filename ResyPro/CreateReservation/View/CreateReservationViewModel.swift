@@ -32,27 +32,4 @@ class CreateReservationViewModel: ObservableObject {
         self.networkService = networkService
         self.user = user
     }
-
-//    func saveCredentials() {
-//        let credentials = UserCredentials(context: context)
-//        credentials.username = username
-//        credentials.password = password
-//        CoreDataManager.shared.saveContext()
-//    }
-//
-//    func makeReservation() async throws {
-//        let bookingToken
-//
-//        networkService.makeReservation(with: request) { result in
-//            DispatchQueue.main.async {
-//                switch result {
-//                case .success(let response):
-//                    completion(response.success)
-//                case .failure(let error):
-//                    print("Reservation failed: \(error)")
-//                    completion(false)
-//                }
-//            }
-//        }
-//    }
 }

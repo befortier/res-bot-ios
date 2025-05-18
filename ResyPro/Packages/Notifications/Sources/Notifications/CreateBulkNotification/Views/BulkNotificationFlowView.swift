@@ -86,6 +86,7 @@ public struct BulkNotificationFlowView: View {
           let results = try await viewModel.submit(from: viewState)
           self.viewState.step = .submitted(results)
         } catch {
+            print("HERE", error)
           // error state
         }
       }
@@ -105,22 +106,5 @@ public struct BulkNotificationFlowView: View {
         .foregroundColor(.textPrimary)
     }
     .frame(maxWidth: .infinity, alignment: .leading)
-  }
-}
-
-#Preview {
-  BulkNotificationFlowPreview()
-}
-
-private struct BulkNotificationFlowPreview: View {
-  var body: some View {
-    BulkNotificationFlowView(
-      viewModel: BulkNotificationFlowViewModel(allVenues: [Venue.laserWolf]) { _ in
-        NotificationSubmissionResponse(
-          interval: DateInterval(start: .now, duration: 3600),
-          results: []
-        )
-      }
-    )
   }
 }

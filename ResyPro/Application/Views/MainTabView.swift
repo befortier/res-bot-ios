@@ -38,11 +38,15 @@ struct MainTabView: View {
                     }
                     .tag(Tab.schedueleReservation)
 
-                SchedueleNotificationView()
-                    .tabItem {
-                        Image(systemName: "list.bullet")
-                    }
-                    .tag(Tab.schedueleNotification)
+                SchedueleNotificationView(
+                    networkService: BearerNetworkServiceComposer.make(
+                        configuration: ResyHeaderConfiguration(bearerToken: user.id, resyAuthToken: user.resyAuthToken)
+                    )
+                )
+                .tabItem {
+                    Image(systemName: "list.bullet")
+                }
+                .tag(Tab.schedueleNotification)
 
                 AvailableReservationsView(viewModel: .init())
                     .tabItem {
@@ -83,7 +87,7 @@ struct SchedueleNotificationView: View {
     @Query(sort: \Venue.name) var venues: [Venue]
     private let repository: any BulkNotificationRepository
 
-    init(networkService: any NetworkService = NetworkServiceLive()) {
+    init(networkService: any NetworkService) {
         self.repository = BulkNotificationRepositoryLive(networkService: networkService)
     }
 
@@ -98,17 +102,3 @@ struct SchedueleNotificationView: View {
         )
     }
 }
-
-/*
- TODO:
-
- 1. Resy Config update [Can be manual right now]
-
- 1. POST /create-reservation-request
-    / Sets AWS EventBridge
-    / Creates Dynamo Entry
-    / Event Bridge -> Schedueles ->
-    / Takes in, schedueles cron-job, writes to in memory result
- 2. GET /reservation-result
-    / reads from in memory
- */

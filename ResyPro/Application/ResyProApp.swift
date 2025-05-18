@@ -20,7 +20,7 @@ struct ResyProApp: App {
     @State private var websocketClient = URLSessionWebsocketClient.init()
     @Environment(\.scenePhase) private var scenePhase
 
-    private let websocketURL = URL(string: "wss://backend.example.com/websocket")!
+    private let websocketURL = URL(string: "wss://resy-service.fly.dev:8081")!
 
     var body: some Scene {
         WindowGroup {

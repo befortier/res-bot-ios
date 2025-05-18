@@ -7,9 +7,9 @@ struct BulkNotificationEndpoint: PostEndpoint {
 	let queryParameters: [String: String]? = nil
 	let headers: [String: String]? = ["Content-Type": "application/json"]
 
-	let requestBody: BulkNotificationRequest?
+	let requestBody: BulkNotificationSubmissionRequest?
 
-	init(requestBody: BulkNotificationRequest) {
+	init(requestBody: BulkNotificationSubmissionRequest) {
 		self.requestBody = requestBody
 	}
 }

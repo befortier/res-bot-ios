@@ -6,14 +6,15 @@
 //
 
 import Foundation
+import ProjectFoundation
 
 /// A request to create reservation notifications across multiple venues.
-public struct BulkNotificationSubmissionRequest: Equatable, Sendable, Encodable {
+public struct BulkNotificationSubmissionRequest: Hashable, Sendable, Codable {
   /// The requested reservation date and time range.
-  public let interval: DateInterval
+  @CodableDateInterval public var interval: DateInterval
 
   /// The requested party size range, e.g., 2...4.
-  public let partySizeRange: ClosedRange<Int>
+  @CodableClosedRange public var partySizeRange: ClosedRange<Int>
 
   /// The list of venue IDs to apply the request to.
   public let venueIDs: [Int]
