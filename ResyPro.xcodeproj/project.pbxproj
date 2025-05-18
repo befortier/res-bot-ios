@@ -133,6 +133,7 @@
 		574013AC2C2E0B1000DAD86B /* AutomaticSchedueleBookingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutomaticSchedueleBookingView.swift; sourceTree = "<group>"; };
 		57865CCF2C2D9571006C7D68 /* ManualSchedueleBookingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualSchedueleBookingView.swift; sourceTree = "<group>"; };
 		57D8C6852DD8F3610031F4BC /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		57D8C6892DD96C5E0031F4BC /* Websockets */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Websockets; sourceTree = "<group>"; };
 		57E8AA132DD4125D00736FCD /* User */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = User; sourceTree = "<group>"; };
 		57EA7E9C2DD0D88400E25108 /* Network */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Network; sourceTree = "<group>"; };
 		57EA7EBC2DD0E2B000E25108 /* DesignSystem */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DesignSystem; sourceTree = "<group>"; };
@@ -604,6 +605,7 @@
 				57FAFD402DD0E7180059A036 /* Venues */,
 				57FAFD412DD0E83B0059A036 /* ProjectFoundation */,
 				57FAFD4C2DD151690059A036 /* Notifications */,
+				57D8C6892DD96C5E0031F4BC /* Websockets */,
 			);
 			path = Packages;
 			sourceTree = "<group>";

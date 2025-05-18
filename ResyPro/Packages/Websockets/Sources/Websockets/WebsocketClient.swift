@@ -57,12 +57,12 @@ public actor WebsocketClient {
         as type: T.Type = T.self
     ) -> AsyncStream<T> {
         AsyncStream { continuation in
-            let subscription = EventSubscription { [weak continuation] data in
+            let subscription = EventSubscription { data in
                 guard
                     let wrapper = try? self.decoder.decode(EventWrapper<T>.self, from: data),
                     wrapper.name == name
                 else { return }
-                continuation?.yield(wrapper.payload)
+                continuation.yield(wrapper.payload)
             }
 
             if self.handlers[name] == nil {
@@ -140,11 +140,11 @@ private struct EventWrapper<T: Decodable>: Decodable {
     }
 }
 
-private final class EventSubscription {
+private final class EventSubscription: Sendable {
     let id = UUID()
-    let deliver: (Data) -> Void
+    let deliver: @Sendable (Data) -> Void
 
-    init(deliver: @escaping (Data) -> Void) {
+    init(deliver: @escaping @Sendable (Data) -> Void) {
         self.deliver = deliver
     }
 }
