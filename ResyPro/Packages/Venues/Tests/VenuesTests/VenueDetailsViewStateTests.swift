@@ -2,7 +2,7 @@ import XCTest
 
 @testable import Venues
 
-final class VenueDetailsViewStateTests: XCTestCase {
+@MainActor final class VenueDetailsViewStateTests: XCTestCase {
   func testInitFromVenue() {
     let venue = Venue.laserWolf
     let viewState = VenueDetailsViewState(venue: venue)
