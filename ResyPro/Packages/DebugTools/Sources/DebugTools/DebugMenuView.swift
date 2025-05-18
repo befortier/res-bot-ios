@@ -16,6 +16,13 @@ public struct DebugMenuView: View {
                 }
             }
             .navigationTitle("Debug Menu")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Done") {
+                        DebugMenuPresenter.shared.dismiss()
+                    }
+                }
+            }
         }
     }
 }
