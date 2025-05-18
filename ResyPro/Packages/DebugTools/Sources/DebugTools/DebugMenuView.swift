@@ -11,6 +11,9 @@ public struct DebugMenuView: View {
                 NavigationLink("Network History") {
                     NetworkHistoryListView()
                 }
+                NavigationLink("Websocket History") {
+                    WebsocketHistoryListView()
+                }
             }
             .navigationTitle("Debug Menu")
         }

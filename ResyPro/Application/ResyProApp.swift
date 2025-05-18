@@ -17,7 +17,13 @@ import DebugTools
 
 @main
 struct ResyProApp: App {
+    #if DEBUG
+    @State private var websocketClient = RecordingWebsocketClient(
+        wrapped: URLSessionWebsocketClient()
+    )
+    #else
     @State private var websocketClient = URLSessionWebsocketClient.init()
+    #endif
     @Environment(\.scenePhase) private var scenePhase
 
     private let websocketURL = URL(string: "wss://resy-service.fly.dev:8081")!
@@ -29,6 +35,7 @@ struct ResyProApp: App {
                 .environment(\.websocketClient, websocketClient)
 #if DEBUG
                 .environmentObject(NetworkHistoryStore.shared)
+                .environmentObject(WebsocketHistoryStore.shared)
 #endif
                 .task { await websocketClient.connect(url: websocketURL) }
                 .onChange(of: scenePhase) { _, newPhase in

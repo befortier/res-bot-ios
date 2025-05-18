@@ -11,6 +11,7 @@ import SwiftUI
         .sheet(isPresented: $showDebugMenu) {
           DebugMenuView()
             .environmentObject(NetworkHistoryStore.shared)
+            .environmentObject(WebsocketHistoryStore.shared)
         }
         .overlay(
           ShakeDetector {
