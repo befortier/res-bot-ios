@@ -18,7 +18,8 @@ let package = Package(
         .package(path: "ResyPro/Packages/Notifications"),
         .package(path: "ResyPro/Packages/ProjectFoundation"),
         .package(path: "ResyPro/Packages/User"),
-        .package(path: "ResyPro/Packages/Venues")
+        .package(path: "ResyPro/Packages/Venues"),
+        .package(path: "ResyPro/Packages/Websockets")
     ],
     targets: [
         .executableTarget(
@@ -29,7 +30,8 @@ let package = Package(
                 "Notifications",
                 "ProjectFoundation",
                 "User",
-                "Venues"
+                "Venues",
+                "Websockets"
             ],
             path: "ResyPro",
             exclude: [
