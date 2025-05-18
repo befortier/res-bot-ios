@@ -16,6 +16,7 @@ let package = Package(
     .package(path: "../DesignSystem"),
     .package(path: "../Network"),
     .package(path: "../Venues"),
+    .package(path: "../Websockets"),
     .package(url: "https://github.com/kean/Nuke.git", from: "12.0.0"),
   ],
   targets: [
@@ -25,6 +26,7 @@ let package = Package(
         "DesignSystem",
         "Network",
         "Venues",
+        "Websockets",
         .product(name: "Nuke", package: "Nuke"),
         .product(name: "NukeUI", package: "Nuke"),
       ]

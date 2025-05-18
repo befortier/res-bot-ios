@@ -14,6 +14,10 @@ public struct SubmissionResultView: View {
   let results: [NotificationSubmissionResponse.ResultEntry]
   /// The total number of results expected, if known.
   let expectedCount: Int?
+  /// Indicates whether the server is still processing results.
+  let isLoading: Bool
+  /// Called when the user continues after processing completes.
+  let onContinue: () -> Void
 
   public var body: some View {
     VStack(spacing: 16) {
@@ -34,9 +38,15 @@ public struct SubmissionResultView: View {
         Text("All notifications processed")
           .font(.design(.subheadline))
           .foregroundStyle(Color.textSecondary)
-      } else {
+      } else if isLoading {
         ProgressView()
       }
+
+      Button("Continue") {
+        onContinue()
+      }
+      .buttonStyle(PrimaryButtonStyle())
+      .disabled(isLoading || (expectedCount != nil && results.count < expectedCount))
     }
     .padding()
     .animation(.default, value: results)
