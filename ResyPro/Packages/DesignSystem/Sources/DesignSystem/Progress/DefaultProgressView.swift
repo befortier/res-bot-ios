@@ -10,12 +10,18 @@ import SwiftUI
 
 /// A component in the shared design system.
 public struct DefaultProgressView: View {
-    public init() { }
-    public var body: some View {
-        ProgressView()
-            .controlSize(.large)
-            .padding()
-            .background(.black.opacity(0.4))
-            .clipShape(RoundedRectangle(cornerRadius: 4.0))
-    }
+  public init() {}
+  public var body: some View {
+    ProgressView()
+      .controlSize(.large)
+      .padding()
+      .background(.black.opacity(0.4))
+      .clipShape(RoundedRectangle(cornerRadius: 4.0))
+  }
+}
+
+#Preview {
+  DefaultProgressView()
+    .padding()
+    .previewLayout(.sizeThatFits)
 }

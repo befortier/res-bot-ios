@@ -22,6 +22,10 @@ let package = Package(
                 .product(name: "NukeUI", package: "Nuke")
             ],
             resources: [.process("Resources")]
+        ),
+        .testTarget(
+            name: "DesignSystemTests",
+            dependencies: ["DesignSystem"]
         )
     ]
 )
