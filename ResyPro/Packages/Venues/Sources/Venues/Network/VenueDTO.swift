@@ -5,65 +5,64 @@
 //  Created by Ben Fortier on 6/19/24.
 //
 
-
 import Foundation
 
-// Define VenueDTO struct
-/// A struct defined in the Venues module.
+/// Representation of a venue returned from the backend API.
 public struct VenueDTO: Equatable, Sendable, Codable {
-    let venueID: Int
-    let name: String
-    let location: LocationDTO
-    let images: [URL]
-    let slots: [SlotDTO]
-    let needToKnow: String?
-    let cuisineType: String
-    let priceRange: Int
-    let urlSlug: String
-    let bookingInfo: BookingInfoDTO?
+  let venueID: Int
+  let name: String
+  let location: LocationDTO
+  let images: [URL]
+  let slots: [SlotDTO]
+  let needToKnow: String?
+  let cuisineType: String
+  let priceRange: Int
+  let urlSlug: String
+  let bookingInfo: BookingInfoDTO?
 }
 
+/// Details about when reservations are released.
 public struct BookingInfoDTO: Sendable, Equatable, Codable {
-    public let daysOut: Int
-    public let time: String
-    public init(daysOut: Int, time: String) {
-        self.daysOut = daysOut
-        self.time = time
-    }
+  public let daysOut: Int
+  public let time: String
+  public init(daysOut: Int, time: String) {
+    self.daysOut = daysOut
+    self.time = time
+  }
 }
 
-// Define LocationDTO struct
+/// Location data returned from the backend.
 public struct LocationDTO: Equatable, Sendable, Codable {
-    let timeZone: String
-    let neighborhood: String
-    let geo: GeoDTO
-    let code: String
-    let name: String
-    let urlSlug: String
+  let timeZone: String
+  let neighborhood: String
+  let geo: GeoDTO
+  let code: String
+  let name: String
+  let urlSlug: String
 }
 
-// Define GeoDTO struct
+/// Coordinates returned from the backend.
 public struct GeoDTO: Equatable, Sendable, Codable {
-    let latitude: Double
-    let longitude: Double
+  let latitude: Double
+  let longitude: Double
 
-    private enum CodingKeys: String, CodingKey {
-        case latitude = "lat"
-        case longitude = "lon"
-    }
+  private enum CodingKeys: String, CodingKey {
+    case latitude = "lat"
+    case longitude = "lon"
+  }
 }
 
-// Define SlotDTO struct
+/// Reservation slot returned from the backend.
 public struct SlotDTO: Equatable, Sendable, Codable {
-    let templateID: String
-    let serviceID: String
-    let seatingType: String
-    let exactSeat: String
-    let supportedPartySize: SupportedPartySizeDTO
+  let templateID: String
+  let serviceID: String
+  let seatingType: String
+  let exactSeat: String
+  let supportedPartySize: SupportedPartySizeDTO
 }
 
-// Define SupportedPartySizeDTO struct
+/// Party size range returned from the backend.
 public struct SupportedPartySizeDTO: Equatable, Sendable, Codable {
-    let min: Int
-    let max: Int
+  let min: Int
+  let max: Int
 }

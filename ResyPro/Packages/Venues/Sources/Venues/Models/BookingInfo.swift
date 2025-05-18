@@ -8,23 +8,26 @@
 import Foundation
 import SwiftData
 
+/// Metadata about how far in advance a venue opens reservations.
+
 @Model
+/// Stored representation of when reservations open for a venue.
 public final class BookingInfo: Equatable {
-    public var time: String
-    public var daysOut: Int
-    @Relationship public var venue: Venue?
+  public var time: String
+  public var daysOut: Int
+  @Relationship public var venue: Venue?
 
-    public init(
-        time: String,
-        daysOut: Int
-    ) {
-        self.time = time
-        self.daysOut = daysOut
-    }
+  public init(
+    time: String,
+    daysOut: Int
+  ) {
+    self.time = time
+    self.daysOut = daysOut
+  }
 
-    public init?(bookingInfoDTO: BookingInfoDTO?) {
-        guard let bookingInfoDTO else { return nil }
-        self.time = bookingInfoDTO.time
-        self.daysOut = bookingInfoDTO.daysOut
-    }
+  public init?(bookingInfoDTO: BookingInfoDTO?) {
+    guard let bookingInfoDTO else { return nil }
+    self.time = bookingInfoDTO.time
+    self.daysOut = bookingInfoDTO.daysOut
+  }
 }
