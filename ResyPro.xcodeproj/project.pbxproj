@@ -52,6 +52,7 @@
 		573498722C24E2C000DBB916 /* SchedueleReservationEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573498712C24E2C000DBB916 /* SchedueleReservationEndpoint.swift */; };
 		574013AD2C2E0B1000DAD86B /* AutomaticSchedueleBookingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574013AC2C2E0B1000DAD86B /* AutomaticSchedueleBookingView.swift */; };
 		57865CD02C2D9571006C7D68 /* ManualSchedueleBookingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57865CCF2C2D9571006C7D68 /* ManualSchedueleBookingView.swift */; };
+		57A236652DDA35E600CA2334 /* ResyHeaderConfig+User in Resources */ = {isa = PBXBuildFile; fileRef = 57A236642DDA35E100CA2334 /* ResyHeaderConfig+User */; };
 		57AC63022DD9848E003C2BA8 /* Websockets in Frameworks */ = {isa = PBXBuildFile; productRef = 57AC63012DD9848E003C2BA8 /* Websockets */; };
 		57D8C6882DD8F3610031F4BC /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D8C6852DD8F3610031F4BC /* ProfileView.swift */; };
 		57D8C68C2DD983FD0031F4BC /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D8C68B2DD983FD0031F4BC /* DataController.swift */; };
@@ -130,6 +131,7 @@
 		573498712C24E2C000DBB916 /* SchedueleReservationEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedueleReservationEndpoint.swift; sourceTree = "<group>"; };
 		574013AC2C2E0B1000DAD86B /* AutomaticSchedueleBookingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutomaticSchedueleBookingView.swift; sourceTree = "<group>"; };
 		57865CCF2C2D9571006C7D68 /* ManualSchedueleBookingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualSchedueleBookingView.swift; sourceTree = "<group>"; };
+		57A236642DDA35E100CA2334 /* ResyHeaderConfig+User */ = {isa = PBXFileReference; lastKnownFileType = text; path = "ResyHeaderConfig+User"; sourceTree = "<group>"; };
 		57D8C6852DD8F3610031F4BC /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		57D8C6892DD96C5E0031F4BC /* Websockets */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Websockets; sourceTree = "<group>"; };
 		57D8C68B2DD983FD0031F4BC /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
@@ -422,6 +424,7 @@
 		57199DA32C233A5600AE2F8B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				57A236642DDA35E100CA2334 /* ResyHeaderConfig+User */,
 				57199DCB2C23459100AE2F8B /* Resy+TypeAlias.swift */,
 			);
 			path = Models;
@@ -749,6 +752,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57A236652DDA35E600CA2334 /* ResyHeaderConfig+User in Resources */,
 				57199D332C2314F600AE2F8B /* Preview Assets.xcassets in Resources */,
 				57199D2F2C2314F600AE2F8B /* Assets.xcassets in Resources */,
 			);

@@ -6,16 +6,18 @@ import FoundationNetworking
 
 /// Configuration containing tokens required for authenticated requests.
 public struct ResyHeaderConfiguration: Sendable {
+    public let userID: String
     /// The bearer token added to the `Authorization` header.
     public let bearerToken: String?
     /// The token added to the `x-resy-auth-token` and `x-resy-universal-auth` headers.
     public let resyAuthToken: String?
 
-    /// Creates a new configuration.
-    /// - Parameters:
-    ///   - bearerToken: The bearer token for authenticated requests.
-    ///   - resyAuthToken: The Resy authentication token.
-    public init(bearerToken: String? = nil, resyAuthToken: String? = nil) {
+    public init(
+        userID: String,
+        bearerToken: String?,
+        resyAuthToken: String?
+    ) {
+        self.userID = userID
         self.bearerToken = bearerToken
         self.resyAuthToken = resyAuthToken
     }
@@ -62,6 +64,8 @@ public struct BearerHTTPClient: NetworkSession {
             request.setValue(resyToken, forHTTPHeaderField: "x-resy-auth-token")
             request.setValue(resyToken, forHTTPHeaderField: "x-resy-universal-auth")
         }
+        request.setValue(configuration.userID, forHTTPHeaderField: "user-id")
+
         return try await session.data(for: request, delegate: delegate)
     }
 }

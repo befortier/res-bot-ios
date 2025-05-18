@@ -35,10 +35,7 @@ struct SchedueleReservationHomeView: View {
                 venueRepository: VenueRepositoryLive(
                     modelContainer: modelContainer,
                     networkService: BearerNetworkServiceComposer.make(
-                        configuration: ResyHeaderConfiguration(
-                            bearerToken: user.id,
-                            resyAuthToken: user.resyAuthToken
-                        )
+                        configuration: ResyHeaderConfiguration(user: user)
                     )
                 )
             )

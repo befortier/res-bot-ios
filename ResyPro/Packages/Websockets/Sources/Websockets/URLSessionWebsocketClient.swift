@@ -41,7 +41,7 @@ public actor URLSessionWebsocketClient: WebsocketClient {
     /// Sends an authentication message with the provided user identifier.
     /// - Parameter userID: The identifier used for authentication.
     public func authenticate(userID: String) async throws {
-        let message = ["name": "authenticate", "userID": userID]
+        let message = ["name": "authenticate", "userId": userID]
         let data = try JSONSerialization.data(withJSONObject: message)
         try await send(data: data)
     }

@@ -27,7 +27,7 @@ extension AvailableReservationsView {
             let store = AvailableReservationsStoreLive()
             self.store = store
             let repository = AvailableReservationsRepositoryLive(
-                configuration: ResyHeaderConfiguration(bearerToken: "", resyAuthToken: ""),
+                configuration: .init(userID: "", bearerToken: "", resyAuthToken: ""),
                 store: store
             )
             self.refreshAvailableSlots = GetAvailableSlotsUseCaseLive(repository: repository)

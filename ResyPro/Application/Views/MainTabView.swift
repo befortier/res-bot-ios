@@ -40,7 +40,7 @@ struct MainTabView: View {
 
                 SchedueleNotificationView(
                     networkService: BearerNetworkServiceComposer.make(
-                        configuration: ResyHeaderConfiguration(bearerToken: user.id, resyAuthToken: user.resyAuthToken)
+                        configuration: ResyHeaderConfiguration(user: user)
                     )
                 )
                 .tabItem {

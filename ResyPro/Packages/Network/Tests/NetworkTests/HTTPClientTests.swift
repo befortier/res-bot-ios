@@ -23,7 +23,7 @@ private actor CaptureSession: NetworkSession {
 struct HTTPClientTests {
     @Test func testBearerAddsHeaders() async throws {
         let session = CaptureSession()
-        let config = ResyHeaderConfiguration(bearerToken: "abc", resyAuthToken: "xyz")
+        let config = ResyHeaderConfiguration(userID: "x", bearerToken: "abc", resyAuthToken: "xyz")
         let client = BearerHTTPClient(configuration: config, session: session)
         let request = URLRequest(url: URL(string: "https://example.com")!)
         _ = try await client.data(for: request, delegate: nil)
@@ -31,5 +31,6 @@ struct HTTPClientTests {
         #expect(captured?.value(forHTTPHeaderField: "Authorization") == "Bearer abc")
         #expect(captured?.value(forHTTPHeaderField: "x-resy-auth-token") == "xyz")
         #expect(captured?.value(forHTTPHeaderField: "x-resy-universal-auth") == "xyz")
+        #expect(captured?.value(forHTTPHeaderField: "user-id") == "x")
     }
 }

@@ -9,6 +9,8 @@ import Foundation
 import SwiftUI
 import SwiftData
 import User
+import Websockets
+
 #if DEBUG
 import DebugTools
 #endif
@@ -16,6 +18,7 @@ import DebugTools
 @MainActor
 struct RootView: View {
 
+    @Environment(\.websocketClient) var websocketClient
     @StateObject private var viewModel = ViewModel()
     @Query private var users: [User]
 #if DEBUG
@@ -30,6 +33,7 @@ struct RootView: View {
                 SplashScreenView()
             }
         }
+        .maintainWebsocketConnection(user: users.first)
         .navigationViewStyle(.stack)
 #if DEBUG
         .sheet(isPresented: $showDebugMenu) {
