@@ -12,6 +12,7 @@ import Venues
 /// Container for the full bulk notification creation flow.
 public struct BulkNotificationFlowView: View {
   @State private var viewState: ViewState
+  @State private var confirmationKind: BulkNotificationConfirmationView.Kind?
 
   private let viewModel: BulkNotificationFlowViewModel
 
@@ -58,11 +59,16 @@ public struct BulkNotificationFlowView: View {
         timeAndPartySizeView
       case .selectVenues:
         bulkNotificationVenueSelectionView
-      case .submitted(let result):
-        SubmissionResultView(result: result)
+      case .submitted:
+        timeAndPartySizeView
       }
     }
     .background(Color.backgroundPrimary)
+    .sheet(item: $confirmationKind) { kind in
+      BulkNotificationConfirmationView(kind: kind) {
+        confirmationKind = nil
+      }
+    }
   }
 
   private var timeAndPartySizeView: some View {
@@ -83,11 +89,12 @@ public struct BulkNotificationFlowView: View {
     ) {
       Task {
         do {
-          let results = try await viewModel.submit(from: viewState)
-          self.viewState.step = .submitted(results)
+          _ = try await viewModel.submit(from: viewState)
+          self.viewState.step = .selectTime
+          self.confirmationKind = .success
         } catch {
-            print("HERE", error)
-          // error state
+          print("HERE", error)
+          self.confirmationKind = .error
         }
       }
     }
