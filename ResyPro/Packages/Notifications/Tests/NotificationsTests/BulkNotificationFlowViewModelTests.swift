@@ -3,9 +3,9 @@ import XCTest
 @testable import Notifications
 @testable import Venues
 
-final class BulkNotificationFlowViewModelTests: XCTestCase {
+@MainActor final class BulkNotificationFlowViewModelTests: XCTestCase {
   func testSubmitPassesSelectedVenues() async throws {
-    let venues = await [Venue.laserWolf]
+    let venues = [Venue.laserWolf]
     var capturedRequest: BulkNotificationSubmissionRequest?
     let model = BulkNotificationFlowViewModel(allVenues: venues) { request in
       capturedRequest = request
