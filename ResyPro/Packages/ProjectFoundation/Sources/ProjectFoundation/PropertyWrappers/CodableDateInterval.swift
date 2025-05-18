@@ -21,7 +21,7 @@ public struct CodableDateInterval: Codable, Hashable, Sendable {
         let endString = try container.decode(String.self, forKey: .end)
 
         let formatter = ISO8601DateFormatter()
-        formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+        formatter.formatOptions = [.withInternetDateTime]
 
         guard let start = formatter.date(from: startString),
               let end = formatter.date(from: endString) else {
@@ -39,7 +39,7 @@ public struct CodableDateInterval: Codable, Hashable, Sendable {
         var container = encoder.container(keyedBy: CodingKeys.self)
 
         let formatter = ISO8601DateFormatter()
-        formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+        formatter.formatOptions = [.withInternetDateTime]
 
         try container.encode(formatter.string(from: wrappedValue.start), forKey: .start)
         try container.encode(formatter.string(from: wrappedValue.end), forKey: .end)

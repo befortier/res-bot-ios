@@ -2,7 +2,7 @@ import SwiftUI
 import UIKit
 
 /// Handles presentation of the debug menu over any currently visible context.
-public final class DebugMenuPresenter {
+@MainActor public final class DebugMenuPresenter {
     /// Shared singleton instance used by the debug tools package.
     public static let shared = DebugMenuPresenter()
 

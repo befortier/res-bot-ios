@@ -65,7 +65,8 @@ public struct OnboardingView: View {
                 id: userInfo.userID,
                 name: "\(userInfo.firstName) \(userInfo.lastName)",
                 email: "",
-                createdAt: Date()
+                createdAt: Date(),
+                resyAuthToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2Y2ZjOGRiMC0wYTk4LTQ4YzUtYTNkNi03NmY5ZmYyMWRjOWEiLCJpYXQiOjE3NDc1OTUxOTUsImV4cCI6MTc0ODE5OTk5NX0.vIUAflKvqHmoKBL1vzpQ1GWo8bspK6N08v4vUBDomXo"
             )
 
             modelContext.insert(user)
