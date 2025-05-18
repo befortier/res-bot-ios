@@ -6,18 +6,26 @@
 //
 
 import Network
+
 #if DEBUG
-import DebugTools
+  import DebugTools
 #endif
 
 enum BearerNetworkServiceComposer {
-    static func make(configuration: ResyHeaderConfiguration) -> any NetworkService {
-#if DEBUG
-        DebugNetworkServiceLive(
-            client: BearerHTTPClient(configuration: configuration)
-        )
-#else
-        NetworkServiceLive(client: BearerHTTPClient(configuration: configuration))
-#endif
-    }
+  static func make(configuration: ResyHeaderConfiguration, refresher: any TokenRefreshing)
+    -> any NetworkService
+  {
+    #if DEBUG
+      return RefreshingNetworkService(
+        configuration: configuration,
+        refresher: refresher,
+        session: RecordingNetworkSession(wrapped: URLSession.shared)
+      )
+    #else
+      return RefreshingNetworkService(
+        configuration: configuration,
+        refresher: refresher
+      )
+    #endif
+  }
 }
