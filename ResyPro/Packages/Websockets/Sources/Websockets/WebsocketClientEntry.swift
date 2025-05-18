@@ -22,7 +22,7 @@ public actor FatalErrorWebsocketClient: WebsocketClient {
         fatalError("WebsocketClient not injected into environment")
     }
 
-    public func observeEvent<T>(named name: String, as type: T.Type) -> AsyncStream<T> where T : Decodable {
+    public func observeEvent<T>(named name: String, as type: T.Type) -> AsyncStream<T> where T : Decodable & Sendable {
         fatalError("WebsocketClient not injected into environment")
     }
 }

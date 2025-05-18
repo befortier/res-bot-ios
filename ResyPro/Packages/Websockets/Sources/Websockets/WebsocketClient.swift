@@ -17,5 +17,5 @@ public protocol WebsocketClient: Sendable {
     /// - Parameters:
     ///   - name: The name of the event to observe.
     ///   - type: The expected payload type.
-    func observeEvent<T: Decodable>(named name: String, as type: T.Type) -> AsyncStream<T>
+    func observeEvent<T: Decodable & Sendable>(named name: String, as type: T.Type) async -> AsyncStream<T>
 }

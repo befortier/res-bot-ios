@@ -25,7 +25,7 @@ struct ResyProApp: App {
                 .environment(\.projectModelContainer, sharedModelContainer)
                 .environment(\.websocketClient, websocketClient)
                 .task { await websocketClient.connect(url: websocketURL) }
-                .onChange(of: scenePhase) { newPhase in
+                .onChange(of: scenePhase) { _, newPhase in
                     switch newPhase {
                     case .active:
                         Task { await websocketClient.connect(url: websocketURL) }

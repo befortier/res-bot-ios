@@ -51,7 +51,7 @@ public actor URLSessionWebsocketClient {
     ///   - name: The name of the event to observe.
     ///   - type: The expected payload type.
     /// - Returns: An ``AsyncStream`` of decoded payload values.
-    public func observeEvent<T: Decodable>(
+    public func observeEvent<T: Decodable & Sendable>(
         named name: String,
         as type: T.Type = T.self
     ) -> AsyncStream<T> {
@@ -105,7 +105,7 @@ public actor URLSessionWebsocketClient {
 
             listen()
         case .failure:
-            disconnect()
+            await disconnect()
         }
     }
 
@@ -147,9 +147,3 @@ private final class EventSubscription: Sendable {
         self.deliver = deliver
     }
 }
-
-extension URLSessionWebsocketClient: WebsocketClient {
-    public func connect(url: URL) async { connect(url: url) }
-    public func disconnect() async { disconnect() }
-}
-
