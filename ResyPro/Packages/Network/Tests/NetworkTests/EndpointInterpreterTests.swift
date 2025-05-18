@@ -52,4 +52,24 @@ struct EndpointInterpreterTests {
       #expect(request?.allHTTPHeaderFields == nil)
     }
   }
+
+  struct PostEndpointStub: PostEndpoint, Sendable {
+    struct Body: NetworkRequestBody { let value: String }
+
+    let baseURL: BaseURL = .resy
+    let path: String = "/post"
+    let queryParameters: [String: String]? = nil
+    let headers: [String: String]? = nil
+    let fixturesPath: String? = nil
+
+    let requestBody: Body?
+  }
+
+  @Test func testPostInterpret() {
+    let endpoint = PostEndpointStub(requestBody: .init(value: "hello"))
+    let request = EndpointInterpreter.interpret(endpoint: endpoint)
+    #expect(request?.httpMethod == InterpretedHTTPMethod.post.rawValue)
+    let data = try? JSONEncoder().encode(endpoint.requestBody)
+    #expect(request?.httpBody == data)
+  }
 }
