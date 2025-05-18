@@ -46,7 +46,7 @@ public struct SubmissionResultView: View {
         onContinue()
       }
       .buttonStyle(PrimaryButtonStyle())
-      .disabled(isLoading || (expectedCount != nil && results.count < expectedCount))
+      .disabled(isLoading || (expectedCount != nil && results.count < (expectedCount ?? 0)))
     }
     .padding()
     .animation(.default, value: results)
