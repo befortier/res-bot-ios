@@ -17,7 +17,9 @@ let package = Package(
         .package(path: "ResyPro/Packages/Network"),
         .package(path: "ResyPro/Packages/Notifications"),
         .package(path: "ResyPro/Packages/ProjectFoundation"),
+        .package(path: "ResyPro/Packages/Authentication"),
         .package(path: "ResyPro/Packages/User"),
+        .package(path: "ResyPro/Packages/Onboarding"),
         .package(path: "ResyPro/Packages/Venues"),
         .package(path: "ResyPro/Packages/Websockets"),
         .package(path: "ResyPro/Packages/DebugTools")
@@ -30,6 +32,8 @@ let package = Package(
                 "Network",
                 "Notifications",
                 "ProjectFoundation",
+                "Authentication",
+                "Onboarding",
                 "User",
                 "Venues",
                 "Websockets",

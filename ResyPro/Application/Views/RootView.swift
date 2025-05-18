@@ -10,6 +10,7 @@ import SwiftData
 import SwiftUI
 import User
 import Websockets
+import Onboarding
 
 @MainActor
 struct RootView: View {
@@ -23,7 +24,7 @@ struct RootView: View {
       if let user = users.first {
         MainTabView(user: user)
       } else {
-        SplashScreenView()
+        OnboardingView()
       }
     }
     .maintainWebsocketConnection(user: users.first)
