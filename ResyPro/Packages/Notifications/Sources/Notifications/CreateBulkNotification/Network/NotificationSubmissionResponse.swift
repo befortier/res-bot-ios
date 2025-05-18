@@ -9,20 +9,20 @@ import Foundation
 
 /// The result of a bulk reservation notification submission.
 public struct NotificationSubmissionResponse: Equatable, Sendable, Decodable {
-    /// The date interval requested by the user.
-    public let interval: DateInterval
+  /// The date interval requested by the user.
+  public let interval: DateInterval
 
-    /// Results of the submission attempt for each venue.
-    public let results: [VenueResult]
+  /// Results of the submission attempt for each venue.
+  public let results: [VenueResult]
 
-    public struct VenueResult: Equatable, Sendable, Decodable {
-        public let venueID: Int
-        public let partySize: Int
-        public let succeeded: Bool
-    }
+  public struct VenueResult: Equatable, Sendable, Decodable {
+    public let venueID: Int
+    public let partySize: Int
+    public let succeeded: Bool
+  }
 
-    public init(interval: DateInterval, results: [VenueResult]) {
-        self.interval = interval
-        self.results = results
-    }
+  public init(interval: DateInterval, results: [VenueResult]) {
+    self.interval = interval
+    self.results = results
+  }
 }
