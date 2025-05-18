@@ -23,30 +23,10 @@ class CreateReservationViewModel: ObservableObject {
 
     let user: User
 
-    /*
-     VENUE_ID=2790
-     DATE=2024-07-18
-     EARLIEST=17:00
-     LATEST=18:00
-     PARTY_SIZE=2
-     PAYMENT_ID=23385560
-     AUTH_TOKEN=eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3MjI2OTAyMTMsInVpZCI6MjAxNzU5NTQsImd0IjoiY29uc3VtZXIiLCJncyI6W10sImxhbmciOiJlbi11cyIsImV4dHJhIjp7Imd1ZXN0X2lkIjo4NDE2MjcwN319.AVH66PakTsbPEgQsOaz1J5LLOEK-6_SDwk7oGJIYREbiKT9VwGiE1nYTCG9zahuMN0Mx5JEXZKtieOEaNmKmF9ldAb2IqK7I-attA91l1krIXSqrmRvmlE6coQ3MqElfG_k0iVKveBJ2aqDuPwnBeX686vJ5L-ct7vKiXh9st1VBf7kN
-     */
-
-//    private let context = CoreDataManager.shared.persistentContainer.viewContext
     private let networkService: any NetworkService
 
     init(
-        networkService: any NetworkService = {
-#if DEBUG
-            DebugNetworkServiceLive()
-#else
-            NetworkServiceLive(
-                client: URLSession.shared,
-                jsonDecoder: JSONDecoder()
-            )
-#endif
-        }(),
+        networkService: any NetworkService
         user: User
     ) {
         self.networkService = networkService

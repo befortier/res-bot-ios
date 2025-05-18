@@ -7,9 +7,6 @@
 
 import Foundation
 import Network
-#if DEBUG
-import DebugTools
-#endif
 
 protocol AvailableReservationsRepository: Sendable {
     func refreshAvailableReservations(request: GetAvailableSlotsRequest) async throws
@@ -22,13 +19,18 @@ struct AvailableReservationsRepositoryLive: AvailableReservationsRepository {
     private let mapper: any AvailableReservationResponseMapper
 
     init(
-        networkService: any NetworkService = {
-#if DEBUG
-            DebugNetworkServiceLive(jsonDecoder: .availableReservationDecoder)
-#else
-            NetworkServiceLive(jsonDecoder: .availableReservationDecoder)
-#endif
-        }(),
+        configuration: ResyHeaderConfiguration,
+        store: any AvailableReservationsStore
+    ) {
+        self.init(
+            networkService: BearerNetworkServiceComposer.make(configuration: configuration),
+            mapper: AvailableReservationResponseMapperLive(),
+            store: store
+        )
+    }
+
+    init(
+        networkService: any NetworkService,
         mapper: any AvailableReservationResponseMapper = AvailableReservationResponseMapperLive(),
         store: any AvailableReservationsStore
     ) {

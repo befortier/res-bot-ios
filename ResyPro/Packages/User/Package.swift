@@ -12,10 +12,15 @@ let package = Package(
             targets: ["User"]
         ),
     ],
+    dependencies: [
+      .package(path: "../Network"),
+    ],
     targets: [
         .target(
             name: "User",
-            dependencies: []
+            dependencies: [
+                "Network",
+            ]
         )
     ]
 )

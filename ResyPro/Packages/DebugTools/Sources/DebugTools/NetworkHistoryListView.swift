@@ -3,7 +3,7 @@ import DesignSystem
 
 /// Displays a list of recorded network calls.
 public struct NetworkHistoryListView: View {
-    @Environment(\.networkHistoryStore) private var store
+    @EnvironmentObject private var store: NetworkHistoryStore
 
     public init() {}
 

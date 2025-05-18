@@ -8,9 +8,6 @@
 import Foundation
 import Network
 import ProjectFoundation
-#if DEBUG
-import DebugTools
-#endif
 
 /// Persists venue data using the provided dependencies.
 public protocol VenueRepository: Sendable {
@@ -27,13 +24,7 @@ public struct VenueRepositoryLive: VenueRepository {
 
   public init(
     modelContainer: any ModelContainerProtocol,
-    networkService: any NetworkService = {
-#if DEBUG
-        DebugNetworkServiceLive()
-#else
-        NetworkServiceLive()
-#endif
-    }(),
+    networkService: any NetworkService,
     venueMapper: any VenueMapper = VenueMapperLive()
   ) {
     self.modelContainer = modelContainer

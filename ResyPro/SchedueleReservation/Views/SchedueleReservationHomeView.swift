@@ -9,11 +9,15 @@ import Foundation
 import SwiftUI
 import Venues
 import ProjectFoundation
+import User
+import Network
 
 struct SchedueleReservationHomeView: View {
     @Environment(\.projectModelContainer) private var modelContainer: any ModelContainerProtocol
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State var selectedVenue: Venue?
+    let user: User
+    let resyConfig: ResyConfig
 
     var body: some View {
         VStack {
@@ -27,7 +31,19 @@ struct SchedueleReservationHomeView: View {
     }
 
     private var venuesListView: some View {
-        VenueCardListView(viewModel: VenueCardListView.ViewModel(modelContainer: modelContainer)) { venue in
+        VenueCardListView(
+            viewModel: VenueCardListView.ViewModel(
+                venueRepository: VenueRepositoryLive(
+                    modelContainer: modelContainer,
+                    networkService: BearerNetworkServiceComposer.make(
+                        configuration: ResyHeaderConfiguration(
+                            bearerToken: user.id,
+                            resyAuthToken: resyConfig.authToken
+                        )
+                    )
+                )
+            )
+        ) { venue in
             NavigationLink(
                 destination: DefaultVenueDetailsDestinationView(venue: venue)
             ) {

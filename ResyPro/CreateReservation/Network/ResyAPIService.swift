@@ -15,13 +15,7 @@ struct ResyAPIService: Sendable {
 
     private let networkService: any NetworkService
 
-    init(networkService: any NetworkService = {
-#if DEBUG
-        DebugNetworkServiceLive()
-#else
-        NetworkServiceLive()
-#endif
-    }()) {
+    init(networkService: any NetworkService){
         self.networkService = networkService
     }
 

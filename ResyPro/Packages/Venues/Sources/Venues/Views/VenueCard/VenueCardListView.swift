@@ -46,23 +46,22 @@ public struct VenueCardListView<Card: View>: View {
 }
 
 extension VenueCardListView {
-  /// Helper responsible for loading venue data.
-  public struct ViewModel: Sendable {
-    private let venueRepository: any VenueRepository
+    /// Helper responsible for loading venue data.
+    public struct ViewModel: Sendable {
+        private let venueRepository: any VenueRepository
 
-    public init(modelContainer: any ModelContainerProtocol) {
-      self.venueRepository = VenueRepositoryLive(modelContainer: modelContainer)
+        public init(
+            venueRepository:  any VenueRepository
+        ) {
+            self.venueRepository = venueRepository
+        }
+
+        func refreshAllVenues() async throws {
+            do {
+                try await venueRepository.refreshAllVenues()
+            } catch {
+                print("HERE", error)
+            }
+        }
     }
-
-    func refreshAllVenues() async throws {
-      try await venueRepository.refreshAllVenues()
-    }
-  }
-}
-
-#Preview {
-  let container = try! ModelContainer(for: Venue.self)
-  return VenueCardListView(viewModel: .init(modelContainer: container)) { venue in
-    Text(venue.name)
-  }
 }

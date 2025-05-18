@@ -1,7 +1,7 @@
 import Foundation
 
 /// Captures a single network request and response pair.
-public struct NetworkRecord: Codable, Identifiable {
+public struct NetworkRecord: Codable, Identifiable, Hashable, Sendable {
     /// The unique identifier for the record.
     public let id: UUID
     /// Timestamp of when the request was executed.

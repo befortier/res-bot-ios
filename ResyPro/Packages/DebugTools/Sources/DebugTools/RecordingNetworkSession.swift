@@ -2,7 +2,7 @@ import Foundation
 import Network
 
 /// ``NetworkSession`` wrapper that records all requests and responses.
-public final class RecordingNetworkSession: NetworkSession {
+public struct RecordingNetworkSession: NetworkSession {
     private let wrapped: any NetworkSession
     private let store: NetworkHistoryStore
 
@@ -11,7 +11,7 @@ public final class RecordingNetworkSession: NetworkSession {
     ///   - wrapped: The underlying ``NetworkSession`` to call.
     ///   - store: Store used to persist network history.
     public init(
-        wrapped: any NetworkSession = URLSession.shared,
+        wrapped: any NetworkSession,
         store: NetworkHistoryStore = .shared
     ) {
         self.wrapped = wrapped
