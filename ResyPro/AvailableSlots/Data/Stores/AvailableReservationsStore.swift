@@ -9,4 +9,4 @@ import Foundation
 import ProjectFoundation
 
 typealias AvailableReservationsStore = DataStore<[AvailableReservation]>
-typealias AvailableReservationsStoreLive = DataStoreLive<[AvailableReservation]>
+typealias AvailableReservationsStoreLive = InMemoryDataStore<[AvailableReservation]>

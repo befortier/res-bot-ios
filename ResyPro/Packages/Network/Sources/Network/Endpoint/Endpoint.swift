@@ -8,7 +8,7 @@
 import Foundation
 
 /// Defines the information needed to build a network request.
-public protocol Endpoint {
+public protocol Endpoint: Sendable {
   var baseURL: BaseURL { get }
   var path: String { get }
   var queryParameters: [String: String]? { get }

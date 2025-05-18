@@ -11,7 +11,7 @@ import User
 struct WebSocketLifecycleHandler: ViewModifier {
     @Environment(\.scenePhase) private var scenePhase
     @Environment(\.websocketClient) private var websocketClient
-    private let websocketURL = URL(string: "wss://resy-service.fly.dev:8081")!
+    private let websocketURL = URL.websocketServer
     let user: User?
 
     func body(content: Content) -> some View {

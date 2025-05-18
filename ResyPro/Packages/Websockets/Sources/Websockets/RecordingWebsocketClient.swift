@@ -52,7 +52,7 @@ public actor RecordingWebsocketClient: WebsocketClient {
         )
     }
 
-    public func observeEvent<T>(named name: String, as type: T.Type) async -> AsyncStream<T> where T : Decodable & Sendable {
+    public func observeEvent<T>(named name: String, as type: T.Type) async -> AsyncStream<T> where T : Codable & Sendable {
         let base = await wrapped.observeEvent(named: name, as: type)
         return AsyncStream { continuation in
             Task {

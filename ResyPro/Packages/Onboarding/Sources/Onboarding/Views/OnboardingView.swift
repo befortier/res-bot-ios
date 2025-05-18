@@ -14,8 +14,12 @@ public struct OnboardingView: View {
 
     @Environment(\.modelContext) private var modelContext
     @Environment(\.tokenStore) private var tokenStore
-
-    public init() {}
+    private let networkService: any NetworkService
+    public init(
+        networkService: any NetworkService
+    ) {
+        self.networkService = networkService
+    }
 
     public var body: some View {
         VStack(spacing: 16) {
@@ -49,21 +53,24 @@ public struct OnboardingView: View {
 
     private func authenticate() async {
         do {
-            let service = NetworkServiceLive()
-            let repo = AuthenticationRepositoryLive(networkService: service, tokenStore: tokenStore)
-            let user: User
+            let repo = AuthenticationRepositoryLive(networkService: networkService, tokenStore: tokenStore)
+            let userInfo: UserInfo
             if isSignUp {
-                user = try await repo.signUp(firstName: firstName, lastName: lastName, phoneNumber: phoneNumber)
+                userInfo = try await repo.signUp(firstName: firstName, lastName: lastName, phoneNumber: phoneNumber)
             } else {
-                user = try await repo.login(phoneNumber: phoneNumber)
+                userInfo = try await repo.login(phoneNumber: phoneNumber)
             }
+
+            let user = User(
+                id: userInfo.userID,
+                name: "\(userInfo.firstName) \(userInfo.lastName)",
+                email: "",
+                createdAt: Date()
+            )
+
             modelContext.insert(user)
         } catch {
             errorMessage = "Authentication failed"
         }
     }
-}
-
-#Preview {
-    OnboardingView()
 }

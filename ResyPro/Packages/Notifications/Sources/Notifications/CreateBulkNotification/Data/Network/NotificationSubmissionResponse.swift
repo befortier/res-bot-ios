@@ -4,58 +4,81 @@ import Venues
 
 /// Response returned after submitting a bulk notification request.
 public struct NotificationSubmissionResponse: Hashable, Sendable, Decodable {
-  /// Results for each notification creation attempt.
-  public let results: [ResultEntry]
+    /// Results for each notification creation attempt.
+    public let results: [ResultEntry]
 
-  /// Represents the outcome of a single notification scheduling attempt.
-  public struct ResultEntry: Hashable, Sendable, Decodable {
-    /// The originally submitted request.
-    public let request: RequestResult
-    /// Indicates whether the notification was created.
-    public let success: Bool
-  }
-
-  /// The request details originally sent to the server.
-  public struct RequestResult: Hashable, Sendable, Decodable {
-    @CodableDateInterval public var interval: DateInterval
-    public let partySize: Int
-    public let venueID: Venue.ID
-
-    enum CodingKeys: String, CodingKey {
-      case venueID = "venue_id"
-      case day
-      case timePreferredStart = "time_preferred_start"
-      case timePreferredEnd = "time_preferred_end"
-      case partySize = "num_seats"
+    /// Represents the outcome of a single notification scheduling attempt.
+    public struct ResultEntry: Hashable, Sendable, Codable {
+        /// The originally submitted request.
+        public let request: RequestResult
+        /// Indicates whether the notification was created.
+        public let success: Bool
     }
 
-    public init(from decoder: Decoder) throws {
-      let container = try decoder.container(keyedBy: CodingKeys.self)
+    /// The request details originally sent to the server.
+    public struct RequestResult: Hashable, Sendable, Codable {
+        @CodableDateInterval public var interval: DateInterval
+        public let partySize: Int
+        public let venueID: Venue.ID
 
-      let day = try container.decode(String.self, forKey: .day)
-      let startTime = try container.decode(String.self, forKey: .timePreferredStart)
-      let endTime = try container.decode(String.self, forKey: .timePreferredEnd)
+        enum CodingKeys: String, CodingKey {
+            case venueID = "venue_id"
+            case day
+            case timePreferredStart = "time_preferred_start"
+            case timePreferredEnd = "time_preferred_end"
+            case partySize = "num_seats"
+        }
 
-      let venueID = try container.decode(Int.self, forKey: .venueID)
-      let partySize = try container.decode(Int.self, forKey: .partySize)
+        public init(from decoder: Decoder) throws {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
 
-      let formatter = DateFormatter()
-      formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-      formatter.timeZone = TimeZone(secondsFromGMT: 0)
+            let day = try container.decode(String.self, forKey: .day)
+            let startTime = try container.decode(String.self, forKey: .timePreferredStart)
+            let endTime = try container.decode(String.self, forKey: .timePreferredEnd)
 
-      guard let start = formatter.date(from: "\(day) \(startTime)"),
-        let end = formatter.date(from: "\(day) \(endTime)")
-      else {
-        throw DecodingError.dataCorruptedError(
-          forKey: .timePreferredStart,
-          in: container,
-          debugDescription: "Failed to parse start or end time into Date"
-        )
-      }
+            let venueID = try container.decode(Int.self, forKey: .venueID)
+            let partySize = try container.decode(Int.self, forKey: .partySize)
 
-      self.interval = DateInterval(start: start, end: end)
-      self.venueID = venueID
-      self.partySize = partySize
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            formatter.timeZone = TimeZone(secondsFromGMT: 0)
+
+            guard let start = formatter.date(from: "\(day) \(startTime)"),
+                  let end = formatter.date(from: "\(day) \(endTime)")
+            else {
+                throw DecodingError.dataCorruptedError(
+                    forKey: .timePreferredStart,
+                    in: container,
+                    debugDescription: "Failed to parse start or end time into Date"
+                )
+            }
+
+            self.interval = DateInterval(start: start, end: end)
+            self.venueID = venueID
+            self.partySize = partySize
+        }
+
+        public func encode(to encoder: Encoder) throws {
+            var container = encoder.container(keyedBy: CodingKeys.self)
+
+            try container.encode(venueID, forKey: .venueID)
+            try container.encode(partySize, forKey: .partySize)
+
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            formatter.timeZone = TimeZone(secondsFromGMT: 0)
+
+            let dayFormatter = DateFormatter()
+            dayFormatter.dateFormat = "yyyy-MM-dd"
+            dayFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+
+            let dayString = dayFormatter.string(from: interval.start)
+            let startTime = formatter.string(from: interval.start).components(separatedBy: " ").last ?? ""
+            let endTime = formatter.string(from: interval.end).components(separatedBy: " ").last ?? ""
+
+            try container.encode(dayString, forKey: .day)
+            try container.encode(startTime, forKey: .timePreferredStart)
+            try container.encode(endTime, forKey: .timePreferredEnd)
+        }
     }
-  }
 }

@@ -25,7 +25,7 @@ public actor RefreshingNetworkService: NetworkService {
     self.jsonDecoder = jsonDecoder
   }
 
-  public func fetch<T: Decodable>(from endpoint: Endpoint) async throws -> T {
+  public func fetch<T: Decodable & Sendable>(from endpoint: Endpoint) async throws -> T {
     do {
       return try await makeService().fetch(from: endpoint)
     } catch NetworkError.unauthorized {

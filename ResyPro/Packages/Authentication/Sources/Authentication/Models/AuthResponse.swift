@@ -16,15 +16,3 @@ public struct UserInfo: Codable, Sendable {
     public let firstName: String
     public let lastName: String
 }
-
-extension User {
-    /// Creates a ``User`` from backend user info.
-    init(info: UserInfo) {
-        self.init(
-            id: info.userID,
-            name: "\(info.firstName) \(info.lastName)",
-            email: "",
-            createdAt: Date()
-        )
-    }
-}

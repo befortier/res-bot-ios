@@ -1,4 +1,5 @@
 import ProjectFoundation
+import Foundation
 
 /// Convenience alias for a persisted ``TokenStore`` using ``FileDataStore``.
 public typealias TokenStoreFile = FileDataStore<TokenPair>

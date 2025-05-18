@@ -21,7 +21,7 @@ struct LogoutUseCaseLive: LogoutUseCase {
     }
 
     private func clearPersistentData() async {
-        let context = container.mainContext
+        let context = await container.mainContext
         do {
             try deleteAll(User.self, from: context)
             try deleteAll(SchedueledReservation.self, from: context)

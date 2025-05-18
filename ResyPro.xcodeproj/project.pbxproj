@@ -51,8 +51,10 @@
 		5734986E2C24D7AA00DBB916 /* ScedueleReservationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5734986D2C24D7AA00DBB916 /* ScedueleReservationUseCase.swift */; };
 		573498722C24E2C000DBB916 /* SchedueleReservationEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573498712C24E2C000DBB916 /* SchedueleReservationEndpoint.swift */; };
 		574013AD2C2E0B1000DAD86B /* AutomaticSchedueleBookingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574013AC2C2E0B1000DAD86B /* AutomaticSchedueleBookingView.swift */; };
+		57768FA12DDA724B0018F62F /* Authentication in Frameworks */ = {isa = PBXBuildFile; productRef = 57768FA02DDA724B0018F62F /* Authentication */; };
+		57768FA32DDA724F0018F62F /* Onboarding in Frameworks */ = {isa = PBXBuildFile; productRef = 57768FA22DDA724F0018F62F /* Onboarding */; };
 		57865CD02C2D9571006C7D68 /* ManualSchedueleBookingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57865CCF2C2D9571006C7D68 /* ManualSchedueleBookingView.swift */; };
-		57A236652DDA35E600CA2334 /* ResyHeaderConfig+User in Resources */ = {isa = PBXBuildFile; fileRef = 57A236642DDA35E100CA2334 /* ResyHeaderConfig+User */; };
+		57A236782DDA68FF00CA2334 /* LogoutUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A236762DDA68FF00CA2334 /* LogoutUseCase.swift */; };
 		57AC63022DD9848E003C2BA8 /* Websockets in Frameworks */ = {isa = PBXBuildFile; productRef = 57AC63012DD9848E003C2BA8 /* Websockets */; };
 		57D8C6882DD8F3610031F4BC /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D8C6852DD8F3610031F4BC /* ProfileView.swift */; };
 		57D8C68C2DD983FD0031F4BC /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D8C68B2DD983FD0031F4BC /* DataController.swift */; };
@@ -131,7 +133,9 @@
 		573498712C24E2C000DBB916 /* SchedueleReservationEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedueleReservationEndpoint.swift; sourceTree = "<group>"; };
 		574013AC2C2E0B1000DAD86B /* AutomaticSchedueleBookingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutomaticSchedueleBookingView.swift; sourceTree = "<group>"; };
 		57865CCF2C2D9571006C7D68 /* ManualSchedueleBookingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualSchedueleBookingView.swift; sourceTree = "<group>"; };
-		57A236642DDA35E100CA2334 /* ResyHeaderConfig+User */ = {isa = PBXFileReference; lastKnownFileType = text; path = "ResyHeaderConfig+User"; sourceTree = "<group>"; };
+		57A236762DDA68FF00CA2334 /* LogoutUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutUseCase.swift; sourceTree = "<group>"; };
+		57A2367D2DDA6AC200CA2334 /* Authentication */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Authentication; sourceTree = "<group>"; };
+		57A2367E2DDA6ACA00CA2334 /* Onboarding */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Onboarding; sourceTree = "<group>"; };
 		57D8C6852DD8F3610031F4BC /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		57D8C6892DD96C5E0031F4BC /* Websockets */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Websockets; sourceTree = "<group>"; };
 		57D8C68B2DD983FD0031F4BC /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
@@ -160,11 +164,13 @@
 				5717614E2DD98DA100E2EF8A /* DebugTools in Frameworks */,
 				572503FD2C28D9180076EECB /* NukeUI in Frameworks */,
 				57AC63022DD9848E003C2BA8 /* Websockets in Frameworks */,
+				57768FA32DDA724F0018F62F /* Onboarding in Frameworks */,
 				57E8C2402DD412A50075E615 /* User in Frameworks */,
 				57EA7E9F2DD0DA2D00E25108 /* Network in Frameworks */,
 				572503F92C28D9180076EECB /* Nuke in Frameworks */,
 				572503FB2C28D9180076EECB /* NukeExtensions in Frameworks */,
 				57FAFD4E2DD153060059A036 /* Notifications in Frameworks */,
+				57768FA12DDA724B0018F62F /* Authentication in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,7 +430,6 @@
 		57199DA32C233A5600AE2F8B /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				57A236642DDA35E100CA2334 /* ResyHeaderConfig+User */,
 				57199DCB2C23459100AE2F8B /* Resy+TypeAlias.swift */,
 			);
 			path = Models;
@@ -579,6 +584,14 @@
 			path = ManualSchedueleBookingView;
 			sourceTree = "<group>";
 		};
+		57A236772DDA68FF00CA2334 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				57A236762DDA68FF00CA2334 /* LogoutUseCase.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
 		57D8C6862DD8F3610031F4BC /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -591,6 +604,7 @@
 			isa = PBXGroup;
 			children = (
 				57D8C6862DD8F3610031F4BC /* Views */,
+				57A236772DDA68FF00CA2334 /* UseCases */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -614,6 +628,8 @@
 				57FAFD4C2DD151690059A036 /* Notifications */,
 				57D8C6892DD96C5E0031F4BC /* Websockets */,
 				5717614A2DD98D5A00E2EF8A /* DebugTools */,
+				57A2367D2DDA6AC200CA2334 /* Authentication */,
+				57A2367E2DDA6ACA00CA2334 /* Onboarding */,
 			);
 			path = Packages;
 			sourceTree = "<group>";
@@ -658,6 +674,8 @@
 				57E8C23F2DD412A50075E615 /* User */,
 				57AC63012DD9848E003C2BA8 /* Websockets */,
 				5717614D2DD98DA100E2EF8A /* DebugTools */,
+				57768FA02DDA724B0018F62F /* Authentication */,
+				57768FA22DDA724F0018F62F /* Onboarding */,
 			);
 			productName = ResyPro;
 			productReference = 57199D252C2314F500AE2F8B /* ResyPro.app */;
@@ -752,7 +770,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57A236652DDA35E600CA2334 /* ResyHeaderConfig+User in Resources */,
 				57199D332C2314F600AE2F8B /* Preview Assets.xcassets in Resources */,
 				57199D2F2C2314F600AE2F8B /* Assets.xcassets in Resources */,
 			);
@@ -780,6 +797,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				57FAFD482DD111FF0059A036 /* SeatingOptionView.swift in Sources */,
+				57A236782DDA68FF00CA2334 /* LogoutUseCase.swift in Sources */,
 				57FAFD492DD111FF0059A036 /* SeatingOptionViewType.swift in Sources */,
 				57FAFD4A2DD111FF0059A036 /* SeatingOptionSelectionView.swift in Sources */,
 				57199D832C2316E300AE2F8B /* GetBookingTokenEndpoint.swift in Sources */,
@@ -1220,6 +1238,14 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 572503F62C28D8D80076EECB /* XCRemoteSwiftPackageReference "Nuke" */;
 			productName = NukeUI;
+		};
+		57768FA02DDA724B0018F62F /* Authentication */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Authentication;
+		};
+		57768FA22DDA724F0018F62F /* Onboarding */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Onboarding;
 		};
 		57AC63012DD9848E003C2BA8 /* Websockets */ = {
 			isa = XCSwiftPackageProductDependency;

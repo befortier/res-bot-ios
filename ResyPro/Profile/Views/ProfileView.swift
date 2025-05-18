@@ -13,7 +13,7 @@ struct ProfileView: View {
         LogoutUseCaseLive(
             container: modelContainer,
             websocketClient: websocketClient,
-            websocketURL: URL(string: "wss://resy-service.fly.dev:8081")!
+            websocketURL: URL.websocketServer
         )
     }
 

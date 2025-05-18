@@ -8,7 +8,7 @@ extension EnvironmentValues {
 }
 
 /// Fallback store that traps when accessed without being injected.
-public final class FatalErrorTokenStore: TokenStore {
+public final class FatalErrorTokenStore: DataStore {
     public var current: TokenPair? { fatalError("TokenStore not injected into environment") }
     public var publisher: AnyPublisher<TokenPair?, Never> { fatalError("TokenStore not injected into environment") }
     public init() {}

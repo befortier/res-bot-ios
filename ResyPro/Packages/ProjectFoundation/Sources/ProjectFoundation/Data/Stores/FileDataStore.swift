@@ -1,9 +1,7 @@
 import Combine
 import Foundation
 
-/// ``DataStore`` implementation backed by a JSON file on disk.
-@MainActor
-public final class FileDataStore<T: Codable & Equatable>: DataStore, ObservableObject {
+public final class FileDataStore<T: Codable & Equatable & Sendable>: DataStore, ObservableObject, @unchecked Sendable {
   @Published public private(set) var current: T?
   public var publisher: AnyPublisher<T?, Never> { $current.eraseToAnyPublisher() }
 
@@ -11,8 +9,9 @@ public final class FileDataStore<T: Codable & Equatable>: DataStore, ObservableO
   private let encoder = JSONEncoder()
   private let decoder = JSONDecoder()
 
-  /// Creates a ``FileDataStore`` reading and writing to the specified file URL.
-  /// - Parameter url: Location of the JSON file used for persistence.
+  /// A serial queue to ensure thread-safe read/write operations.
+  private let queue = DispatchQueue(label: "com.yourapp.filedatastore")
+
   public init(url: URL) {
     self.url = url
     if let data = try? Data(contentsOf: url) {
@@ -21,13 +20,16 @@ public final class FileDataStore<T: Codable & Equatable>: DataStore, ObservableO
   }
 
   public func setCurrent(to newData: T?) {
-    current = newData
-    if let newData,
-      let data = try? encoder.encode(newData)
-    {
-      try? data.write(to: url, options: [.atomic])
-    } else {
-      try? FileManager.default.removeItem(at: url)
+    queue.async {
+      DispatchQueue.main.async { @Sendable in
+        self.current = newData // must mutate @Published on main queue
+      }
+
+      if let newData, let data = try? self.encoder.encode(newData) {
+        try? data.write(to: self.url, options: [.atomic])
+      } else {
+        try? FileManager.default.removeItem(at: self.url)
+      }
     }
   }
 }

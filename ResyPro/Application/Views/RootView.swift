@@ -15,37 +15,37 @@ import Onboarding
 @MainActor
 struct RootView: View {
 
-  @Environment(\.websocketClient) var websocketClient
-  @StateObject private var viewModel = ViewModel()
-  @Query private var users: [User]
+    @Environment(\.websocketClient) var websocketClient
+    @StateObject private var viewModel = ViewModel()
+    @Query private var users: [User]
 
-  var body: some View {
-    Group {
-      if let user = users.first {
-        MainTabView(user: user)
-      } else {
-        OnboardingView()
-      }
+    var body: some View {
+        Group {
+            if let user = users.first {
+                MainTabView(user: user)
+            } else {
+                OnboardingView(networkService: BasicNetworkServiceComposer.make())
+            }
+        }
+        .maintainWebsocketConnection(user: users.first)
+        .navigationViewStyle(.stack)
+        .observeForDebug()
     }
-    .maintainWebsocketConnection(user: users.first)
-    .navigationViewStyle(.stack)
-    .observeForDebug()
-  }
 }
 
 extension RootView {
-  @MainActor
-  class ViewModel: ObservableObject {
+    @MainActor
+    class ViewModel: ObservableObject {
 
-    init() {}
+        init() {}
 
-    func restoreCurrentUser(userID: String) async throws -> User {
-      return .stub
+        func restoreCurrentUser(userID: String) async throws -> User {
+            return .stub
+        }
     }
-  }
 }
 
 #Preview {
-  RootView()
-    .modelContainer(for: User.self, inMemory: true)
+    RootView()
+        .modelContainer(for: User.self, inMemory: true)
 }

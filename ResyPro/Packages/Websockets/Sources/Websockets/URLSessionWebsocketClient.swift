@@ -51,7 +51,7 @@ public actor URLSessionWebsocketClient: WebsocketClient {
     ///   - name: The name of the event to observe.
     ///   - type: The expected payload type.
     /// - Returns: An ``AsyncStream`` of decoded payload values.
-    public func observeEvent<T: Decodable & Sendable>(
+    public func observeEvent<T: Codable & Sendable>(
         named name: String,
         as type: T.Type = T.self
     ) -> AsyncStream<T> {

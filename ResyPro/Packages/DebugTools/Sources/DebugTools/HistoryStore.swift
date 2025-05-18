@@ -2,7 +2,7 @@ import Foundation
 import SwiftUI
 
 /// Protocol for models stored in ``HistoryStore``.
-public protocol HistoricalRecord: Codable, Identifiable {
+public protocol HistoricalRecord: Codable, Identifiable, Sendable {
     /// Timestamp of when the record was created.
     var date: Date { get }
 }
