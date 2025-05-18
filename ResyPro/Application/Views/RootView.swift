@@ -9,6 +9,9 @@ import Foundation
 import SwiftUI
 import SwiftData
 import User
+#if DEBUG
+import DebugTools
+#endif
 
 @MainActor
 struct RootView: View {
@@ -16,6 +19,9 @@ struct RootView: View {
     @StateObject private var viewModel = ViewModel()
     @Query private var users: [User]
     @Query private var resyConfigs: [ResyConfig]
+#if DEBUG
+    @State private var showDebugMenu = false
+#endif
 
     var body: some View {
         Group {
@@ -34,6 +40,17 @@ struct RootView: View {
             }
         }
         .navigationViewStyle(.stack)
+#if DEBUG
+        .sheet(isPresented: $showDebugMenu) {
+            DebugMenuView()
+                .environment(\.networkHistoryStore, .shared)
+        }
+        .overlay(
+            ShakeDetector {
+                showDebugMenu = true
+            }
+        )
+#endif
     }
 }
 

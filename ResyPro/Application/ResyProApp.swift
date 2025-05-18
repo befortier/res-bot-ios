@@ -11,6 +11,9 @@ import User
 import Venues
 import ProjectFoundation
 import Websockets
+#if DEBUG
+import DebugTools
+#endif
 
 @main
 struct ResyProApp: App {
@@ -24,6 +27,9 @@ struct ResyProApp: App {
             RootView()
                 .environment(\.projectModelContainer, sharedModelContainer)
                 .environment(\.websocketClient, websocketClient)
+#if DEBUG
+                .environment(\.networkHistoryStore, .shared)
+#endif
                 .task { await websocketClient.connect(url: websocketURL) }
                 .onChange(of: scenePhase) { _, newPhase in
                     switch newPhase {
