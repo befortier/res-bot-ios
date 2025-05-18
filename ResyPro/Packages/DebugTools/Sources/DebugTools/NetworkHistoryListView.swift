@@ -18,6 +18,16 @@ public struct NetworkHistoryListView: View {
         }
         .searchable(text: $searchText)
         .navigationTitle("Network History")
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button(role: .destructive) {
+                    store.clear()
+                } label: {
+                    Image(systemName: "trash")
+                }
+                .disabled(store.records.isEmpty)
+            }
+        }
     }
 
     private func debugNetworkCard(record: NetworkRecord) -> some View {

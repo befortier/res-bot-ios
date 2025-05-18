@@ -45,6 +45,15 @@ public final class NetworkHistoryStore: ObservableObject, @unchecked Sendable {
         }
     }
 
+    /// Deletes all stored network records from memory and disk.
+    public func clear() {
+        queue.async { [weak self] in
+            guard let self else { return }
+            self.records.removeAll()
+            self.save()
+        }
+    }
+
     private func load() {
         queue.async { [weak self] in
             guard let self else { return }
