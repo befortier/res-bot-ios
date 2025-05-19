@@ -1,7 +1,7 @@
 import Network
 
 /// ``Endpoint`` for retrieving all notifications.
-struct NotificationsEndpoint: GetEndpoint {
+struct GetNotificationsEndpoint: GetEndpoint {
   let baseURL: BaseURL = .backend
   let path: String = "/notifications"
   let queryParameters: [String: String]? = nil

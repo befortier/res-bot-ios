@@ -5,8 +5,9 @@ import Venues
 
 /// Displays a user's existing notifications.
 public struct NotificationListView: View {
-    @State private var state: RemoteViewState<[ReservationTicket]> =
+    @State private var state: RemoteViewState<[VenueNotification]> =
         .loading
+    @State private var expanded: Set<Int> = []
     private let repository: any NotificationRepository
     private let venuesByID: [Int: Venue]
     
@@ -30,12 +31,28 @@ public struct NotificationListView: View {
                     DefaultProgressView()
                 case .failed(let error):
                     ErrorView(error: error)
-                case .success(let notifications):
-                    ForEach(notifications, id: \.self) { request in
-                        NotificationCard(
-                            request: request,
-                            venue: venuesByID[request.venueID]
-                        )
+                case .success(let venueNotifications):
+                    ForEach(venueNotifications) { venueNotification in
+                        DisclosureGroup(
+                            isExpanded: Binding(
+                                get: { expanded.contains(venueNotification.id) },
+                                set: { isExpanded in
+                                    if isExpanded { expanded.insert(venueNotification.id) }
+                                    else { expanded.remove(venueNotification.id) }
+                                }
+                            )
+                        ) {
+                            ForEach(venueNotification.notifications, id: \.self) { ticket in
+                                NotificationCard(
+                                    request: ticket,
+                                    venue: venuesByID[venueNotification.venue.venueID]
+                                )
+                            }
+                        } label: {
+                            HorizontalVenueCard(
+                                model: HorizontalVenueCardModel(venue: venueNotification.venue)
+                            )
+                        }
                     }
                 }
             }
