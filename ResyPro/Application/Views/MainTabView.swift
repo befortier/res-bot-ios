@@ -86,11 +86,19 @@ struct BrowseView: View {
 }
 
 struct SchedueleNotificationView: View {
+  @Environment(\.projectModelContainer) private var modelContainer: any ModelContainerProtocol
   @Query(sort: \Venue.name) var venues: [Venue]
-  private let repository: any NotificationRepository
+  private let networkService: any NetworkService
 
   init(networkService: any NetworkService) {
-    self.repository = NotificationRepositoryLive(networkService: networkService)
+    self.networkService = networkService
+  }
+
+  private var repository: any NotificationRepository {
+    NotificationRepositoryLive(
+      networkService: networkService,
+      venueStore: VenueStoreLive(container: modelContainer)
+    )
   }
 
   var body: some View {

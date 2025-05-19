@@ -45,12 +45,12 @@ public struct NotificationListView: View {
                             ForEach(venueNotification.notifications, id: \.self) { ticket in
                                 NotificationCard(
                                     request: ticket,
-                                    venue: venuesByID[venueNotification.venue.venueID]
+                                    venue: venuesByID[venueNotification.venueID]
                                 )
                             }
                         } label: {
                             HorizontalVenueCard(
-                                model: HorizontalVenueCardModel(venue: venueNotification.venue)
+                                model: HorizontalVenueCardModel(venue: venuesByID[venueNotification.venueID]!)
                             )
                         }
                     }

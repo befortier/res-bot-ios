@@ -35,7 +35,7 @@ struct SchedueleReservationHomeView: View {
     VenueCardListView(
       viewModel: VenueCardListView.ViewModel(
         venueRepository: VenueRepositoryLive(
-          modelContainer: modelContainer,
+          venueStore: VenueStoreLive(container: modelContainer),
           networkService: BearerNetworkServiceComposer.make(
             configuration: ResyHeaderConfiguration(user: user),
             refresher: AuthenticationRepositoryLive(
