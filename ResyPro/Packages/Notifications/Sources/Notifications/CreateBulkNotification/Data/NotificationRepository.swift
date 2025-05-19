@@ -7,7 +7,7 @@ public protocol NotificationRepository: Sendable {
   func submit(_ request: BulkNotificationSubmissionRequest) async throws
 
   /// Returns the notifications associated with the current user.
-  func getAllNotifications() async throws -> [NotificationSubmissionResponse.RequestResult]
+  func getAllNotifications() async throws -> [ReservationTicket]
 }
 
 /// Default implementation using ``NetworkService``.
@@ -31,7 +31,7 @@ public struct NotificationRepositoryLive: NotificationRepository {
     )
   }
 
-  public func getAllNotifications() async throws -> [NotificationSubmissionResponse.RequestResult] {
+  public func getAllNotifications() async throws -> [ReservationTicket] {
     try await networkService.fetch(from: NotificationsEndpoint())
   }
 }
