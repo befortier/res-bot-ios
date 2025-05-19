@@ -15,13 +15,13 @@ public struct NotificationCard: View {
     @Environment(\.notificationStyle) private var style: NotificationStyle
 
     /// Details of the request the notification represents.
-    public let request: ReservationTicket
+    public let request: NotificationTicket
     /// Optional venue associated with the request.
     public let venue: Venue?
 
     /// Creates a notification card.
     public init(
-        request: ReservationTicket,
+        request: NotificationTicket,
         venue: Venue?
     ) {
         self.request = request

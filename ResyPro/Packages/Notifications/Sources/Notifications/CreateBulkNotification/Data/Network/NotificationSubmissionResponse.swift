@@ -28,3 +28,6 @@ public struct ReservationTicket: Hashable, Sendable, Codable {
         case venueID = "venue_id"
     }
 }
+
+/// Alias used when listing existing notifications.
+public typealias NotificationTicket = ReservationTicket
