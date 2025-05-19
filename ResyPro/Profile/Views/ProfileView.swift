@@ -32,7 +32,8 @@ struct ProfileView: View {
                     networkService: NetworkServiceLive(),
                     tokenStore: tokenStore
                 )
-            )
+            ),
+            venueStore: VenueStoreLive(container: modelContainer)
         )
     }
 
