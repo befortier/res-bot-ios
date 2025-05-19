@@ -66,7 +66,7 @@ public struct OnboardingView: View {
                 name: "\(userInfo.firstName) \(userInfo.lastName)",
                 email: "",
                 createdAt: Date(),
-                resyAuthToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2Y2ZjOGRiMC0wYTk4LTQ4YzUtYTNkNi03NmY5ZmYyMWRjOWEiLCJpYXQiOjE3NDc1OTUxOTUsImV4cCI6MTc0ODE5OTk5NX0.vIUAflKvqHmoKBL1vzpQ1GWo8bspK6N08v4vUBDomXo"
+                resyAuthToken: "eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NTExNDg0ODcsInVpZCI6MjAxNzU5NTQsImd0IjoiY29uc3VtZXIiLCJncyI6W10sImxhbmciOiJlbi11cyIsImV4dHJhIjp7Imd1ZXN0X2lkIjo4NDE2MjcwN319.AMZb1EK_GTMQcp-bv4NZXQQqGmapIZP7Ld_qdkx6LFMdL1CQUNTz3Idg388jMu-9QKKOUdMsdBUelq6-LEBhKfrtAF7_B0ZQ0WLUKvuwnuurGZKTsTs8-xVLQK6paC4wBOUkjxEVORGkyH8vTYiVW1kanQzs-7uSTGPb5a9yFn5KfCN-"
             )
 
             modelContext.insert(user)

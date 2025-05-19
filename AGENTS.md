@@ -47,3 +47,7 @@ To validate changes compile cleanly (preferred before committing):
 - Provide a concise summary of your changes and how you validated them.
 - Ensure everything builds successfully using the CLI command above.
 - Keep commit history clean — squash before merging when possible.
+
+## Formatting
+
+indent_style = tab

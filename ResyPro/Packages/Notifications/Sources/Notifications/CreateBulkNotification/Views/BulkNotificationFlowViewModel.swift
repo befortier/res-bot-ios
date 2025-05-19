@@ -33,10 +33,11 @@ public final class BulkNotificationFlowViewModel: ObservableObject {
         self.submitter = submitter
 
         let calendar = Calendar.current
-        let today = Date()
-        let defaultStart = calendar.date(bySettingHour: 18, minute: 30, second: 0, of: today) ?? today
+        let tomorrow = calendar.date(byAdding: .day, value: 1, to: Date()) ?? .now
+
+        let defaultStart = calendar.date(bySettingHour: 18, minute: 30, second: 0, of: tomorrow) ?? tomorrow
         let defaultEnd =
-        calendar.date(bySettingHour: 21, minute: 0, second: 0, of: today)
+        calendar.date(bySettingHour: 21, minute: 0, second: 0, of: tomorrow)
         ?? defaultStart.addingTimeInterval(60 * 60 * 2.5)
 
         self.state =

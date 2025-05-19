@@ -32,20 +32,26 @@ private final class ShakeView: UIView {
       center.addObserver(
         forName: UIApplication.didBecomeActiveNotification, object: nil, queue: .main
       ) { [weak self] _ in
-        self?.becomeFirstResponder()
+          Task { @MainActor [weak self] in
+              self?.becomeFirstResponder()
+          }
       }
     )
     observers.append(
       center.addObserver(forName: UIWindow.didBecomeKeyNotification, object: nil, queue: .main) {
         [weak self] _ in
-        self?.becomeFirstResponder()
+          Task { @MainActor [weak self] in
+              self?.becomeFirstResponder()
+          }
       }
     )
     observers.append(
       center.addObserver(
         forName: UIResponder.keyboardDidHideNotification, object: nil, queue: .main
       ) { [weak self] _ in
-        self?.becomeFirstResponder()
+          Task { @MainActor [weak self] in
+              self?.becomeFirstResponder()
+          }
       }
     )
   }
