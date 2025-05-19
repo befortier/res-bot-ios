@@ -87,7 +87,8 @@ public struct BulkNotificationFlowView: View {
     SubmissionResultView(
       results: viewModel.results,
       expectedCount: viewModel.expectedCount,
-      isLoading: viewModel.isReceivingResults
+      isLoading: viewModel.isReceivingResults,
+      venuesByID: Dictionary(uniqueKeysWithValues: viewModel.allVenues.map { ($0.venueID, $0) })
     ) {
       viewModel.reset()
     }
