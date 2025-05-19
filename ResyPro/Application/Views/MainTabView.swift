@@ -39,7 +39,7 @@ struct MainTabView: View {
       TabView(selection: $selectedTab) {
         SchedueleReservationHomeView(user: user)
           .tabItem {
-            Image(systemName: "list.bullet")
+            Image(systemName: "calendar")
           }
           .tag(Tab.schedueleReservation)
 
@@ -53,13 +53,13 @@ struct MainTabView: View {
           )
         )
         .tabItem {
-          Image(systemName: "list.bullet")
+          Image(systemName: "bell")
         }
         .tag(Tab.schedueleNotification)
 
         AvailableReservationsView(viewModel: .init())
           .tabItem {
-            Image(systemName: "list.bullet")
+            Image(systemName: "magnifyingglass")
           }
           .tag(Tab.browse)
 
