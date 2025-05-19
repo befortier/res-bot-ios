@@ -43,8 +43,12 @@ public struct SubmissionResultView: View {
         .font(.design(.title))
 
       ForEach(Array(results.enumerated()), id: \.offset) { _, entry in
-        ResultCard(entry: entry, venue: venuesByID[entry.request.venueID])
-          .transition(.move(edge: .bottom).combined(with: .opacity))
+        NotificationCard(
+          request: entry.request,
+          venue: venuesByID[entry.request.venueID],
+          style: entry.success ? .success : .fail
+        )
+        .transition(.move(edge: .bottom).combined(with: .opacity))
       }
 
       if let expectedCount, results.count >= expectedCount {
