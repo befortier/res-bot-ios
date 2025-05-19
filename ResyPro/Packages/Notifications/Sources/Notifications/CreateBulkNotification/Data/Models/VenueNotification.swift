@@ -1,13 +1,13 @@
 import Venues
 
 /// Venue and its associated notification tickets.
-struct VenueNotification: Sendable, Equatable, Identifiable {
-	let venue: Venue
-	let notifications: [NotificationTicket]
+public struct VenueNotification: Sendable, Equatable, Identifiable {
+    public let venue: Venue
+    public let notifications: [NotificationTicket]
 
-	var id: Int { venue.venueID }
+    public var id: Int { venue.venueID }
 
-	init(venue: Venue, notifications: [NotificationTicket]) {
+    public init(venue: Venue, notifications: [NotificationTicket]) {
 		self.venue = venue
 		self.notifications = notifications
 	}

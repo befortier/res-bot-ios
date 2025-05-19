@@ -19,12 +19,11 @@ public struct NotificationRepositoryLive: NotificationRepository {
 
   public init(
     networkService: any NetworkService,
-    encoder: JSONEncoder = JSONEncoder(),
-    mapper: any VenueNotificationResponseMapper = VenueNotificationResponseMapperLive()
+    encoder: JSONEncoder = JSONEncoder()
   ) {
     self.networkService = networkService
     self.encoder = encoder
-    self.mapper = mapper
+    self.mapper = VenueNotificationResponseMapperLive()
   }
 
   public func submit(_ request: BulkNotificationSubmissionRequest) async throws {
