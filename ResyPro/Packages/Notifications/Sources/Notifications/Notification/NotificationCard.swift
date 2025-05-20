@@ -7,28 +7,23 @@
 
 import DesignSystem
 import SwiftUI
-import Venues
 
 /// Displays information about a notification request.
 public struct NotificationCard: View {
     /// Visual style for the card.
     @Environment(\.notificationStyle) private var style: NotificationStyle
 
-    /// Details of the request the notification represents.
-    public let request: NotificationTicket
-    /// Optional venue associated with the request.
-    public let venue: Venue?
+    /// Immutable view data.
+    private let viewState: ViewState
     /// Invoked when the delete button is tapped.
     private let onDelete: () -> Void
 
     /// Creates a notification card.
     public init(
-        request: NotificationTicket,
-        venue: Venue?,
+        viewState: ViewState,
         onDelete: @escaping () -> Void = {}
     ) {
-        self.request = request
-        self.venue = venue
+        self.viewState = viewState
         self.onDelete = onDelete
     }
 
@@ -36,13 +31,13 @@ public struct NotificationCard: View {
     public var body: some View {
         HStack(alignment: .top) {
             VStack(alignment: .leading, spacing: 4) {
-                Text(venue?.name ?? "Venue \(request.venueID)")
+                Text(viewState.venueName)
                     .font(.design(.headline))
 
-                Text("Party size \(request.partySize)")
+                Text("Party size \(viewState.partySize)")
                     .font(.design(.subheadline))
 
-                if let intervalString = DateIntervalFormatter.short.string(from: request.interval) {
+                if let intervalString = DateIntervalFormatter.short.string(from: viewState.interval) {
                     Text(intervalString)
                         .font(.design(.footnote))
                         .foregroundStyle(Color.textSecondary)

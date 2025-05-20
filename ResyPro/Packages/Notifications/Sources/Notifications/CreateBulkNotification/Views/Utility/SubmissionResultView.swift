@@ -45,8 +45,7 @@ public struct SubmissionResultView: View {
 
                 ForEach(Array(results.enumerated()), id: \.offset) { _, entry in
                     NotificationCard(
-                        request: entry.request,
-                        venue: venuesByID[entry.request.venueID]
+                        viewState: .init(request: entry.request, venue: venuesByID[entry.request.venueID])
                     )
                     .notificationStyle(entry.success ? .success : .fail)
                     .transition(.move(edge: .bottom).combined(with: .opacity))
