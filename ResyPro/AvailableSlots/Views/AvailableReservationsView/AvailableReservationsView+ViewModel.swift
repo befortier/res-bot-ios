@@ -2,84 +2,52 @@
 //  AvailableReservationsView+ViewModel.swift
 //  ResyPro
 //
-//  Created by Ben Fortier on 6/19/24.
+//  Created by OpenAI on 6/25/24.
 //
 
-import Combine
 import Foundation
-import Network
-import ProjectFoundation
+import Venues
 
 extension AvailableReservationsView {
-    @MainActor
-    final class ViewModel: ObservableObject {
-        typealias ListViewState = RemoteViewState<[AvailableReservation]>
+struct ViewState: Equatable {
+enum Step: Equatable, Sendable {
+case selectTime
+case selectVenues
+}
 
-        @Published var selectedDate: Date = .now
-        @Published var listState: ListViewState = .loading
+var step: Step = .selectTime
+var dateInterval: DateInterval
+var partySizeRange: ClosedRange<Int>
+var selectedVenueIDs: Set<Int>
+}
 
-        private let store: any AvailableReservationsStore
-        private let refreshAvailableSlots: any GetAvailableSlotsUseCase
+@MainActor
+final class ViewModel: ObservableObject {
+@Published var state: ViewState
+let allVenues: [Venue]
+private let repository: any AvailableReservationsRepository
 
-        private var selectedDateChangedSubscription: AnyCancellable?
+init(allVenues: [Venue], repository: any AvailableReservationsRepository) {
+self.allVenues = allVenues
+self.repository = repository
+let calendar = Calendar.current
+let tomorrow = calendar.date(byAdding: .day, value: 1, to: Date()) ?? .now
+let start = calendar.date(bySettingHour: 18, minute: 30, second: 0, of: tomorrow) ?? tomorrow
+let end = calendar.date(bySettingHour: 21, minute: 0, second: 0, of: tomorrow) ?? start.addingTimeInterval(60 * 60 * 2.5)
+self.state = ViewState(
+dateInterval: DateInterval(start: start, end: end),
+partySizeRange: 2...4,
+selectedVenueIDs: Set(allVenues.map(\.venueID))
+)
+}
 
-        init() {
-            let store = AvailableReservationsStoreLive()
-            self.store = store
-            let repository = AvailableReservationsRepositoryLive(
-                configuration: .init(userID: "", bearerToken: "", resyAuthToken: ""),
-                refresher: FatalErrorTokenRefresher(),
-                store: store
-            )
-            self.refreshAvailableSlots = GetAvailableSlotsUseCaseLive(repository: repository)
-
-            self.observeForDataChanges()
-        }
-
-        private func observeForDataChanges() {
-            self.selectedDateChangedSubscription =
-            $selectedDate
-                .removeDuplicates()
-                .receive(on: DispatchQueue.main)
-                .sink { [weak self] newDate in
-                    self?.refreshSlots(newDate: newDate)
-                }
-
-            Task {
-                await self.store
-                    .publisher
-                    .map { items -> ListViewState in
-                        if let items {
-                            .success(items)
-                        } else {
-                            .loading
-                        }
-                    }
-                    .receive(on: DispatchQueue.main)
-                    .assign(to: &$listState)
-            }
-        }
-
-        private func refreshSlots(
-            newDate: Date
-        ) {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd"
-            let dateString = dateFormatter.string(from: selectedDate)
-
-            let request = GetAvailableSlotsRequest(
-                date: dateString,
-                partySize: "2",
-                venueID: "2790"
-            )
-
-            Task {
-                do {
-                    try await self.refreshAvailableSlots(request: request)
-                } catch {
-                    self.listState = .failed(error)
-                }
-            }
-        }
-    }
+func submit() async {
+let request = CheckAvailableReservationsRequest(
+interval: state.dateInterval,
+partySizeRange: state.partySizeRange,
+venueIDs: Array(state.selectedVenueIDs)
+)
+_ = try? await repository.checkAvailableReservations(request: request)
+}
+}
 }

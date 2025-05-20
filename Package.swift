@@ -14,6 +14,7 @@ let package = Package(
     ],
     dependencies: [
         .package(path: "ResyPro/Packages/DesignSystem"),
+        .package(path: "ResyPro/Packages/Reservation"),
         .package(path: "ResyPro/Packages/Network"),
         .package(path: "ResyPro/Packages/Notifications"),
         .package(path: "ResyPro/Packages/ProjectFoundation"),
@@ -35,6 +36,7 @@ let package = Package(
                 "Authentication",
                 "Onboarding",
                 "User",
+                "Reservation",
                 "Venues",
                 "Websockets",
                 "DebugTools"

@@ -2,40 +2,54 @@
 //  AvailableReservationsView.swift
 //  ResyPro
 //
-//  Created by Ben Fortier on 6/19/24.
+//  Created by OpenAI on 6/25/24.
 //
 
-import Foundation
-import SwiftUI
 import DesignSystem
+import Reservation
+import Notifications
+import SwiftUI
+import Venues
 
 struct AvailableReservationsView: View {
-    // Example data for times
-    let times = ["09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM"]
+@StateObject private var viewModel: ViewModel
 
-    @StateObject private var viewModel: ViewModel
-
-    init(viewModel: @autoclosure @escaping () -> ViewModel) {
-        self._viewModel = StateObject(wrappedValue: viewModel())
-    }
-
-    var body: some View {
-        VStack(alignment: .center, spacing: 16) {
-            SelectDateView(
-                title: "Select Date",
-                selectedDate: $viewModel.selectedDate
-            )
-
-            switch self.viewModel.listState {
-            case .loading: DefaultProgressView()
-            case .success(let slots): AvailableReservationsGridView(slots: slots)
-            case .failed(let error): ErrorView(error: error)
-            }
-        }
-        .background(Color(UIColor.systemGray6))
-    }
+init(viewModel: @autoclosure @escaping () -> ViewModel) {
+self._viewModel = StateObject(wrappedValue: viewModel())
 }
 
-#Preview {
-    AvailableReservationsView(viewModel: .init())
+var body: some View {
+Group {
+switch viewModel.state.step {
+case .selectTime:
+TimeAndPartySizeView(
+dateInterval: $viewModel.state.dateInterval,
+partySizeRange: $viewModel.state.partySizeRange
+) {
+viewModel.state.step = .selectVenues
+}
+case .selectVenues:
+BulkNotificationVenueSelectionView(
+allVenues: viewModel.allVenues,
+selectedVenueIDs: $viewModel.state.selectedVenueIDs,
+dateInterval: viewModel.state.dateInterval,
+partySizeRange: viewModel.state.partySizeRange
+) {
+Task { await viewModel.submit() }
+}
+.safeAreaInset(edge: .top) {
+Button {
+viewModel.state.step = .selectTime
+} label: {
+Image(systemName: "chevron.left")
+.font(.design(.button).bold())
+.foregroundColor(.textPrimary)
+}
+.frame(maxWidth: .infinity, alignment: .leading)
+.padding(.leading, 12)
+}
+}
+}
+.background(Color.backgroundPrimary)
+}
 }
