@@ -14,67 +14,67 @@ import User
 import Venues
 
 struct ScheduleReservationHomeView: View {
-  @Environment(\.projectModelContainer) private var modelContainer: any ModelContainerProtocol
-  @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-  @Environment(\.tokenStore) private var tokenStore
-  @State var selectedVenue: Venue?
-  let user: User
+    @Environment(\.projectModelContainer) private var modelContainer: any ModelContainerProtocol
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @Environment(\.tokenStore) private var tokenStore
+    @State var selectedVenue: Venue?
+    let user: User
 
-  var body: some View {
-    VStack {
-	  ScheduledReservationsCarouselView()
-      Spacer()
+    var body: some View {
+        VStack {
+            ScheduledReservationsCarouselView()
+            Spacer()
 
-      self.venuesListView
-        .navigationTitle("Reserve your reservation")
-      Spacer()
+            self.venuesListView
+                .navigationTitle("Reserve your reservation")
+            Spacer()
+        }
     }
-  }
 
-  private var venuesListView: some View {
-    VenueCardListView(
-      viewModel: VenueCardListView.ViewModel(
-        venueRepository: VenueRepositoryLive(
-          venueStore: VenueStoreLive(container: modelContainer),
-          networkService: BearerNetworkServiceComposer.make(
-            configuration: ResyHeaderConfiguration(user: user),
-            refresher: AuthenticationRepositoryLive(
-              networkService: NetworkServiceLive(),
-              tokenStore: tokenStore
+    private var venuesListView: some View {
+        VenueCardListView(
+            viewModel: VenueCardListView.ViewModel(
+                venueRepository: VenueRepositoryLive(
+                    venueStore: VenueStoreLive(container: modelContainer),
+                    networkService: BearerNetworkServiceComposer.make(
+                        configuration: ResyHeaderConfiguration(user: user),
+                        refresher: AuthenticationRepositoryLive(
+                            networkService: NetworkServiceLive(),
+                            tokenStore: tokenStore
+                        )
+                    )
+                )
             )
-          )
-        )
-      )
-    ) { venue in
-      NavigationLink(
-        destination: DefaultVenueDetailsDestinationView(venue: venue)
-      ) {
-        HorizontalVenueCard(model: HorizontalVenueCardModel(venue: venue))
-          .padding(.horizontal, 16)
-      }
+        ) { venue in
+            NavigationLink(
+                destination: DefaultVenueDetailsDestinationView(venue: venue)
+            ) {
+                HorizontalVenueCard(model: HorizontalVenueCardModel(venue: venue))
+                    .padding(.horizontal, 16)
+            }
+        }
     }
-  }
 }
 
 struct DefaultVenueDetailsDestinationView: View {
-  @State var showScheduleBotModal: Bool = false
-  let venue: Venue
+    @State var showScheduleBotModal: Bool = false
+    let venue: Venue
 
-  var body: some View {
-    VenueDetailsView(viewState: .init(venue: venue)) { action in
-      switch action {
-      case .notifyMe:
-        break
-      case .scheduleBot:
-        showScheduleBotModal = true
-      case .seeAvailability:
-        break
-      }
+    var body: some View {
+        VenueDetailsView(viewState: .init(venue: venue)) { action in
+            switch action {
+            case .notifyMe:
+                break
+            case .scheduleBot:
+                showScheduleBotModal = true
+            case .seeAvailability:
+                break
+            }
+        }
+        .sheet(isPresented: $showScheduleBotModal) {
+            ScheduleReservationFormView(
+                viewModel: .init(venue: venue)
+            )
+        }
     }
-	.sheet(isPresented: $showScheduleBotModal) {
-      ScheduleReservationFormView(
-        viewModel: .init(venue: venue)
-      )
-    }
-  }
 }

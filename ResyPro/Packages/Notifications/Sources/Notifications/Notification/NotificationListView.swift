@@ -66,7 +66,7 @@ public struct NotificationListView: View {
             let notes = try await repository.getAllNotifications()
             state = .success(notes)
         } catch {
-            state = .failed(error.debugDescription)
+            state = .failed(error)
         }
     }
 }
