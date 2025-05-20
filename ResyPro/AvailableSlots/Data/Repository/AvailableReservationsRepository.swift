@@ -9,7 +9,8 @@ import Foundation
 import Network
 
 protocol AvailableReservationsRepository: Sendable {
-  func refreshAvailableReservations(request: GetAvailableSlotsRequest) async throws
+func refreshAvailableReservations(request: GetAvailableSlotsRequest) async throws
+func checkAvailableReservations(request: CheckAvailableReservationsRequest) async throws -> [AvailableReservation]
 }
 
 struct AvailableReservationsRepositoryLive: AvailableReservationsRepository {
@@ -49,6 +50,14 @@ struct AvailableReservationsRepositoryLive: AvailableReservationsRepository {
     )
     let availableReservations = self.mapper.map(dto: availableReserationsDTO)
     await store.setCurrent(to: availableReservations)
+  }
+
+  func checkAvailableReservations(request: CheckAvailableReservationsRequest) async throws -> [AvailableReservation] {
+    let dto: AvailableSlotsResponseDTO = try await networkService.fetch(
+      from: CheckAvailableReservationsEndpoint(requestBody: request)
+    )
+    let reservations = mapper.map(dto: dto)
+    return reservations
   }
 }
 

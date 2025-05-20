@@ -6,6 +6,7 @@
 //
 
 import DesignSystem
+import Reservation
 import SwiftUI
 import Venues
 import Websockets

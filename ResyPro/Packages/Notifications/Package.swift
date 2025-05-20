@@ -14,6 +14,7 @@ let package = Package(
   ],
   dependencies: [
     .package(path: "../DesignSystem"),
+    .package(path: "../Reservation"),
     .package(path: "../Network"),
     .package(path: "../Venues"),
     .package(path: "../Websockets"),
@@ -24,6 +25,7 @@ let package = Package(
       name: "Notifications",
       dependencies: [
         "DesignSystem",
+        "Reservation",
         "Network",
         "Venues",
         "Websockets",
