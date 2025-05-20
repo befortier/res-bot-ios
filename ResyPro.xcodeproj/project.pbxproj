@@ -48,6 +48,8 @@
 		572503F92C28D9180076EECB /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = 572503F82C28D9180076EECB /* Nuke */; };
 		572503FB2C28D9180076EECB /* NukeExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = 572503FA2C28D9180076EECB /* NukeExtensions */; };
 		572503FD2C28D9180076EECB /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = 572503FC2C28D9180076EECB /* NukeUI */; };
+		5726571F2DDC18650098C603 /* CheckAvailableReservationsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5726571C2DDC18650098C603 /* CheckAvailableReservationsEndpoint.swift */; };
+		572657202DDC18650098C603 /* CheckAvailableReservationsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5726571D2DDC18650098C603 /* CheckAvailableReservationsRequest.swift */; };
 		5734986E2C24D7AA00DBB916 /* ScheduleReservationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5734986D2C24D7AA00DBB916 /* ScheduleReservationUseCase.swift */; };
 		573498722C24E2C000DBB916 /* ScheduleReservationEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573498712C24E2C000DBB916 /* ScheduleReservationEndpoint.swift */; };
 		574013AD2C2E0B1000DAD86B /* AutomaticScheduleBookingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574013AC2C2E0B1000DAD86B /* AutomaticScheduleBookingView.swift */; };
@@ -129,6 +131,8 @@
 		57199DD22C23462700AE2F8B /* AvailableReservationsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableReservationsRepository.swift; sourceTree = "<group>"; };
 		572503E62C2797A50076EECB /* ScheduleReservationFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleReservationFormView.swift; sourceTree = "<group>"; };
 		572503ED2C279B830076EECB /* ScheduleReservationFormView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScheduleReservationFormView+ViewModel.swift"; sourceTree = "<group>"; };
+		5726571C2DDC18650098C603 /* CheckAvailableReservationsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckAvailableReservationsEndpoint.swift; sourceTree = "<group>"; };
+		5726571D2DDC18650098C603 /* CheckAvailableReservationsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckAvailableReservationsRequest.swift; sourceTree = "<group>"; };
 		5734986D2C24D7AA00DBB916 /* ScheduleReservationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleReservationUseCase.swift; sourceTree = "<group>"; };
 		5734986F2C24D7D000DBB916 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		573498712C24E2C000DBB916 /* ScheduleReservationEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleReservationEndpoint.swift; sourceTree = "<group>"; };
@@ -494,6 +498,7 @@
 			isa = PBXGroup;
 			children = (
 				57199D892C2317F500AE2F8B /* AvailableSlots */,
+				5726571E2DDC18650098C603 /* AvailableReservations */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -560,6 +565,15 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5726571E2DDC18650098C603 /* AvailableReservations */ = {
+			isa = PBXGroup;
+			children = (
+				5726571C2DDC18650098C603 /* CheckAvailableReservationsEndpoint.swift */,
+				5726571D2DDC18650098C603 /* CheckAvailableReservationsRequest.swift */,
+			);
+			path = AvailableReservations;
 			sourceTree = "<group>";
 		};
 		5734986C2C24D79000DBB916 /* UseCases */ = {
@@ -830,6 +844,8 @@
 				57199DBC2C23421500AE2F8B /* GetAvailableSlotsUseCase.swift in Sources */,
 				57199DBE2C23427300AE2F8B /* GetAvailableSlotsRequest.swift in Sources */,
 				57168D262C2381F2009E6150 /* CreateReservationFormView.swift in Sources */,
+				5726571F2DDC18650098C603 /* CheckAvailableReservationsEndpoint.swift in Sources */,
+				572657202DDC18650098C603 /* CheckAvailableReservationsRequest.swift in Sources */,
 				573498722C24E2C000DBB916 /* ScheduleReservationEndpoint.swift in Sources */,
 				57199D7E2C2316A100AE2F8B /* CreateReservationViewModel.swift in Sources */,
 				57865CD02C2D9571006C7D68 /* ManualScheduleBookingView.swift in Sources */,

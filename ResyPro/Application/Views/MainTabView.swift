@@ -115,24 +115,27 @@ struct SchedueleNotificationView: View {
 }
 
 struct AvailableReservationsContainerView: View {
-@Environment(\.projectModelContainer) private var modelContainer: any ModelContainerProtocol
-@Environment(\.tokenStore) private var tokenStore
-@Query(sort: \Venue.name) var venues: [Venue]
+    @Environment(\.projectModelContainer) private var modelContainer: any ModelContainerProtocol
+    @Environment(\.tokenStore) private var tokenStore
+    @Query(sort: \Venue.name) var venues: [Venue]
 
-private var repository: any AvailableReservationsRepository {
-AvailableReservationsRepositoryLive(
-networkService: BearerNetworkServiceComposer.make(
-configuration: ResyHeaderConfiguration(userID: "", bearerToken: "", resyAuthToken: ""),
-refresher: FatalErrorTokenRefresher()
-),
-mapper: AvailableReservationResponseMapperLive(),
-store: AvailableReservationsStoreLive()
-)
-}
+    private var repository: any AvailableReservationsRepository {
+        AvailableReservationsRepositoryLive(
+            networkService: BearerNetworkServiceComposer.make(
+                configuration: ResyHeaderConfiguration(userID: "", bearerToken: "", resyAuthToken: ""),
+                refresher: FatalErrorTokenRefresher()
+            ),
+            mapper: AvailableReservationResponseMapperLive(),
+            store: AvailableReservationsStoreLive()
+        )
+    }
 
-var body: some View {
-AvailableReservationsView {
-ViewModel(allVenues: venues, repository: repository)
-}
-}
+    var body: some View {
+        AvailableReservationsView(
+            viewModel: AvailableReservationsView.ViewModel(
+                allVenues: venues,
+                repository: repository
+            )
+        )
+    }
 }

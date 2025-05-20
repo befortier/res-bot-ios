@@ -1,4 +1,5 @@
 import Network
+import Foundation
 
 /// ``Endpoint`` for deleting an individual notification.
 struct DeleteNotificationEndpoint: DeleteEndpoint {

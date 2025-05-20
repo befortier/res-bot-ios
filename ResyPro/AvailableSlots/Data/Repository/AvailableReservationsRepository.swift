@@ -9,64 +9,64 @@ import Foundation
 import Network
 
 protocol AvailableReservationsRepository: Sendable {
-func refreshAvailableReservations(request: GetAvailableSlotsRequest) async throws
-func checkAvailableReservations(request: CheckAvailableReservationsRequest) async throws -> [AvailableReservation]
+    func refreshAvailableReservations(request: GetAvailableSlotsRequest) async throws
+    func checkAvailableReservations(request: CheckAvailableReservationsRequest) async throws -> [AvailableReservation]
 }
 
 struct AvailableReservationsRepositoryLive: AvailableReservationsRepository {
 
-  private let networkService: any NetworkService
-  private let store: any AvailableReservationsStore
-  private let mapper: any AvailableReservationResponseMapper
+    private let networkService: any NetworkService
+    private let store: any AvailableReservationsStore
+    private let mapper: any AvailableReservationResponseMapper
 
-  init(
-    configuration: ResyHeaderConfiguration,
-    refresher: any TokenRefreshing,
-    store: any AvailableReservationsStore
-  ) {
-    self.init(
-      networkService: BearerNetworkServiceComposer.make(
-        configuration: configuration,
-        refresher: refresher
-      ),
-      mapper: AvailableReservationResponseMapperLive(),
-      store: store
-    )
-  }
+    init(
+        configuration: ResyHeaderConfiguration,
+        refresher: any TokenRefreshing,
+        store: any AvailableReservationsStore
+    ) {
+        self.init(
+            networkService: BearerNetworkServiceComposer.make(
+                configuration: configuration,
+                refresher: refresher
+            ),
+            mapper: AvailableReservationResponseMapperLive(),
+            store: store
+        )
+    }
 
-  init(
-    networkService: any NetworkService,
-    mapper: any AvailableReservationResponseMapper = AvailableReservationResponseMapperLive(),
-    store: any AvailableReservationsStore
-  ) {
-    self.networkService = networkService
-    self.mapper = mapper
-    self.store = store
-  }
+    init(
+        networkService: any NetworkService,
+        mapper: any AvailableReservationResponseMapper = AvailableReservationResponseMapperLive(),
+        store: any AvailableReservationsStore
+    ) {
+        self.networkService = networkService
+        self.mapper = mapper
+        self.store = store
+    }
 
-  func refreshAvailableReservations(request: GetAvailableSlotsRequest) async throws {
-    let availableReserationsDTO: AvailableSlotsResponseDTO = try await networkService.fetch(
-      from: GetAvailableSlotsEndpoint(request: request)
-    )
-    let availableReservations = self.mapper.map(dto: availableReserationsDTO)
-    await store.setCurrent(to: availableReservations)
-  }
+    func refreshAvailableReservations(request: GetAvailableSlotsRequest) async throws {
+        let availableReserationsDTO: AvailableSlotsResponseDTO = try await networkService.fetch(
+            from: GetAvailableSlotsEndpoint(request: request)
+        )
+        let availableReservations = self.mapper.map(dto: availableReserationsDTO)
+        await store.setCurrent(to: availableReservations)
+    }
 
-  func checkAvailableReservations(request: CheckAvailableReservationsRequest) async throws -> [AvailableReservation] {
-    let dto: AvailableSlotsResponseDTO = try await networkService.fetch(
-      from: CheckAvailableReservationsEndpoint(requestBody: request)
-    )
-    let reservations = mapper.map(dto: dto)
-    return reservations
-  }
+    func checkAvailableReservations(request: CheckAvailableReservationsRequest) async throws -> [AvailableReservation] {
+        let dto: AvailableSlotsResponseDTO = try await networkService.fetch(
+            from: CheckAvailableReservationsEndpoint(requestBody: request)
+        )
+        let reservations = mapper.map(dto: dto)
+        return reservations
+    }
 }
 
 extension JSONDecoder {
-  static let availableReservationDecoder: JSONDecoder = {
-    let decoder = JSONDecoder()
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-    decoder.dateDecodingStrategy = .formatted(dateFormatter)
-    return decoder
-  }()
+    static let availableReservationDecoder: JSONDecoder = {
+        let decoder = JSONDecoder()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        decoder.dateDecodingStrategy = .formatted(dateFormatter)
+        return decoder
+    }()
 }
