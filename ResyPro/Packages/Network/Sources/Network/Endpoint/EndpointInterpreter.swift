@@ -24,14 +24,16 @@ public struct EndpointInterpreter {
     var request = URLRequest(url: finalURL)
     request.allHTTPHeaderFields = endpoint.headers
 
-    if let post = endpoint as? any PostEndpoint {
-      request.httpMethod = InterpretedHTTPMethod.post.rawValue
-      if let body = post.requestBody {
-        request.httpBody = try? JSONEncoder().encode(body)
-      }
-    } else if endpoint is GetEndpoint {
-      request.httpMethod = InterpretedHTTPMethod.get.rawValue
-    }
+	if let post = endpoint as? any PostEndpoint {
+	request.httpMethod = InterpretedHTTPMethod.post.rawValue
+	if let body = post.requestBody {
+	request.httpBody = try? JSONEncoder().encode(body)
+	}
+	} else if endpoint is DeleteEndpoint {
+	request.httpMethod = InterpretedHTTPMethod.delete.rawValue
+	} else if endpoint is GetEndpoint {
+	request.httpMethod = InterpretedHTTPMethod.get.rawValue
+}
 
     return request
   }
