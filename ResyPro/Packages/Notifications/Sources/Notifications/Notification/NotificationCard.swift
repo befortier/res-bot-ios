@@ -18,14 +18,18 @@ public struct NotificationCard: View {
     public let request: NotificationTicket
     /// Optional venue associated with the request.
     public let venue: Venue?
+    /// Invoked when the delete button is tapped.
+    private let onDelete: () -> Void
 
     /// Creates a notification card.
     public init(
         request: NotificationTicket,
-        venue: Venue?
+        venue: Venue?,
+        onDelete: @escaping () -> Void = {}
     ) {
         self.request = request
         self.venue = venue
+        self.onDelete = onDelete
     }
 
     public var body: some View {
@@ -46,8 +50,10 @@ public struct NotificationCard: View {
 
             Spacer()
 
-            Image(systemName: style == .fail ? "xmark.circle" : "checkmark.circle")
-                .notificationStyle(style)
+            Button(action: onDelete) {
+                Image(systemName: "trash")
+            }
+            .buttonStyle(.borderless)
         }
         .padding()
         .cardStyle()

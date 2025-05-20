@@ -45,13 +45,41 @@ public struct NotificationListView: View {
                             ForEach(venueNotification.notifications, id: \.self) { ticket in
                                 NotificationCard(
                                     request: ticket,
-                                    venue: venuesByID[venueNotification.venueID]
+                                    venue: venuesByID[venueNotification.venueID],
+                                    onDelete: {
+                                        Task {
+                                            let req = DeleteNotificationRequest(
+                                                venueID: ticket.venueID,
+                                                startTime: ticket.interval.start,
+                                                partySize: ticket.partySize
+                                            )
+                                            try? await repository.delete(req)
+                                        }
+                                    }
                                 )
                             }
                         } label: {
-                            HorizontalVenueCard(
-                                model: HorizontalVenueCardModel(venue: venuesByID[venueNotification.venueID]!)
-                            )
+                            HStack {
+                                HorizontalVenueCard(
+                                    model: HorizontalVenueCardModel(venue: venuesByID[venueNotification.venueID]!)
+                                )
+                                Spacer()
+                                Button {
+                                    Task {
+                                        let requests = venueNotification.notifications.map {
+                                            DeleteNotificationRequest(
+                                                venueID: $0.venueID,
+                                                startTime: $0.interval.start,
+                                                partySize: $0.partySize
+                                            )
+                                        }
+                                        try? await repository.delete(requests)
+                                    }
+                                } label: {
+                                    Image(systemName: "trash")
+                                }
+                                .buttonStyle(.borderless)
+                            }
                         }
                     }
                 }

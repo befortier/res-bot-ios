@@ -9,6 +9,12 @@ public protocol NotificationRepository: Sendable {
 
     /// Returns the notifications associated with the current user.
     func getAllNotifications() async throws -> [VenueNotification]
+
+    /// Deletes multiple notifications.
+    func delete(_ requests: [DeleteNotificationRequest]) async throws
+
+    /// Deletes a single notification.
+    func delete(_ request: DeleteNotificationRequest) async throws
 }
 
 /// Default implementation using ``NetworkService``.
@@ -50,5 +56,17 @@ public struct NotificationRepositoryLive: NotificationRepository {
                 )
             }
         }
+    }
+
+    public func delete(_ requests: [DeleteNotificationRequest]) async throws {
+        try await networkService.fetch(
+            from: BulkDeleteNotificationsEndpoint(requestBody: requests)
+        )
+    }
+
+    public func delete(_ request: DeleteNotificationRequest) async throws {
+        try await networkService.fetch(
+            from: DeleteNotificationEndpoint(request: request)
+        )
     }
 }
