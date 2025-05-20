@@ -10,24 +10,21 @@ public struct NotificationSubmissionResponse: Hashable, Sendable, Decodable {
     /// Represents the outcome of a single notification scheduling attempt.
     public struct ResultEntry: Hashable, Sendable, Codable {
         /// The originally submitted request.
-        public let request: ReservationTicket
+        public let request: NotificationTicket
         /// Indicates whether the notification was created.
         public let success: Bool
     }
 }
 
 /// The request details originally sent to the server.
-public struct ReservationTicket: Hashable, Sendable, Codable {
+public struct NotificationTicket: Hashable, Sendable, Codable {
     @CodableDateInterval public var interval: DateInterval
     public let partySize: Int
     public let venueID: Venue.ID
 
     enum CodingKeys: String, CodingKey {
         case interval
-        case partySize = "num_seats"
+        case partySize = "partySize"
         case venueID = "venue_id"
     }
 }
-
-/// Alias used when listing existing notifications.
-public typealias NotificationTicket = ReservationTicket

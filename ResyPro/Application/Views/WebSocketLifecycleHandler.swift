@@ -7,6 +7,7 @@
 
 public import SwiftUI
 import User
+import Websockets
 
 struct WebSocketLifecycleHandler: ViewModifier {
     @Environment(\.scenePhase) private var scenePhase

@@ -7,6 +7,6 @@ struct VenueNotificationDTO: Equatable, Sendable, Decodable {
 
     enum CodingKeys: String, CodingKey {
         case venue
-        case notifications = "reservation"
+        case notifications = "reservations"
     }
 }

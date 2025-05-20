@@ -54,6 +54,7 @@
 		57768FA12DDA724B0018F62F /* Authentication in Frameworks */ = {isa = PBXBuildFile; productRef = 57768FA02DDA724B0018F62F /* Authentication */; };
 		57768FA32DDA724F0018F62F /* Onboarding in Frameworks */ = {isa = PBXBuildFile; productRef = 57768FA22DDA724F0018F62F /* Onboarding */; };
 		57865CD02C2D9571006C7D68 /* ManualSchedueleBookingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57865CCF2C2D9571006C7D68 /* ManualSchedueleBookingView.swift */; };
+		57A01E9D2DDBF6D100569C82 /* WebSocketLifecycleHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A01E9C2DDBF6D100569C82 /* WebSocketLifecycleHandler.swift */; };
 		57A236782DDA68FF00CA2334 /* LogoutUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A236762DDA68FF00CA2334 /* LogoutUseCase.swift */; };
 		57AC63022DD9848E003C2BA8 /* Websockets in Frameworks */ = {isa = PBXBuildFile; productRef = 57AC63012DD9848E003C2BA8 /* Websockets */; };
 		57D8C6882DD8F3610031F4BC /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D8C6852DD8F3610031F4BC /* ProfileView.swift */; };
@@ -133,6 +134,7 @@
 		573498712C24E2C000DBB916 /* SchedueleReservationEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedueleReservationEndpoint.swift; sourceTree = "<group>"; };
 		574013AC2C2E0B1000DAD86B /* AutomaticSchedueleBookingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutomaticSchedueleBookingView.swift; sourceTree = "<group>"; };
 		57865CCF2C2D9571006C7D68 /* ManualSchedueleBookingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualSchedueleBookingView.swift; sourceTree = "<group>"; };
+		57A01E9C2DDBF6D100569C82 /* WebSocketLifecycleHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketLifecycleHandler.swift; sourceTree = "<group>"; };
 		57A236762DDA68FF00CA2334 /* LogoutUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutUseCase.swift; sourceTree = "<group>"; };
 		57A2367D2DDA6AC200CA2334 /* Authentication */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Authentication; sourceTree = "<group>"; };
 		57A2367E2DDA6ACA00CA2334 /* Onboarding */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Onboarding; sourceTree = "<group>"; };
@@ -464,6 +466,7 @@
 			children = (
 				57199DAF2C233B6C00AE2F8B /* RootView.swift */,
 				57199DB22C233B8900AE2F8B /* MainTabView.swift */,
+				57A01E9C2DDBF6D100569C82 /* WebSocketLifecycleHandler.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -801,6 +804,7 @@
 				57FAFD492DD111FF0059A036 /* SeatingOptionViewType.swift in Sources */,
 				57FAFD4A2DD111FF0059A036 /* SeatingOptionSelectionView.swift in Sources */,
 				57199D832C2316E300AE2F8B /* GetBookingTokenEndpoint.swift in Sources */,
+				57A01E9D2DDBF6D100569C82 /* WebSocketLifecycleHandler.swift in Sources */,
 				57199DAE2C233B4600AE2F8B /* SplashScreenView.swift in Sources */,
 				57168CEC2C2348EC009E6150 /* AvailableReservationsView.swift in Sources */,
 				57199DB82C23401100AE2F8B /* GetAvailableSlotsResponse.swift in Sources */,

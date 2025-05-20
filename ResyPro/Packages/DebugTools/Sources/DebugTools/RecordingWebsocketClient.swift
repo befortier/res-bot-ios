@@ -1,5 +1,5 @@
 import Foundation
-import DebugTools
+import Websockets
 
 /// ``WebsocketClient`` wrapper that records all events.
 public actor RecordingWebsocketClient: WebsocketClient {
