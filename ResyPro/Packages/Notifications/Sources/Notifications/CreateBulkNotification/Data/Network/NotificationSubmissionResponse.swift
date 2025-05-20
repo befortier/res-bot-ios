@@ -24,7 +24,7 @@ public struct NotificationTicket: Hashable, Sendable, Codable {
 
     enum CodingKeys: String, CodingKey {
         case interval
-        case partySize = "partySize"
+        case partySize
         case venueID = "venue_id"
     }
 }
