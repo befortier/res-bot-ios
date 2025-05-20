@@ -18,9 +18,8 @@ public struct VerticalVenueCardGridView<Card: View>: View {
     venues: [Venue],
     @ViewBuilder cardView: @escaping CardViewBuilder,
   ) {
-    self.items = venues.map {
-      VerticalVenueCard.ViewState(venue: $0)
-    }
+    let mapper = VenueCardViewStateMapper()
+    self.items = venues.map { mapper.vertical(venue: $0) }
     self.cardView = cardView
   }
 

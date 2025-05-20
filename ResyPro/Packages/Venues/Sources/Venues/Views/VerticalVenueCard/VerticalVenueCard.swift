@@ -57,6 +57,6 @@ public struct VerticalVenueCard: View {
 // MARK: Prevew
 
 #Preview {
-  VerticalVenueCard(viewState: .init(venue: .laserWolf))
+  VerticalVenueCard(viewState: VenueCardViewStateMapper().vertical(venue: .laserWolf))
     .frame(height: 200)
 }

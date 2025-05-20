@@ -34,12 +34,12 @@ public struct SelectableVenueCard: View {
 #Preview {
   VStack {
     SelectableVenueCard(
-      venueCardViewState: .init(venue: .laserWolf),
+      venueCardViewState: VenueCardViewStateMapper().vertical(venue: .laserWolf),
       isSelected: true
     )
     .frame(height: 200)
     SelectableVenueCard(
-      venueCardViewState: .init(venue: .laserWolf),
+      venueCardViewState: VenueCardViewStateMapper().vertical(venue: .laserWolf),
       isSelected: false
     )
     .frame(height: 200)
