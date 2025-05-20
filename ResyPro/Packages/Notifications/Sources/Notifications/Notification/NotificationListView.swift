@@ -30,41 +30,23 @@ public struct NotificationListView: View {
                     ErrorView(error: error)
                 case .success(let venueNotifications):
                     ForEach(venueNotifications) { venueNotification in
-                        DisclosureGroup(
+                        VenueNotificationCard(
+                            venueNotification: venueNotification,
+                            venue: venuesByID[venueNotification.venueID],
                             isExpanded: Binding(
                                 get: { viewModel.expanded.contains(venueNotification.id) },
                                 set: { isExpanded in
                                     if isExpanded { viewModel.expanded.insert(venueNotification.id) }
                                     else { viewModel.expanded.remove(venueNotification.id) }
                                 }
-                            )
-                        ) {
-                            ForEach(venueNotification.notifications, id: \.self) { ticket in
-                                NotificationCard(
-                                    request: ticket,
-                                    venue: venuesByID[venueNotification.venueID],
-                                    onDelete: {
-                                        Task {
-                                            await viewModel.delete(ticket: ticket, from: venueNotification.venueID)
-                                        }
-                                    }
-                                )
+                            ),
+                            onDeleteTicket: { ticket in
+                                Task { await viewModel.delete(ticket: ticket, from: venueNotification.venueID) }
+                            },
+                            onDeleteVenue: {
+                                Task { await viewModel.delete(venueNotification) }
                             }
-                        } label: {
-                            HStack {
-                                HorizontalVenueCard(
-                                    model: HorizontalVenueCardModel(venue: venuesByID[venueNotification.venueID]!)
-                                )
-                                Spacer()
-                                Button {
-                                    Task { await viewModel.delete(venueNotification) }
-                                } label: {
-                                    Image(systemName: "trash")
-                                        .foregroundColor(.error)
-                                }
-                                .buttonStyle(.borderless)
-                            }
-                        }
+                        )
                     }
                 }
             }
