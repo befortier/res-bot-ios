@@ -1,5 +1,5 @@
 //
-//  SchedueleReservationHomeView.swift
+//  ScheduleReservationHomeView.swift
 //  ResyPro
 //
 //  Created by Ben Fortier on 6/19/24.
@@ -13,7 +13,7 @@ import SwiftUI
 import User
 import Venues
 
-struct SchedueleReservationHomeView: View {
+struct ScheduleReservationHomeView: View {
   @Environment(\.projectModelContainer) private var modelContainer: any ModelContainerProtocol
   @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
   @Environment(\.tokenStore) private var tokenStore
@@ -22,7 +22,7 @@ struct SchedueleReservationHomeView: View {
 
   var body: some View {
     VStack {
-      SchedeuledReservationsCarouselView()
+	  ScheduledReservationsCarouselView()
       Spacer()
 
       self.venuesListView
@@ -71,8 +71,8 @@ struct DefaultVenueDetailsDestinationView: View {
         break
       }
     }
-    .sheet(isPresented: $showScheduleBotModal) {
-      SchedueleReservationFormView(
+	.sheet(isPresented: $showScheduleBotModal) {
+      ScheduleReservationFormView(
         viewModel: .init(venue: venue)
       )
     }
