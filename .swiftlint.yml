@@ -1,0 +1,16 @@
+opt_in_rules:
+  - indentation
+  - multiline_parameters
+  - multiline_arguments
+
+indentation:
+  indentation_width: 1
+  include_comments: true
+  include_compiler_directives: true
+  use_tabs: true
+
+multiline_parameters:
+  only_enforce_after_first_closure_on_first_line: false
+
+multiline_arguments:
+  only_enforce_after_first_closure_on_first_line: false
