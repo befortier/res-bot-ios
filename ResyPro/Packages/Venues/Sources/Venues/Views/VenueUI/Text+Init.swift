@@ -20,4 +20,8 @@ extension Text {
   init(price: Int) {
     self.init(String(repeating: "$", count: price))
   }
+
+	init(partySize: Int) {
+		self = Text("\(partySize) ") + Text(Image(systemName: "person"))
+	}
 }

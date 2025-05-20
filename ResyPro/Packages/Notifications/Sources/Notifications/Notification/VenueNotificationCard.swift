@@ -27,7 +27,7 @@ public struct VenueNotificationCard: View {
 	public var body: some View {
 		DisclosureGroup(isExpanded: $isExpanded) {
                         ForEach(venueNotification.notifications, id: \ .self) { ticket in
-                                NotificationCard(
+                                ShortNotificationCard(
                                         viewState: .init(request: ticket, venue: venue),
                                         onDelete: { onDeleteTicket(ticket) }
                                 )
