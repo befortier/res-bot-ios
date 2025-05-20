@@ -32,6 +32,7 @@ public struct NotificationCard: View {
         self.onDelete = onDelete
     }
 
+
     public var body: some View {
         HStack(alignment: .top) {
             VStack(alignment: .leading, spacing: 4) {
@@ -50,12 +51,72 @@ public struct NotificationCard: View {
 
             Spacer()
 
-            Button(action: onDelete) {
-                Image(systemName: "trash")
+            if style == .default {
+                Button(action: onDelete) {
+                    Image(systemName: "trash")
+                }
+                .buttonStyle(.borderless)
             }
-            .buttonStyle(.borderless)
         }
         .padding()
         .cardStyle()
+        .background(backgroundColor)
+        .clipShape(RoundedRectangle(cornerRadius: 12))
+        .overlay(
+            RoundedRectangle(cornerRadius: 12)
+                .stroke(borderColor, lineWidth: 1)
+        )
+        .overlay(alignment: .topTrailing) {
+            Group {
+                switch style {
+                case .success:
+                    overlayImage(
+                        systemName: "checkmark.circle.fill",
+                        foregroundStyle: .success
+                    )
+                case .fail:
+                    overlayImage(
+                        systemName: "xmark.octagon.fill",
+                        foregroundStyle: .error
+                    )
+                case .default:
+                    EmptyView()
+                }
+            }
+            .padding(8)
+        }
+    }
+
+    private func overlayImage(
+        systemName: String,
+        foregroundStyle: Color
+    ) -> some View {
+        Image(systemName: systemName)
+            .resizable()
+            .scaledToFit()
+            .foregroundStyle(foregroundStyle)
+            .frame(width: 12, height: 12)
+    }
+
+    private var backgroundColor: Color {
+        switch style {
+        case .success:
+            return Color.success.opacity(0.1)
+        case .fail:
+            return Color.error.opacity(0.1)
+        case .default:
+            return Color.white
+        }
+    }
+
+    private var borderColor: Color {
+        switch style {
+        case .success:
+            return Color.success
+        case .fail:
+            return Color.error
+        case .default:
+            return .clear
+        }
     }
 }

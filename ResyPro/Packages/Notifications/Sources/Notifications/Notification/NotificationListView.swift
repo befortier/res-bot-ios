@@ -75,7 +75,6 @@ public struct NotificationListView: View {
                 ErrorView(error: DeleteFailure())
             }
         }
-
     struct DeleteFailure: LocalizedError {
 	    var errorDescription: String? {
 	        "Failed to delete. Please try again later."
