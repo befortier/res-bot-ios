@@ -15,10 +15,10 @@ public struct HorizontalVenueCard: View {
   // MARK: - Properties
 
   private let imageAspectRatio: CGFloat = 1.0
-  private let model: HorizontalVenueCardModel
+  private let viewState: ViewState
 
-  public init(model: HorizontalVenueCardModel) {
-    self.model = model
+  public init(viewState: ViewState) {
+    self.viewState = viewState
   }
 
   // MARK: - Body
@@ -46,15 +46,15 @@ public struct HorizontalVenueCard: View {
   // MARK: Text
 
   private var nameText: some View {
-    Text(model.name)
+    Text(viewState.name)
       .font(.design(.headline))
       .foregroundStyle(Color.textPrimary)
   }
 
   private var locationText: some View {
     Text(
-      neighborhood: model.neighborhood,
-      city: model.locationName
+      neighborhood: viewState.neighborhood,
+      city: viewState.locationName
     )
     .font(.design(.subheadline))
     .foregroundStyle(Color.textSecondary)
@@ -62,8 +62,8 @@ public struct HorizontalVenueCard: View {
 
   private var cuisineText: some View {
     Text(
-      cuisineType: model.cuisineType,
-      priceRange: model.priceRange
+      cuisineType: viewState.cuisineType,
+      priceRange: viewState.priceRange
     )
     .font(.design(.caption))
     .foregroundStyle(Color.textSecondary)
@@ -74,7 +74,7 @@ public struct HorizontalVenueCard: View {
 
   @MainActor
   private var venueImage: some View {
-    LazyImage(url: model.imageURL) { state in
+    LazyImage(url: viewState.imageURL) { state in
       if let image = state.image {
         image
           .resizable()
@@ -88,7 +88,7 @@ public struct HorizontalVenueCard: View {
 
 #Preview {
   HorizontalVenueCard(
-    model: HorizontalVenueCardModel(
+    viewState: HorizontalVenueCard.ViewState(
       id: 1,
       imageURL: URL(
         string:

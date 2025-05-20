@@ -50,7 +50,7 @@ public struct NotificationListView: View {
                             }
                         } label: {
                             HorizontalVenueCard(
-                                model: HorizontalVenueCardModel(venue: venuesByID[venueNotification.venueID]!)
+                                viewState: VenueCardViewStateMapper().horizontal(venue: venuesByID[venueNotification.venueID]!)
                             )
                         }
                     }

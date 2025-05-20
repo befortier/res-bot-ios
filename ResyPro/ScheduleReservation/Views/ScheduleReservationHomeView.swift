@@ -49,7 +49,7 @@ struct ScheduleReservationHomeView: View {
       NavigationLink(
         destination: DefaultVenueDetailsDestinationView(venue: venue)
       ) {
-        HorizontalVenueCard(model: HorizontalVenueCardModel(venue: venue))
+        HorizontalVenueCard(viewState: VenueCardViewStateMapper().horizontal(venue: venue))
           .padding(.horizontal, 16)
       }
     }
