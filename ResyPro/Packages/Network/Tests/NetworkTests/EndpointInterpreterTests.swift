@@ -72,4 +72,18 @@ struct EndpointInterpreterTests {
     let data = try? JSONEncoder().encode(endpoint.requestBody)
     #expect(request?.httpBody == data)
   }
+
+	struct DeleteEndpointStub: DeleteEndpoint, Sendable {
+	let baseURL: BaseURL = .resy
+	let path: String = "/delete"
+	let queryParameters: [String: String]? = nil
+	let headers: [String: String]? = nil
+	let fixturesPath: String? = nil
+	}
+
+	@Test func testDeleteInterpret() {
+	let endpoint = DeleteEndpointStub()
+	let request = EndpointInterpreter.interpret(endpoint: endpoint)
+	#expect(request?.httpMethod == InterpretedHTTPMethod.delete.rawValue)
+	}
 }
