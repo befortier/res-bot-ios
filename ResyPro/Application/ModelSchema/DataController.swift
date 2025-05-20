@@ -10,9 +10,9 @@ import User
 import Venues
 
 private let modelSchema = Schema([
-    User.self,
-    SchedueledReservation.self,
-    Venue.self
+	User.self,
+	ScheduledReservation.self,
+	Venue.self
 ])
 
 @MainActor

@@ -1,5 +1,5 @@
 //
-//  SchedueleReservationFormView.swift
+//  ScheduleReservationFormView.swift
 //  ResyPro
 //
 //  Created by Ben Fortier on 6/22/24.
@@ -12,7 +12,7 @@ import DesignSystem
 import Venues
 import ProjectFoundation
 
-struct SchedueleReservationFormView: View {
+struct ScheduleReservationFormView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @Environment(\.projectModelContainer) private var modelContainer: any ModelContainerProtocol
     @StateObject var viewModel: ViewModel
@@ -50,7 +50,7 @@ struct SchedueleReservationFormView: View {
                 Text("Bot time: ") + Text(finishedState.bookingDate, formatter: DateFormatter.short)
                 Button("Confirm") {
                     Task {
-                        try await viewModel.schedueleReservation(
+                        try await viewModel.scheduleReservation(
                             modelContainer: modelContainer,
                             finishedState: finishedState
                         )
@@ -66,14 +66,14 @@ struct SchedueleReservationFormView: View {
             case .selectDates(let dateBookingState):
                 switch dateBookingState {
                 case .manual:
-                    ManualSchedueleBookingView(
+                    ManualScheduleBookingView(
                         reservationDate: $viewModel.reservationDate,
                         queuedDate: $viewModel.queuedDate,
                         confirmed: dateWasConfirmed
                     )
                 case .automatic(let bookingInfoDTO):
-                    AutomaticSchedueleBookingView(
-                        viewModel: AutomaticSchedueleBookingView.ViewModel(
+                    AutomaticScheduleBookingView(
+                        viewModel: AutomaticScheduleBookingView.ViewModel(
                             reservationDate: $viewModel.reservationDate,
                             queuedDate: $viewModel.queuedDate,
                             bookingInfo: bookingInfoDTO

@@ -24,7 +24,7 @@ struct LogoutUseCaseLive: LogoutUseCase {
         let context = await container.mainContext
         do {
             try deleteAll(User.self, from: context)
-            try deleteAll(SchedueledReservation.self, from: context)
+            try deleteAll(ScheduledReservation.self, from: context)
             try deleteAll(Venue.self, from: context)
             try context.save()
         } catch {

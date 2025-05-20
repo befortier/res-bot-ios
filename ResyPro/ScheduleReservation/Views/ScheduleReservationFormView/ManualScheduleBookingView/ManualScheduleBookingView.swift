@@ -1,5 +1,5 @@
 //
-//  ManualSchedueleBookingView.swift
+//  ManualScheduleBookingView.swift
 //  ResyPro
 //
 //  Created by Ben Fortier on 6/27/24.
@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import DesignSystem
 
-struct ManualSchedueleBookingView: View {
+struct ManualScheduleBookingView: View {
     @State private var firstDateConfirmed = false
 
     @Binding var reservationDate: DateInterval

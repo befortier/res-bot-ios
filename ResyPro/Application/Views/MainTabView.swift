@@ -38,7 +38,7 @@ struct MainTabView: View {
     var body: some View {
         NavigationStack {
             TabView(selection: $selectedTab) {
-                SchedueleReservationHomeView(user: user)
+                ScheduleReservationHomeView(user: user)
                     .tabItem {
                         Image(systemName: "calendar")
                     }

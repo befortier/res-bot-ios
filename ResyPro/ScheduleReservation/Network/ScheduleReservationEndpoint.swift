@@ -1,5 +1,5 @@
 //
-//  SchedueleReservationEndpoint.swift
+//  ScheduleReservationEndpoint.swift
 //  ResyPro
 //
 //  Created by Ben Fortier on 6/20/24.
@@ -10,10 +10,10 @@ import Network
 import User
 import Venues
 
-struct SchedueleReservationEndpoint: PostEndpoint {
+struct ScheduleReservationEndpoint: PostEndpoint {
     let baseURL: BaseURL = .backend
     let request: GetAvailableSlotsRequest
-    let requestBody: SchedueleReservationRequestBody?
+    let requestBody: ScheduleReservationRequestBody?
 
     let path = "TBD"
 
@@ -21,7 +21,7 @@ struct SchedueleReservationEndpoint: PostEndpoint {
     var headers: [String: String]?
 }
 
-struct SchedueleReservationRequestBody: Codable, Identifiable {
+struct ScheduleReservationRequestBody: Codable, Identifiable {
     let id: String
     let userID: User.ID
     let venueID: Venue.ID

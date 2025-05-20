@@ -1,5 +1,5 @@
 //
-//  AutomaticSchedueleBookingView.swift
+//  AutomaticScheduleBookingView.swift
 //  ResyPro
 //
 //  Created by Ben Fortier on 6/27/24.
@@ -10,7 +10,7 @@ import SwiftUI
 import DesignSystem
 import Venues
 
-struct AutomaticSchedueleBookingView: View {
+struct AutomaticScheduleBookingView: View {
     @StateObject var viewModel: ViewModel
     var confirmed: () -> Void
 
@@ -52,7 +52,7 @@ struct AutomaticSchedueleBookingView: View {
     }
 }
 
-extension AutomaticSchedueleBookingView {
+extension AutomaticScheduleBookingView {
     @MainActor
     final class ViewModel: ObservableObject {
         @Binding var reservationDateBinding: DateInterval

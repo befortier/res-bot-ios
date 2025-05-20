@@ -1,5 +1,5 @@
 //
-//  SchedueleReservationFormView+ViewModel.swift
+//  ScheduleReservationFormView+ViewModel.swift
 //  ResyPro
 //
 //  Created by Ben Fortier on 6/22/24.
@@ -10,7 +10,7 @@ import SwiftData
 import Venues
 import ProjectFoundation
 
-extension SchedueleReservationFormView {
+extension ScheduleReservationFormView {
     @MainActor
     final class ViewModel: ObservableObject {
         let venue: Venue
@@ -40,12 +40,12 @@ extension SchedueleReservationFormView {
             }
         }
 
-        func schedueleReservation(
+        func scheduleReservation(
             modelContainer: any ModelContainerProtocol,
             finishedState: FinishedState
         ) async throws {
             // Optimisticall put yes, if network fails global error modal + remove
-            let schedueledReservation = SchedueledReservation(
+            let scheduledReservation = ScheduledReservation(
                 id: UUID().uuidString,
                 venue: self.venue,
                 createdAt: .now,
@@ -55,13 +55,13 @@ extension SchedueleReservationFormView {
                 scheduelingBehavior: .slowAndSmooth
             )
 
-            modelContainer.mainContext.insert(schedueledReservation)
+            modelContainer.mainContext.insert(scheduledReservation)
         }
     }
 }
 
 
-extension SchedueleReservationFormView {
+extension ScheduleReservationFormView {
     enum SelectDateState: Sendable, Equatable {
         case manual
 
