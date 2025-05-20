@@ -38,35 +38,37 @@ public struct SubmissionResultView: View {
     }
 
     public var body: some View {
-        VStack(spacing: 16) {
-            Text("Notifications Created")
-                .font(.design(.title))
+        ScrollView {
+            VStack(spacing: 16) {
+                Text("Notifications Created")
+                    .font(.design(.title))
 
-            ForEach(Array(results.enumerated()), id: \.offset) { _, entry in
-                NotificationCard(
-                    request: entry.request,
-                    venue: venuesByID[entry.request.venueID]
-                )
-                .notificationStyle(entry.success ? .success : .fail)
-                .transition(.move(edge: .bottom).combined(with: .opacity))
-            }
+                ForEach(Array(results.enumerated()), id: \.offset) { _, entry in
+                    NotificationCard(
+                        request: entry.request,
+                        venue: venuesByID[entry.request.venueID]
+                    )
+                    .notificationStyle(entry.success ? .success : .fail)
+                    .transition(.move(edge: .bottom).combined(with: .opacity))
+                }
 
-            if let expectedCount, results.count >= expectedCount {
-                Text("All notifications processed")
-                    .font(.design(.subheadline))
-                    .foregroundStyle(Color.textSecondary)
-            } else if isLoading {
-                ProgressView()
-            }
+                if let expectedCount, results.count >= expectedCount {
+                    Text("All notifications processed")
+                        .font(.design(.subheadline))
+                        .foregroundStyle(Color.textSecondary)
+                } else if isLoading {
+                    ProgressView()
+                }
 
-            Button("Continue") {
-                onContinue()
+                Button("Continue") {
+                    onContinue()
+                }
+                .buttonStyle(PrimaryButtonStyle())
+                .disabled(isLoading || (expectedCount != nil && results.count < (expectedCount ?? 0)))
             }
-            .buttonStyle(PrimaryButtonStyle())
-            .disabled(isLoading || (expectedCount != nil && results.count < (expectedCount ?? 0)))
+            .padding()
+            .animation(.default, value: results)
         }
-        .padding()
-        .animation(.default, value: results)
     }
 }
 

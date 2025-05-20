@@ -121,19 +121,21 @@ public struct NotificationListView: View {
 	}
 
     func remove(ticket: NotificationTicket, from venueID: Int) {
-	    guard case .success(var notes) = state else { return }
-	    if let index = notes.firstIndex(where: { $0.venueID == venueID }) {
-	        var venueNote = notes[index]
-	        venueNote.notifications.removeAll { $0 == ticket }
-	        if venueNote.notifications.isEmpty {
-	            notes.remove(at: index)
-	            expanded.remove(venueID)
-	        } else {
-	            notes[index] = venueNote
-	        }
-	        state = .success(notes)
-	    }
-	}
+        guard case .success(let notes) = state else { return }
+
+        let updatedNotes = notes.compactMap { venueNote -> VenueNotification? in
+            guard venueNote.venueID == venueID else { return venueNote }
+            let remaining = venueNote.notifications.filter { $0 != ticket }
+            guard !remaining.isEmpty else {
+                expanded.remove(venueID)
+                return nil // remove this venueNote entirely
+            }
+            return VenueNotification(venueID: venueID, notifications: remaining)
+        }
+
+        state = .success(updatedNotes)
+    }
+
 
     func remove(venueID: Int) {
 	    guard case .success(var notes) = state else { return }
