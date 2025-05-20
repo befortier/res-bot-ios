@@ -9,19 +9,19 @@ import Foundation
 import SwiftUI
 
 extension Text {
-  init(cuisineType: String, priceRange: Int) {
-    self.init("\(cuisineType) · \(String(repeating: "$", count: priceRange))")
-  }
+    public init(cuisineType: String, priceRange: Int) {
+        self.init("\(cuisineType) · \(String(repeating: "$", count: priceRange))")
+    }
 
-  init(neighborhood: String, city: String) {
-    self.init("\(neighborhood) · \(city)")
-  }
+    public init(neighborhood: String, city: String) {
+        self.init("\(neighborhood) · \(city)")
+    }
 
-  init(price: Int) {
-    self.init(String(repeating: "$", count: price))
-  }
+    public init(price: Int) {
+        self.init(String(repeating: "$", count: price))
+    }
 
-	init(partySize: Int) {
-		self = Text("\(partySize) ") + Text(Image(systemName: "person"))
-	}
+    public init(partySize: Int) {
+        self = Text("\(partySize) ") + Text(Image(systemName: "person"))
+    }
 }
