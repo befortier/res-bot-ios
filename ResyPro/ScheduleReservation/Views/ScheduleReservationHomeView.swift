@@ -38,10 +38,7 @@ struct ScheduleReservationHomeView: View {
                     venueStore: VenueStoreLive(container: modelContainer),
                     networkService: BearerNetworkServiceComposer.make(
                         configuration: ResyHeaderConfiguration(user: user),
-                        refresher: AuthenticationRepositoryLive(
-                            networkService: NetworkServiceLive(),
-                            tokenStore: tokenStore
-                        )
+                        tokenStore: tokenStore
                     )
                 )
             )

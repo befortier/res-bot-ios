@@ -42,7 +42,7 @@ public struct RecordingNetworkSession: NetworkSession {
                 method: request.httpMethod ?? "GET",
                 url: request.url?.absoluteString ?? "",
                 statusCode: statusCode,
-                state: .success,
+                state: response.isHTTPSuccess ? .success : .failure,
                 requestHeaders: request.allHTTPHeaderFields,
                 responseHeaders: (response as? HTTPURLResponse)?.allHeaderFields as? [String: String],
                 requestBody: requestBody,

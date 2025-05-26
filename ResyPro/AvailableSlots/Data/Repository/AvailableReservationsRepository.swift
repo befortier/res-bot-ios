@@ -20,21 +20,6 @@ struct AvailableReservationsRepositoryLive: AvailableReservationsRepository {
     private let mapper: any AvailableReservationResponseMapper
 
     init(
-        configuration: ResyHeaderConfiguration,
-        refresher: any TokenRefreshing,
-        store: any AvailableReservationsStore
-    ) {
-        self.init(
-            networkService: BearerNetworkServiceComposer.make(
-                configuration: configuration,
-                refresher: refresher
-            ),
-            mapper: AvailableReservationResponseMapperLive(),
-            store: store
-        )
-    }
-
-    init(
         networkService: any NetworkService,
         mapper: any AvailableReservationResponseMapper = AvailableReservationResponseMapperLive(),
         store: any AvailableReservationsStore

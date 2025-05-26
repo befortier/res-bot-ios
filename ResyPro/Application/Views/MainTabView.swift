@@ -47,10 +47,7 @@ struct MainTabView: View {
                 SchedueleNotificationView(
                     networkService: BearerNetworkServiceComposer.make(
                         configuration: ResyHeaderConfiguration(user: user),
-                        refresher: AuthenticationRepositoryLive(
-                            networkService: NetworkServiceLive(),
-                            tokenStore: tokenStore
-                        )
+                        tokenStore: tokenStore
                     )
                 )
                 .tabItem {
@@ -123,7 +120,7 @@ struct AvailableReservationsContainerView: View {
         AvailableReservationsRepositoryLive(
             networkService: BearerNetworkServiceComposer.make(
                 configuration: ResyHeaderConfiguration(userID: "", bearerToken: "", resyAuthToken: ""),
-                refresher: FatalErrorTokenRefresher()
+                tokenStore: tokenStore
             ),
             mapper: AvailableReservationResponseMapperLive(),
             store: AvailableReservationsStoreLive()

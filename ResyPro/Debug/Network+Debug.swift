@@ -7,15 +7,22 @@
 
 import Network
 import Foundation
+import Authentication
 
 #if DEBUG
 import DebugTools
 
 enum BearerNetworkServiceComposer {
-  static func make(configuration: ResyHeaderConfiguration, refresher: any TokenRefreshing) -> any NetworkService {
+    static func make(
+        configuration: ResyHeaderConfiguration,
+        tokenStore: TokenStore
+    ) -> any NetworkService {
       return RefreshingNetworkService(
         configuration: configuration,
-        refresher: refresher,
+        refresher: AuthenticationRepositoryLive(
+            networkService: BasicNetworkServiceComposer.make(),
+            tokenStore: tokenStore
+        ),
         session: RecordingNetworkSession(
             wrapped: URLSession.shared
         )
