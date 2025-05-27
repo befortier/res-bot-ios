@@ -29,7 +29,7 @@ struct ServiceEndpoint: GetEndpoint, Sendable {
     }
 }
 
-struct FakeSession: NetworkSession, Sendable {
+struct FakeSession: NetworkClient, Sendable {
     let data: Data
     func data(for request: URLRequest, delegate: (any URLSessionTaskDelegate)?) async throws -> (
         Data, URLResponse

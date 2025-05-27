@@ -27,7 +27,10 @@ struct ProfileView: View {
     private var notificationRepository: any NotificationRepository {
         NotificationRepositoryLive(
             networkService: BearerNetworkServiceComposer.make(
-                configuration: ResyHeaderConfiguration(user: user),
+                configuration: HeaderConfiguration(
+                    user: user,
+                    token: { await tokenStore.current?.token }
+                ),
                 tokenStore: tokenStore
             ),
             venueStore: VenueStoreLive(container: modelContainer)

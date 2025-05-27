@@ -16,7 +16,6 @@ import Onboarding
 struct RootView: View {
 
     @Environment(\.websocketClient) var websocketClient
-    @StateObject private var viewModel = ViewModel()
     @Query private var users: [User]
 
     var body: some View {
@@ -30,18 +29,26 @@ struct RootView: View {
         .maintainWebsocketConnection(user: users.first)
         .navigationViewStyle(.stack)
         .observeForDebug()
-    }
-}
+        /*
+         .onFirstAppear {
+             do {
+         guard let token else { onboarindgView() }
+         guard let user = try await getUser(token)
+         if error is 401 we will auto log out
+         other errors should NOT clear it but just show a
+               state = .loading
+               guard let token = await currentToken
+               try await refreshUser(token) // with retry
+               user = newUser
+             } catch {
+                // Or maybe if we get a 401 on any request we log out.
+                if 401 {
+                  logout()
+                }
 
-extension RootView {
-    @MainActor
-    class ViewModel: ObservableObject {
-
-        init() {}
-
-        func restoreCurrentUser(userID: String) async throws -> User {
-            return .stub
-        }
+             }
+         }
+         */
     }
 }
 

@@ -5,16 +5,17 @@ import FoundationNetworking
 #endif
 
 /// Configuration containing tokens required for authenticated requests.
-public struct ResyHeaderConfiguration: Sendable {
+public struct HeaderConfiguration: Sendable {
+    public typealias BearerToken = @Sendable () async -> String?
     public let userID: String
     /// The bearer token added to the `Authorization` header.
-    public let bearerToken: String?
+    public let bearerToken: BearerToken
     /// The token added to the `x-resy-auth-token` and `x-resy-universal-auth` headers.
     public let resyAuthToken: String?
 
     public init(
         userID: String,
-        bearerToken: String?,
+        bearerToken: @escaping BearerToken,
         resyAuthToken: String?
     ) {
         self.userID = userID
@@ -24,12 +25,12 @@ public struct ResyHeaderConfiguration: Sendable {
 }
 
 /// A lightweight HTTP client that forwards requests without modification.
-public struct BasicHTTPClient: NetworkSession {
-    private let session: any NetworkSession
+public struct BasicHTTPClient: NetworkClient {
+    private let session: any NetworkClient
 
     /// Creates a ``BasicHTTPClient`` using the provided session.
     /// - Parameter session: The underlying session used for requests.
-    public init(session: any NetworkSession = URLSession.shared) {
+    public init(session: any NetworkClient = URLSession.shared) {
         self.session = session
     }
 
@@ -38,34 +39,8 @@ public struct BasicHTTPClient: NetworkSession {
     }
 }
 
-/// An HTTP client that attaches authentication headers to every request.
-public struct BearerHTTPClient: NetworkSession {
-    private let session: any NetworkSession
-    private let configuration: ResyHeaderConfiguration
 
-    /// Creates a ``BearerHTTPClient`` with the supplied configuration.
-    /// - Parameters:
-    ///   - configuration: Values used to populate authentication headers.
-    ///   - session: The underlying session used for requests.
-    public init(
-        configuration: ResyHeaderConfiguration,
-        session: any NetworkSession = URLSession.shared
-    ) {
-        self.configuration = configuration
-        self.session = session
-    }
 
-    public func data(for request: URLRequest, delegate: (any URLSessionTaskDelegate)?) async throws -> (Data, URLResponse) {
-        var request = request
-        if let bearer = configuration.bearerToken {
-            request.setValue("Bearer \(bearer)", forHTTPHeaderField: "Authorization")
-        }
-        if let resyToken = configuration.resyAuthToken {
-            request.setValue(resyToken, forHTTPHeaderField: "x-resy-auth-token")
-            request.setValue(resyToken, forHTTPHeaderField: "x-resy-universal-auth")
-        }
-        request.setValue(configuration.userID, forHTTPHeaderField: "x-user-id")
-
-        return try await session.data(for: request, delegate: delegate)
-    }
+enum BearerHTTPClientError: Error {
+    case noToken
 }

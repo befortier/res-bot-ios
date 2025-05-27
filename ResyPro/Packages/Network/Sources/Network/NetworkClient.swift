@@ -12,11 +12,11 @@ import Foundation
 #endif
 
 /// Abstraction over ``URLSession`` for testability.
-public protocol NetworkSession: Sendable {
+public protocol NetworkClient: Sendable {
   /// Performs a URL request and returns the resulting data and response.
   func data(for request: URLRequest, delegate: (any URLSessionTaskDelegate)?) async throws -> (
     Data, URLResponse
   )
 }
 
-extension URLSession: NetworkSession {}
+extension URLSession: NetworkClient {}

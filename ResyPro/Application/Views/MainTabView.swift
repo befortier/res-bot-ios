@@ -46,7 +46,10 @@ struct MainTabView: View {
 
                 SchedueleNotificationView(
                     networkService: BearerNetworkServiceComposer.make(
-                        configuration: ResyHeaderConfiguration(user: user),
+                        configuration: HeaderConfiguration(
+                            user: user,
+                            token: { await tokenStore.current?.token
+                            }),
                         tokenStore: tokenStore
                     )
                 )
@@ -119,11 +122,15 @@ struct AvailableReservationsContainerView: View {
     private var repository: any AvailableReservationsRepository {
         AvailableReservationsRepositoryLive(
             networkService: BearerNetworkServiceComposer.make(
-                configuration: ResyHeaderConfiguration(userID: "", bearerToken: "", resyAuthToken: ""),
+                configuration: HeaderConfiguration(
+                    userID: "",
+                    bearerToken: { "" },
+                    resyAuthToken: ""
+                ),
                 tokenStore: tokenStore
             ),
             mapper: AvailableReservationResponseMapperLive(),
-            store: AvailableReservationsStoreLive()
+            store: AvailableReservationsStoreLive(current: [])
         )
     }
 

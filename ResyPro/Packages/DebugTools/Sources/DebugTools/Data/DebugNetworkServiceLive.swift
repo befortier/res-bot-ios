@@ -6,11 +6,11 @@ public struct DebugNetworkServiceLive: NetworkService {
     private let service: any NetworkService
 
     public init(
-        client: any NetworkSession,
+        client: any NetworkClient,
         jsonDecoder: JSONDecoder = JSONDecoder()
     ) {
         service = NetworkServiceLive(
-            client: RecordingNetworkSession(wrapped: client),
+            client: RecordingNetworkClient(wrapped: client),
             jsonDecoder: jsonDecoder
         )
     }

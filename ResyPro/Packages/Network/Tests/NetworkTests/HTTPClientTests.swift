@@ -7,7 +7,7 @@ import Testing
 import FoundationNetworking
 #endif
 
-private actor CaptureSession: NetworkSession {
+private actor CaptureSession: NetworkClient {
     private(set) var receivedRequest: URLRequest?
 
     func data(for request: URLRequest, delegate: (any URLSessionTaskDelegate)?) async throws -> (Data, URLResponse) {
@@ -23,7 +23,7 @@ private actor CaptureSession: NetworkSession {
 struct HTTPClientTests {
     @Test func testBearerAddsHeaders() async throws {
         let session = CaptureSession()
-        let config = ResyHeaderConfiguration(userID: "x", bearerToken: "abc", resyAuthToken: "xyz")
+        let config = HeaderConfiguration(userID: "x", bearerToken: "abc", resyAuthToken: "xyz")
         let client = BearerHTTPClient(configuration: config, session: session)
         let request = URLRequest(url: URL(string: "https://example.com")!)
         _ = try await client.data(for: request, delegate: nil)

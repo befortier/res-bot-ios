@@ -13,23 +13,23 @@ import Foundation
 public protocol DataStore<T>: Sendable {
     associatedtype T = Sendable & Equatable
 
-    var current: T? { get async }
-    var publisher: AnyPublisher<T?, Never> { get async }
+    var current: T { get async }
+    var publisher: AnyPublisher<T, Never> { get async }
 
-    func setCurrent(to newData: T?) async
+    func setCurrent(to newData: T) async
 }
 
 @MainActor
 public final class InMemoryDataStore<T: Sendable & Equatable>: DataStore {
-    @Published public private(set) var currentPublished: T?
-    public var publisher: AnyPublisher<T?, Never> { $currentPublished.eraseToAnyPublisher() }
-    public var current: T? { currentPublished }
+    @Published public private(set) var currentPublished: T
+    public var publisher: AnyPublisher<T, Never> { $currentPublished.eraseToAnyPublisher() }
+    public var current: T { currentPublished }
 
-    public init(current: T? = nil) {
+    public init(current: T) {
         self.currentPublished = current
     }
 
-    public nonisolated func setCurrent(to newData: T?) async {
+    public nonisolated func setCurrent(to newData: T) async {
         await MainActor.run { self.currentPublished = newData }
     }
 }

@@ -1,17 +1,17 @@
 import Foundation
 import Network
 
-/// ``NetworkSession`` wrapper that records all requests and responses.
-public struct RecordingNetworkSession: NetworkSession {
-    private let wrapped: any NetworkSession
+/// ``NetworkClient`` wrapper that records all requests and responses.
+public struct RecordingNetworkClient: NetworkClient {
+    private let wrapped: any NetworkClient
     private let store: NetworkHistoryStore
 
     /// Creates a new recording session.
     /// - Parameters:
-    ///   - wrapped: The underlying ``NetworkSession`` to call.
+    ///   - wrapped: The underlying ``NetworkClient`` to call.
     ///   - store: Store used to persist network history.
     public init(
-        wrapped: any NetworkSession,
+        wrapped: any NetworkClient,
         store: NetworkHistoryStore = .shared
     ) {
         self.wrapped = wrapped

@@ -7,12 +7,15 @@
 
 import Network
 
-extension ResyHeaderConfiguration {
-    public init(user: User) {
+extension HeaderConfiguration {
+    public init(
+        user: User,
+        token: @escaping BearerToken
+    ) {
         self.init(
             userID: user.id,
-            bearerToken: "some-token",
-            resyAuthToken: user.resyAuthToken
+            bearerToken: token,
+            resyAuthToken: user.resyAuthToken ?? "should-probably-fix-this"
         )
     }
 }

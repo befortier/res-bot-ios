@@ -8,58 +8,56 @@
 import Foundation
 
 #if canImport(FoundationNetworking)
-  import FoundationNetworking
+import FoundationNetworking
 #endif
 
 /// Interface for fetching and decoding network resources.
 public protocol NetworkService: Sendable {
-  func fetch<T: Decodable>(from endpoint: Endpoint) async throws -> T
+    func fetch<T: Decodable>(from endpoint: Endpoint) async throws -> T
 }
 
 extension NetworkService {
-  /// Fetches a resource but ignores the decoded response.
-  public func fetch(from endpoint: Endpoint) async throws {
-    _ = try await fetch(from: endpoint) as EmptyDecodable
-  }
+    /// Fetches a resource but ignores the decoded response.
+    public func fetch(from endpoint: Endpoint) async throws {
+        _ = try await fetch(from: endpoint) as EmptyDecodable
+    }
 }
 /// Production implementation of ``NetworkService``.
 public struct NetworkServiceLive: NetworkService {
-  private let client: any NetworkSession
-  private let jsonDecoder: JSONDecoder
+    private let client: any NetworkClient
+    private let jsonDecoder: JSONDecoder
 
-  public init(
-    client: any NetworkSession = URLSession.shared,
-    jsonDecoder: JSONDecoder = JSONDecoder()
-  ) {
-    self.client = client
-    self.jsonDecoder = jsonDecoder
-  }
-
-  public func fetch<T: Decodable>(from endpoint: Endpoint) async throws -> T {
-    guard let request = EndpointInterpreter.interpret(endpoint: endpoint) else {
-      throw NetworkError.unknown
+    public init(
+        client: any NetworkClient = URLSession.shared,
+        jsonDecoder: JSONDecoder = JSONDecoder()
+    ) {
+        self.client = client
+        self.jsonDecoder = jsonDecoder
     }
 
-    let (data, response): (Data, URLResponse) =
-      if let fixturesPath = endpoint.fixturesPath, false,
-        let url = Bundle.module.url(forResource: fixturesPath, withExtension: "json")
-      {
-        (try Data(contentsOf: url), URLResponse())
-      } else {
-        try await client.data(for: request, delegate: nil)
-      }
+    public func fetch<T: Decodable>(from endpoint: Endpoint) async throws -> T {
+        guard let request = EndpointInterpreter.interpret(endpoint: endpoint) else {
+            throw NetworkError.unknown
+        }
 
-    if let http = response as? HTTPURLResponse {
-      switch http.statusCode {
-      case 200..<300:
-        break
-      case 401, 403:
-        throw NetworkError.unauthorized
-      default:
-        throw NetworkError.unknown
-      }
+        let (data, response): (Data, URLResponse) =
+        if let fixturesPath = endpoint.fixturesPath, false,
+           let url = Bundle.module.url(forResource: fixturesPath, withExtension: "json")
+        {
+            (try Data(contentsOf: url), URLResponse())
+        } else {
+            try await client.data(for: request, delegate: nil)
+        }
+
+        guard response.isHTTPSuccess else {
+            switch (response as? HTTPURLResponse)?.statusCode {
+            case 401, 403:
+                throw NetworkError.unauthorized
+            default:
+                throw NetworkError.unknown
+            }
+        }
+
+        return try jsonDecoder.decode(T.self, from: data)
     }
-
-    return try jsonDecoder.decode(T.self, from: data)
-  }
 }

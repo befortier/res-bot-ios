@@ -19,7 +19,7 @@ Import the package and use `NetworkService` for making HTTP calls.
 import Network
 
 let client = BearerHTTPClient(
-    configuration: ResyHeaderConfiguration(
+    configuration: HeaderConfiguration(
         bearerToken: "<user-token>",
         resyAuthToken: "<resy-token>"
     )
