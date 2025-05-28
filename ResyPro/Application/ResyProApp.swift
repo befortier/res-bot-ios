@@ -12,6 +12,7 @@ import SwiftUI
 import User
 import Venues
 import Websockets
+import Bootstrap
 
 #if DEBUG
   import DebugTools
@@ -27,6 +28,34 @@ struct ResyProApp: App {
     @State private var websocketClient = URLSessionWebsocketClient.init()
     #endif
 
+    private let tokenStore = TokenStoreFile()
+    private var bootstrapUseCase: any BootstrapUseCase {
+        BootstrapUseCaseLive(
+            tokenStore: tokenStore,
+            repositoryBuilder: { user in
+                let service = BearerNetworkServiceComposer.make(
+                    configuration: HeaderConfiguration(
+                        user: user,
+                        token: { await tokenStore.current?.token }
+                    ),
+                    tokenStore: tokenStore
+                )
+                let store = UserStoreLive(container: sharedModelContainer)
+                return UserRepositoryLive(
+                    networkService: service,
+                    userStore: store
+                )
+            },
+            logout: {
+                await LogoutUseCaseLive(
+                    container: sharedModelContainer,
+                    websocketClient: websocketClient,
+                    websocketURL: websocketURL
+                )()
+            }
+        )
+    }
+
 
   private let websocketURL = URL(string: "wss://resy-service.fly.dev:8081")!
 
@@ -35,7 +64,8 @@ struct ResyProApp: App {
       RootView()
         .environment(\.projectModelContainer, sharedModelContainer)
         .environment(\.websocketClient, websocketClient)
-        .environment(\.tokenStore, TokenStoreFile())
+        .environment(\.tokenStore, tokenStore)
+        .environment(\.bootstrapUseCase, bootstrapUseCase)
         #if DEBUG
           .environmentObject(NetworkHistoryStore.shared)
         #endif

@@ -14,12 +14,14 @@ let package = Package(
     ],
     dependencies: [
       .package(path: "../Network"),
+      .package(path: "../ProjectFoundation"),
     ],
     targets: [
         .target(
             name: "User",
             dependencies: [
                 "Network",
+                "ProjectFoundation",
             ]
         )
     ]

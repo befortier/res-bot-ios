@@ -9,6 +9,7 @@ import Foundation
 import SwiftData
 import SwiftUI
 import User
+import Bootstrap
 import Websockets
 import Onboarding
 
@@ -16,6 +17,7 @@ import Onboarding
 struct RootView: View {
 
     @Environment(\.websocketClient) var websocketClient
+    @Environment(\.bootstrapUseCase) private var bootstrap
     @Query private var users: [User]
 
     var body: some View {
@@ -29,6 +31,7 @@ struct RootView: View {
         .maintainWebsocketConnection(user: users.first)
         .navigationViewStyle(.stack)
         .observeForDebug()
+        .task { await bootstrap(user: users.first) }
         /*
          .onFirstAppear {
              do {
