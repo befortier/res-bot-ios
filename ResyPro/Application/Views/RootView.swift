@@ -13,49 +13,60 @@ import Bootstrap
 import Websockets
 import Onboarding
 
+
 @MainActor
 struct RootView: View {
+    enum ViewState {
+        case loading
+        case mainTab(UserSession)
+        case unauthenticated
+        case failedToLoad
+    }
 
     @Environment(\.websocketClient) var websocketClient
-    @Environment(\.bootstrapUseCase) private var bootstrap
     @Query private var users: [User]
+    let bootStrap: any BootstrapUseCase
+    @State var state: ViewState = .loading
 
     var body: some View {
         Group {
-            if let user = users.first {
-                MainTabView(user: user)
-            } else {
-                OnboardingView(networkService: BasicNetworkServiceComposer.make())
+            switch state {
+            case .loading:
+                ProgressView()
+                    .task { await checkForBootstrap(user: users.first) }
+                    .onChange(of: users) { _, users in
+                        Task { await checkForBootstrap(user: users.first) }
+                    }
+            case let .mainTab(userSession):
+                MainTabView()
+                    .environment(userSession)
+            case .unauthenticated:
+                OnboardingView(networkService: BasicNetworkServiceComposer.make()) { userSession in
+                    self.state = .mainTab(userSession)
+                }
+            case .failedToLoad:
+                Text("Error")
             }
         }
         .maintainWebsocketConnection(user: users.first)
         .navigationViewStyle(.stack)
         .observeForDebug()
-        .task { await bootstrap(user: users.first) }
-        /*
-         .onFirstAppear {
-             do {
-         guard let token else { onboarindgView() }
-         guard let user = try await getUser(token)
-         if error is 401 we will auto log out
-         other errors should NOT clear it but just show a
-               state = .loading
-               guard let token = await currentToken
-               try await refreshUser(token) // with retry
-               user = newUser
-             } catch {
-                // Or maybe if we get a 401 on any request we log out.
-                if 401 {
-                  logout()
-                }
+    }
 
-             }
-         }
-         */
+    private func checkForBootstrap(user: User?) async {
+        do {
+            self.state = if let userSession = try await self.bootStrap(user: users.first) {
+                .mainTab(userSession)
+            } else {
+                .unauthenticated
+            }
+        } catch {
+            self.state = .failedToLoad
+        }
     }
 }
-
-#Preview {
-    RootView()
-        .modelContainer(for: User.self, inMemory: true)
-}
+//
+//#Preview {
+//    RootView(bootStrap: Boot)
+//        .modelContainer(for: User.self, inMemory: true)
+//}

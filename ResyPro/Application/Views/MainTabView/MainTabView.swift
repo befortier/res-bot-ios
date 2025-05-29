@@ -15,44 +15,21 @@ import User
 import Venues
 import ProjectFoundation
 
+
 struct MainTabView: View {
-    @State private var selectedTab: Tab
-    private let user: User
-    @Environment(\.tokenStore) private var tokenStore
-
-    enum Tab: CaseIterable {
-        case schedueleReservation
-
-        case schedueleNotification
-
-        case browse
-
-        case profile
-    }
-
-    init(user: User) {
-        self._selectedTab = State(wrappedValue: .schedueleReservation)
-        self.user = user
-    }
+    @State private var selectedTab: Tab = .schedueleReservation
+    @Environment(UserSession.self) var userSession
 
     var body: some View {
         NavigationStack {
             TabView(selection: $selectedTab) {
-                ScheduleReservationHomeView(user: user)
+                ScheduleReservationHomeView()
                     .tabItem {
                         Image(systemName: "calendar")
                     }
                     .tag(Tab.schedueleReservation)
 
-                SchedueleNotificationView(
-                    networkService: BearerNetworkServiceComposer.make(
-                        configuration: HeaderConfiguration(
-                            user: user,
-                            token: { await tokenStore.current?.token
-                            }),
-                        tokenStore: tokenStore
-                    )
-                )
+                SchedueleNotificationView()
                 .tabItem {
                     Image(systemName: "bell")
                 }
@@ -64,7 +41,7 @@ struct MainTabView: View {
                     }
                     .tag(Tab.browse)
 
-                ProfileView(user: user)
+                ProfileView()
                     .tabItem {
                         Image(systemName: "person.crop.circle")
                     }
@@ -77,7 +54,7 @@ struct MainTabView: View {
 }
 
 #Preview {
-    MainTabView(user: .stub)
+    MainTabView()
 }
 
 struct BrowseView: View {
@@ -89,15 +66,13 @@ struct BrowseView: View {
 struct SchedueleNotificationView: View {
     @Environment(\.projectModelContainer) private var modelContainer: any ModelContainerProtocol
     @Query(sort: \Venue.name) var venues: [Venue]
-    private let networkService: any NetworkService
-
-    init(networkService: any NetworkService) {
-        self.networkService = networkService
-    }
+    @Environment(UserSession.self) var userSession
 
     private var repository: any NotificationRepository {
         NotificationRepositoryLive(
-            networkService: networkService,
+            networkService: BearerNetworkServiceComposer.make(
+                userSession: userSession
+            ),
             venueStore: VenueStoreLive(container: modelContainer)
         )
     }
@@ -116,18 +91,13 @@ struct SchedueleNotificationView: View {
 
 struct AvailableReservationsContainerView: View {
     @Environment(\.projectModelContainer) private var modelContainer: any ModelContainerProtocol
-    @Environment(\.tokenStore) private var tokenStore
     @Query(sort: \Venue.name) var venues: [Venue]
+    @Environment(UserSession.self) var userSession
 
     private var repository: any AvailableReservationsRepository {
         AvailableReservationsRepositoryLive(
             networkService: BearerNetworkServiceComposer.make(
-                configuration: HeaderConfiguration(
-                    userID: "",
-                    bearerToken: { "" },
-                    resyAuthToken: ""
-                ),
-                tokenStore: tokenStore
+                userSession: userSession
             ),
             mapper: AvailableReservationResponseMapperLive(),
             store: AvailableReservationsStoreLive(current: [])

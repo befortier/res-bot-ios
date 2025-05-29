@@ -16,9 +16,8 @@ import Venues
 struct ScheduleReservationHomeView: View {
     @Environment(\.projectModelContainer) private var modelContainer: any ModelContainerProtocol
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @Environment(\.tokenStore) private var tokenStore
+    @Environment(UserSession.self) var userSession
     @State var selectedVenue: Venue?
-    let user: User
 
     var body: some View {
         VStack {
@@ -37,8 +36,7 @@ struct ScheduleReservationHomeView: View {
                 venueRepository: VenueRepositoryLive(
                     venueStore: VenueStoreLive(container: modelContainer),
                     networkService: BearerNetworkServiceComposer.make(
-                        configuration: HeaderConfiguration(user: user, token: { await tokenStore.current?.token }),
-                        tokenStore: tokenStore
+                        userSession: userSession
                     )
                 )
             )

@@ -53,12 +53,14 @@
 		5734986E2C24D7AA00DBB916 /* ScheduleReservationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5734986D2C24D7AA00DBB916 /* ScheduleReservationUseCase.swift */; };
 		573498722C24E2C000DBB916 /* ScheduleReservationEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573498712C24E2C000DBB916 /* ScheduleReservationEndpoint.swift */; };
 		574013AD2C2E0B1000DAD86B /* AutomaticScheduleBookingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574013AC2C2E0B1000DAD86B /* AutomaticScheduleBookingView.swift */; };
+		5773DC182DE7CA21004C4016 /* Bootstrap in Frameworks */ = {isa = PBXBuildFile; productRef = 5773DC172DE7CA21004C4016 /* Bootstrap */; };
 		57768FA12DDA724B0018F62F /* Authentication in Frameworks */ = {isa = PBXBuildFile; productRef = 57768FA02DDA724B0018F62F /* Authentication */; };
 		57768FA32DDA724F0018F62F /* Onboarding in Frameworks */ = {isa = PBXBuildFile; productRef = 57768FA22DDA724F0018F62F /* Onboarding */; };
 		57865CD02C2D9571006C7D68 /* ManualScheduleBookingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57865CCF2C2D9571006C7D68 /* ManualScheduleBookingView.swift */; };
 		57A01E9D2DDBF6D100569C82 /* WebSocketLifecycleHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A01E9C2DDBF6D100569C82 /* WebSocketLifecycleHandler.swift */; };
 		57A236782DDA68FF00CA2334 /* LogoutUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A236762DDA68FF00CA2334 /* LogoutUseCase.swift */; };
 		57AC63022DD9848E003C2BA8 /* Websockets in Frameworks */ = {isa = PBXBuildFile; productRef = 57AC63012DD9848E003C2BA8 /* Websockets */; };
+		57CB3D332DE925D8007AFF8B /* MainTabView+Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CB3D322DE925D7007AFF8B /* MainTabView+Tab.swift */; };
 		57D8C6882DD8F3610031F4BC /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D8C6852DD8F3610031F4BC /* ProfileView.swift */; };
 		57D8C68C2DD983FD0031F4BC /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D8C68B2DD983FD0031F4BC /* DataController.swift */; };
 		57E8C2402DD412A50075E615 /* User in Frameworks */ = {isa = PBXBuildFile; productRef = 57E8C23F2DD412A50075E615 /* User */; };
@@ -137,11 +139,13 @@
 		5734986F2C24D7D000DBB916 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		573498712C24E2C000DBB916 /* ScheduleReservationEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleReservationEndpoint.swift; sourceTree = "<group>"; };
 		574013AC2C2E0B1000DAD86B /* AutomaticScheduleBookingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutomaticScheduleBookingView.swift; sourceTree = "<group>"; };
+		5773DC112DE7C86D004C4016 /* Bootstrap */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Bootstrap; sourceTree = "<group>"; };
 		57865CCF2C2D9571006C7D68 /* ManualScheduleBookingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualScheduleBookingView.swift; sourceTree = "<group>"; };
 		57A01E9C2DDBF6D100569C82 /* WebSocketLifecycleHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketLifecycleHandler.swift; sourceTree = "<group>"; };
 		57A236762DDA68FF00CA2334 /* LogoutUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutUseCase.swift; sourceTree = "<group>"; };
 		57A2367D2DDA6AC200CA2334 /* Authentication */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Authentication; sourceTree = "<group>"; };
 		57A2367E2DDA6ACA00CA2334 /* Onboarding */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Onboarding; sourceTree = "<group>"; };
+		57CB3D322DE925D7007AFF8B /* MainTabView+Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainTabView+Tab.swift"; sourceTree = "<group>"; };
 		57D8C6852DD8F3610031F4BC /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		57D8C6892DD96C5E0031F4BC /* Websockets */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Websockets; sourceTree = "<group>"; };
 		57D8C68B2DD983FD0031F4BC /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
@@ -158,6 +162,7 @@
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		574D9EAC2DD98CB1004DB91D /* Debug */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Debug; sourceTree = "<group>"; };
+		5773DC122DE7C9F2004C4016 /* Bootstrap */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Bootstrap; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +172,7 @@
 			files = (
 				57EA7EA22DD0E06C00E25108 /* DesignSystem in Frameworks */,
 				57FAFD432DD0EC4A0059A036 /* Venues in Frameworks */,
+				5773DC182DE7CA21004C4016 /* Bootstrap in Frameworks */,
 				5717614E2DD98DA100E2EF8A /* DebugTools in Frameworks */,
 				572503FD2C28D9180076EECB /* NukeUI in Frameworks */,
 				57AC63022DD9848E003C2BA8 /* Websockets in Frameworks */,
@@ -299,6 +305,7 @@
 		57199D272C2314F500AE2F8B /* ResyPro */ = {
 			isa = PBXGroup;
 			children = (
+				5773DC122DE7C9F2004C4016 /* Bootstrap */,
 				574D9EAC2DD98CB1004DB91D /* Debug */,
 				5734986F2C24D7D000DBB916 /* Info.plist */,
 				57D8C6872DD8F3610031F4BC /* Profile */,
@@ -468,8 +475,8 @@
 		57199DB12C233B8300AE2F8B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				57CB3D312DE925D2007AFF8B /* MainTabView */,
 				57199DAF2C233B6C00AE2F8B /* RootView.swift */,
-				57199DB22C233B8900AE2F8B /* MainTabView.swift */,
 				57A01E9C2DDBF6D100569C82 /* WebSocketLifecycleHandler.swift */,
 			);
 			path = Views;
@@ -609,6 +616,15 @@
 			path = UseCases;
 			sourceTree = "<group>";
 		};
+		57CB3D312DE925D2007AFF8B /* MainTabView */ = {
+			isa = PBXGroup;
+			children = (
+				57CB3D322DE925D7007AFF8B /* MainTabView+Tab.swift */,
+				57199DB22C233B8900AE2F8B /* MainTabView.swift */,
+			);
+			path = MainTabView;
+			sourceTree = "<group>";
+		};
 		57D8C6862DD8F3610031F4BC /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -637,6 +653,7 @@
 		57EA7E9A2DD0D73300E25108 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
+				5773DC112DE7C86D004C4016 /* Bootstrap */,
 				57EA7EBC2DD0E2B000E25108 /* DesignSystem */,
 				57EA7E9C2DD0D88400E25108 /* Network */,
 				57E8AA132DD4125D00736FCD /* User */,
@@ -678,6 +695,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				574D9EAC2DD98CB1004DB91D /* Debug */,
+				5773DC122DE7C9F2004C4016 /* Bootstrap */,
 			);
 			name = ResyPro;
 			packageProductDependencies = (
@@ -693,6 +711,7 @@
 				5717614D2DD98DA100E2EF8A /* DebugTools */,
 				57768FA02DDA724B0018F62F /* Authentication */,
 				57768FA22DDA724F0018F62F /* Onboarding */,
+				5773DC172DE7CA21004C4016 /* Bootstrap */,
 			);
 			productName = ResyPro;
 			productReference = 57199D252C2314F500AE2F8B /* ResyPro.app */;
@@ -854,6 +873,7 @@
 				57199D942C2338BE00AE2F8B /* ConfirmBookingEndpoint.swift in Sources */,
 				57168D312C2386D7009E6150 /* ScheduledReservation.swift in Sources */,
 				57D8C68C2DD983FD0031F4BC /* DataController.swift in Sources */,
+				57CB3D332DE925D8007AFF8B /* MainTabView+Tab.swift in Sources */,
 				57199DB62C233EDC00AE2F8B /* ResyAPIService.swift in Sources */,
 				5734986E2C24D7AA00DBB916 /* ScheduleReservationUseCase.swift in Sources */,
 				57D8C6882DD8F3610031F4BC /* ProfileView.swift in Sources */,
@@ -1258,6 +1278,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 572503F62C28D8D80076EECB /* XCRemoteSwiftPackageReference "Nuke" */;
 			productName = NukeUI;
+		};
+		5773DC172DE7CA21004C4016 /* Bootstrap */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Bootstrap;
 		};
 		57768FA02DDA724B0018F62F /* Authentication */ = {
 			isa = XCSwiftPackageProductDependency;

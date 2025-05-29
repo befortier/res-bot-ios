@@ -3,10 +3,10 @@ import SwiftData
 import ProjectFoundation
 
 /// Stores ``User`` objects in persistent storage.
-@MainActor
+
 public protocol UserStore: Sendable {
     /// Saves the provided user, replacing any existing entry with the same id.
-    func save(_ user: User) throws
+    @MainActor func save(_ user: User) throws
 }
 
 /// ``UserStore`` implementation using ``ModelContainer``.
@@ -17,9 +17,10 @@ public struct UserStoreLive: UserStore {
         self.container = container
     }
 
-    public func save(_ user: User) throws {
+    @MainActor public func save(_ user: User) throws {
         let context = container.mainContext
-        let predicate = #Predicate<User> { $0.id == user.id }
+        let userID = user.id
+        let predicate = #Predicate<User> { $0.id == userID}
         let descriptor = FetchDescriptor(predicate: predicate)
         if let existing = try context.fetch(descriptor).first {
             context.delete(existing)

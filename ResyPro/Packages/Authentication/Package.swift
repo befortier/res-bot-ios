@@ -15,7 +15,6 @@ let package = Package(
     dependencies: [
         .package(path: "../Network"),
         .package(path: "../ProjectFoundation"),
-        .package(path: "../User")
     ],
     targets: [
         .target(
@@ -23,7 +22,6 @@ let package = Package(
             dependencies: [
                 "Network",
                 "ProjectFoundation",
-                "User"
             ]
         )
     ]

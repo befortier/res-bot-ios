@@ -12,9 +12,8 @@ import Authentication
 struct ProfileView: View {
     @Environment(\.projectModelContainer) private var modelContainer: any ModelContainerProtocol
     @Environment(\.websocketClient) private var websocketClient
-    @Environment(\.tokenStore) private var tokenStore
     @Query(sort: \Venue.name) private var venues: [Venue]
-    let user: User
+    @Environment(UserSession.self) var userSession
 
     private var logoutUseCase: any LogoutUseCase {
         LogoutUseCaseLive(
@@ -27,11 +26,7 @@ struct ProfileView: View {
     private var notificationRepository: any NotificationRepository {
         NotificationRepositoryLive(
             networkService: BearerNetworkServiceComposer.make(
-                configuration: HeaderConfiguration(
-                    user: user,
-                    token: { await tokenStore.current?.token }
-                ),
-                tokenStore: tokenStore
+                userSession: userSession
             ),
             venueStore: VenueStoreLive(container: modelContainer)
         )
@@ -39,7 +34,7 @@ struct ProfileView: View {
 
     var body: some View {
         VStack(spacing: 16) {
-            if let url = user.profileImageURL {
+            if let url = userSession.user.profileImageURL {
                 ResizableImage(url: url)
                     .frame(width: 120, height: 120)
                     .clipShape(Circle())
@@ -49,11 +44,11 @@ struct ProfileView: View {
                     .frame(width: 120, height: 120)
             }
 
-            Text(user.name)
+            Text(userSession.user.name)
                 .font(.design(.title3))
                 .foregroundStyle(Color.textPrimary)
 
-            Text(user.preferredLocation)
+            Text(userSession.user.preferredLocation)
                 .font(.design(.body))
                 .foregroundStyle(Color.textSecondary)
 
@@ -72,7 +67,7 @@ struct ProfileView: View {
         .padding()
     }
 }
-
-#Preview {
-    ProfileView(user: .stub)
-}
+//
+//#Preview {
+//    ProfileView(user: .stub)
+//}

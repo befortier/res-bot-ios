@@ -5,7 +5,7 @@ import ProjectFoundation
 /// Responsible for retrieving user data from the backend and storing it locally.
 public protocol UserRepository: Sendable {
     /// Fetches the user with the provided identifier and persists it.
-    func refreshUser(id: String) async throws -> User
+    func refreshUser(id: String) async throws
 }
 
 /// Default ``UserRepository`` implementation.
@@ -24,12 +24,11 @@ public struct UserRepositoryLive: UserRepository {
         self.mapper = mapper
     }
 
-    public func refreshUser(id: String) async throws -> User {
+    public func refreshUser(id: String) async throws{
         let dto: UserDTO = try await networkService.fetch(from: GetUserEndpoint(userID: id))
-        let user = mapper.map(dto: dto)
         try await MainActor.run {
+            let user = mapper.map(dto: dto)
             try userStore.save(user)
         }
-        return user
     }
 }

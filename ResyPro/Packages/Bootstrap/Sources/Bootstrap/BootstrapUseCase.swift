@@ -7,39 +7,48 @@ import os
 /// Bootstraps the application by validating authentication state.
 public protocol BootstrapUseCase: Sendable {
     /// Performs the bootstrap process for the provided user.
-    func callAsFunction(user: User?) async
+    func callAsFunction(user: User?) async throws -> UserSession?
 }
 
 /// Default implementation that fetches the user when a token is present.
 public struct BootstrapUseCaseLive: BootstrapUseCase {
     private let tokenStore: TokenStore
-    private let repositoryBuilder: (User) -> any UserRepository
+    private let userRepository: @Sendable (UserSession) -> any UserRepository
     private let logout: @Sendable () async -> Void
     private let logger = Logger(subsystem: "com.resy.pro", category: "Bootstrap")
 
     public init(
         tokenStore: TokenStore,
-        repositoryBuilder: @escaping (User) -> any UserRepository,
+        userRepository: @escaping @Sendable (UserSession) -> any UserRepository,
         logout: @escaping @Sendable () async -> Void
     ) {
         self.tokenStore = tokenStore
-        self.repositoryBuilder = repositoryBuilder
+        self.userRepository = userRepository
         self.logout = logout
     }
 
-    public func callAsFunction(user: User?) async {
-        guard await tokenStore.current != nil, let user else {
+    public func callAsFunction(user: User?) async throws  -> UserSession? {
+        guard
+            let tokenPair = await tokenStore.current,
+            let user
+        else {
             await logout()
-            return
+            return nil
         }
 
-        let repository = repositoryBuilder(user)
         do {
-            _ = try await repository.refreshUser(id: user.id)
+            let userSession = UserSession(
+                user: user,
+                token: tokenPair
+            )
+            _ = try await userRepository(userSession).refreshUser(id: user.id)
+            return userSession
         } catch NetworkError.unauthorized {
             await logout()
+            return nil
         } catch {
             logger.error("Bootstrap failed: \(error, privacy: .public)")
+            throw error
         }
     }
 }

@@ -15,6 +15,7 @@ let package = Package(
     dependencies: [
       .package(path: "../Network"),
       .package(path: "../ProjectFoundation"),
+      .package(path: "../Authentication"),
     ],
     targets: [
         .target(
@@ -22,6 +23,7 @@ let package = Package(
             dependencies: [
                 "Network",
                 "ProjectFoundation",
+                "Authentication"
             ]
         )
     ]

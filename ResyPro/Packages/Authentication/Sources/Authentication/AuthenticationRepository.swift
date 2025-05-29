@@ -1,16 +1,11 @@
 import Foundation
 import Network
 import ProjectFoundation
-import User
 
 /// Handles user authentication and token persistence.
 public protocol AuthenticationRepository: Sendable {
-    /// Registers a new user.
-    func signUp(firstName: String, lastName: String, phoneNumber: String) async throws -> UserInfo
-    /// Logs an existing user in.
-    func login(phoneNumber: String) async throws -> UserInfo
     /// Refreshes the access token using the stored refresh token.
-    func refresh() async throws
+    func refresh() async throws -> TokenPair
 }
 
 /// Live implementation using ``NetworkService``.
@@ -26,24 +21,7 @@ public struct AuthenticationRepositoryLive: AuthenticationRepository {
         self.tokenStore = tokenStore
     }
 
-    public func signUp(firstName: String, lastName: String, phoneNumber: String) async throws -> UserInfo
-    {
-        let response: AuthResponse = try await networkService.fetch(
-            from: SignUpEndpoint(firstName: firstName, lastName: lastName, phoneNumber: phoneNumber)
-        )
-        await storeTokens(from: response)
-        return response.user
-    }
-
-    public func login(phoneNumber: String) async throws -> UserInfo {
-        let response: AuthResponse = try await networkService.fetch(
-            from: LoginEndpoint(phoneNumber: phoneNumber)
-        )
-        await storeTokens(from: response)
-        return response.user
-    }
-
-    public func refresh() async throws {
+    public func refresh() async throws -> TokenPair {
         guard let refreshToken = await tokenStore.current?.refreshToken else { throw NetworkError.unknown }
         let response: RefreshTokenResponse = try await networkService.fetch(
             from: RefreshEndpoint(
@@ -52,21 +30,11 @@ public struct AuthenticationRepositoryLive: AuthenticationRepository {
         )
         let pair = TokenPair(token: response.token, refreshToken: refreshToken)
         await tokenStore.setCurrent(to: pair)
-    }
-
-    private func storeTokens(from response: AuthResponse) async {
-        let pair = TokenPair(token: response.token, refreshToken: response.refreshToken)
-        await tokenStore.setCurrent(to: pair)
+        return pair
     }
 }
 
 public typealias TokenStore = any DataStore<TokenPair?>
-
-extension AuthenticationRepositoryLive: TokenRefreshing {
-    public func refreshToken() async throws {
-        try await refresh()
-    }
-}
 
 fileprivate struct RefreshTokenResponse: Codable {
     let token: String
