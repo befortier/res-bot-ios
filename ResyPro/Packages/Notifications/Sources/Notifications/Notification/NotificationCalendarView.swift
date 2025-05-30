@@ -44,24 +44,13 @@ struct NotificationCalendarView: View {
                     Image(systemName: "chevron.right")
                 }
                 .buttonStyle(.borderless)
-
-                FunChip(
-                    title: "Week",
-                    isSelected: mode == .week
-                ) {
-                    mode = .week
-                }
-                .font(.design(.footnote))
-                FunChip(
-                    title: "Month",
-                    isSelected: mode == .month
-                ) {
-                    mode = .month
-                }
-                .font(.design(.footnote))
             }
 
-            CalendarGrid(mode: mode, notifications: notificationsByDay, selectedDate: $selectedDate)
+            CalendarGrid(
+                mode: mode,
+                notifications: notificationsByDay,
+                selectedDate: $selectedDate
+            )
                 .frame(height: mode == .month ? 300 : 80)
 
             ScrollView {
