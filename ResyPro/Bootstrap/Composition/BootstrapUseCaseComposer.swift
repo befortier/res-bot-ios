@@ -35,7 +35,8 @@ enum BootstrapUseCaseComposer {
                 await LogoutUseCaseLive(
                     container: modelContainer,
                     websocketClient: websocketClient,
-                    websocketURL: URL.websocketServer
+                    websocketURL: URL.websocketServer,
+                    tokenStore: TokenStoreFile()
                 )()
             }
         )

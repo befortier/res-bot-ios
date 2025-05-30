@@ -30,7 +30,6 @@
 		57199D8B2C23181000AE2F8B /* GetAvailableSlotsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D8A2C23181000AE2F8B /* GetAvailableSlotsEndpoint.swift */; };
 		57199D912C231A4600AE2F8B /* GetExistingReservationsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D902C231A4600AE2F8B /* GetExistingReservationsEndpoint.swift */; };
 		57199D942C2338BE00AE2F8B /* ConfirmBookingEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199D932C2338BE00AE2F8B /* ConfirmBookingEndpoint.swift */; };
-		57199DAE2C233B4600AE2F8B /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199DAD2C233B4600AE2F8B /* SplashScreenView.swift */; };
 		57199DB02C233B6C00AE2F8B /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199DAF2C233B6C00AE2F8B /* RootView.swift */; };
 		57199DB32C233B8900AE2F8B /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199DB22C233B8900AE2F8B /* MainTabView.swift */; };
 		57199DB62C233EDC00AE2F8B /* ResyAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57199DB52C233EDC00AE2F8B /* ResyAPIService.swift */; };
@@ -118,7 +117,6 @@
 		57199D8A2C23181000AE2F8B /* GetAvailableSlotsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAvailableSlotsEndpoint.swift; sourceTree = "<group>"; };
 		57199D902C231A4600AE2F8B /* GetExistingReservationsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetExistingReservationsEndpoint.swift; sourceTree = "<group>"; };
 		57199D932C2338BE00AE2F8B /* ConfirmBookingEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmBookingEndpoint.swift; sourceTree = "<group>"; };
-		57199DAD2C233B4600AE2F8B /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		57199DAF2C233B6C00AE2F8B /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		57199DB22C233B8900AE2F8B /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		57199DB52C233EDC00AE2F8B /* ResyAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResyAPIService.swift; sourceTree = "<group>"; };
@@ -313,7 +311,6 @@
 				57D8C6872DD8F3610031F4BC /* Profile */,
 				57168D282C23864B009E6150 /* ScheduleReservation */,
 				57199DBF2C2344DC00AE2F8B /* AvailableSlots */,
-				57199DAA2C233B2F00AE2F8B /* Splash */,
 				57199DA22C233A5200AE2F8B /* Resy */,
 				57199D9F2C233A2B00AE2F8B /* Application */,
 				57199D7A2C23168900AE2F8B /* CreateReservation */,
@@ -448,30 +445,6 @@
 				57199DCB2C23459100AE2F8B /* Resy+TypeAlias.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		57199DAA2C233B2F00AE2F8B /* Splash */ = {
-			isa = PBXGroup;
-			children = (
-				57199DAB2C233B3700AE2F8B /* Views */,
-			);
-			path = Splash;
-			sourceTree = "<group>";
-		};
-		57199DAB2C233B3700AE2F8B /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				57199DAC2C233B3B00AE2F8B /* SplashScreenView */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		57199DAC2C233B3B00AE2F8B /* SplashScreenView */ = {
-			isa = PBXGroup;
-			children = (
-				57199DAD2C233B4600AE2F8B /* SplashScreenView.swift */,
-			);
-			path = SplashScreenView;
 			sourceTree = "<group>";
 		};
 		57199DB12C233B8300AE2F8B /* Views */ = {
@@ -841,7 +814,6 @@
 				57FAFD4A2DD111FF0059A036 /* SeatingOptionSelectionView.swift in Sources */,
 				57199D832C2316E300AE2F8B /* GetBookingTokenEndpoint.swift in Sources */,
 				57A01E9D2DDBF6D100569C82 /* WebSocketLifecycleHandler.swift in Sources */,
-				57199DAE2C233B4600AE2F8B /* SplashScreenView.swift in Sources */,
 				57168CEC2C2348EC009E6150 /* AvailableReservationsView.swift in Sources */,
 				57199DB82C23401100AE2F8B /* GetAvailableSlotsResponse.swift in Sources */,
 				57199DC72C23454600AE2F8B /* AvailableReservation.swift in Sources */,

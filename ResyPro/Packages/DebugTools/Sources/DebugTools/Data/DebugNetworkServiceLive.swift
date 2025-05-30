@@ -15,7 +15,10 @@ public struct DebugNetworkServiceLive: NetworkService {
         )
     }
 
-    public func fetch<T: Decodable>(from endpoint: Endpoint) async throws -> T {
-        try await service.fetch(from: endpoint)
+    public func fetch<T: Decodable>(
+        from endpoint: Endpoint,
+        dateFormat: DateFormat?
+    ) async throws -> T {
+        try await service.fetch(from: endpoint, dateFormat: dateFormat)
     }
 }

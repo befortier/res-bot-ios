@@ -15,16 +15,3 @@ public struct NotificationSubmissionResponse: Hashable, Sendable, Decodable {
         public let success: Bool
     }
 }
-
-/// The request details originally sent to the server.
-public struct NotificationTicket: Hashable, Sendable, Codable {
-    @CodableDateInterval public var interval: DateInterval
-    public let partySize: Int
-    public let venueID: Venue.ID
-
-    enum CodingKeys: String, CodingKey {
-        case interval
-        case partySize
-        case venueID = "venue_id"
-    }
-}

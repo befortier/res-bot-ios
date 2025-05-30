@@ -12,7 +12,7 @@ public final class NotificationListViewModel: ObservableObject {
     }
 
     /// Current filter selection.
-    @Published public var filter: Filter = .venue
+    @Published public var filter: Filter = .date
 
     /// Notifications grouped by venue.
     @Published public private(set) var venueState: RemoteViewState<[VenueNotification]> = .loading

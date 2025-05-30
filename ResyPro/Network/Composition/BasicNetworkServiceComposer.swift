@@ -16,7 +16,7 @@ enum BasicNetworkServiceComposer {
                 adapters: [],
                 policy: BasicRetryPolicy()
             ),
-            jsonDecoder: JSONDecoder()
+            jsonDecoder: JSONDecoder.mixedDateDecoder()
         )
     }
 }

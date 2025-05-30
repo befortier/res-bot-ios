@@ -23,19 +23,16 @@ public protocol NotificationRepository: Sendable {
 /// Default implementation using ``NetworkService``.
 public struct NotificationRepositoryLive: NotificationRepository {
     private let networkService: any NetworkService
-    private let encoder: JSONEncoder
     private let venueMapper: any VenueMapper
     private let venueStore: any VenueStore
 
     public init(
         networkService: any NetworkService,
         venueStore: any VenueStore,
-        encoder: JSONEncoder = JSONEncoder(),
         venueMapper: any VenueMapper = VenueMapperLive()
     ) {
         self.networkService = networkService
         self.venueStore = venueStore
-        self.encoder = encoder
         self.venueMapper = venueMapper
     }
 
@@ -62,7 +59,9 @@ public struct NotificationRepositoryLive: NotificationRepository {
     }
 
     public func getNotificationsByDate() async throws -> [DateNotification] {
-        let dtos: [DateNotificationDTO] = try await networkService.fetch(from: GetNotificationsByDateEndpoint())
+        let dtos: [DateNotificationDTO] = try await networkService.fetch(
+            from: GetNotificationsByDateEndpoint()
+        )
         return dtos.map { dto in
             DateNotification(date: dto.date, notifications: dto.notifications)
         }
@@ -80,3 +79,4 @@ public struct NotificationRepositoryLive: NotificationRepository {
         )
     }
 }
+

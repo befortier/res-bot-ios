@@ -63,7 +63,7 @@ private struct CalendarGrid: View {
         let days: [Date]
         if mode == .month {
             start = calendar.date(from: calendar.dateComponents([.year, .month], from: selectedDate)) ?? selectedDate
-            let range = calendar.range(of: .day, in: .month, for: start) ?? 1...30
+            let range = calendar.range(of: .day, in: .month, for: start) ?? 1..<31
             days = range.compactMap { calendar.date(byAdding: .day, value: $0 - 1, to: start) }
         } else {
             start = calendar.dateInterval(of: .weekOfYear, for: selectedDate)?.start ?? selectedDate

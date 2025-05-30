@@ -46,6 +46,9 @@ public struct BootstrapUseCaseLive: BootstrapUseCase {
         } catch NetworkError.unauthorized {
             await logout()
             return nil
+        } catch let NetworkError.clientError(errorCode) where errorCode == 404 {
+            await logout()
+            return nil
         } catch {
             logger.error("Bootstrap failed: \(error, privacy: .public)")
             throw error

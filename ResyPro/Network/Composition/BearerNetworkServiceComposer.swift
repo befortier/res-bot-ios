@@ -36,7 +36,7 @@ enum BearerNetworkServiceComposer {
                     ),
                 ),
             ),
-            jsonDecoder: JSONDecoder()
+            jsonDecoder: JSONDecoder.mixedDateDecoder()
         )
     }
 }

@@ -5,6 +5,7 @@ import Websockets
 import User
 import Venues
 import os
+import Authentication
 
 protocol LogoutUseCase: Sendable {
 	func callAsFunction() async
@@ -14,12 +15,14 @@ struct LogoutUseCaseLive: LogoutUseCase {
 	let container: any ModelContainerProtocol
 	let websocketClient: any WebsocketClient
 	let websocketURL: URL
+    let tokenStore: TokenStore
 	private let logger = Logger(subsystem: "com.resy.pro", category: "LogoutUseCase")
 
 	func callAsFunction() async {
 	    await clearPersistentData()
 	    await websocketClient.disconnect()
 	    await websocketClient.connect(url: websocketURL)
+        await tokenStore.setCurrent(to: nil)
 	}
 
 	private func clearPersistentData() async {
