@@ -12,8 +12,8 @@ struct NotificationCalendarView: View {
     let notifications: [DateNotification]
     let venuesByID: [Int: Venue]
 
-    @State private var mode: Mode = .month
-    @State private var selectedDate: Date = .now
+    @Binding var mode: Mode
+    @Binding var selectedDate: Date
 
     private var notificationsByDay: [Date: [NotificationTicket]] {
         let calendar = Calendar.current
@@ -26,21 +26,39 @@ struct NotificationCalendarView: View {
         }
     }
 
+    static func offset(date: Date, mode: Mode, by value: Int) -> Date {
+        let calendar = Calendar.current
+        let component: Calendar.Component = mode == .month ? .month : .weekOfYear
+        return calendar.date(byAdding: component, value: value, to: date) ?? date
+    }
+
     var body: some View {
-        VStack(spacing: 12) {
+        VStack(spacing: 8) {
             HStack(spacing: 8) {
+                Button(action: { selectedDate = Self.offset(date: selectedDate, mode: mode, by: -1) }) {
+                    Image(systemName: "chevron.left")
+                }
+                .buttonStyle(.borderless)
+
+                Button(action: { selectedDate = Self.offset(date: selectedDate, mode: mode, by: 1) }) {
+                    Image(systemName: "chevron.right")
+                }
+                .buttonStyle(.borderless)
+
                 FunChip(
                     title: "Week",
                     isSelected: mode == .week
                 ) {
                     mode = .week
                 }
+                .font(.design(.footnote))
                 FunChip(
                     title: "Month",
                     isSelected: mode == .month
                 ) {
                     mode = .month
                 }
+                .font(.design(.footnote))
             }
 
             CalendarGrid(mode: mode, notifications: notificationsByDay, selectedDate: $selectedDate)
@@ -52,11 +70,11 @@ struct NotificationCalendarView: View {
                     let venues = grouped.compactMap { venuesByID[$0.key] }
                     VerticalVenueCardGridView(venues: venues) { state in
                         if let venueTickets = grouped[state.id] {
-                            VerticalVenueCard(viewState: state)
-                                .overlay(alignment: .bottomTrailing) {
-                                    SummaryBadge(tickets: venueTickets)
-                                }
-                                .frame(height: 200)
+                            VStack(spacing: 4) {
+                                VerticalVenueCard(viewState: state)
+                                    .frame(height: 200)
+                                SummaryLabel(tickets: venueTickets)
+                            }
                         }
                     }
                 }
@@ -66,7 +84,7 @@ struct NotificationCalendarView: View {
 }
 
 /// Displays a summary of party sizes and time for a set of tickets.
-private struct SummaryBadge: View {
+private struct SummaryLabel: View {
     let tickets: [NotificationTicket]
 
     private static let timeFormatter: DateFormatter = {
@@ -80,13 +98,10 @@ private struct SummaryBadge: View {
         let sizes = Set(tickets.map(\.partySize)).sorted()
         let sizeText = sizes.map { "\($0)p" }.joined(separator: ",")
         let time = tickets.sorted { $0.interval.start < $1.interval.start }.first?.interval.start
-        let timeText = time.map { SummaryBadge.timeFormatter.string(from: $0) } ?? ""
+        let timeText = time.map { SummaryLabel.timeFormatter.string(from: $0) } ?? ""
         Text("\(sizeText) • \(timeText)")
             .font(.design(.caption2))
-            .padding(6)
-            .background(Color.black.opacity(0.6))
-            .foregroundStyle(Color.white)
-            .clipShape(Capsule())
+            .foregroundStyle(Color.textSecondary)
     }
 }
 

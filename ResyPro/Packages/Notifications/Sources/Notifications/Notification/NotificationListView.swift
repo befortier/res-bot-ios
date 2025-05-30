@@ -7,6 +7,8 @@ import Venues
 public struct NotificationListView: View {
     @StateObject private var viewModel: NotificationListViewModel
     private let venuesByID: [Int: Venue]
+    @State private var calendarMode: NotificationCalendarView.Mode = .month
+    @State private var selectedDate: Date = .now
 
     /// Creates the list view using a repository and known venues.
     /// - Parameters:
@@ -21,7 +23,7 @@ public struct NotificationListView: View {
     }
 
     public var body: some View {
-        VStack(spacing: 12) {
+        VStack(spacing: 8) {
             HStack(spacing: 8) {
                 FunChip(
                     title: "By Venue",
@@ -34,6 +36,23 @@ public struct NotificationListView: View {
                     isSelected: viewModel.filter == .date
                 ) {
                     viewModel.filter = .date
+                }
+                if viewModel.filter == .date {
+                    Divider().frame(height: 20)
+                    FunChip(
+                        title: "Week",
+                        isSelected: calendarMode == .week
+                    ) {
+                        calendarMode = .week
+                    }
+                    .font(.design(.footnote))
+                    FunChip(
+                        title: "Month",
+                        isSelected: calendarMode == .month
+                    ) {
+                        calendarMode = .month
+                    }
+                    .font(.design(.footnote))
                 }
             }
 
@@ -77,8 +96,13 @@ public struct NotificationListView: View {
                 case .failed(let error):
                     ErrorView(error: error)
                 case .success(let notifications):
-                    NotificationCalendarView(notifications: notifications, venuesByID: venuesByID)
-                        .padding()
+                    NotificationCalendarView(
+                        notifications: notifications,
+                        venuesByID: venuesByID,
+                        mode: $calendarMode,
+                        selectedDate: $selectedDate
+                    )
+                    .padding(.horizontal)
                 }
             }
         }
