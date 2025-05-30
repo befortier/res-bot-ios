@@ -22,11 +22,20 @@ public struct NotificationListView: View {
 
     public var body: some View {
         VStack(spacing: 12) {
-            Picker("Filter", selection: $viewModel.filter) {
-                Text("By Venue").tag(NotificationListViewModel.Filter.venue)
-                Text("By Date").tag(NotificationListViewModel.Filter.date)
+            HStack(spacing: 8) {
+                FunChip(
+                    title: "By Venue",
+                    isSelected: viewModel.filter == .venue
+                ) {
+                    viewModel.filter = .venue
+                }
+                FunChip(
+                    title: "By Date",
+                    isSelected: viewModel.filter == .date
+                ) {
+                    viewModel.filter = .date
+                }
             }
-            .pickerStyle(.segmented)
 
             switch viewModel.filter {
             case .venue:
