@@ -161,6 +161,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		571FB3DB2DEA6E1300CCDB8C /* Network */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Network; sourceTree = "<group>"; };
 		574D9EAC2DD98CB1004DB91D /* Debug */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Debug; sourceTree = "<group>"; };
 		5773DC122DE7C9F2004C4016 /* Bootstrap */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Bootstrap; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -305,6 +306,7 @@
 		57199D272C2314F500AE2F8B /* ResyPro */ = {
 			isa = PBXGroup;
 			children = (
+				571FB3DB2DEA6E1300CCDB8C /* Network */,
 				5773DC122DE7C9F2004C4016 /* Bootstrap */,
 				574D9EAC2DD98CB1004DB91D /* Debug */,
 				5734986F2C24D7D000DBB916 /* Info.plist */,
@@ -694,6 +696,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				571FB3DB2DEA6E1300CCDB8C /* Network */,
 				574D9EAC2DD98CB1004DB91D /* Debug */,
 				5773DC122DE7C9F2004C4016 /* Bootstrap */,
 			);

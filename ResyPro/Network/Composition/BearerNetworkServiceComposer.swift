@@ -1,8 +1,8 @@
 //
-//  Network+Debug.swift
+//  BearerNetworkServiceComposer.swift
 //  ResyPro
 //
-//  Created by Ben Fortier on 5/17/25.
+//  Created by Ben Fortier on 5/30/25.
 //
 
 import Network
@@ -16,7 +16,7 @@ enum BearerNetworkServiceComposer {
     ) -> any NetworkService {
         NetworkServiceLive(
             client: HTTPClient(
-                session: NetworkClientComposer.make(),
+                session: URLSessionComposer.make(),
                 adapters: [
                     BearerRequestAdapter(
                         configuration: HeaderConfiguration(
@@ -40,45 +40,3 @@ enum BearerNetworkServiceComposer {
         )
     }
 }
-
-enum BasicNetworkServiceComposer {
-    static func make() -> any NetworkService {
-        return NetworkServiceLive(
-            client: HTTPClient(
-                session: NetworkClientComposer.make(),
-                adapters: [],
-                policy: BasicRetryPolicy()
-            ),
-            jsonDecoder: JSONDecoder()
-        )
-    }
-}
-
-#if DEBUG
-import DebugTools
-
-enum NetworkClientComposer {
-    static func make() -> any NetworkClient {
-        RecordingNetworkClient(
-            wrapped: URLSession.shared
-        )
-    }
-}
-#else
-enum URLSessionComposer {
-    static func make() -> any NetworkClient {
-        URLSession.shared
-    }
-}
-#endif
-
-struct TokenRefresher: TokenRefreshing {
-    let authTokenRepository: any AuthenticationRepository
-    let userSession: UserSession
-
-    public func refreshToken() async throws {
-        let tokenPair = try await authTokenRepository.refresh()
-        userSession.updateToken(tokenPair)
-    }
-}
-
