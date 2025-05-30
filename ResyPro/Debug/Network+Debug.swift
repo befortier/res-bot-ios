@@ -15,20 +15,26 @@ enum BearerNetworkServiceComposer {
         userSession: UserSession
     ) -> any NetworkService {
         NetworkServiceLive(
-            client: BearerHTTPClient(
-                configuration: HeaderConfiguration(
-                    user: userSession.user,
-                    token: { userSession.token.token }
-                ),
+            client: HTTPClient(
                 session: NetworkClientComposer.make(),
-                tokenRefresher: BearerTokenRefresher(
-                    authTokenRepository: AuthenticationRepositoryLive(
-                        networkService: BasicNetworkServiceComposer.make(),
-                        tokenStore: TokenStoreFile()
+                adapters: [
+                    BearerRequestAdapter(
+                        configuration: HeaderConfiguration(
+                            userID: userSession.user.id,
+                            bearerToken: { userSession.token.token },
+                            resyAuthToken: userSession.user.resyAuthToken ?? "should-probably-fix-this"
+                        )
+                    )
+                ],
+                policy: BearerRetryPolicy(
+                    refresher: TokenRefresher(
+                        authTokenRepository: AuthenticationRepositoryLive(
+                            networkService: BasicNetworkServiceComposer.make(),
+                            tokenStore: TokenStoreFile()
+                        ),
+                        userSession: userSession
                     ),
-                    userSession: userSession
-                )
-
+                ),
             ),
             jsonDecoder: JSONDecoder()
         )
@@ -38,7 +44,12 @@ enum BearerNetworkServiceComposer {
 enum BasicNetworkServiceComposer {
     static func make() -> any NetworkService {
         return NetworkServiceLive(
-            client: NetworkClientComposer.make()
+            client: HTTPClient(
+                session: NetworkClientComposer.make(),
+                adapters: [],
+                policy: BasicRetryPolicy()
+            ),
+            jsonDecoder: JSONDecoder()
         )
     }
 }
@@ -61,7 +72,7 @@ enum URLSessionComposer {
 }
 #endif
 
-struct BearerTokenRefresher: TokenRefreshing {
+struct TokenRefresher: TokenRefreshing {
     let authTokenRepository: any AuthenticationRepository
     let userSession: UserSession
 

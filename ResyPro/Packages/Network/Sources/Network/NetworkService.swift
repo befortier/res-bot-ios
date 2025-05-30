@@ -28,8 +28,8 @@ public struct NetworkServiceLive: NetworkService {
     private let jsonDecoder: JSONDecoder
 
     public init(
-        client: any NetworkClient = URLSession.shared,
-        jsonDecoder: JSONDecoder = JSONDecoder()
+        client: any NetworkClient,
+        jsonDecoder: JSONDecoder
     ) {
         self.client = client
         self.jsonDecoder = jsonDecoder
@@ -40,14 +40,7 @@ public struct NetworkServiceLive: NetworkService {
             throw NetworkError.unknown
         }
 
-        let (data, response): (Data, URLResponse) =
-        if let fixturesPath = endpoint.fixturesPath, false,
-           let url = Bundle.module.url(forResource: fixturesPath, withExtension: "json")
-        {
-            (try Data(contentsOf: url), URLResponse())
-        } else {
-            try await client.data(for: request, delegate: nil)
-        }
+        let (data, response): (Data, URLResponse) = try await client.data(for: request, delegate: nil)
 
         guard response.isHTTPSuccess else {
             switch (response as? HTTPURLResponse)?.statusCode {

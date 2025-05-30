@@ -13,7 +13,6 @@ import Bootstrap
 import Websockets
 import Onboarding
 
-
 @MainActor
 struct RootView: View {
     enum ViewState {
@@ -51,6 +50,11 @@ struct RootView: View {
         .maintainWebsocketConnection(user: users.first)
         .navigationViewStyle(.stack)
         .observeForDebug()
+        .onChange(of: users) { previousUsers, users in
+            if previousUsers.count > users.count {
+                self.state = .unauthenticated
+            }
+        }
     }
 
     private func checkForBootstrap(user: User?) async {

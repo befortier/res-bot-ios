@@ -8,9 +8,12 @@
 import Foundation
 
 /// Errors thrown by ``NetworkService``.
-public enum NetworkError: Error {
-  /// An unknown error occurred.
-  case unknown
-  /// The request was unauthorized and may require a token refresh.
-  case unauthorized
+/// Canonical network errors understood by the retry policy.
+public enum NetworkError: Error, Equatable {
+    case unauthorized          // 401 / 403
+    case clientError(Int)      // other 4xx
+    case serverError(Int)      // 5xx
+    case transport(URLError)   // connectivity / TLS, etc.
+    case noToken
+    case unknown
 }
