@@ -9,7 +9,8 @@ struct NotificationListViewModelTests {
 	    var deletedBulk: [[DeleteNotificationRequest]] = []
 
 	    func submit(_ request: BulkNotificationSubmissionRequest) async throws {}
-	    func getAllNotifications() async throws -> [VenueNotification] { [] }
+            func getNotificationsByVenue() async throws -> [VenueNotification] { [] }
+            func getNotificationsByDate() async throws -> [DateNotification] { [] }
 	    func delete(_ requests: [DeleteNotificationRequest]) async throws {
 	        deletedBulk.append(requests)
 	    }
@@ -23,9 +24,9 @@ struct NotificationListViewModelTests {
             let model = NotificationListViewModel(repository: repo)
             let interval = DateInterval(start: .now, duration: 3600)
             let ticket = NotificationTicket(venueID: 1, interval: interval, partySize: 2)
-            model.state = .success([VenueNotification(venueID: 1, notifications: [ticket])])
+            model.venueState = .success([VenueNotification(venueID: 1, notifications: [ticket])])
             model.remove(ticket: ticket, from: 1)
-            if case .success(let notes) = model.state {
+            if case .success(let notes) = model.venueState {
                 #expect(notes.isEmpty)
             } else {
                 Issue.record("Unexpected state")
@@ -37,9 +38,9 @@ struct NotificationListViewModelTests {
             let model = NotificationListViewModel(repository: repo)
             let interval = DateInterval(start: .now, duration: 3600)
             let ticket = NotificationTicket(venueID: 1, interval: interval, partySize: 2)
-            model.state = .success([VenueNotification(venueID: 1, notifications: [ticket])])
+            model.venueState = .success([VenueNotification(venueID: 1, notifications: [ticket])])
             model.remove(venueID: 1)
-            if case .success(let notes) = model.state {
+            if case .success(let notes) = model.venueState {
                 #expect(notes.isEmpty)
             } else {
                 Issue.record("Unexpected state")

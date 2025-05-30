@@ -7,8 +7,11 @@ public protocol NotificationRepository: Sendable {
     /// Sends the request to the backend.
     func submit(_ request: BulkNotificationSubmissionRequest) async throws
 
-    /// Returns the notifications associated with the current user.
-    func getAllNotifications() async throws -> [VenueNotification]
+    /// Returns the notifications grouped by venue.
+    func getNotificationsByVenue() async throws -> [VenueNotification]
+
+    /// Returns the notifications grouped by date.
+    func getNotificationsByDate() async throws -> [DateNotification]
 
     /// Deletes multiple notifications.
     func delete(_ requests: [DeleteNotificationRequest]) async throws
@@ -44,8 +47,8 @@ public struct NotificationRepositoryLive: NotificationRepository {
         )
     }
 
-    public func getAllNotifications() async throws -> [VenueNotification] {
-        let dtos: [VenueNotificationDTO] = try await networkService.fetch(from: GetNotificationsEndpoint())
+    public func getNotificationsByVenue() async throws -> [VenueNotification] {
+        let dtos: [VenueNotificationDTO] = try await networkService.fetch(from: GetNotificationsByVenueEndpoint())
         return await MainActor.run {
             dtos.map { dto in
                 let venue = venueMapper.map(dto: dto.venue)
@@ -55,6 +58,13 @@ public struct NotificationRepositoryLive: NotificationRepository {
                     notifications: dto.notifications
                 )
             }
+        }
+    }
+
+    public func getNotificationsByDate() async throws -> [DateNotification] {
+        let dtos: [DateNotificationDTO] = try await networkService.fetch(from: GetNotificationsByDateEndpoint())
+        return dtos.map { dto in
+            DateNotification(date: dto.date, notifications: dto.notifications)
         }
     }
 
