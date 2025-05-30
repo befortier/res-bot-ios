@@ -53,3 +53,8 @@ extension User {
         )
     }
 }
+
+
+extension String {
+    public static let stubResyToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NTExNDg0ODcsInVpZCI6MjAxNzU5NTQsImd0IjoiY29uc3VtZXIiLCJncyI6W10sImxhbmciOiJlbi11cyIsImV4dHJhIjp7Imd1ZXN0X2lkIjo4NDE2MjcwN319.AMZb1EK_GTMQcp-bv4NZXQQqGmapIZP7Ld_qdkx6LFMdL1CQUNTz3Idg388jMu-9QKKOUdMsdBUelq6-LEBhKfrtAF7_B0ZQ0WLUKvuwnuurGZKTsTs8-xVLQK6paC4wBOUkjxEVORGkyH8vTYiVW1kanQzs-7uSTGPb5a9yFn5KfCN-"
+}

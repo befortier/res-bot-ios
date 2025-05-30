@@ -12,14 +12,14 @@ public struct UserMapperLive: UserMapper {
 
     public func map(dto: UserDTO) -> User {
         User(
-            id: dto.id,
-            name: dto.name,
-            email: dto.email,
-            createdAt: dto.createdAt,
-            profileImageURL: dto.profileImageURL,
-            preferredLocation: dto.preferredLocation,
-            resyAuthToken: dto.resyAuthToken,
-            resyPaymentID: dto.resyPaymentID
+            id: dto.userID,
+            name: dto.firstName + " " + dto.lastName,
+            email: "STUB",
+            createdAt: .now,
+            profileImageURL: nil,
+            preferredLocation: "STUB",
+            resyAuthToken: .stubResyToken,
+            resyPaymentID: "TBD"
         )
     }
 }

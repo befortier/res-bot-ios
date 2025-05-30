@@ -78,7 +78,7 @@ public struct OnboardingView: View {
                 name: "\(authResponse.user.firstName) \(authResponse.user.lastName)",
                 email: "",
                 createdAt: Date(),
-                resyAuthToken: "eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NTExNDg0ODcsInVpZCI6MjAxNzU5NTQsImd0IjoiY29uc3VtZXIiLCJncyI6W10sImxhbmciOiJlbi11cyIsImV4dHJhIjp7Imd1ZXN0X2lkIjo4NDE2MjcwN319.AMZb1EK_GTMQcp-bv4NZXQQqGmapIZP7Ld_qdkx6LFMdL1CQUNTz3Idg388jMu-9QKKOUdMsdBUelq6-LEBhKfrtAF7_B0ZQ0WLUKvuwnuurGZKTsTs8-xVLQK6paC4wBOUkjxEVORGkyH8vTYiVW1kanQzs-7uSTGPb5a9yFn5KfCN-"
+                resyAuthToken: .stubResyToken
             )
             // Hard coded resy token above. In reality this probably should either not be on the user and be a separate flow where
             // there is like a ResyTokenStore that has .valid(lastUsedDate), .invalid, .none
