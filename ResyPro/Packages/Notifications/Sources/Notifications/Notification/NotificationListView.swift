@@ -21,38 +21,62 @@ public struct NotificationListView: View {
     }
 
     public var body: some View {
-        ScrollView {
-            VStack(spacing: 12) {
-                switch viewModel.state {
+        VStack(spacing: 12) {
+            Picker("Filter", selection: $viewModel.filter) {
+                Text("By Venue").tag(NotificationListViewModel.Filter.venue)
+                Text("By Date").tag(NotificationListViewModel.Filter.date)
+            }
+            .pickerStyle(.segmented)
+
+            switch viewModel.filter {
+            case .venue:
+                ScrollView {
+                    VStack(spacing: 12) {
+                        switch viewModel.venueState {
+                        case .loading:
+                            DefaultProgressView()
+                        case .failed(let error):
+                            ErrorView(error: error)
+                        case .success(let venueNotifications):
+                            ForEach(venueNotifications) { venueNotification in
+                                VenueNotificationCard(
+                                    venueNotification: venueNotification,
+                                    venue: venuesByID[venueNotification.venueID],
+                                    isExpanded: Binding(
+                                        get: { viewModel.expanded.contains(venueNotification.id) },
+                                        set: { isExpanded in
+                                            if isExpanded { viewModel.expanded.insert(venueNotification.id) }
+                                            else { viewModel.expanded.remove(venueNotification.id) }
+                                        }
+                                    ),
+                                    onDeleteTicket: { ticket in
+                                        Task { await viewModel.delete(ticket: ticket, from: venueNotification.venueID) }
+                                    },
+                                    onDeleteVenue: {
+                                        Task { await viewModel.delete(venueNotification) }
+                                    }
+                                )
+                            }
+                        }
+                    }
+                    .padding()
+                }
+            case .date:
+                switch viewModel.dateState {
                 case .loading:
                     DefaultProgressView()
                 case .failed(let error):
                     ErrorView(error: error)
-                case .success(let venueNotifications):
-                    ForEach(venueNotifications) { venueNotification in
-                        VenueNotificationCard(
-                            venueNotification: venueNotification,
-                            venue: venuesByID[venueNotification.venueID],
-                            isExpanded: Binding(
-                                get: { viewModel.expanded.contains(venueNotification.id) },
-                                set: { isExpanded in
-                                    if isExpanded { viewModel.expanded.insert(venueNotification.id) }
-                                    else { viewModel.expanded.remove(venueNotification.id) }
-                                }
-                            ),
-                            onDeleteTicket: { ticket in
-                                Task { await viewModel.delete(ticket: ticket, from: venueNotification.venueID) }
-                            },
-                            onDeleteVenue: {
-                                Task { await viewModel.delete(venueNotification) }
-                            }
-                        )
-                    }
+                case .success(let notifications):
+                    NotificationCalendarView(notifications: notifications, venuesByID: venuesByID)
+                        .padding()
                 }
             }
-            .padding()
         }
         .task { await viewModel.load() }
+        .onChange(of: viewModel.filter) { _, _ in
+            Task { await viewModel.load() }
+        }
         .sheet(isPresented: $viewModel.showDeleteError) {
             ErrorView(error: DeleteFailure())
         }

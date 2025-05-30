@@ -5,8 +5,20 @@ import ProjectFoundation
 /// Coordinates data and actions for ``NotificationListView``.
 @MainActor
 public final class NotificationListViewModel: ObservableObject {
-    /// Current loading state of notifications.
-    @Published public private(set) var state: RemoteViewState<[VenueNotification]> = .loading
+    /// Current filter being applied.
+    public enum Filter: Int, CaseIterable, Sendable {
+        case venue
+        case date
+    }
+
+    /// Current filter selection.
+    @Published public var filter: Filter = .venue
+
+    /// Notifications grouped by venue.
+    @Published public private(set) var venueState: RemoteViewState<[VenueNotification]> = .loading
+
+    /// Notifications grouped by date.
+    @Published public private(set) var dateState: RemoteViewState<[DateNotification]> = .loading
     /// Expanded venue identifiers.
     @Published public var expanded: Set<Int> = []
     /// Controls display of a delete error alert.
@@ -20,13 +32,31 @@ public final class NotificationListViewModel: ObservableObject {
         self.repository = repository
     }
 
-    /// Loads notifications from the repository.
+    /// Loads notifications from the repository using the selected filter.
     public func load() async {
+        switch filter {
+        case .venue:
+            await loadByVenue()
+        case .date:
+            await loadByDate()
+        }
+    }
+
+    private func loadByVenue() async {
         do {
-            let notes = try await repository.getAllNotifications()
-            state = .success(notes)
+            let notes = try await repository.getNotificationsByVenue()
+            venueState = .success(notes)
         } catch {
-            state = .failed(error)
+            venueState = .failed(error)
+        }
+    }
+
+    private func loadByDate() async {
+        do {
+            let notes = try await repository.getNotificationsByDate()
+            dateState = .success(notes)
+        } catch {
+            dateState = .failed(error)
         }
     }
 
@@ -35,7 +65,7 @@ public final class NotificationListViewModel: ObservableObject {
     ///   - ticket: Ticket to remove.
     ///   - venueID: Identifier of the parent venue.
     public func remove(ticket: NotificationTicket, from venueID: Int) {
-        guard case .success(let notes) = state else { return }
+        guard case .success(let notes) = venueState else { return }
 
         let updatedNotes = notes.compactMap { venueNote -> VenueNotification? in
             guard venueNote.venueID == venueID else { return venueNote }
@@ -47,16 +77,16 @@ public final class NotificationListViewModel: ObservableObject {
             return VenueNotification(venueID: venueID, notifications: remaining)
         }
 
-        state = .success(updatedNotes)
+        venueState = .success(updatedNotes)
     }
 
     /// Removes an entire venue and associated tickets.
     /// - Parameter venueID: Venue identifier to remove.
     public func remove(venueID: Int) {
-        guard case .success(var notes) = state else { return }
+        guard case .success(var notes) = venueState else { return }
         notes.removeAll { $0.venueID == venueID }
         expanded.remove(venueID)
-        state = .success(notes)
+        venueState = .success(notes)
     }
 
     /// Attempts to delete the provided ticket from the backend and local state.
