@@ -3,7 +3,6 @@ public import Foundation
 extension JSONDecoder {
     public static func mixedDateDecoder() -> JSONDecoder {
         let d = JSONDecoder()
-        d.keyDecodingStrategy = .convertFromSnakeCase      // venue_id → venueID
 
         // (1) One ISO-8601 formatter for the timestamps
         let iso = ISO8601DateFormatter()
