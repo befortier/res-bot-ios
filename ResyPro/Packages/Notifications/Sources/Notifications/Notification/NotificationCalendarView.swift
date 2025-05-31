@@ -36,39 +36,11 @@ struct NotificationCalendarView: View {
                     let venues = grouped.compactMap { venuesByID[$0.key] }
                     VerticalVenueCardGridView(venues: venues) { state in
                         if let venueTickets = grouped[state.id] {
-                            VStack(spacing: 4) {
-                                VerticalVenueCard(viewState: state)
-                                    .frame(height: 200)
-                                SummaryLabel(tickets: venueTickets)
-                            }
+                            // TODO: Should be NotificationCard
                         }
                     }
                 }
             }
         }
-    }
-}
-
-
-
-/// Displays a summary of party sizes and time for a set of tickets.
-struct SummaryLabel: View {
-    let tickets: [NotificationTicket]
-
-    private static let timeFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.timeStyle = .short
-        formatter.dateStyle = .none
-        return formatter
-    }()
-
-    var body: some View {
-        let sizes = Set(tickets.map(\.partySize)).sorted()
-        let sizeText = sizes.map { "\($0)p" }.joined(separator: ",")
-        let time = tickets.sorted { $0.interval.start < $1.interval.start }.first?.interval.start
-        let timeText = time.map { SummaryLabel.timeFormatter.string(from: $0) } ?? ""
-        Text("\(sizeText) • \(timeText)")
-            .font(.design(.caption2))
-            .foregroundStyle(Color.textSecondary)
     }
 }
