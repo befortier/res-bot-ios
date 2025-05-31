@@ -115,3 +115,38 @@ public struct NotificationCard: View {
         }
     }
 }
+
+// MARK: Preview
+
+#Preview {
+    VStack {
+        NotificationCard(
+            viewState: NotificationCard.ViewState(
+                venueName: "Laser Wolf",
+                venueID: 10,
+                partySize: 4,
+                interval: .init(start: .now, duration: 60*60*24)
+            )
+        ) { }
+        NotificationCard(
+            viewState: NotificationCard.ViewState(
+                venueName: "Laser Wolf",
+                venueID: 10,
+                partySize: 4,
+                interval: .init(start: .now, duration: 60*60*24)
+            )
+        ) { }
+            .notificationStyle(.fail)
+
+        NotificationCard(
+            viewState: NotificationCard.ViewState(
+                venueName: "Laser Wolf",
+                venueID: 10,
+                partySize: 4,
+                interval: .init(start: .now, duration: 60*60*24)
+            )
+        ) { }
+            .notificationStyle(.success)
+    }
+    .padding(16)
+}

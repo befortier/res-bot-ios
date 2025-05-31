@@ -29,7 +29,7 @@ public struct VenueCardListView<Card: View>: View {
     Group {
       if !venues.isEmpty {
         ScrollView {
-          VStack(spacing: 24) {
+          LazyVStack(spacing: 24) {
             ForEach(venues) { venue in
               cardView(venue)
             }

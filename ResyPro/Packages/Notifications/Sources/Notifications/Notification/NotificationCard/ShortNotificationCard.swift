@@ -2,6 +2,8 @@ import DesignSystem
 import SwiftUI
 
 /// Displays a notification request in compact form.
+///
+/// Used when viewing notifications by venue where there may be loads of them.
 public struct ShortNotificationCard: View {
     /// Visual style for the card.
     @Environment(\.notificationStyle) private var style: NotificationStyle
@@ -77,4 +79,15 @@ public struct ShortNotificationCard: View {
             return .clear
         }
     }
+}
+
+#Preview {
+    ShortNotificationCard(
+        viewState: NotificationCard.ViewState(
+            venueName: "Laser Wolf",
+            venueID: 10,
+            partySize: 4,
+            interval: .init(start: .now, duration: 60*60*24)
+        )
+    ) { }
 }

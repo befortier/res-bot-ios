@@ -7,7 +7,7 @@ import Venues
 public struct NotificationListView: View {
     @StateObject private var viewModel: NotificationListViewModel
     private let venuesByID: [Int: Venue]
-    @State private var calendarMode: NotificationCalendarView.Mode = .month
+    @State private var calendarMode: CalendarGridView.Mode = .month
     @State private var selectedDate: Date = .now
 
     /// Creates the list view using a repository and known venues.

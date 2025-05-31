@@ -11,7 +11,7 @@ extension JSONDecoder {
         // (2) One short formatter for the plain dates
         let short = DateFormatter()
         short.dateFormat = "yyyy-MM-dd"                    // “2025-05-30”
-        short.timeZone   = TimeZone.gmt
+        short.timeZone   = TimeZone.current
         short.locale     = .init(identifier: "en_US_POSIX")  // safe default
 
         // (3) Try both, in that order
