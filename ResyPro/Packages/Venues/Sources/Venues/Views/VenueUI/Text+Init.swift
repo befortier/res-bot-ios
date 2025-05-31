@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import DesignSystem
 
 extension Text {
     public init(cuisineType: String, priceRange: Int) {
@@ -23,5 +24,18 @@ extension Text {
 
     public init(partySize: Int) {
         self = Text("\(partySize) ") + Text(Image(systemName: "person"))
+    }
+
+    public init(partySizes: [Int]) {
+        self = Text("\(partySizes.sorted().map { "\($0)"}.joined(separator: ", ")) ") + Text(Image(systemName: "person"))
+    }
+}
+
+extension Array where Element == Text {
+    func joined(separator: Text) -> Text {
+        guard let first = first else { return Text("") }
+        return dropFirst().reduce(first) { result, next in
+            result + separator + next
+        }
     }
 }

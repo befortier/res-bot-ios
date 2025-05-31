@@ -11,39 +11,39 @@ public import SwiftUI
 
 /// A LazyImage wrapper that dynamically resizes to fit its layout dimensions.
 public struct ResizableImage: View {
-  public let url: URL?
+    public let url: URL?
 
-  public init(url: URL?) {
-    self.url = url
-  }
-
-  public var body: some View {
-    GeometryReader { geometry in
-      LazyImage(url: url) { state in
-        if let image = state.image {
-          image
-            .resizable()
-            .scaledToFill()
-        } else {
-          Color.gray.opacity(0.2)
-        }
-      }
-      .processors([
-        ImageProcessors.Resize(
-          size: geometry.size,
-          contentMode: .aspectFill
-        )
-      ])
-      .priority(.normal)
-      .transition(.opacity)
-      .frame(width: geometry.size.width, height: geometry.size.height)
-      .clipped()
+    public init(url: URL?) {
+        self.url = url
     }
-  }
+
+    public var body: some View {
+        GeometryReader { geometry in
+            LazyImage(url: url) { state in
+                if let image = state.image {
+                    image
+                        .resizable()
+                        .scaledToFill()
+                } else {
+                    Color.gray.opacity(0.2)
+                }
+            }
+            .processors([
+                ImageProcessors.Resize(
+                    size: geometry.size,
+                    contentMode: .aspectFill
+                )
+            ])
+            .priority(.normal)
+            .transition(.opacity)
+            .frame(width: geometry.size.width, height: geometry.size.height)
+            .clipped()
+        }
+    }
 }
 
 #Preview {
-  ResizableImage(url: URL(string: "https://example.com/img.png"))
-    .frame(width: 100, height: 100)
-    .previewLayout(.sizeThatFits)
+    ResizableImage(url: URL(string: "https://example.com/img.png"))
+        .frame(width: 100, height: 100)
+        .previewLayout(.sizeThatFits)
 }

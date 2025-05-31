@@ -24,3 +24,19 @@ extension DateFormatter {
         return dateFormatter
     }()
 }
+
+extension DateIntervalFormatter {
+    public static func standardString(_ interval: DateInterval) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd"
+
+        let timeFormatter = DateFormatter()
+        timeFormatter.timeStyle = .short
+
+        let day = dateFormatter.string(from: interval.start)
+        let startTime = timeFormatter.string(from: interval.start)
+        let endTime = timeFormatter.string(from: interval.end)
+
+        return "\(day) · \(startTime)–\(endTime)"
+    }
+}

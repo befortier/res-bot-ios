@@ -6,10 +6,10 @@ import SwiftUI
 /// Used when viewing notifications by venue where there may be loads of them.
 public struct ShortNotificationCard: View {
     /// Visual style for the card.
-    @Environment(\.notificationStyle) private var style: NotificationStyle
+    @Environment(\.notificationCardStyle) private var style: NotificationCardStyle
 
     /// Immutable view data.
-    private let viewState: NotificationCard.ViewState
+    private let viewState: ViewState
     /// Invoked when the delete button is tapped.
     private let onDelete: () -> Void
 
@@ -18,7 +18,7 @@ public struct ShortNotificationCard: View {
     ///   - viewState: Immutable card data.
     ///   - onDelete: Invoked when the delete button is tapped.
     public init(
-        viewState: NotificationCard.ViewState,
+        viewState: ViewState,
         onDelete: @escaping () -> Void = {}
     ) {
         self.viewState = viewState
@@ -36,14 +36,7 @@ public struct ShortNotificationCard: View {
                 .buttonStyle(.borderless)
             }
         }
-        .padding()
-        .cardStyle()
-        .background(backgroundColor)
-        .clipShape(RoundedRectangle(cornerRadius: 12))
-        .overlay(
-            RoundedRectangle(cornerRadius: 12)
-                .stroke(borderColor, lineWidth: 1)
-        )
+        .notificationCardStyling()
     }
 
     @ViewBuilder private var descriptionText: some View {
@@ -57,37 +50,16 @@ public struct ShortNotificationCard: View {
             .foregroundStyle(Color.textSecondary)
         }
     }
-
-    private var backgroundColor: Color {
-        switch style {
-        case .success:
-            return Color.success.opacity(0.1)
-        case .fail:
-            return Color.error.opacity(0.1)
-        case .default:
-            return Color.white
-        }
-    }
-
-    private var borderColor: Color {
-        switch style {
-        case .success:
-            return Color.success
-        case .fail:
-            return Color.error
-        case .default:
-            return .clear
-        }
-    }
 }
 
 #Preview {
     ShortNotificationCard(
-        viewState: NotificationCard.ViewState(
+        viewState: ShortNotificationCard.ViewState(
             venueName: "Laser Wolf",
             venueID: 10,
             partySize: 4,
             interval: .init(start: .now, duration: 60*60*24)
         )
     ) { }
+        .padding()
 }

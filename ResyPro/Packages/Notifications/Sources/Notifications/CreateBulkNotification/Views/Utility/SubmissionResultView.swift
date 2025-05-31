@@ -47,7 +47,7 @@ public struct SubmissionResultView: View {
                     NotificationCard(
                         viewState: .init(request: entry.request, venue: venuesByID[entry.request.venueID])
                     )
-                    .notificationStyle(entry.success ? .success : .fail)
+                    .NotificationCardStyle(entry.success ? .success : .fail)
                     .transition(.move(edge: .bottom).combined(with: .opacity))
                 }
 

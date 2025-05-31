@@ -10,8 +10,10 @@ import SwiftUI
 
 /// Displays information about a notification request.
 public struct NotificationCard: View {
+    private let iconSize: CGFloat = 12
+
     /// Visual style for the card.
-    @Environment(\.notificationStyle) private var style: NotificationStyle
+    @Environment(\.notificationCardStyle) private var style: NotificationCardStyle
 
     /// Immutable view data.
     private let viewState: ViewState
@@ -29,56 +31,67 @@ public struct NotificationCard: View {
 
 
     public var body: some View {
-        HStack(alignment: .top) {
-            VStack(alignment: .leading, spacing: 4) {
-                Text(viewState.venueName)
-                    .font(.design(.headline))
-
-                Text("Party size \(viewState.partySize)")
-                    .font(.design(.subheadline))
-
-                if let intervalString = DateIntervalFormatter.short.string(from: viewState.interval) {
-                    Text(intervalString)
-                        .font(.design(.footnote))
-                        .foregroundStyle(Color.textSecondary)
-                }
+        GeometryReader { geo in
+            HStack(spacing: 16) {
+                textContainer
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                ResizableImage(url: viewState.venueImageURL)
+                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                    .aspectRatio(1, contentMode: .fit)
+                    .frame(width: geo.size.width * 0.3)
             }
-
-            Spacer()
-
-            if style == .default {
-                Button(action: onDelete) {
-                    Image(systemName: "trash")
-                }
-                .buttonStyle(.borderless)
+            .notificationCardStyling()
+            .overlay(alignment: .topTrailing) {
+                overlayTrailingIcon
+                    .offset(x: iconSize / 3, y: -iconSize / 3)
+                    .frame(width: iconSize, height: iconSize)
             }
         }
-        .padding()
-        .cardStyle()
-        .background(backgroundColor)
-        .clipShape(RoundedRectangle(cornerRadius: 12))
-        .overlay(
-            RoundedRectangle(cornerRadius: 12)
-                .stroke(borderColor, lineWidth: 1)
-        )
-        .overlay(alignment: .topTrailing) {
-            Group {
-                switch style {
-                case .success:
-                    overlayImage(
-                        systemName: "checkmark.circle.fill",
-                        foregroundStyle: .success
-                    )
-                case .fail:
-                    overlayImage(
-                        systemName: "xmark.octagon.fill",
-                        foregroundStyle: .error
-                    )
-                case .default:
-                    EmptyView()
-                }
-            }
-            .padding(8)
+        .aspectRatio(32/9, contentMode: .fit)
+    }
+
+    private var textContainer: some View {
+        VStack(alignment: .leading, spacing: 4) {
+            dateText
+            venueNameText
+            partySizeText
+        }
+    }
+
+    @ViewBuilder
+    private var dateText: some View {
+        Text(DateIntervalFormatter.standardString(viewState.interval))
+            .font(.design(.footnote))
+            .foregroundStyle(Color.textSecondary)
+    }
+
+    private var venueNameText: some View {
+        Text(viewState.venueName)
+            .font(.design(.title3))
+            .foregroundStyle(Color.textPrimary)
+    }
+
+    private var partySizeText: some View {
+        Text(partySizes: viewState.partySizes)
+            .font(.design(.footnote))
+            .foregroundStyle(Color.textSecondary)
+    }
+
+    @ViewBuilder
+    private var overlayTrailingIcon: some View {
+        switch style {
+        case .success:
+            overlayImage(
+                systemName: "checkmark",
+                foregroundStyle: .success
+            )
+        case .fail:
+            overlayImage(
+                systemName: "xmark",
+                foregroundStyle: .error
+            )
+        case .default:
+            EmptyView()
         }
     }
 
@@ -86,67 +99,62 @@ public struct NotificationCard: View {
         systemName: String,
         foregroundStyle: Color
     ) -> some View {
-        Image(systemName: systemName)
-            .resizable()
-            .scaledToFit()
-            .foregroundStyle(foregroundStyle)
-            .frame(width: 12, height: 12)
+        Circle()
+            .fill(foregroundStyle)
+            .overlay {
+                Image(systemName: systemName)
+                    .resizable()
+                    .scaledToFit()
+                    .foregroundStyle(.white)
+                    .padding(3)
+                    .bold()
+            }
     }
 
-    private var backgroundColor: Color {
-        switch style {
-        case .success:
-            return Color.success.opacity(0.1)
-        case .fail:
-            return Color.error.opacity(0.1)
-        case .default:
-            return Color.white
+    private var deleteButton: some View {
+        Button(action: onDelete) {
+            Image(systemName: "trash")
         }
-    }
-
-    private var borderColor: Color {
-        switch style {
-        case .success:
-            return Color.success
-        case .fail:
-            return Color.error
-        case .default:
-            return .clear
-        }
+        .buttonStyle(.borderless)
     }
 }
 
 // MARK: Preview
 
+#if DEBUG
 #Preview {
-    VStack {
+    VStack(spacing: 8) {
         NotificationCard(
             viewState: NotificationCard.ViewState(
                 venueName: "Laser Wolf",
                 venueID: 10,
-                partySize: 4,
-                interval: .init(start: .now, duration: 60*60*24)
+                partySizes: [4],
+                interval: .init(start: .now, duration: 60*60*24),
+                venueImageURL: .venueImageURL
             )
         ) { }
         NotificationCard(
             viewState: NotificationCard.ViewState(
                 venueName: "Laser Wolf",
                 venueID: 10,
-                partySize: 4,
-                interval: .init(start: .now, duration: 60*60*24)
+                partySizes: [4, 5],
+                interval: .init(start: .now, duration: 60*60*24),
+                venueImageURL: .venueImageURL
             )
         ) { }
-            .notificationStyle(.fail)
+            .NotificationCardStyle(.fail)
 
         NotificationCard(
             viewState: NotificationCard.ViewState(
                 venueName: "Laser Wolf",
                 venueID: 10,
-                partySize: 4,
-                interval: .init(start: .now, duration: 60*60*24)
+                partySizes: [4, 5, 3],
+                interval: .init(start: .now, duration: 60*60*24),
+                venueImageURL: nil
             )
         ) { }
-            .notificationStyle(.success)
+            .NotificationCardStyle(.success)
     }
     .padding(16)
 }
+#endif
