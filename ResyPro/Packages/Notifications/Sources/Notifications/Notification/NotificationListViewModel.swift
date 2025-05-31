@@ -33,11 +33,16 @@ public final class NotificationListViewModel: ObservableObject {
     }
 
     /// Loads notifications from the repository using the selected filter.
+    ///
+    /// Results are cached for the lifetime of this view model so repeated calls
+    /// while the view is active will not trigger additional network requests.
     public func load() async {
         switch filter {
         case .venue:
+            if case .success = venueState { return }
             await loadByVenue()
         case .date:
+            if case .success = dateState { return }
             await loadByDate()
         }
     }
