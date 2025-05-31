@@ -32,13 +32,17 @@ struct NotificationCalendarView: View {
 
             ScrollView {
                 if let tickets = notificationsByDay[Calendar.current.startOfDay(for: selectedDate)] {
-                    let grouped = Dictionary(grouping: tickets, by: \ .venueID)
-                    let venues = grouped.compactMap { venuesByID[$0.key] }
-                    VerticalVenueCardGridView(venues: venues) { state in
-                        if let venueTickets = grouped[state.id] {
-                            // TODO: Should be NotificationCard
+                    LazyVStack(spacing: 8) {
+                        ForEach(tickets, id: \ .self) { ticket in
+                            NotificationCard(
+                                viewState: .init(
+                                    request: ticket,
+                                    venue: venuesByID[ticket.venueID]
+                                )
+                            )
                         }
                     }
+                    .padding(.vertical, 8)
                 }
             }
         }
