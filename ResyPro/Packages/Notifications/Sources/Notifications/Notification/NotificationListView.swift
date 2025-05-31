@@ -26,28 +26,28 @@ public struct NotificationListView: View {
         VStack(spacing: 8) {
             HStack(spacing: 8) {
                 FunChip(
-                    title: "By Venue",
-                    isSelected: viewModel.filter == .venue
-                ) {
-                    viewModel.filter = .venue
-                }
-                FunChip(
-                    title: "By Date",
+                    Text(Image(systemName: "calendar")),
                     isSelected: viewModel.filter == .date
                 ) {
                     viewModel.filter = .date
                 }
+                FunChip(
+                    Text(Image(systemName: "house")),
+                    isSelected: viewModel.filter == .venue
+                ) {
+                    viewModel.filter = .venue
+                }
                 if viewModel.filter == .date {
                     Divider().frame(height: 20)
                     FunChip(
-                        title: "Week",
+                        "Week",
                         isSelected: calendarMode == .week
                     ) {
                         calendarMode = .week
                     }
                     .font(.design(.footnote))
                     FunChip(
-                        title: "Month",
+                        "Month",
                         isSelected: calendarMode == .month
                     ) {
                         calendarMode = .month

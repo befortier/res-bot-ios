@@ -3,7 +3,7 @@ import SwiftUI
 /// A colorful chip with a playful selection animation.
 /// Use this when only one chip can be selected at a time.
 public struct FunChip: View {
-    private let title: String
+    private let title: Text
     private let isSelected: Bool
     private let onTap: () -> Void
 
@@ -13,7 +13,7 @@ public struct FunChip: View {
     ///   - isSelected: Whether the chip is currently selected.
     ///   - onTap: Invoked when the chip is tapped.
     public init(
-        title: String,
+        _ title: Text,
         isSelected: Bool,
         onTap: @escaping () -> Void
     ) {
@@ -22,8 +22,18 @@ public struct FunChip: View {
         self.onTap = onTap
     }
 
+    public init(
+        _ title: String,
+        isSelected: Bool,
+        onTap: @escaping () -> Void = {}
+    ) {
+        self.title = Text(title)
+        self.isSelected = isSelected
+        self.onTap = onTap
+    }
+
     public var body: some View {
-        Text(title)
+        title
             .font(.design(.subheadline))
             .foregroundStyle(isSelected ? Color.white : Color.accentColor)
             .padding(.horizontal, 12)
@@ -39,7 +49,7 @@ public struct FunChip: View {
 }
 
 #Preview {
-    FunChip(title: "Chip", isSelected: true, onTap: {})
+    FunChip(Text("Chip"), isSelected: true, onTap: {})
         .padding()
         .previewLayout(.sizeThatFits)
 }

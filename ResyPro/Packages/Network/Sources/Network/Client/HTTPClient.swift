@@ -45,8 +45,8 @@ public struct HTTPClient: NetworkClient {
         while true {
             do {
                 let (data, response) = try await session.data(for: request, delegate: delegate)
-                try classifyAndThrowIfNeeded(response)            // -- 4×/5× not thrown by URLSession
-                return (data, response)                          // ✅ success
+                try classifyAndThrowIfNeeded(response)
+                return (data, response)
             } catch {
                 let (status, mapped) = map(error: error)
 
@@ -79,7 +79,7 @@ public struct HTTPClient: NetworkClient {
     private func map(error: Error) -> (Int?, NetworkError) {
         if let urlErr = error as? URLError {
             let ns = urlErr as NSError
-            let status = (ns.userInfo[NSURLErrorFailingURLErrorKey]      // 🔑 correct key
+            let status = (ns.userInfo[NSURLErrorFailingURLErrorKey]
                           as? HTTPURLResponse)?.statusCode
             return (status, .transport(urlErr))
         }
