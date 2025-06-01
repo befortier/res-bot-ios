@@ -30,26 +30,22 @@ public struct NotificationListView: View {
     }
 
     public var body: some View {
-        VStack(spacing: 8) {
-            switch viewModel.dateState {
-            case .loading:
-                DefaultProgressView()
-            case .failed(let error):
-                ErrorView(error: error)
-            case .success:
-                NotificationCalendarView(
-                    venuesByID: venuesByID,
-                    mode: $calendarMode,
-                    selectedDate: $selectedDate
-                )
-                .padding(.horizontal)
-            }
-        }
+        NotificationCalendarView(
+            venuesByID: venuesByID,
+            mode: $calendarMode,
+            selectedDate: $selectedDate
+        )
         .task { await viewModel.load() }
         .refreshable { await viewModel.refresh() }
         .navigationTitle("Notifications")
         .toolbar {
-            Button { showBulkFlow = true } label: { Image(systemName: "plus") }
+            Button {
+                showBulkFlow = true
+            } label: {
+                Image(
+                    systemName: "plus"
+                )
+            }
         }
         .sheet(isPresented: $showBulkFlow) {
             BulkNotificationFlowView(

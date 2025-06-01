@@ -2,6 +2,7 @@ import SwiftUI
 import Venues
 import DesignSystem
 import SwiftData
+import ProjectFoundation
 
 /// Displays notifications in a calendar with a selectable date.
 struct NotificationCalendarView: View {

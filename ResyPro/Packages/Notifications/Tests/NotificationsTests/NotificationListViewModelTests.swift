@@ -7,7 +7,7 @@ struct NotificationListViewModelTests {
         var dateCalls = 0
         func submit(_ request: BulkNotificationSubmissionRequest) async throws {}
         func getNotificationsByVenue() async throws -> [VenueNotification] { [] }
-        func getNotificationsByDate() async throws -> [DateNotification] {
+        func getNotifications() async throws -> [DateNotification] {
             dateCalls += 1
             return []
         }

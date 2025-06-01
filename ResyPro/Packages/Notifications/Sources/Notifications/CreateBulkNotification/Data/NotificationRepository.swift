@@ -8,12 +8,6 @@ public protocol NotificationRepository: Sendable {
     /// Sends the request to the backend.
     func submit(_ request: BulkNotificationSubmissionRequest) async throws
 
-    /// Returns the notifications grouped by venue.
-    func getNotificationsByVenue() async throws -> [VenueNotification]
-
-    /// Returns the notifications grouped by date.
-    func getNotificationsByDate() async throws -> [DateNotification]
-
     /// Forces a refresh from the backend replacing any cached notifications.
     func refreshNotifications() async throws
 
@@ -54,27 +48,6 @@ public struct NotificationRepositoryLive: NotificationRepository {
         )
     }
 
-    public func getNotificationsByVenue() async throws -> [VenueNotification] {
-        let tickets = try await self.tickets()
-        let grouped = Dictionary(grouping: tickets) { $0.venueID }
-        return await MainActor.run {
-            grouped.map { id, notes in
-                if let venue = try? venueStore.venue(withID: id) {
-                    try? venueStore.saveIfNeeded(venue)
-                }
-                return VenueNotification(venueID: id, notifications: notes)
-            }
-        }
-    }
-
-    public func getNotificationsByDate() async throws -> [DateNotification] {
-        let tickets = try await self.tickets()
-        let calendar = Calendar.current
-        let grouped = Dictionary(grouping: tickets) { calendar.startOfDay(for: $0.interval.start) }
-        return grouped.map { DateNotification(date: $0.key, notifications: $0.value) }
-            .sorted { $0.date < $1.date }
-    }
-
     public func delete(_ requests: [DeleteNotificationRequest]) async throws {
         try await networkService.fetch(
             from: BulkDeleteNotificationsEndpoint(requestBody: requests)
@@ -101,7 +74,7 @@ public struct NotificationRepositoryLive: NotificationRepository {
 
     // MARK: - Private
 
-    private func tickets() async throws -> [NotificationTicket] {
+    @MainActor private func tickets() async throws -> [NotificationTicket] {
         if let last = notificationsStore.lastUpdated,
            Date().timeIntervalSince(last) < 60 * 30 {
             return try notificationsStore.fetchAll().map { $0.asTicket() }

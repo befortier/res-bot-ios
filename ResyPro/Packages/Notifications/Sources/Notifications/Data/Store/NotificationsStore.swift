@@ -12,7 +12,7 @@ public protocol NotificationsStore: Sendable {
     /// Retrieves all notifications from storage.
     func fetchAll() throws -> [Notification]
     /// Timestamp of the last successful refresh.
-    var lastUpdated: Date? { get set }
+    var lastUpdated: Date? { get }
 }
 
 /// ``NotificationsStore`` implementation backed by ``ModelContainer``.
@@ -29,10 +29,7 @@ public struct NotificationsStoreLive: NotificationsStore {
         self.defaults = defaults
     }
 
-    public var lastUpdated: Date? {
-        get { defaults.object(forKey: key) as? Date }
-        set { defaults.set(newValue, forKey: key) }
-    }
+    public var lastUpdated: Date? {  defaults.object(forKey: key) as? Date }
 
     public func replace(_ notifications: [Notification]) throws {
         let context = container.mainContext
@@ -40,17 +37,21 @@ public struct NotificationsStoreLive: NotificationsStore {
         for note in existing { context.delete(note) }
         notifications.forEach(context.insert)
         try context.save()
-        lastUpdated = .now
+        updateLastUpdatedIfNeeded()
     }
 
     public func save(_ notification: Notification) throws {
         let context = container.mainContext
         context.insert(notification)
         try context.save()
-        lastUpdated = .now
+        updateLastUpdatedIfNeeded()
     }
 
     public func fetchAll() throws -> [Notification] {
         try container.mainContext.fetch(FetchDescriptor<Notification>())
+    }
+
+    private func updateLastUpdatedIfNeeded() {
+        defaults.set(Date.now, forKey: key)
     }
 }
