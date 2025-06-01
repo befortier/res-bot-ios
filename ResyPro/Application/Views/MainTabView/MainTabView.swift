@@ -78,13 +78,9 @@ struct SchedueleNotificationView: View {
     }
 
     var body: some View {
-        BulkNotificationFlowView(
-            viewModel: BulkNotificationFlowViewModel(
-                allVenues: venues,
-                submitter: { request in
-                    try await repository.submit(request)
-                }
-            )
+        NotificationListView(
+            venues: venues,
+            repository: repository
         )
     }
 }

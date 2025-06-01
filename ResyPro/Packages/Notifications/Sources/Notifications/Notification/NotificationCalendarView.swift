@@ -43,8 +43,18 @@ struct NotificationCalendarView: View {
         Self.merge(notifications)
     }
 
+    private static let monthFormatter: DateFormatter = {
+        let f = DateFormatter()
+        f.dateFormat = "LLLL yyyy"
+        return f
+    }()
+
     var body: some View {
         VStack(spacing: 8) {
+            Text(Self.monthFormatter.string(from: selectedDate))
+                .font(.design(.title3).bold())
+                .frame(maxWidth: .infinity, alignment: .leading)
+
             IterableCalendarView(
                 selectedDate: $selectedDate,
                 mode: mode,
