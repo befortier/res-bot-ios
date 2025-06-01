@@ -13,7 +13,12 @@ public struct NotificationListView: View {
     @State private var calendarMode: CalendarGridView.Mode = .month
     @State private var selectedDate: Date = .now
     @State private var showBulkFlow = false
-    @Environment(\.projectModelContainer) private var modelContainer: any ModelContainerProtocol
+    @Query(sort: \Notification.startTime)
+    private var notifications: [Notification]
+
+    private var mergedNotifications: [Date: [MergedVenueTicket]] {
+        NotificationCalendarLogic.mergedByDate(from: notifications)
+    }
 
     /// Creates the list view using a repository and known venues.
     /// - Parameters:
@@ -30,11 +35,30 @@ public struct NotificationListView: View {
     }
 
     public var body: some View {
-        NotificationCalendarView(
-            venuesByID: venuesByID,
-            mode: $calendarMode,
-            selectedDate: $selectedDate
-        )
+        Group {
+            if notifications.isEmpty {
+                VStack(spacing: 16) {
+                    Image(systemName: "bell.slash")
+                        .font(.system(size: 48))
+                        .foregroundStyle(Color.textSecondary)
+                    Text("You have no notifications")
+                        .font(.design(.title3))
+                        .foregroundStyle(Color.textSecondary)
+                    Button("Refresh") {
+                        Task { await viewModel.refresh() }
+                    }
+                    .buttonStyle(PrimaryButtonStyle())
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            } else {
+                NotificationCalendarView(
+                    venuesByID: venuesByID,
+                    merged: mergedNotifications,
+                    mode: $calendarMode,
+                    selectedDate: $selectedDate
+                )
+            }
+        }
         .task { await viewModel.load() }
         .refreshable { await viewModel.refresh() }
         .navigationTitle("Notifications")
