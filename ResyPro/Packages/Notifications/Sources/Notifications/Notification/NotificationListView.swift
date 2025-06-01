@@ -1,5 +1,6 @@
 import DesignSystem
 import ProjectFoundation
+import SwiftData
 import SwiftUI
 import Venues
 
@@ -12,6 +13,7 @@ public struct NotificationListView: View {
     @State private var calendarMode: CalendarGridView.Mode = .month
     @State private var selectedDate: Date = .now
     @State private var showBulkFlow = false
+    @Environment(\.projectModelContainer) private var modelContainer: any ModelContainerProtocol
 
     /// Creates the list view using a repository and known venues.
     /// - Parameters:
@@ -34,9 +36,8 @@ public struct NotificationListView: View {
                 DefaultProgressView()
             case .failed(let error):
                 ErrorView(error: error)
-            case .success(let notifications):
+            case .success:
                 NotificationCalendarView(
-                    notifications: notifications,
                     venuesByID: venuesByID,
                     mode: $calendarMode,
                     selectedDate: $selectedDate
