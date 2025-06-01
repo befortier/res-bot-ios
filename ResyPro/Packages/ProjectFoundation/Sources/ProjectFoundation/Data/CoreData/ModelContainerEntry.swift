@@ -8,6 +8,13 @@ extension EnvironmentValues {
      @Entry public var projectModelContainer: any ModelContainerProtocol = FatalErrorModelContainer()
 }
 
+extension View {
+    public func setModelContainer(_ container: ModelContainer) -> some View {
+        modelContainer(container)
+        .environment(\.projectModelContainer, container)
+    }
+}
+
 /// A fallback container that traps if accessed without being overridden in the environment.
 struct FatalErrorModelContainer: ModelContainerProtocol {
     var mainContext: ModelContext {

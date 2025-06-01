@@ -8,11 +8,13 @@
 import SwiftData
 import User
 import Venues
+import Notifications
 
 private let modelSchema = Schema([
 	User.self,
 	ScheduledReservation.self,
-	Venue.self
+	Venue.self,
+    Notification.self,
 ])
 
 @MainActor

@@ -15,37 +15,45 @@ import Websockets
 import Bootstrap
 
 #if DEBUG
-  import DebugTools
+import DebugTools
 #endif
 
 @main
 struct ResyProApp: App {
-    #if DEBUG
+#if DEBUG
     @State private var websocketClient = RecordingWebsocketClient(
         wrapped: URLSessionWebsocketClient()
     )
-    #else
+#else
     @State private var websocketClient = URLSessionWebsocketClient.init()
-    #endif
+#endif
 
-    private let tokenStore = TokenStoreFile()
+    private let websocketURL = URL(string: "wss://resy-service.fly.dev:8081")!
+    
+    init() {
+        let appearance = UITabBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .white
 
-  private let websocketURL = URL(string: "wss://resy-service.fly.dev:8081")!
-
-  var body: some Scene {
-    WindowGroup {
-        RootView(
-            bootStrap: BootstrapUseCaseComposer.make(
-                modelContainer: sharedModelContainer,
-                websocketClient: websocketClient
-            )
-        )
-        .environment(\.projectModelContainer, sharedModelContainer)
-        .environment(\.websocketClient, websocketClient)
-        #if DEBUG
-          .environmentObject(NetworkHistoryStore.shared)
-        #endif
+        UITabBar.appearance().standardAppearance = appearance
+        if #available(iOS 15.0, *) {
+            UITabBar.appearance().scrollEdgeAppearance = appearance
+        }
     }
-    .modelContainer(sharedModelContainer)
-  }
+
+    var body: some Scene {
+        WindowGroup {
+            RootView(
+                bootStrap: BootstrapUseCaseComposer.make(
+                    modelContainer: sharedModelContainer,
+                    websocketClient: websocketClient
+                )
+            )
+            .setModelContainer(sharedModelContainer)
+        }
+        .environment(\.websocketClient, websocketClient)
+#if DEBUG
+        .environmentObject(NetworkHistoryStore.shared)
+#endif
+    }
 }

@@ -12,7 +12,7 @@ import SwiftUI
       content
         .overlay(
           ShakeDetector {
-            DebugMenuPresenter.shared.present(container: container)
+            DebugMenuPresenter.shared.present(container: sharedModelContainer)
           }
           .allowsHitTesting(false)
         )

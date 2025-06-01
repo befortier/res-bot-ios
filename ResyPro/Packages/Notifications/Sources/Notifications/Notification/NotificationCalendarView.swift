@@ -33,8 +33,9 @@ struct NotificationCalendarView: View {
     var body: some View {
         VStack(spacing: 8) {
             Text(Self.monthFormatter.string(from: selectedDate))
-                .font(.design(.title3).bold())
+                .font(.design(.title).bold())
                 .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.horizontal, 8)
 
             IterableCalendarView(
                 selectedDate: $selectedDate,
@@ -56,11 +57,13 @@ struct NotificationCalendarView: View {
                                     venueImageURL: venue?.images.first
                                 )
                             )
+                            .padding(.horizontal, 8)
                         }
                     }
                     .padding(.vertical, 8)
                 }
             }
+
         }
     }
 }
