@@ -65,22 +65,12 @@ public struct NotificationRepositoryLive: NotificationRepository {
             from: GetNotificationsEndpoint()
         )
         let notes = tickets.map(Notification.init(ticket:))
-        try await MainActor.run { try notificationsStore.replace(notes) }
+        try await MainActor.run {
+            try notificationsStore.replace(notes)
+        }
     }
 
     public func save(_ ticket: NotificationTicket) throws {
         try notificationsStore.save(Notification(ticket: ticket))
     }
-
-    // MARK: - Private
-
-    @MainActor private func tickets() async throws -> [NotificationTicket] {
-        if let last = notificationsStore.lastUpdated,
-           Date().timeIntervalSince(last) < 60 * 30 {
-            return try notificationsStore.fetchAll().map { $0.asTicket() }
-        }
-        try await refreshNotifications()
-        return try notificationsStore.fetchAll().map { $0.asTicket() }
-    }
 }
-
