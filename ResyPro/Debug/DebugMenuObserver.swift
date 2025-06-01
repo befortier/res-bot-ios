@@ -3,12 +3,16 @@ import SwiftUI
 #if DEBUG
   import DebugTools
 
+  import ProjectFoundation
+
   private struct DebugMenuObserver: ViewModifier {
+    @Environment(\.projectModelContainer) var container: any ModelContainerProtocol
+
     func body(content: Content) -> some View {
       content
         .overlay(
           ShakeDetector {
-            DebugMenuPresenter.shared.present()
+            DebugMenuPresenter.shared.present(container: container)
           }
           .allowsHitTesting(false)
         )
