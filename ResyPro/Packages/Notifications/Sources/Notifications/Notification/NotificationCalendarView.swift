@@ -16,6 +16,10 @@ struct NotificationCalendarView: View {
         return merged[calendar.startOfDay(for: selectedDate)] ?? []
     }
 
+    private var sortedTickets: [MergedVenueTicket] {
+        NotificationCalendarLogic.sort(tickets: mergedTickets, byNameUsing: venuesByID)
+    }
+
     private var notificationDays: Set<Date> {
         NotificationCalendarLogic.notificationDays(
             selectedDate: selectedDate,
@@ -46,7 +50,7 @@ struct NotificationCalendarView: View {
             ScrollView {
                 if !mergedTickets.isEmpty {
                     LazyVStack(spacing: 8) {
-                        ForEach(mergedTickets, id: \.venueID) { ticket in
+                        ForEach(sortedTickets, id: \.venueID) { ticket in
                             let venue = venuesByID[ticket.venueID]
                             NotificationCard(
                                 viewState: .init(
