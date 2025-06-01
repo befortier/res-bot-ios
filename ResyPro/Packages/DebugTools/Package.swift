@@ -15,12 +15,24 @@ let package = Package(
     dependencies: [
         .package(path: "../Network"),
         .package(path: "../DesignSystem"),
-        .package(path: "../Websockets")
+        .package(path: "../Websockets"),
+        .package(path: "../ProjectFoundation"),
+        .package(path: "../User"),
+        .package(path: "../Venues"),
+        .package(path: "../Notifications")
     ],
     targets: [
         .target(
             name: "DebugTools",
-            dependencies: ["Network", "DesignSystem", "Websockets"],
+            dependencies: [
+                "Network",
+                "DesignSystem",
+                "Websockets",
+                "ProjectFoundation",
+                "User",
+                "Venues",
+                "Notifications"
+            ],
             resources: []
         )
     ]
