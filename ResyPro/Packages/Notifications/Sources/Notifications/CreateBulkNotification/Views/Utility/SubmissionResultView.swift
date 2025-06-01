@@ -39,12 +39,18 @@ public struct SubmissionResultView: View {
 
     private var mergedResults: [(MergedVenueTicket, NotificationCardStyle)] {
         let grouped = Dictionary(grouping: results) { $0.request.venueID }
-        return grouped.values.compactMap { entries in
-            guard let merged = VenueTicketMerger.merge(entries.map { $0.request }).first else { return nil }
-            let style: NotificationCardStyle = entries.allSatisfy(\.success) ? .success : .fail
-            return (merged, style)
-        }
-        .sorted { $0.0.interval.start < $1.0.interval.start }
+
+        return grouped.values
+            .compactMap { entries in
+                guard let merged = VenueTicketMerger.merge(entries.map { $0.request }).first else { return nil }
+                let style: NotificationCardStyle = entries.allSatisfy(\.success) ? .success : .fail
+                return (merged, style)
+            }
+            .sorted { lhs, rhs in
+                let lhsName = venuesByID[lhs.0.venueID]?.name ?? lhs.0.venueID.description
+                let rhsName = venuesByID[rhs.0.venueID]?.name ?? rhs.0.venueID.description
+                return lhsName.localizedCaseInsensitiveCompare(rhsName) == .orderedAscending
+            }
     }
 
     public var body: some View {
