@@ -21,35 +21,41 @@ struct MainTabView: View {
     @Environment(UserSession.self) var userSession
 
     var body: some View {
-        NavigationStack {
-            TabView(selection: $selectedTab) {
+        TabView(selection: $selectedTab) {
+            NavigationStack {
                 ScheduleReservationHomeView()
-                    .tabItem {
-                        Image(systemName: "calendar")
-                    }
-                    .tag(Tab.schedueleReservation)
-
-                SchedueleNotificationView()
-                .tabItem {
-                    Image(systemName: "bell")
-                }
-                .tag(Tab.schedueleNotification)
-
-                AvailableReservationsContainerView()
-                    .tabItem {
-                        Image(systemName: "magnifyingglass")
-                    }
-                    .tag(Tab.browse)
-
-                ProfileView()
-                    .tabItem {
-                        Image(systemName: "person.crop.circle")
-                    }
-                    .tag(Tab.profile)
-
             }
-            .background(.white)
+            .tabItem {
+                Image(systemName: "calendar")
+            }
+            .tag(Tab.schedueleReservation)
+
+            NavigationStack {
+                SchedueleNotificationView()
+            }
+            .tabItem {
+                Image(systemName: "bell")
+            }
+            .tag(Tab.schedueleNotification)
+
+            NavigationStack {
+                AvailableReservationsContainerView()
+            }
+            .tabItem {
+                Image(systemName: "magnifyingglass")
+            }
+            .tag(Tab.browse)
+
+            NavigationStack {
+                ProfileView()
+            }
+            .tabItem {
+                Image(systemName: "person.crop.circle")
+            }
+            .tag(Tab.profile)
+
         }
+        .background(.white)
     }
 }
 
