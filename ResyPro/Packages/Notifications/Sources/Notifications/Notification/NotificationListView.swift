@@ -37,19 +37,14 @@ public struct NotificationListView: View {
     public var body: some View {
         Group {
             if notifications.isEmpty {
-                VStack(spacing: 16) {
-                    Image(systemName: "bell.slash")
-                        .font(.system(size: 48))
-                        .foregroundStyle(Color.textSecondary)
-                    Text("You have no notifications")
-                        .font(.design(.title3))
-                        .foregroundStyle(Color.textSecondary)
-                    Button("Refresh") {
-                        Task { await viewModel.refresh() }
-                    }
-                    .buttonStyle(PrimaryButtonStyle())
-                }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                EmptyView(
+                    viewState: .init(
+                        image: Image(systemName: "bell.slash"),
+                        title: "You have no notifications",
+                        buttonTitle: "Refresh"
+                    ),
+                    action: { Task { await viewModel.refresh() } }
+                )
             } else {
                 NotificationCalendarView(
                     venuesByID: venuesByID,
