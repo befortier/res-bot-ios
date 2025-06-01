@@ -13,7 +13,7 @@ public struct NotificationListView: View {
     @State private var calendarMode: CalendarGridView.Mode = .month
     @State private var selectedDate: Date = .now
     @State private var showBulkFlow = false
-    @Query(sort: \Notification.venue?.name)
+    @Query(sort: \Notification.venue.name)
     private var notifications: [Notification]
 
     private var mergedNotifications: [Date: [MergedVenueTicket]] {

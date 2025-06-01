@@ -6,31 +6,30 @@ import Venues
 @Model
 public final class Notification: Equatable {
     @Attribute(.unique) public var id: UUID
-    public var venueID: Int
-    @Relationship public var venue: Venue?
+    @Relationship public var venue: Venue
     public var startTime: Date
     public var endTime: Date
     public var partySize: Int
 
     public init(
         id: UUID = UUID(),
-        venueID: Int,
         startTime: Date,
         endTime: Date,
         partySize: Int,
-        venue: Venue? = nil
+        venue: Venue
     ) {
         self.id = id
-        self.venueID = venueID
         self.startTime = startTime
         self.endTime = endTime
         self.partySize = partySize
         self.venue = venue
     }
 
-    public convenience init(ticket: NotificationTicket, venue: Venue? = nil) {
+    public convenience init(
+        ticket: NotificationTicket,
+        venue: Venue
+    ) {
         self.init(
-            venueID: ticket.venueID,
             startTime: ticket.interval.start,
             endTime: ticket.interval.end,
             partySize: ticket.partySize,
@@ -43,6 +42,6 @@ public final class Notification: Equatable {
     }
 
     public func asTicket() -> NotificationTicket {
-        NotificationTicket(interval: interval, partySize: partySize, venueID: venueID)
+        NotificationTicket(interval: interval, partySize: partySize, venueID: venue.id)
     }
 }

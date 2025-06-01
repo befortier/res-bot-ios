@@ -66,16 +66,21 @@ public struct NotificationRepositoryLive: NotificationRepository {
         )
 
         try await MainActor.run {
-            let notes = try tickets.map { ticket in
-                let venue = try venueStore.venue(withID: ticket.venueID)
-                return Notification(ticket: ticket, venue: venue)
+            let notes = try tickets.compactMap { ticket in
+                return if let venue = try venueStore.venue(withID: ticket.venueID) {
+                     Notification(ticket: ticket, venue: venue)
+                } else {
+                    nil
+                }
             }
             try notificationsStore.replace(notes)
         }
     }
 
     public func save(_ ticket: NotificationTicket) throws {
-        let venue = try venueStore.venue(withID: ticket.venueID)
+        guard let venue = try venueStore.venue(withID: ticket.venueID) else {
+            throw NSError(domain: "Venue Not Found", code: 404)
+        }
         try notificationsStore.save(Notification(ticket: ticket, venue: venue))
     }
 }
