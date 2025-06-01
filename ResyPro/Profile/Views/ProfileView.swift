@@ -29,7 +29,8 @@ struct ProfileView: View {
             networkService: BearerNetworkServiceComposer.make(
                 userSession: userSession
             ),
-            venueStore: VenueStoreLive(container: modelContainer)
+            venueStore: VenueStoreLive(container: modelContainer),
+            notificationsStore: NotificationsStoreLive(container: modelContainer)
         )
     }
 
