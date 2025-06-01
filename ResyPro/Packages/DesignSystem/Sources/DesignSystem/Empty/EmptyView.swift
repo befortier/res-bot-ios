@@ -10,11 +10,11 @@ import SwiftUI
 /// Displays a generic empty state with an image, title and action button.
 public struct EmptyView: View {
     private let viewState: ViewState
-    private let action: () -> Void
+    private let action: @MainActor () async -> Void
 
     public init(
         viewState: ViewState,
-        action: @escaping () -> Void
+        action: @escaping @MainActor () async -> Void
     ) {
         self.viewState = viewState
         self.action = action
@@ -28,7 +28,9 @@ public struct EmptyView: View {
             Text(viewState.title)
                 .font(.design(.title3))
                 .foregroundStyle(Color.textSecondary)
-            Button(viewState.buttonTitle, action: action)
+            Button(viewState.buttonTitle) {
+                Task { await action() }
+            }
                 .buttonStyle(PrimaryButtonStyle())
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)

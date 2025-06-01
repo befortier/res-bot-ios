@@ -64,13 +64,12 @@ public struct NotificationRepositoryLive: NotificationRepository {
         let tickets: [NotificationTicket] = try await networkService.fetch(
             from: GetNotificationsEndpoint()
         )
-        let notes = try await MainActor.run {
-            try tickets.map { ticket in
+
+        try await MainActor.run {
+            let notes = try tickets.map { ticket in
                 let venue = try venueStore.venue(withID: ticket.venueID)
                 return Notification(ticket: ticket, venue: venue)
             }
-        }
-        try await MainActor.run {
             try notificationsStore.replace(notes)
         }
     }

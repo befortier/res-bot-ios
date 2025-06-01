@@ -13,7 +13,7 @@ public struct NotificationListView: View {
     @State private var calendarMode: CalendarGridView.Mode = .month
     @State private var selectedDate: Date = .now
     @State private var showBulkFlow = false
-    @Query(sort: \Notification.startTime)
+    @Query(sort: \Notification.venue?.name)
     private var notifications: [Notification]
 
     private var mergedNotifications: [Date: [MergedVenueTicket]] {
@@ -42,9 +42,10 @@ public struct NotificationListView: View {
                         image: Image(systemName: "bell.slash"),
                         title: "You have no notifications",
                         buttonTitle: "Refresh"
-                    ),
-                    action: { Task { await viewModel.refresh() } }
-                )
+                    )
+                ) {
+                    await viewModel.refresh()
+                }
             } else {
                 NotificationCalendarView(
                     venuesByID: venuesByID,
