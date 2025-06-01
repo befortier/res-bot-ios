@@ -7,8 +7,11 @@ import Venues
 public struct NotificationListView: View {
     @StateObject private var viewModel: NotificationListViewModel
     private let venuesByID: [Int: Venue]
+    private let allVenues: [Venue]
+    private let repository: any NotificationRepository
     @State private var calendarMode: CalendarGridView.Mode = .month
     @State private var selectedDate: Date = .now
+    @State private var showBulkFlow = false
 
     /// Creates the list view using a repository and known venues.
     /// - Parameters:
@@ -18,105 +21,56 @@ public struct NotificationListView: View {
         venues: [Venue],
         repository: any NotificationRepository
     ) {
+        self.allVenues = venues
         self.venuesByID = Dictionary(uniqueKeysWithValues: venues.map { ($0.venueID, $0) })
+        self.repository = repository
         _viewModel = StateObject(wrappedValue: NotificationListViewModel(repository: repository))
     }
 
     public var body: some View {
         VStack(spacing: 8) {
-            HStack(spacing: 8) {
-                FunChip(
-                    Text(Image(systemName: "calendar")),
-                    isSelected: viewModel.filter == .date
-                ) {
-                    viewModel.filter = .date
-                }
-                FunChip(
-                    Text(Image(systemName: "house")),
-                    isSelected: viewModel.filter == .venue
-                ) {
-                    viewModel.filter = .venue
-                }
-                if viewModel.filter == .date {
-                    Divider().frame(height: 20)
-                    FunChip(
-                        "Week",
-                        isSelected: calendarMode == .week
-                    ) {
-                        calendarMode = .week
-                    }
-                    .font(.design(.footnote))
-                    FunChip(
-                        "Month",
-                        isSelected: calendarMode == .month
-                    ) {
-                        calendarMode = .month
-                    }
-                    .font(.design(.footnote))
-                }
-            }
-
-            switch viewModel.filter {
-            case .venue:
-                ScrollView {
-                    VStack(spacing: 12) {
-                        switch viewModel.venueState {
-                        case .loading:
-                            DefaultProgressView()
-                        case .failed(let error):
-                            ErrorView(error: error)
-                        case .success(let venueNotifications):
-                            ForEach(venueNotifications) { venueNotification in
-                                VenueNotificationCard(
-                                    venueNotification: venueNotification,
-                                    venue: venuesByID[venueNotification.venueID],
-                                    isExpanded: Binding(
-                                        get: { viewModel.expanded.contains(venueNotification.id) },
-                                        set: { isExpanded in
-                                            if isExpanded { viewModel.expanded.insert(venueNotification.id) }
-                                            else { viewModel.expanded.remove(venueNotification.id) }
-                                        }
-                                    ),
-                                    onDeleteTicket: { ticket in
-                                        Task { await viewModel.delete(ticket: ticket, from: venueNotification.venueID) }
-                                    },
-                                    onDeleteVenue: {
-                                        Task { await viewModel.delete(venueNotification) }
-                                    }
-                                )
-                            }
-                        }
-                    }
-                    .padding()
-                }
-            case .date:
-                switch viewModel.dateState {
-                case .loading:
-                    DefaultProgressView()
-                case .failed(let error):
-                    ErrorView(error: error)
-                case .success(let notifications):
-                    NotificationCalendarView(
-                        notifications: notifications,
-                        venuesByID: venuesByID,
-                        mode: $calendarMode,
-                        selectedDate: $selectedDate
-                    )
-                    .padding(.horizontal)
-                }
+            switch viewModel.dateState {
+            case .loading:
+                DefaultProgressView()
+            case .failed(let error):
+                ErrorView(error: error)
+            case .success(let notifications):
+                NotificationCalendarView(
+                    notifications: notifications,
+                    venuesByID: venuesByID,
+                    mode: $calendarMode,
+                    selectedDate: $selectedDate
+                )
+                .padding(.horizontal)
             }
         }
         .task { await viewModel.load() }
-        .onChange(of: viewModel.filter) { _, _ in
-            Task { await viewModel.load() }
+        .navigationTitle("Notifications")
+        .toolbar {
+            Button { showBulkFlow = true } label: { Image(systemName: "plus") }
         }
-        .sheet(isPresented: $viewModel.showDeleteError) {
-            ErrorView(error: DeleteFailure())
+        .sheet(isPresented: $showBulkFlow) {
+            BulkNotificationFlowView(
+                viewModel: BulkNotificationFlowViewModel(
+                    allVenues: allVenues,
+                    initialState: initialState(for: selectedDate),
+                    submitter: { request in
+                        try await repository.submit(request)
+                    }
+                )
+            )
         }
     }
-    struct DeleteFailure: LocalizedError {
-        var errorDescription: String? {
-            "Failed to delete. Please try again later."
-        }
+
+    private func initialState(for date: Date) -> BulkNotificationFlowView.ViewState {
+        let calendar = Calendar.current
+        let start = calendar.date(bySettingHour: 18, minute: 30, second: 0, of: date) ?? date
+        let end = calendar.date(bySettingHour: 21, minute: 0, second: 0, of: date)
+            ?? start.addingTimeInterval(60 * 60 * 2.5)
+        return BulkNotificationFlowView.ViewState(
+            dateInterval: DateInterval(start: start, end: end),
+            partySizeRange: 2...4,
+            selectedVenueIDs: Set(allVenues.map(\.venueID))
+        )
     }
 }
