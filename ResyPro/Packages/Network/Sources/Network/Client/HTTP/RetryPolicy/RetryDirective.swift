@@ -20,7 +20,7 @@ public enum RetryDecision {
 /// (e.g. token refresh).  That keeps HTTPClient blissfully unaware of auth.
 public protocol RetryPolicy: Sendable {
     func decision(
-        for status: Int?,                // nil ⇒ transport layer
+        for error: NetworkError,
         attempt: Int
     ) async throws -> RetryDecision
 }

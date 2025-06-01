@@ -50,7 +50,7 @@ public struct HTTPClient: NetworkClient {
             } catch {
                 let (status, mapped) = map(error: error)
 
-                switch try await policy.decision(for: status, attempt: attempt) {
+                switch try await policy.decision(for: mapped, attempt: attempt) {
                 case .retry(let delay):
                     attempt += 1
                     if delay > .zero { try await clock.sleep(for: delay) }
@@ -62,8 +62,6 @@ public struct HTTPClient: NetworkClient {
             }
         }
     }
-
-    // MARK: – helpers (unchanged except key name fix) ------------------------
 
     private func classifyAndThrowIfNeeded(_ response: URLResponse) throws {
         guard let http = response as? HTTPURLResponse else { return }

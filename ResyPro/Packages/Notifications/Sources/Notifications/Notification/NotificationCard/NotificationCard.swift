@@ -54,8 +54,10 @@ public struct NotificationCard: View {
         VStack(alignment: .leading, spacing: 4) {
             dateText
             venueNameText
+            Spacer()
             partySizeText
         }
+        .padding(.vertical, 8)
     }
 
     @ViewBuilder

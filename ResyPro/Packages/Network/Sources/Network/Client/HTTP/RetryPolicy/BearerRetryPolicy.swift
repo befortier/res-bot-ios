@@ -13,21 +13,20 @@ public struct BearerRetryPolicy: RetryPolicy {
 
     public init(refresher: any TokenRefreshing) { self.refresher = refresher }
 
-    public func decision(for status: Int?, attempt: Int) async throws -> RetryDecision {
-        guard
-            let status = status,
-            attempt == 0
-        else { return .fail }
+    public func decision(
+        for error: NetworkError,
+        attempt: Int
+    ) async throws -> RetryDecision {
+        guard attempt == 0 else { return .fail }
 
-        if retryStatusSet.contains(status) {
+        switch error {
+        case .unauthorized:
             try await refresher.refreshToken()
             return .retry()
-        }
-
-        if 400..<500 ~= status {
+        case .serverError:
             return .retry(after: .milliseconds(backoffBase))
+        default:
+            return .fail
         }
-
-        return .fail
     }
 }
