@@ -52,4 +52,15 @@ enum NotificationCalendarLogic {
             merged[calendar.startOfDay(for: day)] != nil ? calendar.startOfDay(for: day) : nil
         })
     }
+
+    static func sort(
+        tickets: [MergedVenueTicket],
+        byNameUsing venuesByID: [Int: Venue]
+    ) -> [MergedVenueTicket] {
+        tickets.sorted { lhs, rhs in
+            let left = venuesByID[lhs.venueID]?.name ?? ""
+            let right = venuesByID[rhs.venueID]?.name ?? ""
+            return left.localizedCaseInsensitiveCompare(right) == .orderedAscending
+        }
+    }
 }
