@@ -58,6 +58,7 @@ public struct NotificationListView: View {
         .task { await viewModel.load() }
         .refreshable { await viewModel.refresh() }
         .navigationTitle("Notifications")
+        .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             Button {
                 showBulkFlow = true

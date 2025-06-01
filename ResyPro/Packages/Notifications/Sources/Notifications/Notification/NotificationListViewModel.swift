@@ -24,21 +24,22 @@ public final class NotificationListViewModel: ObservableObject {
     /// Results are cached for the lifetime of this view model so repeated calls
     /// while the view is active will not trigger additional network requests.
     public func load() async {
-        await loadByDate(forceRefresh: false)
+        await load(forceRefresh: false)
     }
 
     /// Refreshes notifications from the backend ignoring cache expiration.
     public func refresh() async {
-        await loadByDate(forceRefresh: true)
+        await load(forceRefresh: true)
     }
 
-    private func loadByDate(forceRefresh: Bool) async {
+    private func load(forceRefresh: Bool) async {
         do {
             if forceRefresh {
                 try await repository.refreshNotifications()
             }
         } catch {
             // TODO: Bottom sheet
+            print("HERE", error)
 //            dateState = .failed(error)
         }
     }

@@ -1,5 +1,6 @@
 import Foundation
 import DesignSystem
+import Venues
 
 enum NotificationCalendarLogic {
     static func offset(date: Date, mode: CalendarGridView.Mode, by value: Int) -> Date {

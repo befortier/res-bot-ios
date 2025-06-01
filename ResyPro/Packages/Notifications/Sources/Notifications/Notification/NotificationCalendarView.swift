@@ -11,13 +11,11 @@ struct NotificationCalendarView: View {
     @Binding var mode: CalendarGridView.Mode
     @Binding var selectedDate: Date
 
-    private var mergedTickets: [MergedVenueTicket] {
-        let calendar = Calendar.current
-        return merged[calendar.startOfDay(for: selectedDate)] ?? []
-    }
-
-    private var sortedTickets: [MergedVenueTicket] {
-        NotificationCalendarLogic.sort(tickets: mergedTickets, byNameUsing: venuesByID)
+    private var tickets: [MergedVenueTicket] {
+        NotificationCalendarLogic.sort(
+            tickets: merged[ Calendar.current.startOfDay(for: selectedDate)] ?? [],
+            byNameUsing: venuesByID
+        )
     }
 
     private var notificationDays: Set<Date> {
@@ -48,9 +46,9 @@ struct NotificationCalendarView: View {
             )
 
             ScrollView {
-                if !mergedTickets.isEmpty {
+                if !tickets.isEmpty {
                     LazyVStack(spacing: 8) {
-                        ForEach(sortedTickets, id: \.venueID) { ticket in
+                        ForEach(tickets, id: \.venueID) { ticket in
                             let venue = venuesByID[ticket.venueID]
                             NotificationCard(
                                 viewState: .init(

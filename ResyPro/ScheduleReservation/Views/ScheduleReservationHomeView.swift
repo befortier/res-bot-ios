@@ -25,7 +25,7 @@ struct ScheduleReservationHomeView: View {
             Spacer()
 
             self.venuesListView
-                .navigationTitle("Reserve your reservation")
+                .navigationTitle("Venues")
             Spacer()
         }
     }

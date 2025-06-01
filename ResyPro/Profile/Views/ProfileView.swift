@@ -54,12 +54,6 @@ struct ProfileView: View {
                 .font(.design(.body))
                 .foregroundStyle(Color.textSecondary)
 
-            NavigationLink("Notifications") {
-                NotificationListView(
-                    venues: venues,
-                    repository: notificationRepository
-                )
-            }
 
             Button("Logout") {
                 Task { await logoutUseCase() }
