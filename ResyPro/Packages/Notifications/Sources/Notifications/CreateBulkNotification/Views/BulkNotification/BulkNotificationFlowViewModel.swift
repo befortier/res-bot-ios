@@ -16,6 +16,7 @@ public final class BulkNotificationFlowViewModel: ObservableObject {
     @Published public var isReceivingResults = false
 
     private let submitter: (BulkNotificationSubmissionRequest) async throws -> Void
+    private let resultHandler: @MainActor (NotificationSubmissionResponse.ResultEntry) -> Void
     /// The list of venues available for selection.
     public let allVenues: [Venue]
 
@@ -27,10 +28,12 @@ public final class BulkNotificationFlowViewModel: ObservableObject {
     public init(
         allVenues: [Venue],
         initialState: BulkNotificationFlowView.ViewState? = nil,
-        submitter: @escaping (BulkNotificationSubmissionRequest) async throws -> Void
+        submitter: @escaping (BulkNotificationSubmissionRequest) async throws -> Void,
+        resultHandler: @escaping @MainActor (NotificationSubmissionResponse.ResultEntry) -> Void = { _ in }
     ) {
         self.allVenues = allVenues
         self.submitter = submitter
+        self.resultHandler = resultHandler
 
         let calendar = Calendar.current
         let tomorrow = calendar.date(byAdding: .day, value: 1, to: Date()) ?? .now
@@ -78,6 +81,7 @@ public final class BulkNotificationFlowViewModel: ObservableObject {
     private func observeResults(client: any WebsocketClient) async {
         for await entry in await client.notificationResultStream() {
             withAnimation { results.append(entry) }
+            if entry.success { resultHandler(entry) }
             if let expectedCount, results.count >= expectedCount { break }
         }
         isReceivingResults = false

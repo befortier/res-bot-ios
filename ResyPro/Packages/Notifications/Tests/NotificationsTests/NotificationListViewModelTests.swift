@@ -11,6 +11,8 @@ struct NotificationListViewModelTests {
             dateCalls += 1
             return []
         }
+        func refreshNotifications() async throws {}
+        func save(_ ticket: NotificationTicket) throws {}
         func delete(_ requests: [DeleteNotificationRequest]) async throws {}
         func delete(_ request: DeleteNotificationRequest) async throws {}
     }

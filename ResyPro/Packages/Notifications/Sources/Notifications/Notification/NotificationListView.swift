@@ -45,6 +45,7 @@ public struct NotificationListView: View {
             }
         }
         .task { await viewModel.load() }
+        .refreshable { await viewModel.refresh() }
         .navigationTitle("Notifications")
         .toolbar {
             Button { showBulkFlow = true } label: { Image(systemName: "plus") }
@@ -56,6 +57,9 @@ public struct NotificationListView: View {
                     initialState: initialState(for: selectedDate),
                     submitter: { request in
                         try await repository.submit(request)
+                    },
+                    resultHandler: { entry in
+                        if entry.success { try? repository.save(entry.request) }
                     }
                 )
             )

@@ -21,10 +21,13 @@ The `Notifications` Swift package powers the bulk reservation notification creat
 Create a ``BulkNotificationFlowViewModel`` with your list of venues and a submitter closure, then present ``BulkNotificationFlowView``:
 
 ```swift
-let viewModel = BulkNotificationFlowViewModel(allVenues: venues) { request in
-    // Submit the request to your backend
-    return try await api.submit(request)
-}
+let viewModel = BulkNotificationFlowViewModel(
+    allVenues: venues,
+    submitter: { request in
+        // Submit the request to your backend
+        try await api.submit(request)
+    }
+)
 
 BulkNotificationFlowView(viewModel: viewModel)
 ```

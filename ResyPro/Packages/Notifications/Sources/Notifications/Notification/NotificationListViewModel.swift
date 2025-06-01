@@ -25,11 +25,17 @@ public final class NotificationListViewModel: ObservableObject {
     /// while the view is active will not trigger additional network requests.
     public func load() async {
         if case .success = dateState { return }
-        await loadByDate()
+        await loadByDate(forceRefresh: false)
     }
 
-    private func loadByDate() async {
+    /// Refreshes notifications from the backend ignoring cache expiration.
+    public func refresh() async {
+        await loadByDate(forceRefresh: true)
+    }
+
+    private func loadByDate(forceRefresh: Bool) async {
         do {
+            if forceRefresh { try await repository.refreshNotifications() }
             let notes = try await repository.getNotificationsByDate()
             dateState = .success(notes)
         } catch {
