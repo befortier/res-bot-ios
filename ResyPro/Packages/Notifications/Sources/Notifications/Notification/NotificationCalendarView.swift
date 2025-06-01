@@ -17,38 +17,25 @@ struct NotificationCalendarView: View {
         var interval: DateInterval
     }
 
-    private static func merge(_ notifications: [DateNotification]) -> [Date: [MergedTicket]] {
+    private static func merge(
+        _ notifications: [DateNotification]
+    ) -> [Date: [MergedTicket]] {
         let calendar = Calendar.current
-        var byDay: [Date: [Int: MergedTicket]] = [:]
+        var byDay: [Date: [NotificationTicket]] = [:]
 
         for dateNotification in notifications {
             let day = calendar.startOfDay(for: dateNotification.date)
-            var byVenue = byDay[day] ?? [:]
-
-            for ticket in dateNotification.notifications {
-                if var existing = byVenue[ticket.venueID] {
-                    let start = min(existing.interval.start, ticket.interval.start)
-                    let end = max(existing.interval.end, ticket.interval.end)
-                    existing.interval = DateInterval(start: start, end: end)
-                    if !existing.partySizes.contains(ticket.partySize) {
-                        existing.partySizes.append(ticket.partySize)
-                        existing.partySizes.sort()
-                    }
-                    byVenue[ticket.venueID] = existing
-                } else {
-                    byVenue[ticket.venueID] = MergedTicket(
-                        venueID: ticket.venueID,
-                        partySizes: [ticket.partySize],
-                        interval: ticket.interval
-                    )
-                }
-            }
-
-            byDay[day] = byVenue
+            byDay[day, default: []].append(contentsOf: dateNotification.notifications)
         }
 
-        return byDay.mapValues { dict in
-            dict.values.sorted { $0.interval.start < $1.interval.start }
+        return byDay.mapValues { tickets in
+            VenueTicketMerger.merge(tickets).map { merged in
+                MergedTicket(
+                    venueID: merged.venueID,
+                    partySizes: merged.partySizes,
+                    interval: merged.interval
+                )
+            }
         }
     }
 

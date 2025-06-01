@@ -37,17 +37,33 @@ public struct SubmissionResultView: View {
         self.onContinue = onContinue
     }
 
+    private var mergedResults: [(MergedVenueTicket, NotificationCardStyle)] {
+        let grouped = Dictionary(grouping: results) { $0.request.venueID }
+        return grouped.values.compactMap { entries in
+            guard let merged = VenueTicketMerger.merge(entries.map { $0.request }).first else { return nil }
+            let style: NotificationCardStyle = entries.allSatisfy(\.success) ? .success : .fail
+            return (merged, style)
+        }
+        .sorted { $0.0.interval.start < $1.0.interval.start }
+    }
+
     public var body: some View {
         ScrollView {
             VStack(spacing: 16) {
                 Text("Notifications Created")
                     .font(.design(.title))
 
-                ForEach(Array(results.enumerated()), id: \.offset) { _, entry in
+                ForEach(mergedResults, id: \.0.venueID) { merged, style in
                     NotificationCard(
-                        viewState: .init(request: entry.request, venue: venuesByID[entry.request.venueID])
+                        viewState: .init(
+                            venueName: venuesByID[merged.venueID]?.name ?? "Venue \(merged.venueID)",
+                            venueID: merged.venueID,
+                            partySizes: merged.partySizes,
+                            interval: merged.interval,
+                            venueImageURL: venuesByID[merged.venueID]?.images.first
+                        )
                     )
-                    .NotificationCardStyle(entry.success ? .success : .fail)
+                    .NotificationCardStyle(style)
                     .transition(.move(edge: .bottom).combined(with: .opacity))
                 }
 
