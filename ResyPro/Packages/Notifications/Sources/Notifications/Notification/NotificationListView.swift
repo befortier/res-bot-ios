@@ -20,10 +20,6 @@ public struct NotificationListView: View {
         NotificationCalendarLogic.mergedByDate(from: notifications)
     }
 
-    /// Creates the list view using a repository and known venues.
-    /// - Parameters:
-    ///   - venues: Lookup of venues associated with notifications.
-    ///   - repository: Data source for notifications.
     public init(
         venues: [Venue],
         repository: any NotificationRepository
@@ -60,39 +56,35 @@ public struct NotificationListView: View {
         .navigationTitle("Notifications")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
-            Button {
-                showBulkFlow = true
-            } label: {
-                Image(
-                    systemName: "plus"
-                )
-            }
+            createBulkNotificationButton
         }
         .sheet(isPresented: $showBulkFlow) {
-            BulkNotificationFlowView(
-                viewModel: BulkNotificationFlowViewModel(
-                    allVenues: allVenues,
-                    initialState: initialState(for: selectedDate),
-                    submitter: { request in
-                        try await repository.submit(request)
-                    },
-                    resultHandler: { entry in
-                        if entry.success { try? repository.save(entry.request) }
-                    }
-                )
-            )
+            bulkNotificationFlowView
         }
     }
 
-    private func initialState(for date: Date) -> BulkNotificationFlowView.ViewState {
-        let calendar = Calendar.current
-        let start = calendar.date(bySettingHour: 18, minute: 30, second: 0, of: date) ?? date
-        let end = calendar.date(bySettingHour: 21, minute: 0, second: 0, of: date)
-            ?? start.addingTimeInterval(60 * 60 * 2.5)
-        return BulkNotificationFlowView.ViewState(
-            dateInterval: DateInterval(start: start, end: end),
-            partySizeRange: 2...4,
-            selectedVenueIDs: Set(allVenues.map(\.venueID))
+    private var bulkNotificationFlowView: some View {
+        BulkNotificationFlowView(
+            viewModel: BulkNotificationFlowViewModel(
+                allVenues: allVenues,
+                initialState: .initialState(venueIDs: Set(allVenues.map(\.venueID))),
+                submitter: { request in
+                    try await repository.submit(request)
+                },
+                resultHandler: { entry in
+                    if entry.success { try? repository.save(entry.request) }
+                }
+            )
         )
+    }
+
+    private var createBulkNotificationButton: some View {
+        Button {
+            showBulkFlow = true
+        } label: {
+            Image(
+                systemName: "plus"
+            )
+        }
     }
 }

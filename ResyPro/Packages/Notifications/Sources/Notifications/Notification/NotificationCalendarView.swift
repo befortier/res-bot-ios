@@ -26,19 +26,8 @@ struct NotificationCalendarView: View {
         )
     }
 
-    private static let monthFormatter: DateFormatter = {
-        let f = DateFormatter()
-        f.dateFormat = "LLLL yyyy"
-        return f
-    }()
-
     var body: some View {
         VStack(spacing: 8) {
-            Text(Self.monthFormatter.string(from: selectedDate))
-                .font(.design(.title).bold())
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.horizontal, 8)
-
             IterableCalendarView(
                 selectedDate: $selectedDate,
                 mode: mode,

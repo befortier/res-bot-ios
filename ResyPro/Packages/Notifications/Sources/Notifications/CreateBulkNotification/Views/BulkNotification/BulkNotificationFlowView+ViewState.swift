@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Venues
 
 extension BulkNotificationFlowView {
   /// Represents the complete state of the bulk notification creation flow.
@@ -34,7 +35,7 @@ extension BulkNotificationFlowView {
       step: Step = .selectTime,
       dateInterval: DateInterval,
       partySizeRange: ClosedRange<Int>,
-      selectedVenueIDs: Set<Int> = []
+      selectedVenueIDs: Set<Venue.ID> = []
     ) {
       self.step = step
       self.dateInterval = dateInterval
@@ -42,4 +43,21 @@ extension BulkNotificationFlowView {
       self.selectedVenueIDs = selectedVenueIDs
     }
   }
+}
+
+extension BulkNotificationFlowView.ViewState {
+    static func initialState(
+        venueIDs: Set<Venue.ID>,
+        for date: Date = .now
+    ) -> BulkNotificationFlowView.ViewState {
+        let calendar = Calendar.current
+        let start = calendar.date(bySettingHour: 18, minute: 30, second: 0, of: date) ?? date
+        let end = calendar.date(bySettingHour: 21, minute: 0, second: 0, of: date)
+            ?? start.addingTimeInterval(60 * 60 * 2.5)
+        return BulkNotificationFlowView.ViewState(
+            dateInterval: DateInterval(start: start, end: end),
+            partySizeRange: 2...4,
+            selectedVenueIDs: venueIDs,
+        )
+    }
 }
