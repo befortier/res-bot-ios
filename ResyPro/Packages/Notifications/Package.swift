@@ -26,7 +26,7 @@ let package = Package(
       dependencies: [
         "DesignSystem",
         "Reservation",
-        "Network",
+        .product(name: "NetworkKit", package: "Network"),
         "Venues",
         "Websockets",
         .product(name: "Nuke", package: "Nuke"),

@@ -1,4 +1,4 @@
-import Network
+import NetworkKit
 
 /// Endpoint to exchange a refresh token for a new access token.
 struct RefreshEndpoint: PostEndpoint {

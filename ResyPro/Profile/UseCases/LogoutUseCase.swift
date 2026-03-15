@@ -6,6 +6,7 @@ import User
 import Venues
 import os
 import Authentication
+import Notifications
 
 protocol LogoutUseCase: Sendable {
 	func callAsFunction() async
@@ -31,6 +32,7 @@ struct LogoutUseCaseLive: LogoutUseCase {
 	        try deleteAll(User.self, from: context)
 	        try deleteAll(ScheduledReservation.self, from: context)
 	        try deleteAll(Venue.self, from: context)
+            try deleteAll(Notification.self, from: context)
 	        try context.save()
 	    } catch {
 	        logger.error("Failed to clear persistent data: \(error, privacy: .public)")

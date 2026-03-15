@@ -63,7 +63,7 @@
 		57D8C6882DD8F3610031F4BC /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D8C6852DD8F3610031F4BC /* ProfileView.swift */; };
 		57D8C68C2DD983FD0031F4BC /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D8C68B2DD983FD0031F4BC /* DataController.swift */; };
 		57E8C2402DD412A50075E615 /* User in Frameworks */ = {isa = PBXBuildFile; productRef = 57E8C23F2DD412A50075E615 /* User */; };
-		57EA7E9F2DD0DA2D00E25108 /* Network in Frameworks */ = {isa = PBXBuildFile; productRef = 57EA7E9E2DD0DA2D00E25108 /* Network */; };
+		57EA7E9F2DD0DA2D00E25108 /* NetworkKit in Frameworks */ = {isa = PBXBuildFile; productRef = 57EA7E9E2DD0DA2D00E25108 /* NetworkKit */; };
 		57EA7EA22DD0E06C00E25108 /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 57EA7EA12DD0E06C00E25108 /* DesignSystem */; };
 		57FAFD432DD0EC4A0059A036 /* Venues in Frameworks */ = {isa = PBXBuildFile; productRef = 57FAFD422DD0EC4A0059A036 /* Venues */; };
 		57FAFD482DD111FF0059A036 /* SeatingOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FAFD452DD111FF0059A036 /* SeatingOptionView.swift */; };
@@ -1274,9 +1274,9 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = User;
 		};
-		57EA7E9E2DD0DA2D00E25108 /* Network */ = {
+		57EA7E9E2DD0DA2D00E25108 /* NetworkKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = Network;
+			productName = NetworkKit;
 		};
 		57EA7EA12DD0E06C00E25108 /* DesignSystem */ = {
 			isa = XCSwiftPackageProductDependency;

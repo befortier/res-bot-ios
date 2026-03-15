@@ -1,4 +1,4 @@
-import Network
+import NetworkKit
 
 /// Endpoint for registering a new user.
 struct SignUpEndpoint: PostEndpoint {

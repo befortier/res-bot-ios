@@ -1,5 +1,5 @@
 import DesignSystem
-import Network
+import NetworkKit
 import Notifications
 import ProjectFoundation
 import SwiftUI

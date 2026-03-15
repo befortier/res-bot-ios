@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import Network
+import NetworkKit
 import User
 import Venues
 

@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import Network
+import NetworkKit
 
 /// A struct defined in the Venues module.
 struct GetAllVenuesEndpoint: GetEndpoint {

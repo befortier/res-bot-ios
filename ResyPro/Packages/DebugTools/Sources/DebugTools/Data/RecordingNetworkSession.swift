@@ -1,5 +1,5 @@
 import Foundation
-import Network
+import NetworkKit
 
 /// ``NetworkClient`` wrapper that records all requests and responses.
 public struct RecordingNetworkClient: NetworkClient {

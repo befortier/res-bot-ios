@@ -1,5 +1,5 @@
 import Foundation
-import Network
+import NetworkKit
 import ProjectFoundation
 
 /// Handles user authentication and token persistence.

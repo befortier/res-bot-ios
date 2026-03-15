@@ -7,7 +7,7 @@
 
 import Authentication
 import Foundation
-import Network
+import NetworkKit
 import Notifications
 import SwiftData
 import SwiftUI

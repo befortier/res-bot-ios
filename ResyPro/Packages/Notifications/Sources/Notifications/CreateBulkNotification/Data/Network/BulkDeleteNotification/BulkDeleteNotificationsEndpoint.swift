@@ -1,4 +1,4 @@
-import Network
+import NetworkKit
 
 /// ``Endpoint`` for deleting multiple notifications at once.
 struct BulkDeleteNotificationsEndpoint: PostEndpoint {

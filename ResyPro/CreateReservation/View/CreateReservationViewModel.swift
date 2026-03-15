@@ -7,7 +7,7 @@
 
 import Combine
 import SwiftUI
-import Network
+import NetworkKit
 import User
 #if DEBUG
 import DebugTools

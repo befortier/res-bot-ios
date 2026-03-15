@@ -25,7 +25,7 @@ let package = Package(
             dependencies: [
                 "Authentication",
                 "DesignSystem",
-                "Network",
+                .product(name: "NetworkKit", package: "Network"),
                 "ProjectFoundation",
                 "User"
             ]

@@ -1,4 +1,4 @@
-import Network
+import NetworkKit
 
 /// ``Endpoint`` for submitting bulk notification requests.
 struct BulkNotificationEndpoint: PostEndpoint {

@@ -25,7 +25,7 @@ let package = Package(
         .target(
             name: "DebugTools",
             dependencies: [
-                "Network",
+                .product(name: "NetworkKit", package: "Network"),
                 "DesignSystem",
                 "Websockets",
                 "ProjectFoundation",

@@ -5,7 +5,7 @@
 //  Created by Ben Fortier on 5/30/25.
 //
 
-import Network
+import NetworkKit
 
 /// ``Endpoint`` for retrieving all notifications.
 struct GetNotificationsEndpoint: GetEndpoint {

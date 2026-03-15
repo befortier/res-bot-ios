@@ -1,5 +1,5 @@
 import Foundation
-import Network
+import NetworkKit
 import Venues
 import SwiftUI
 

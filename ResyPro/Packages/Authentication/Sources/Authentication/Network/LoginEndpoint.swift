@@ -1,4 +1,4 @@
-import Network
+import NetworkKit
 
 /// Endpoint used to authenticate an existing user.
 struct LoginEndpoint: PostEndpoint {

@@ -23,7 +23,7 @@ let package = Package(
       name: "Venues",
       dependencies: [
         "DesignSystem",
-        "Network",
+        .product(name: "NetworkKit", package: "Network"),
         "ProjectFoundation",
         .product(name: "NukeUI", package: "Nuke"),
       ]

@@ -1,5 +1,5 @@
 import Foundation
-import Network
+import NetworkKit
 import ProjectFoundation
 
 /// Responsible for retrieving user data from the backend and storing it locally.

@@ -20,7 +20,7 @@ let package = Package(
         .target(
             name: "Authentication",
             dependencies: [
-                "Network",
+                .product(name: "NetworkKit", package: "Network"),
                 "ProjectFoundation",
             ]
         )

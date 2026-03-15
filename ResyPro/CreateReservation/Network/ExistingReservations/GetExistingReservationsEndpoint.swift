@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import Network
+import NetworkKit
 
 struct ExistingReservationEndpoint: GetEndpoint {
     let baseURL: BaseURL = .resy

@@ -23,7 +23,7 @@ let package = Package(
             name: "Bootstrap",
             dependencies: [
                 "Authentication",
-                "Network",
+                .product(name: "NetworkKit", package: "Network"),
                 "ProjectFoundation",
                 "User"
             ]

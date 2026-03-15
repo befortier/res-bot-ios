@@ -1,5 +1,5 @@
 import Authentication
-import Network
+import NetworkKit
 import User
 import ProjectFoundation
 import os

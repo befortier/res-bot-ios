@@ -7,7 +7,7 @@
 
 import Authentication
 import Foundation
-import Network
+import NetworkKit
 import ProjectFoundation
 import SwiftUI
 import User

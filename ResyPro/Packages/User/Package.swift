@@ -21,7 +21,7 @@ let package = Package(
         .target(
             name: "User",
             dependencies: [
-                "Network",
+                .product(name: "NetworkKit", package: "Network"),
                 "ProjectFoundation",
                 "Authentication"
             ]

@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import Network
+import NetworkKit
 
 struct CheckAvailableReservationsEndpoint: PostEndpoint {
 	let baseURL: BaseURL = .backend

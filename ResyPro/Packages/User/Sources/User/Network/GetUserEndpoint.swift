@@ -1,4 +1,4 @@
-import Network
+import NetworkKit
 
 /// ``Endpoint`` for retrieving a user by identifier.
 struct GetUserEndpoint: GetEndpoint {

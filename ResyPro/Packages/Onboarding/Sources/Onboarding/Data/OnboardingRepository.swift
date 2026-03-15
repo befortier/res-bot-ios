@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import Network
+import NetworkKit
 import ProjectFoundation
 import User
 import Authentication

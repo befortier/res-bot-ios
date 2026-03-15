@@ -8,7 +8,7 @@
 import User
 import Bootstrap
 import Authentication
-import Network
+import NetworkKit
 import Websockets
 import ProjectFoundation
 import Foundation

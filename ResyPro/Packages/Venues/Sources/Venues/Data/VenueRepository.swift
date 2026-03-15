@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import Network
+import NetworkKit
 
 /// Persists venue data using the provided dependencies.
 public protocol VenueRepository: Sendable {

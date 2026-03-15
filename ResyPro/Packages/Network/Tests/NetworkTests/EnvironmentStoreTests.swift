@@ -1,6 +1,6 @@
 import Testing
 
-@testable import Network
+@testable import NetworkKit
 
 @Suite("EnvironmentStore")
 struct EnvironmentStoreTests {

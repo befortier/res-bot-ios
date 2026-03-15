@@ -9,19 +9,19 @@ let package = Package(
   ],
   products: [
     .library(
-      name: "Network",
-      targets: ["Network"]
+      name: "NetworkKit",
+      targets: ["NetworkKit"]
     )
   ],
   targets: [
     .target(
-      name: "Network",
+      name: "NetworkKit",
       dependencies: [],
       resources: [.process("Resources")]
     ),
     .testTarget(
       name: "NetworkTests",
-      dependencies: ["Network"]
+      dependencies: ["NetworkKit"]
     ),
   ]
 )

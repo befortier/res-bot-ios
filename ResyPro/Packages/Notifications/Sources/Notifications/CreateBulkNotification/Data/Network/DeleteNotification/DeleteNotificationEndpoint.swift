@@ -1,4 +1,4 @@
-import Network
+import NetworkKit
 import Foundation
 
 /// ``Endpoint`` for deleting an individual notification.

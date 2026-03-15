@@ -1,6 +1,6 @@
 import Testing
 
-@testable import Network
+@testable import NetworkKit
 
 #if canImport(FoundationNetworking)
   import FoundationNetworking

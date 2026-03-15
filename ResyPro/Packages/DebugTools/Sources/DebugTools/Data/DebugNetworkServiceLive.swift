@@ -1,4 +1,4 @@
-import Network
+import NetworkKit
 import Foundation
 
 /// ``NetworkService`` implementation that records every request.

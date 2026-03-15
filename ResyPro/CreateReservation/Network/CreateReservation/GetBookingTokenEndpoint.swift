@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import Network
+import NetworkKit
 
 struct GetBookingTokenEndpoint: GetEndpoint {
     let baseURL: BaseURL = .resy

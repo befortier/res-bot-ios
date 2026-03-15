@@ -2,7 +2,7 @@ import Authentication
 import DesignSystem
 import SwiftUI
 import User
-import Network
+import NetworkKit
 
 /// Simple login/sign-up flow that authenticates the user.
 public struct OnboardingView: View {
